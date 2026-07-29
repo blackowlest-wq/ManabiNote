@@ -12,6 +12,7 @@ export function PictureChoice({ choice, selected, disabled, onSelect }: PictureC
     <button
       type="button"
       className="kana-picture-choice"
+      aria-label={choice.label}
       aria-pressed={selected}
       disabled={disabled}
       onClick={() => onSelect(choice.id)}
