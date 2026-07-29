@@ -3,5 +3,3 @@
 node_modules/
 dist/
 coverage/
-node_modules.pre-task1-repair/
-package-lock.pre-task1-repair.json

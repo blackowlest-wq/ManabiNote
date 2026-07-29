@@ -6,7 +6,8 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
-    exclude: ['**/node_modules/**', '**/node_modules.pre-task1-repair/**'],
+    include: ['src/**/*.test.{ts,tsx}'],
+    exclude: ['**/.superpowers/**'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
