@@ -6,7 +6,7 @@ DONE_WITH_CONCERNS
 
 ## Commit
 
-`4c9dd8e3d699c1caa24fbf907ff36fef5d116a26` (`chore: scaffold react vite app and test setup`), amended to include this report.
+Implementation commit: `f82024921790b26f2a65417c718ef4756f2b5bc9` (`chore: scaffold react vite app and test setup`).
 
 ## Files changed
 
