@@ -6,7 +6,8 @@ Implemented Task 3 with TDD. The model uses immutable pure transitions, injected
 
 ## Commit
 
-- Commit hash: see the final commit recorded by `git rev-parse HEAD` (reported in the handoff below)
+- Implementation commit hash: `30f3bb9669040f4ee3cbe7415e4bd1b7bd0f6e84`
+- Documentation report commit: follow-up documentation commit after the implementation commit.
 - Commit message: `feat: add five question quiz session model`
 
 ## Files changed
