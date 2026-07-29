@@ -1,0 +1,62 @@
+[
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-a",
+    "kana": "あ",
+    "choices": [
+      { "id": "apple", "label": "りんご", "imageSrc": "/images/apple.svg" },
+      { "id": "ant", "label": "あり", "imageSrc": "/images/ant.svg" },
+      { "id": "umbrella", "label": "かさ", "imageSrc": "/images/umbrella.svg" }
+    ],
+    "correctChoiceId": "apple",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-i",
+    "kana": "い",
+    "choices": [
+      { "id": "dog", "label": "いぬ", "imageSrc": "/images/dog.svg" },
+      { "id": "chair", "label": "いす", "imageSrc": "/images/chair.svg" },
+      { "id": "grape", "label": "ぶどう", "imageSrc": "/images/grape.svg" }
+    ],
+    "correctChoiceId": "dog",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-u",
+    "kana": "う",
+    "choices": [
+      { "id": "cow", "label": "うし", "imageSrc": "/images/cow.svg" },
+      { "id": "horse", "label": "うま", "imageSrc": "/images/horse.svg" },
+      { "id": "fish", "label": "さかな", "imageSrc": "/images/fish.svg" }
+    ],
+    "correctChoiceId": "cow",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-e",
+    "kana": "え",
+    "choices": [
+      { "id": "pencil", "label": "えんぴつ", "imageSrc": "/images/pencil.svg" },
+      { "id": "train", "label": "でんしゃ", "imageSrc": "/images/train.svg" },
+      { "id": "elephant", "label": "ぞう", "imageSrc": "/images/elephant.svg" }
+    ],
+    "correctChoiceId": "pencil",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-o",
+    "kana": "お",
+    "choices": [
+      { "id": "rice", "label": "おにぎり", "imageSrc": "/images/rice.svg" },
+      { "id": "orange", "label": "みかん", "imageSrc": "/images/orange.svg" },
+      { "id": "octopus", "label": "たこ", "imageSrc": "/images/octopus.svg" }
+    ],
+    "correctChoiceId": "rice",
+    "audioSrc": null
+  }
+]
