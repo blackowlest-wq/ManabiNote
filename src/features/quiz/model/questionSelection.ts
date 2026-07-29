@@ -5,7 +5,7 @@ export function selectUniqueQuestions<T extends IdentifiedQuestion>(
   count: number,
   random: () => number = Math.random,
 ): T[] {
-  if (count <= 0) {
+  if (!Number.isInteger(count) || count <= 0) {
     throw new Error('選出する問題数は1問以上で指定してください');
   }
 

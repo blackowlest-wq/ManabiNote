@@ -23,6 +23,13 @@ describe('selectUniqueQuestions', () => {
     expect(() => selectUniqueQuestions(questions, count)).toThrow();
   });
 
+  it.each([Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY, 1.5])(
+    'rejects a non-finite or fractional count (%s)',
+    (count) => {
+      expect(() => selectUniqueQuestions(questions, count)).toThrow();
+    },
+  );
+
   it('rejects insufficient input with the requested count', () => {
     expect(() => selectUniqueQuestions([{ id: 'q-1' }], 5)).toThrow('5問');
   });
