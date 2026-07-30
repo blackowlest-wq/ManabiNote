@@ -1,0 +1,9 @@
+{
+  "atlases": [
+    {
+      "id": "default",
+      "src": "/images/kana-to-picture/default-atlas.svg",
+      "symbols": ["ant", "apple", "umbrella"]
+    }
+  ]
+}

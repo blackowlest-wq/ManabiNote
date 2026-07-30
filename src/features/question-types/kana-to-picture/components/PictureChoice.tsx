@@ -8,6 +8,8 @@ export type PictureChoiceProps = {
 }
 
 export function PictureChoice({ choice, selected, disabled, onSelect }: PictureChoiceProps) {
+  const imageSrc = (choice as PictureChoiceData & { imageSrc?: string }).imageSrc
+
   return (
     <button
       type="button"
@@ -17,7 +19,7 @@ export function PictureChoice({ choice, selected, disabled, onSelect }: PictureC
       disabled={disabled}
       onClick={() => onSelect(choice.id)}
     >
-      <img src={choice.imageSrc} alt={choice.label} width="160" height="160" />
+      <img src={imageSrc} alt={choice.label} width="160" height="160" />
       <span>{choice.label}</span>
     </button>
   )

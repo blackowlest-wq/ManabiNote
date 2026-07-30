@@ -1,4 +1,5 @@
 import type { KanaToPictureQuestion, PictureChoice } from './types';
+import { resolveImageAtlas, type ImageAtlasManifest, type PictureImageRef } from './imageAtlas';
 
 export type QuestionDataErrorCode = 'INVALID_QUESTION_DATA';
 
@@ -27,13 +28,27 @@ const invalidData = (): never => {
   throw new QuestionDataError();
 };
 
-const validateChoice = (raw: unknown): PictureChoice => {
+const validateImageRef = (raw: unknown, manifest: ImageAtlasManifest): PictureImageRef => {
+  if (!isRecord(raw) || !isNonEmptyString(raw.atlasId) || !isNonEmptyString(raw.symbolId)) {
+    return invalidData();
+  }
+
+  const image = {
+    atlasId: raw.atlasId,
+    symbolId: raw.symbolId,
+  };
+
+  resolveImageAtlas(image, manifest);
+
+  return image;
+};
+
+const validateChoice = (raw: unknown, manifest: ImageAtlasManifest): PictureChoice => {
   if (
     !isRecord(raw) ||
     !isNonEmptyString(raw.id) ||
     !isNonEmptyString(raw.label) ||
-    !isNonEmptyString(raw.reading) ||
-    !isNonEmptyString(raw.imageSrc)
+    !isNonEmptyString(raw.reading)
   ) {
     return invalidData();
   }
@@ -42,11 +57,11 @@ const validateChoice = (raw: unknown): PictureChoice => {
     id: raw.id,
     label: raw.label,
     reading: raw.reading,
-    imageSrc: raw.imageSrc,
+    image: validateImageRef(raw.image, manifest),
   };
 };
 
-const validateQuestion = (raw: unknown): KanaToPictureQuestion => {
+const validateQuestion = (raw: unknown, manifest: ImageAtlasManifest): KanaToPictureQuestion => {
   if (
     !isRecord(raw) ||
     raw.type !== 'kana-to-picture' ||
@@ -63,7 +78,7 @@ const validateQuestion = (raw: unknown): KanaToPictureQuestion => {
 
   const kana = raw.kana;
   const reading = raw.reading;
-  const choices = raw.choices.map(validateChoice);
+  const choices = raw.choices.map((choice) => validateChoice(choice, manifest));
   const choiceIds = choices.map((choice) => choice.id);
   if (new Set(choiceIds).size !== choiceIds.length || !choiceIds.includes(raw.correctChoiceId)) {
     return invalidData();
@@ -100,12 +115,15 @@ const validateQuestion = (raw: unknown): KanaToPictureQuestion => {
   };
 };
 
-export const validateKanaToPictureQuestions = (raw: unknown): KanaToPictureQuestion[] => {
+export const validateKanaToPictureQuestions = (
+  raw: unknown,
+  manifest: ImageAtlasManifest,
+): KanaToPictureQuestion[] => {
   if (!Array.isArray(raw)) {
     return invalidData();
   }
 
-  const questions = raw.map(validateQuestion);
+  const questions = raw.map((question) => validateQuestion(question, manifest));
   const questionIds = questions.map((question) => question.id);
   if (new Set(questionIds).size !== questionIds.length) {
     return invalidData();
