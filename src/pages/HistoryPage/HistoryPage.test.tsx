@@ -92,12 +92,12 @@ const installNativeDialogMethods = () => {
       if (showModalDescriptor) {
         Object.defineProperty(HTMLDialogElement.prototype, 'showModal', showModalDescriptor)
       } else {
-        delete HTMLDialogElement.prototype.showModal
+        Reflect.deleteProperty(HTMLDialogElement.prototype, 'showModal')
       }
       if (closeDescriptor) {
         Object.defineProperty(HTMLDialogElement.prototype, 'close', closeDescriptor)
       } else {
-        delete HTMLDialogElement.prototype.close
+        Reflect.deleteProperty(HTMLDialogElement.prototype, 'close')
       }
     },
     showModal,
