@@ -14,6 +14,9 @@ export function KanaQuestion({ question, selectedChoiceId, disabled, onSelect }:
       <h2 className="kana-question__kana">
         {question.kana}
       </h2>
+      <p className="kana-question__instruction">
+        「{question.kana}」から はじまる ことばを えらぼう
+      </p>
       <div className="kana-question__choices">
         {question.choices.map((choice) => (
           <PictureChoice

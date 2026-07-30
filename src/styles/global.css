@@ -82,10 +82,20 @@ button:focus-visible {
 }
 
 .kana-question__kana {
-  margin: 0 0 2rem;
+  margin: 0 0 0.75rem;
   color: #172033;
   font-size: clamp(4rem, 16vw, 7rem);
   line-height: 1;
+  text-align: center;
+}
+
+.kana-question__instruction {
+  max-width: 36rem;
+  margin: 0 auto 1.25rem;
+  color: #334155;
+  font-size: clamp(1rem, 4vw, 1.35rem);
+  font-weight: 800;
+  line-height: 1.4;
   text-align: center;
 }
 

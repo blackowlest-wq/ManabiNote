@@ -29,6 +29,7 @@ describe('KanaQuestion', () => {
     )
 
     expect(screen.getByRole('heading', { name: 'あ' })).toBeInTheDocument()
+    expect(screen.getByText('「あ」から はじまる ことばを えらぼう')).toBeInTheDocument()
     expect(screen.getAllByRole('button')).toHaveLength(3)
     expect(screen.getByRole('button', { name: 'りんご' })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: 'りんご' })).toBeInTheDocument()
