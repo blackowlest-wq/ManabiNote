@@ -5,9 +5,9 @@
     "kana": "あ",
     "reading": "あり",
     "choices": [
-      { "id": "apple", "label": "りんご", "imageSrc": "/images/kana-to-picture/apple.svg" },
-      { "id": "ant", "label": "あり", "imageSrc": "/images/kana-to-picture/ant.svg" },
-      { "id": "umbrella", "label": "かさ", "imageSrc": "/images/kana-to-picture/umbrella.svg" }
+      { "id": "apple", "label": "りんご", "reading": "りんご", "imageSrc": "/images/kana-to-picture/apple.svg" },
+      { "id": "ant", "label": "あり", "reading": "あり", "imageSrc": "/images/kana-to-picture/ant.svg" },
+      { "id": "umbrella", "label": "かさ", "reading": "かさ", "imageSrc": "/images/kana-to-picture/umbrella.svg" }
     ],
     "correctChoiceId": "ant",
     "audioSrc": null
@@ -18,9 +18,9 @@
     "kana": "い",
     "reading": "いぬ",
     "choices": [
-      { "id": "dog", "label": "いぬ", "imageSrc": "/images/kana-to-picture/dog.svg" },
-      { "id": "chair", "label": "いす", "imageSrc": "/images/kana-to-picture/chair.svg" },
-      { "id": "grape", "label": "ぶどう", "imageSrc": "/images/kana-to-picture/grape.svg" }
+      { "id": "dog", "label": "いぬ", "reading": "いぬ", "imageSrc": "/images/kana-to-picture/dog.svg" },
+      { "id": "fish", "label": "さかな", "reading": "さかな", "imageSrc": "/images/kana-to-picture/fish.svg" },
+      { "id": "grape", "label": "ぶどう", "reading": "ぶどう", "imageSrc": "/images/kana-to-picture/grape.svg" }
     ],
     "correctChoiceId": "dog",
     "audioSrc": null
@@ -31,9 +31,9 @@
     "kana": "う",
     "reading": "うし",
     "choices": [
-      { "id": "cow", "label": "うし", "imageSrc": "/images/kana-to-picture/cow.svg" },
-      { "id": "horse", "label": "うま", "imageSrc": "/images/kana-to-picture/horse.svg" },
-      { "id": "fish", "label": "さかな", "imageSrc": "/images/kana-to-picture/fish.svg" }
+      { "id": "cow", "label": "うし", "reading": "うし", "imageSrc": "/images/kana-to-picture/cow.svg" },
+      { "id": "orange", "label": "みかん", "reading": "みかん", "imageSrc": "/images/kana-to-picture/orange.svg" },
+      { "id": "fish", "label": "さかな", "reading": "さかな", "imageSrc": "/images/kana-to-picture/fish.svg" }
     ],
     "correctChoiceId": "cow",
     "audioSrc": null
@@ -44,9 +44,9 @@
     "kana": "え",
     "reading": "えんぴつ",
     "choices": [
-      { "id": "pencil", "label": "えんぴつ", "imageSrc": "/images/kana-to-picture/pencil.svg" },
-      { "id": "train", "label": "でんしゃ", "imageSrc": "/images/kana-to-picture/train.svg" },
-      { "id": "elephant", "label": "ぞう", "imageSrc": "/images/kana-to-picture/elephant.svg" }
+      { "id": "pencil", "label": "えんぴつ", "reading": "えんぴつ", "imageSrc": "/images/kana-to-picture/pencil.svg" },
+      { "id": "train", "label": "でんしゃ", "reading": "でんしゃ", "imageSrc": "/images/kana-to-picture/train.svg" },
+      { "id": "elephant", "label": "ぞう", "reading": "ぞう", "imageSrc": "/images/kana-to-picture/elephant.svg" }
     ],
     "correctChoiceId": "pencil",
     "audioSrc": null
@@ -57,9 +57,9 @@
     "kana": "お",
     "reading": "おにぎり",
     "choices": [
-      { "id": "rice", "label": "おにぎり", "imageSrc": "/images/kana-to-picture/rice.svg" },
-      { "id": "orange", "label": "みかん", "imageSrc": "/images/kana-to-picture/orange.svg" },
-      { "id": "octopus", "label": "たこ", "imageSrc": "/images/kana-to-picture/octopus.svg" }
+      { "id": "rice", "label": "おにぎり", "reading": "おにぎり", "imageSrc": "/images/kana-to-picture/rice.svg" },
+      { "id": "orange", "label": "みかん", "reading": "みかん", "imageSrc": "/images/kana-to-picture/orange.svg" },
+      { "id": "octopus", "label": "たこ", "reading": "たこ", "imageSrc": "/images/kana-to-picture/octopus.svg" }
     ],
     "correctChoiceId": "rice",
     "audioSrc": null

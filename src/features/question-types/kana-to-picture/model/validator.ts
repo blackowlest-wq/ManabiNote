@@ -28,13 +28,20 @@ const invalidData = (): never => {
 };
 
 const validateChoice = (raw: unknown): PictureChoice => {
-  if (!isRecord(raw) || !isNonEmptyString(raw.id) || !isNonEmptyString(raw.label) || !isNonEmptyString(raw.imageSrc)) {
+  if (
+    !isRecord(raw) ||
+    !isNonEmptyString(raw.id) ||
+    !isNonEmptyString(raw.label) ||
+    !isNonEmptyString(raw.reading) ||
+    !isNonEmptyString(raw.imageSrc)
+  ) {
     return invalidData();
   }
 
   return {
     id: raw.id,
     label: raw.label,
+    reading: raw.reading,
     imageSrc: raw.imageSrc,
   };
 };
@@ -54,6 +61,8 @@ const validateQuestion = (raw: unknown): KanaToPictureQuestion => {
     return invalidData();
   }
 
+  const kana = raw.kana;
+  const reading = raw.reading;
   const choices = raw.choices.map(validateChoice);
   const choiceIds = choices.map((choice) => choice.id);
   if (new Set(choiceIds).size !== choiceIds.length || !choiceIds.includes(raw.correctChoiceId)) {
@@ -61,7 +70,13 @@ const validateQuestion = (raw: unknown): KanaToPictureQuestion => {
   }
 
   const correctChoice = choices.find((choice) => choice.id === raw.correctChoiceId);
-  if (!correctChoice || !startsWithKana(raw.reading, raw.kana)) {
+  const incorrectChoices = choices.filter((choice) => choice.id !== raw.correctChoiceId);
+  if (
+    !correctChoice ||
+    correctChoice.reading !== reading ||
+    !startsWithKana(reading, kana) ||
+    incorrectChoices.some((choice) => startsWithKana(choice.reading, kana))
+  ) {
     return invalidData();
   }
 
@@ -77,8 +92,8 @@ const validateQuestion = (raw: unknown): KanaToPictureQuestion => {
   return {
     type: 'kana-to-picture',
     id: raw.id,
-    kana: raw.kana,
-    reading: raw.reading,
+    kana,
+    reading,
     choices,
     correctChoiceId: raw.correctChoiceId,
     ...(audioSrc === undefined ? {} : { audioSrc }),

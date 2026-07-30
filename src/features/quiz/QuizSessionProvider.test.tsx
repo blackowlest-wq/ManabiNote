@@ -17,9 +17,9 @@ const question: KanaToPictureQuestion = {
   kana: 'あ',
   reading: 'テスト',
   choices: [
-    { id: 'apple', label: 'りんご', imageSrc: '/images/apple.svg' },
-    { id: 'ant', label: 'あり', imageSrc: '/images/ant.svg' },
-    { id: 'umbrella', label: 'かさ', imageSrc: '/images/umbrella.svg' },
+    { id: 'apple', label: 'りんご', reading: 'りんご', imageSrc: '/images/apple.svg' },
+    { id: 'ant', label: 'あり', reading: 'あり', imageSrc: '/images/ant.svg' },
+    { id: 'umbrella', label: 'かさ', reading: 'かさ', imageSrc: '/images/umbrella.svg' },
   ],
   correctChoiceId: 'apple',
 }

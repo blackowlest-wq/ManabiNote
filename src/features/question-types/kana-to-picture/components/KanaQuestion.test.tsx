@@ -10,9 +10,9 @@ const question: KanaToPictureQuestion = {
   kana: 'あ',
   reading: 'あり',
   choices: [
-    { id: 'apple', label: 'りんご', imageSrc: '/images/kana-to-picture/apple.svg' },
-    { id: 'ant', label: 'あり', imageSrc: '/images/kana-to-picture/ant.svg' },
-    { id: 'umbrella', label: 'かさ', imageSrc: '/images/kana-to-picture/umbrella.svg' },
+    { id: 'apple', label: 'りんご', reading: 'りんご', imageSrc: '/images/kana-to-picture/apple.svg' },
+    { id: 'ant', label: 'あり', reading: 'あり', imageSrc: '/images/kana-to-picture/ant.svg' },
+    { id: 'umbrella', label: 'かさ', reading: 'かさ', imageSrc: '/images/kana-to-picture/umbrella.svg' },
   ],
   correctChoiceId: 'ant',
 }

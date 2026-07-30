@@ -7,9 +7,9 @@ const validQuestion = {
   kana: 'あ',
   reading: 'あり',
   choices: [
-    { id: 'apple', label: 'りんご', imageSrc: '/images/apple.svg' },
-    { id: 'ant', label: 'あり', imageSrc: '/images/ant.svg' },
-    { id: 'umbrella', label: 'かさ', imageSrc: '/images/umbrella.svg' },
+    { id: 'apple', label: 'りんご', reading: 'りんご', imageSrc: '/images/apple.svg' },
+    { id: 'ant', label: 'あり', reading: 'あり', imageSrc: '/images/ant.svg' },
+    { id: 'umbrella', label: 'かさ', reading: 'かさ', imageSrc: '/images/umbrella.svg' },
   ],
   correctChoiceId: 'ant',
   audioSrc: null,
@@ -25,7 +25,7 @@ describe('validateKanaToPictureQuestions', () => {
 
   it.each([
     ['fewer than three choices', validQuestion.choices.slice(0, 2)],
-    ['more than three choices', [...validQuestion.choices, { id: 'extra', label: '追加', imageSrc: '/images/extra.svg' }]],
+    ['more than three choices', [...validQuestion.choices, { id: 'extra', label: '追加', reading: '追加', imageSrc: '/images/extra.svg' }]],
   ])('rejects %s', (_, choices) => {
     expect(() => validateKanaToPictureQuestions([{ ...validQuestion, choices }])).toThrow(QuestionDataError);
   });
@@ -48,6 +48,18 @@ describe('validateKanaToPictureQuestions', () => {
     expect(() => validateKanaToPictureQuestions([{ ...validQuestion, reading: 'りんご' }])).toThrow(QuestionDataError);
   });
 
+  it('rejects a correct choice whose reading differs from the question reading', () => {
+    expect(() => validateKanaToPictureQuestions([{ ...validQuestion, reading: 'あめ' }])).toThrow(QuestionDataError);
+  });
+
+  it('rejects an incorrect choice whose reading starts with the displayed kana', () => {
+    const choices = validQuestion.choices.map((choice) =>
+      choice.id === 'umbrella' ? { ...choice, reading: 'あめ' } : choice,
+    );
+
+    expect(() => validateKanaToPictureQuestions([{ ...validQuestion, choices }])).toThrow(QuestionDataError);
+  });
+
   it('allows a display label to differ from its phonetic reading', () => {
     const choices = validQuestion.choices.map((choice) =>
       choice.id === 'ant' ? { ...choice, label: '蟻' } : choice,
@@ -67,6 +79,7 @@ describe('validateKanaToPictureQuestions', () => {
     ['non-object item', [null]],
     ['missing kana', [{ ...validQuestion, kana: '' }]],
     ['missing reading', [{ ...validQuestion, reading: '' }]],
+    ['missing choice reading', [{ ...validQuestion, choices: validQuestion.choices.map((choice, index) => index === 0 ? { ...choice, reading: '' } : choice) }]],
     ['missing choice label', [{ ...validQuestion, choices: validQuestion.choices.map((choice, index) => index === 0 ? { ...choice, label: '' } : choice) }]],
     ['missing choice image', [{ ...validQuestion, choices: validQuestion.choices.map((choice, index) => index === 0 ? { ...choice, imageSrc: '' } : choice) }]],
   ])('rejects %s', (_, raw) => {

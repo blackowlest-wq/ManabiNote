@@ -3,6 +3,7 @@ import type { BaseQuestion } from '../../types';
 export type PictureChoice = {
   id: string;
   label: string;
+  reading: string;
   imageSrc: string;
 };
 

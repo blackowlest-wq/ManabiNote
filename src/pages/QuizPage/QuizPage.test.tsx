@@ -14,9 +14,9 @@ const makeFiveQuestions = (): KanaToPictureQuestion[] =>
     kana: ['あ', 'い', 'う', 'え', 'お'][index],
     reading: 'テスト',
     choices: [
-      { id: 'apple', label: 'りんご', imageSrc: '/images/apple.svg' },
-      { id: 'ant', label: 'あり', imageSrc: '/images/ant.svg' },
-      { id: 'umbrella', label: 'かさ', imageSrc: '/images/umbrella.svg' },
+      { id: 'apple', label: 'りんご', reading: 'りんご', imageSrc: '/images/apple.svg' },
+      { id: 'ant', label: 'あり', reading: 'あり', imageSrc: '/images/ant.svg' },
+      { id: 'umbrella', label: 'かさ', reading: 'かさ', imageSrc: '/images/umbrella.svg' },
     ],
     correctChoiceId: 'apple',
   }))
@@ -39,6 +39,20 @@ describe('QuizPage', () => {
 
     await user.click(screen.getByRole('button', { name: 'りんご' }))
 
+    expect(screen.queryByText('正解！')).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '回答する' })).toBeEnabled()
+    expect(screen.getByRole('button', { name: 'りんご' })).toHaveAttribute('aria-pressed', 'true')
+
+    await user.click(screen.getByRole('button', { name: 'あり' }))
+
+    expect(screen.queryByText('不正解。')).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'りんご' })).toHaveAttribute('aria-pressed', 'false')
+    expect(screen.getByRole('button', { name: 'あり' })).toHaveAttribute('aria-pressed', 'true')
+
+    await user.click(screen.getByRole('button', { name: 'りんご' }))
+
+    await user.click(screen.getByRole('button', { name: '回答する' }))
+
     expect(screen.getByText('正解！')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'りんご' })).toBeDisabled()
     expect(screen.getByRole('button', { name: '次の問題' })).toBeInTheDocument()
@@ -55,6 +69,7 @@ describe('QuizPage', () => {
     })
 
     await user.click(screen.getByRole('button', { name: 'りんご' }))
+    await user.click(screen.getByRole('button', { name: '回答する' }))
     await user.click(screen.getByRole('button', { name: '次の問題' }))
 
     expect(screen.getByText('2 / 5')).toBeInTheDocument()
