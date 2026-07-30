@@ -171,6 +171,138 @@ button:focus-visible {
   font-weight: 700;
 }
 
+.stroke-order-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stroke-order-progress,
+.stroke-order-stroke-progress {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+}
+
+.stroke-order-kana {
+  margin: 0;
+  color: #172033;
+  font-size: clamp(4rem, 16vw, 7rem);
+  line-height: 1;
+}
+
+.stroke-order-stroke-progress {
+  font-size: 1.1rem;
+}
+
+.stroke-canvas {
+  display: block;
+  width: min(100%, 28rem);
+  aspect-ratio: 1;
+  margin: 0.5rem auto;
+  border: 3px solid #bae6fd;
+  border-radius: 1.25rem;
+  background: #f8fcff;
+  box-shadow: 0 0.5rem 1.25rem rgb(14 116 144 / 12%);
+  touch-action: none;
+}
+
+.stroke-guide {
+  fill: none;
+  stroke: #94a3b8;
+  stroke-width: 12;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.28;
+}
+
+.stroke-guide--active {
+  stroke: #f59e0b;
+  opacity: 0.75;
+}
+
+.stroke-guide--completed {
+  stroke: #38bdf8;
+  opacity: 0.92;
+}
+
+.stroke-input {
+  fill: none;
+  stroke: #0f766e;
+  stroke-width: 9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.stroke-hint-start {
+  fill: #fb7185;
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+
+.stroke-hint-arrow {
+  fill: none;
+  stroke: #fb7185;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.stroke-hint-label {
+  fill: #475569;
+  font-size: 8px;
+  font-weight: 800;
+  text-anchor: start;
+}
+
+.stroke-feedback {
+  margin: 0;
+  border: 3px solid;
+  border-radius: 0.875rem;
+  padding: 0.7rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.stroke-feedback--retry {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.stroke-feedback--retry::before {
+  content: '↻ ';
+}
+
+.stroke-feedback--success {
+  border-color: #34d399;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.stroke-feedback--success::before {
+  content: '✓ ';
+}
+
+.stroke-result-list {
+  width: min(100%, 28rem);
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.stroke-result-list li {
+  margin-bottom: 0.5rem;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  box-shadow: 0 0.25rem 0.75rem rgb(15 23 42 / 8%);
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
 .perfect-result-celebration {
   position: relative;
   isolation: isolate;

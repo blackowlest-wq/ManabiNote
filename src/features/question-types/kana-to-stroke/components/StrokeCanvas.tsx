@@ -147,6 +147,14 @@ export function StrokeCanvas({
         }
         aria-hidden="true"
       />
+      <text
+        className="stroke-hint-label"
+        x="10"
+        y="188"
+        aria-hidden="true"
+      >
+        ここから なぞろう
+      </text>
     </svg>
   )
 }

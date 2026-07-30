@@ -16,7 +16,7 @@ export function StrokeOrderPage() {
     recordSuccess,
     nextCharacter,
   } = useStrokePractice()
-  const [feedback, setFeedback] = useState<'retry' | null>(null)
+  const [feedback, setFeedback] = useState<'retry' | 'success' | null>(null)
 
   if (!session) {
     return (
@@ -59,7 +59,7 @@ export function StrokeOrderPage() {
 
   const handleStrokeResult = (result: StrokeRecognitionResult) => {
     if (result.accepted) {
-      setFeedback(null)
+      setFeedback('success')
       recordSuccess()
     } else {
       setFeedback('retry')
@@ -84,6 +84,11 @@ export function StrokeOrderPage() {
         {feedback === 'retry' && (
           <p className="stroke-feedback stroke-feedback--retry" role="status" aria-live="polite">
             もういちど なぞってみよう
+          </p>
+        )}
+        {feedback === 'success' && (
+          <p className="stroke-feedback stroke-feedback--success" role="status" aria-live="polite">
+            できたよ！
           </p>
         )}
         <StrokeCanvas

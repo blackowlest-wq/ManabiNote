@@ -75,6 +75,19 @@ describe('StrokeCanvas', () => {
     expect(screen.getByTestId('stroke-guide-0')).toHaveClass('stroke-guide--completed')
   })
 
+  it('shows a readable start hint for the active stroke', () => {
+    render(
+      <StrokeCanvas
+        question={question}
+        currentStrokeIndex={0}
+        completedStrokeIndexes={[]}
+        onStrokeResult={vi.fn()}
+      />,
+    )
+
+    expect(screen.getByText('ここから なぞろう')).toBeInTheDocument()
+  })
+
   it('reports an accepted result after tracing every checkpoint', () => {
     const onStrokeResult = vi.fn()
     render(

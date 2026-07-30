@@ -101,6 +101,7 @@ describe('StrokeOrderPage', () => {
     await user.click(screen.getByRole('button', { name: 'mock success' }))
 
     expect(screen.getByText(/2画目/)).toBeInTheDocument()
+    expect(screen.getByRole('status')).toHaveTextContent('できたよ！')
   })
 
   it('shows a retry message without advancing after a rejected result', async () => {
