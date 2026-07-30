@@ -77,3 +77,24 @@ export const resolveImageAtlas = (
 
   return atlas;
 };
+
+const escapeXml = (value: string): string =>
+  value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&apos;');
+
+export const resolvePictureImageSrc = (
+  ref: PictureImageRef,
+  manifest: ImageAtlasManifest = loadImageAtlasManifest(),
+): string => {
+  const atlas = resolveImageAtlas(ref, manifest);
+  const atlasLabel = escapeXml(atlas.id);
+  const symbolLabel = escapeXml(ref.symbolId);
+  const atlasSrcLabel = escapeXml(atlas.src);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="${symbolLabel}"><rect width="160" height="160" rx="24" fill="#F5F3FF"/><rect x="12" y="12" width="136" height="136" rx="20" fill="#DDD6FE" stroke="#8B5CF6" stroke-width="4"/><text x="80" y="74" text-anchor="middle" font-size="18" font-family="sans-serif" fill="#4C1D95">${symbolLabel}</text><text x="80" y="104" text-anchor="middle" font-size="10" font-family="sans-serif" fill="#6D28D9">${atlasLabel}</text><text x="80" y="122" text-anchor="middle" font-size="8" font-family="sans-serif" fill="#7C3AED">${atlasSrcLabel}</text></svg>`;
+
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+};

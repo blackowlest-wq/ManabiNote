@@ -36,6 +36,24 @@ describe('KanaQuestion', () => {
     expect(screen.getByAltText('かさ')).toBeInTheDocument()
   })
 
+  it('renders atlas-backed image sources instead of an undefined source', () => {
+    render(
+      <KanaQuestion
+        question={question}
+        selectedChoiceId={null}
+        disabled={false}
+        onSelect={vi.fn()}
+      />,
+    )
+
+    const appleImage = screen.getByAltText('りんご')
+
+    expect(appleImage.getAttribute('src')).toBeTruthy()
+    expect(appleImage.getAttribute('src')).not.toContain('undefined')
+    expect(appleImage.getAttribute('src')).toContain('data:image/svg+xml')
+    expect(appleImage.getAttribute('src')).toContain('default-atlas.svg')
+  })
+
   it('reports the selected choice id and exposes its pressed state', async () => {
     const user = userEvent.setup()
     const onSelect = vi.fn()

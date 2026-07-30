@@ -1,4 +1,5 @@
 import type { PictureChoice as PictureChoiceData } from '../model/types'
+import { SpriteImage } from './SpriteImage'
 
 export type PictureChoiceProps = {
   choice: PictureChoiceData
@@ -8,8 +9,6 @@ export type PictureChoiceProps = {
 }
 
 export function PictureChoice({ choice, selected, disabled, onSelect }: PictureChoiceProps) {
-  const imageSrc = (choice as PictureChoiceData & { imageSrc?: string }).imageSrc
-
   return (
     <button
       type="button"
@@ -19,7 +18,7 @@ export function PictureChoice({ choice, selected, disabled, onSelect }: PictureC
       disabled={disabled}
       onClick={() => onSelect(choice.id)}
     >
-      <img src={imageSrc} alt={choice.label} width="160" height="160" />
+      <SpriteImage image={choice.image} alt={choice.label} />
       <span>{choice.label}</span>
     </button>
   )
