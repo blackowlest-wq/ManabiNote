@@ -4,6 +4,7 @@ import { appendHistory } from '../../features/history/model/historyStorage'
 import type { HistoryRecord } from '../../features/history/model/historyTypes'
 import { useQuizSession } from '../../features/quiz/QuizSessionProvider'
 import { PageLayout } from '../../shared/components/PageLayout'
+import { PerfectResultCelebration } from './PerfectResultCelebration'
 
 export function ResultPage() {
   const { result, savedResultId, markResultSaved } = useQuizSession()
@@ -30,6 +31,7 @@ export function ResultPage() {
   return (
     <PageLayout title="けっか">
       <p>{score} / {result.questions.length}</p>
+      {score === result.questions.length && <PerfectResultCelebration />}
       <ul>
         {result.answers.map((answer) => (
           <li key={answer.questionId}>

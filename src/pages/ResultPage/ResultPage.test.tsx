@@ -34,6 +34,14 @@ function completedSession() {
   return session
 }
 
+function perfectSession() {
+  let session = createQuizSession(makeFiveQuestions(), () => new Date('2026-07-30T10:00:00.000Z'), () => 0)
+  for (let index = 0; index < 5; index += 1) {
+    session = recordAnswer(session, 'apple')
+  }
+  return session
+}
+
 function ToggleResult({ visible }: { visible: boolean }) {
   return visible ? <ResultPage /> : null
 }
@@ -53,7 +61,24 @@ describe('ResultPage', () => {
     expect(screen.getByText('4 / 5')).toBeInTheDocument()
     expect(screen.getAllByText('正解').length).toBe(4)
     expect(screen.getByText('不正解')).toBeInTheDocument()
+    expect(screen.queryByTestId('perfect-result-stars')).not.toBeInTheDocument()
+    expect(screen.queryByTestId('perfect-result-confetti')).not.toBeInTheDocument()
     expect(appendHistory).toHaveBeenCalledTimes(1)
+  })
+
+  it('shows the celebration only for a perfect score', () => {
+    render(
+      <MemoryRouter>
+        <QuizSessionProvider initialSession={perfectSession()}>
+          <ResultPage />
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByText('5 / 5')).toBeInTheDocument()
+    expect(screen.getByRole('status')).toHaveTextContent('ぜんもんせいかい！')
+    expect(screen.getByTestId('perfect-result-stars')).toBeInTheDocument()
+    expect(screen.getByTestId('perfect-result-confetti')).toBeInTheDocument()
   })
 
   it('shows a recoverable message without a completed session', () => {
