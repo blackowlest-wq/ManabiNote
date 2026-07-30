@@ -6,13 +6,14 @@ Implemented and committed. The shared layout, primary action button, global resp
 
 ## Commit hash(es)
 
-The Task 7 commit is the single commit created with the required message:
+The Task 7 implementation commit was created with the required message:
 
 ```text
 style: add child friendly accessible layout
 ```
 
-Use `git rev-parse HEAD` in this worktree for the resulting commit hash.
+- `ea9527bfcfd4690af1e954212326bdba362b72f8` — `style: add child friendly accessible layout`
+- `096370529ecbb64f578c282f46a1c28566eef5e7` — `fix: make build compatible with es2020`
 
 ## Files changed
 
@@ -36,10 +37,10 @@ Use `git rev-parse HEAD` in this worktree for the resulting commit hash.
 | `npx vitest run src/shared/components --pool=threads --no-file-parallelism --maxWorkers=1 --minWorkers=1` | PASS — 2 files, 3 tests |
 | `npm run typecheck` | PASS |
 | `npx vitest run src/pages src/features/quiz/components src/features/question-types/kana-to-picture/components --pool=threads --no-file-parallelism --maxWorkers=1 --minWorkers=1` | PASS — 6 files, 11 tests |
-| `npm run build` | BLOCKED by pre-existing TypeScript errors before Vite runs |
+| `npm run build` | PASS after the compatibility fix; clean Vite build generated `dist/` |
 
 ## Concerns
 
-`npm run build` currently fails in existing files: `historyStorage.test.ts` and `QuizSessionProvider.tsx` use `Array.prototype.at` while the build target is ES2020, and `validator.ts` infers `audioSrc` as `{}` instead of `string | null | undefined`. No fresh `dist` output was generated because `tsc -b` stops before Vite. These issues are outside Task 7's styling scope and were left unchanged to preserve domain behavior.
+The build-target compatibility issue found during Task 7 verification was fixed in `0963705`: `.at()` calls now use ES2020-compatible indexing and `audioSrc` is explicitly narrowed before object spread. The clean build passed and generated local `dist/` output.
 
 The default Vitest invocation also remains slow to terminate in this environment after printing successful results; the bounded single-worker invocation exits cleanly and was used for final focused verification.
