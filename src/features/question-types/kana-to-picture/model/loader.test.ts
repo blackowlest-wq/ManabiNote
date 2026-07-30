@@ -63,6 +63,14 @@ describe('loadKanaToPictureQuestions', () => {
     }
   });
 
+  it('rejects the reviewed unnatural placeholder readings', () => {
+    const readings = loadKanaToPictureQuestions().map((question) => question.reading);
+
+    for (const reading of ['しろくろぱんだ', 'るすばんでんわ', 'るりいろのとり']) {
+      expect(readings).not.toContain(reading);
+    }
+  });
+
   it('loads only image references resolvable by the current atlas manifest', () => {
     const manifest = loadImageAtlasManifest();
     const questions = loadKanaToPictureQuestions();

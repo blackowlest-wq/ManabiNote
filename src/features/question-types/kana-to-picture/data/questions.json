@@ -1150,7 +1150,7 @@
     "type": "kana-to-picture",
     "id": "hiragana-032",
     "kana": "し",
-    "reading": "しろくろぱんだ",
+    "reading": "しろくま",
     "choices": [
       {
         "id": "hiragana-032-choice-1",
@@ -1172,11 +1172,11 @@
       },
       {
         "id": "hiragana-032-choice-3",
-        "label": "しろくろぱんだ",
-        "reading": "しろくろぱんだ",
+        "label": "しろくま",
+        "reading": "しろくま",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "panda"
+          "symbolId": "bear"
         }
       }
     ],
@@ -3407,7 +3407,7 @@
     "type": "kana-to-picture",
     "id": "hiragana-093",
     "kana": "る",
-    "reading": "るすばんでんわ",
+    "reading": "るびー",
     "choices": [
       {
         "id": "hiragana-093-choice-1",
@@ -3420,11 +3420,11 @@
       },
       {
         "id": "hiragana-093-choice-2",
-        "label": "るすばんでんわ",
-        "reading": "るすばんでんわ",
+        "label": "るびー",
+        "reading": "るびー",
         "image": {
           "atlasId": "objects-01",
-          "symbolId": "phone"
+          "symbolId": "ruby"
         }
       },
       {
@@ -3444,15 +3444,15 @@
     "type": "kana-to-picture",
     "id": "hiragana-094",
     "kana": "る",
-    "reading": "るりいろのとり",
+    "reading": "るーれっと",
     "choices": [
       {
         "id": "hiragana-094-choice-1",
-        "label": "るりいろのとり",
-        "reading": "るりいろのとり",
+        "label": "るーれっと",
+        "reading": "るーれっと",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "bird"
+          "atlasId": "objects-01",
+          "symbolId": "roulette"
         }
       },
       {
