@@ -34,7 +34,7 @@ a {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 4px solid #f59e0b;
+  outline: 4px solid #0f172a;
   outline-offset: 4px;
 }
 
