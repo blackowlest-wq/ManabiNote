@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { QuestionDataError } from './validator';
 import { loadImageAtlasManifest, resolveImageAtlas, type ImageAtlasManifest } from './imageAtlas';
@@ -29,6 +31,15 @@ describe('loadImageAtlasManifest', () => {
         symbols: expect.arrayContaining([expect.any(String)]),
       }),
     );
+  });
+
+  it('does not embed English labels in the picture atlases', () => {
+    const manifest = loadImageAtlasManifest();
+
+    for (const atlas of manifest.atlases) {
+      const filePath = resolve(process.cwd(), 'public', atlas.src.slice(1));
+      expect(readFileSync(filePath, 'utf8')).not.toMatch(/<text\b/i);
+    }
   });
 
   it('rejects duplicate atlas IDs', () => {

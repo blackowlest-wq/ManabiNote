@@ -5,10 +5,11 @@ export type KanaQuestionProps = {
   question: KanaToPictureQuestion
   selectedChoiceId: string | null
   disabled: boolean
+  showLabels?: boolean
   onSelect: (choiceId: string) => void
 }
 
-export function KanaQuestion({ question, selectedChoiceId, disabled, onSelect }: KanaQuestionProps) {
+export function KanaQuestion({ question, selectedChoiceId, disabled, showLabels = false, onSelect }: KanaQuestionProps) {
   return (
     <section aria-label="かなの問題">
       <h2 className="kana-question__kana">
@@ -24,7 +25,7 @@ export function KanaQuestion({ question, selectedChoiceId, disabled, onSelect }:
             choice={choice}
             selected={selectedChoiceId === choice.id}
             disabled={disabled}
-            showLabel={disabled}
+            showLabel={disabled || showLabels}
             onSelect={onSelect}
           />
         ))}

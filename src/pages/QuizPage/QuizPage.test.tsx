@@ -27,6 +27,29 @@ function TestQuizProvider({ children }: { children: React.ReactNode }) {
 }
 
 describe('QuizPage', () => {
+  it('shows picture labels when the hint button is pressed', async () => {
+    const user = userEvent.setup()
+    render(<QuizPage />, {
+      wrapper: ({ children }) => (
+        <MemoryRouter>
+          <TestQuizProvider>{children}</TestQuizProvider>
+        </MemoryRouter>
+      ),
+    })
+
+    expect(screen.queryByText('りんご')).not.toBeInTheDocument()
+    const answerButton = screen.getByRole('button', { name: '回答する' })
+    const hintButton = screen.getByRole('button', { name: 'ヒント' })
+    expect(answerButton.parentElement).toContainElement(hintButton)
+
+    await user.click(hintButton)
+
+    expect(screen.getByText('りんご')).toBeInTheDocument()
+    expect(screen.getByText('あり')).toBeInTheDocument()
+    expect(screen.getByText('かさ')).toBeInTheDocument()
+    expect(screen.queryByText('正解！')).not.toBeInTheDocument()
+  })
+
   it('locks choices and shows feedback after one answer', async () => {
     const user = userEvent.setup()
     render(<QuizPage />, {

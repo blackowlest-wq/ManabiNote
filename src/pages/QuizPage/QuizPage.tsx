@@ -11,6 +11,7 @@ export function QuizPage() {
   const navigate = useNavigate()
   const { session, lastAnswer, answer, nextQuestion, error } = useQuizSession()
   const [pendingChoiceId, setPendingChoiceId] = useState<string | null>(null)
+  const [showHint, setShowHint] = useState(false)
 
   if (!session) {
     return <PageLayout title="ひらがな れんしゅう"><p>学習を開始してください。</p><Link to="/">ホームへ戻る</Link></PageLayout>
@@ -23,6 +24,7 @@ export function QuizPage() {
   const correctChoice = question.choices.find((choice) => choice.id === question.correctChoiceId)
   const handleNext = () => {
     setPendingChoiceId(null)
+    setShowHint(false)
     nextQuestion()
     if (session.currentIndex >= session.questions.length) navigate('/result')
   }
@@ -34,17 +36,28 @@ export function QuizPage() {
         question={question}
         selectedChoiceId={lastAnswer?.selectedChoiceId ?? pendingChoiceId}
         disabled={Boolean(lastAnswer)}
+        showLabels={showHint}
         onSelect={(choiceId) => setPendingChoiceId(choiceId)}
       />
-      <PrimaryButton
-        className="answer-button"
-        disabled={!pendingChoiceId || Boolean(lastAnswer)}
-        onClick={() => {
-          if (pendingChoiceId) answer(pendingChoiceId)
-        }}
-      >
-        回答する
-      </PrimaryButton>
+      <div className="quiz-actions">
+        <PrimaryButton
+          className="answer-button"
+          disabled={!pendingChoiceId || Boolean(lastAnswer)}
+          onClick={() => {
+            if (pendingChoiceId) answer(pendingChoiceId)
+          }}
+        >
+          回答する
+        </PrimaryButton>
+        <PrimaryButton
+          className="hint-button"
+          aria-pressed={showHint}
+          disabled={Boolean(lastAnswer) || showHint}
+          onClick={() => setShowHint(true)}
+        >
+          ヒント
+        </PrimaryButton>
+      </div>
       {lastAnswer && correctChoice && (
         <>
           <AnswerFeedback isCorrect={lastAnswer.isCorrect} correctLabel={correctChoice.label} />
