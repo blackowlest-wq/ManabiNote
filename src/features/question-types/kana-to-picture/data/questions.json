@@ -1,67 +1,3702 @@
 [
   {
     "type": "kana-to-picture",
-    "id": "hiragana-a",
+    "id": "hiragana-001",
     "kana": "あ",
     "reading": "あり",
     "choices": [
-      { "id": "apple", "label": "りんご", "reading": "りんご", "imageSrc": "/images/kana-to-picture/apple.svg" },
-      { "id": "ant", "label": "あり", "reading": "あり", "imageSrc": "/images/kana-to-picture/ant.svg" },
-      { "id": "umbrella", "label": "かさ", "reading": "かさ", "imageSrc": "/images/kana-to-picture/umbrella.svg" }
+      {
+        "id": "hiragana-001-choice-1",
+        "label": "あり",
+        "reading": "あり",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "ant"
+        }
+      },
+      {
+        "id": "hiragana-001-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-001-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
     ],
-    "correctChoiceId": "ant",
+    "correctChoiceId": "hiragana-001-choice-1",
     "audioSrc": null
   },
   {
     "type": "kana-to-picture",
-    "id": "hiragana-i",
+    "id": "hiragana-002",
+    "kana": "あ",
+    "reading": "あめ",
+    "choices": [
+      {
+        "id": "hiragana-002-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-002-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-002-choice-3",
+        "label": "あめ",
+        "reading": "あめ",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "rain"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-002-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-003",
+    "kana": "あ",
+    "reading": "あいすくりーむ",
+    "choices": [
+      {
+        "id": "hiragana-003-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-003-choice-2",
+        "label": "あいすくりーむ",
+        "reading": "あいすくりーむ",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "icecream"
+        }
+      },
+      {
+        "id": "hiragana-003-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-003-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-004",
     "kana": "い",
     "reading": "いぬ",
     "choices": [
-      { "id": "dog", "label": "いぬ", "reading": "いぬ", "imageSrc": "/images/kana-to-picture/dog.svg" },
-      { "id": "fish", "label": "さかな", "reading": "さかな", "imageSrc": "/images/kana-to-picture/fish.svg" },
-      { "id": "grape", "label": "ぶどう", "reading": "ぶどう", "imageSrc": "/images/kana-to-picture/grape.svg" }
+      {
+        "id": "hiragana-004-choice-1",
+        "label": "いぬ",
+        "reading": "いぬ",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "dog"
+        }
+      },
+      {
+        "id": "hiragana-004-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-004-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
     ],
-    "correctChoiceId": "dog",
+    "correctChoiceId": "hiragana-004-choice-1",
     "audioSrc": null
   },
   {
     "type": "kana-to-picture",
-    "id": "hiragana-u",
+    "id": "hiragana-005",
+    "kana": "い",
+    "reading": "いす",
+    "choices": [
+      {
+        "id": "hiragana-005-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-005-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-005-choice-3",
+        "label": "いす",
+        "reading": "いす",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "chair"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-005-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-006",
+    "kana": "い",
+    "reading": "いちご",
+    "choices": [
+      {
+        "id": "hiragana-006-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-006-choice-2",
+        "label": "いちご",
+        "reading": "いちご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "strawberry"
+        }
+      },
+      {
+        "id": "hiragana-006-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-006-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-007",
     "kana": "う",
     "reading": "うし",
     "choices": [
-      { "id": "cow", "label": "うし", "reading": "うし", "imageSrc": "/images/kana-to-picture/cow.svg" },
-      { "id": "orange", "label": "みかん", "reading": "みかん", "imageSrc": "/images/kana-to-picture/orange.svg" },
-      { "id": "fish", "label": "さかな", "reading": "さかな", "imageSrc": "/images/kana-to-picture/fish.svg" }
+      {
+        "id": "hiragana-007-choice-1",
+        "label": "うし",
+        "reading": "うし",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "cow"
+        }
+      },
+      {
+        "id": "hiragana-007-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-007-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
     ],
-    "correctChoiceId": "cow",
+    "correctChoiceId": "hiragana-007-choice-1",
     "audioSrc": null
   },
   {
     "type": "kana-to-picture",
-    "id": "hiragana-e",
+    "id": "hiragana-008",
+    "kana": "う",
+    "reading": "うさぎ",
+    "choices": [
+      {
+        "id": "hiragana-008-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-008-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-008-choice-3",
+        "label": "うさぎ",
+        "reading": "うさぎ",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "rabbit"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-008-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-009",
+    "kana": "う",
+    "reading": "うま",
+    "choices": [
+      {
+        "id": "hiragana-009-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-009-choice-2",
+        "label": "うま",
+        "reading": "うま",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "horse"
+        }
+      },
+      {
+        "id": "hiragana-009-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-009-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-010",
     "kana": "え",
     "reading": "えんぴつ",
     "choices": [
-      { "id": "pencil", "label": "えんぴつ", "reading": "えんぴつ", "imageSrc": "/images/kana-to-picture/pencil.svg" },
-      { "id": "train", "label": "でんしゃ", "reading": "でんしゃ", "imageSrc": "/images/kana-to-picture/train.svg" },
-      { "id": "elephant", "label": "ぞう", "reading": "ぞう", "imageSrc": "/images/kana-to-picture/elephant.svg" }
+      {
+        "id": "hiragana-010-choice-1",
+        "label": "えんぴつ",
+        "reading": "えんぴつ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "pencil"
+        }
+      },
+      {
+        "id": "hiragana-010-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-010-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
     ],
-    "correctChoiceId": "pencil",
+    "correctChoiceId": "hiragana-010-choice-1",
     "audioSrc": null
   },
   {
     "type": "kana-to-picture",
-    "id": "hiragana-o",
+    "id": "hiragana-011",
+    "kana": "え",
+    "reading": "えほん",
+    "choices": [
+      {
+        "id": "hiragana-011-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-011-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-011-choice-3",
+        "label": "えほん",
+        "reading": "えほん",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "book"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-011-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-012",
     "kana": "お",
     "reading": "おにぎり",
     "choices": [
-      { "id": "rice", "label": "おにぎり", "reading": "おにぎり", "imageSrc": "/images/kana-to-picture/rice.svg" },
-      { "id": "orange", "label": "みかん", "reading": "みかん", "imageSrc": "/images/kana-to-picture/orange.svg" },
-      { "id": "octopus", "label": "たこ", "reading": "たこ", "imageSrc": "/images/kana-to-picture/octopus.svg" }
+      {
+        "id": "hiragana-012-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-012-choice-2",
+        "label": "おにぎり",
+        "reading": "おにぎり",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "rice"
+        }
+      },
+      {
+        "id": "hiragana-012-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
     ],
-    "correctChoiceId": "rice",
+    "correctChoiceId": "hiragana-012-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-013",
+    "kana": "お",
+    "reading": "おれんじ",
+    "choices": [
+      {
+        "id": "hiragana-013-choice-1",
+        "label": "おれんじ",
+        "reading": "おれんじ",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "orange"
+        }
+      },
+      {
+        "id": "hiragana-013-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-013-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-013-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-014",
+    "kana": "お",
+    "reading": "おか",
+    "choices": [
+      {
+        "id": "hiragana-014-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-014-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-014-choice-3",
+        "label": "おか",
+        "reading": "おか",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "hill"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-014-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-015",
+    "kana": "か",
+    "reading": "かさ",
+    "choices": [
+      {
+        "id": "hiragana-015-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-015-choice-2",
+        "label": "かさ",
+        "reading": "かさ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "umbrella"
+        }
+      },
+      {
+        "id": "hiragana-015-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-015-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-016",
+    "kana": "か",
+    "reading": "かめ",
+    "choices": [
+      {
+        "id": "hiragana-016-choice-1",
+        "label": "かめ",
+        "reading": "かめ",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "turtle"
+        }
+      },
+      {
+        "id": "hiragana-016-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-016-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-016-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-017",
+    "kana": "か",
+    "reading": "かに",
+    "choices": [
+      {
+        "id": "hiragana-017-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-017-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-017-choice-3",
+        "label": "かに",
+        "reading": "かに",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "crab"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-017-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-018",
+    "kana": "き",
+    "reading": "きつね",
+    "choices": [
+      {
+        "id": "hiragana-018-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-018-choice-2",
+        "label": "きつね",
+        "reading": "きつね",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fox"
+        }
+      },
+      {
+        "id": "hiragana-018-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-018-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-019",
+    "kana": "き",
+    "reading": "きのこ",
+    "choices": [
+      {
+        "id": "hiragana-019-choice-1",
+        "label": "きのこ",
+        "reading": "きのこ",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "mushroom"
+        }
+      },
+      {
+        "id": "hiragana-019-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-019-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-019-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-020",
+    "kana": "き",
+    "reading": "きりん",
+    "choices": [
+      {
+        "id": "hiragana-020-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-020-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-020-choice-3",
+        "label": "きりん",
+        "reading": "きりん",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "giraffe"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-020-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-021",
+    "kana": "く",
+    "reading": "くま",
+    "choices": [
+      {
+        "id": "hiragana-021-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-021-choice-2",
+        "label": "くま",
+        "reading": "くま",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "bear"
+        }
+      },
+      {
+        "id": "hiragana-021-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-021-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-022",
+    "kana": "く",
+    "reading": "くも",
+    "choices": [
+      {
+        "id": "hiragana-022-choice-1",
+        "label": "くも",
+        "reading": "くも",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "cloud"
+        }
+      },
+      {
+        "id": "hiragana-022-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-022-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-022-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-023",
+    "kana": "け",
+    "reading": "けーき",
+    "choices": [
+      {
+        "id": "hiragana-023-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-023-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-023-choice-3",
+        "label": "けーき",
+        "reading": "けーき",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "cake"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-023-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-024",
+    "kana": "け",
+    "reading": "けいたいでんわ",
+    "choices": [
+      {
+        "id": "hiragana-024-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-024-choice-2",
+        "label": "けいたいでんわ",
+        "reading": "けいたいでんわ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "phone"
+        }
+      },
+      {
+        "id": "hiragana-024-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-024-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-025",
+    "kana": "こ",
+    "reading": "こあら",
+    "choices": [
+      {
+        "id": "hiragana-025-choice-1",
+        "label": "こあら",
+        "reading": "こあら",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "koala"
+        }
+      },
+      {
+        "id": "hiragana-025-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-025-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-025-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-026",
+    "kana": "こ",
+    "reading": "こっぷ",
+    "choices": [
+      {
+        "id": "hiragana-026-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-026-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-026-choice-3",
+        "label": "こっぷ",
+        "reading": "こっぷ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "cup"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-026-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-027",
+    "kana": "こ",
+    "reading": "こいぬ",
+    "choices": [
+      {
+        "id": "hiragana-027-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-027-choice-2",
+        "label": "こいぬ",
+        "reading": "こいぬ",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "dog"
+        }
+      },
+      {
+        "id": "hiragana-027-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-027-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-028",
+    "kana": "さ",
+    "reading": "さかな",
+    "choices": [
+      {
+        "id": "hiragana-028-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-028-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-028-choice-3",
+        "label": "かさ",
+        "reading": "かさ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "umbrella"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-028-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-029",
+    "kana": "さ",
+    "reading": "さくらんぼ",
+    "choices": [
+      {
+        "id": "hiragana-029-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-029-choice-2",
+        "label": "かさ",
+        "reading": "かさ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "umbrella"
+        }
+      },
+      {
+        "id": "hiragana-029-choice-3",
+        "label": "さくらんぼ",
+        "reading": "さくらんぼ",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "cherry"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-029-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-030",
+    "kana": "さ",
+    "reading": "さる",
+    "choices": [
+      {
+        "id": "hiragana-030-choice-1",
+        "label": "かさ",
+        "reading": "かさ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "umbrella"
+        }
+      },
+      {
+        "id": "hiragana-030-choice-2",
+        "label": "さる",
+        "reading": "さる",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "monkey"
+        }
+      },
+      {
+        "id": "hiragana-030-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-030-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-031",
+    "kana": "し",
+    "reading": "しか",
+    "choices": [
+      {
+        "id": "hiragana-031-choice-1",
+        "label": "しか",
+        "reading": "しか",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "deer"
+        }
+      },
+      {
+        "id": "hiragana-031-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-031-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-031-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-032",
+    "kana": "し",
+    "reading": "しろくろぱんだ",
+    "choices": [
+      {
+        "id": "hiragana-032-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-032-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-032-choice-3",
+        "label": "しろくろぱんだ",
+        "reading": "しろくろぱんだ",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "panda"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-032-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-033",
+    "kana": "す",
+    "reading": "すいか",
+    "choices": [
+      {
+        "id": "hiragana-033-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-033-choice-2",
+        "label": "すいか",
+        "reading": "すいか",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "watermelon"
+        }
+      },
+      {
+        "id": "hiragana-033-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-033-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-034",
+    "kana": "す",
+    "reading": "すし",
+    "choices": [
+      {
+        "id": "hiragana-034-choice-1",
+        "label": "すし",
+        "reading": "すし",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "sushi"
+        }
+      },
+      {
+        "id": "hiragana-034-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-034-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-034-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-035",
+    "kana": "せ",
+    "reading": "せのたかいきりん",
+    "choices": [
+      {
+        "id": "hiragana-035-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-035-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-035-choice-3",
+        "label": "せのたかいきりん",
+        "reading": "せのたかいきりん",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "giraffe"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-035-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-036",
+    "kana": "せ",
+    "reading": "せんろをはしるでんしゃ",
+    "choices": [
+      {
+        "id": "hiragana-036-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-036-choice-2",
+        "label": "せんろをはしるでんしゃ",
+        "reading": "せんろをはしるでんしゃ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "train"
+        }
+      },
+      {
+        "id": "hiragana-036-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-036-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-037",
+    "kana": "そ",
+    "reading": "そらのくも",
+    "choices": [
+      {
+        "id": "hiragana-037-choice-1",
+        "label": "そらのくも",
+        "reading": "そらのくも",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "cloud"
+        }
+      },
+      {
+        "id": "hiragana-037-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-037-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-037-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-038",
+    "kana": "そ",
+    "reading": "そらのたいよう",
+    "choices": [
+      {
+        "id": "hiragana-038-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-038-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-038-choice-3",
+        "label": "そらのたいよう",
+        "reading": "そらのたいよう",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "sun"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-038-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-039",
+    "kana": "た",
+    "reading": "たこ",
+    "choices": [
+      {
+        "id": "hiragana-039-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-039-choice-2",
+        "label": "たこ",
+        "reading": "たこ",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "octopus"
+        }
+      },
+      {
+        "id": "hiragana-039-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-039-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-040",
+    "kana": "た",
+    "reading": "たいこ",
+    "choices": [
+      {
+        "id": "hiragana-040-choice-1",
+        "label": "たいこ",
+        "reading": "たいこ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "drum"
+        }
+      },
+      {
+        "id": "hiragana-040-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-040-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-040-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-041",
+    "kana": "た",
+    "reading": "たこあげ",
+    "choices": [
+      {
+        "id": "hiragana-041-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-041-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-041-choice-3",
+        "label": "たこあげ",
+        "reading": "たこあげ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "kite"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-041-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-042",
+    "kana": "ち",
+    "reading": "ちょうちょ",
+    "choices": [
+      {
+        "id": "hiragana-042-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-042-choice-2",
+        "label": "ちょうちょ",
+        "reading": "ちょうちょ",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "butterfly"
+        }
+      },
+      {
+        "id": "hiragana-042-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-042-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-043",
+    "kana": "ち",
+    "reading": "ちゅーりっぷ",
+    "choices": [
+      {
+        "id": "hiragana-043-choice-1",
+        "label": "ちゅーりっぷ",
+        "reading": "ちゅーりっぷ",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "tulip"
+        }
+      },
+      {
+        "id": "hiragana-043-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-043-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-043-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-044",
+    "kana": "つ",
+    "reading": "つき",
+    "choices": [
+      {
+        "id": "hiragana-044-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-044-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-044-choice-3",
+        "label": "つき",
+        "reading": "つき",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "moon"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-044-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-045",
+    "kana": "つ",
+    "reading": "つばめ",
+    "choices": [
+      {
+        "id": "hiragana-045-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-045-choice-2",
+        "label": "つばめ",
+        "reading": "つばめ",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "bird"
+        }
+      },
+      {
+        "id": "hiragana-045-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-045-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-046",
+    "kana": "て",
+    "reading": "てちょう",
+    "choices": [
+      {
+        "id": "hiragana-046-choice-1",
+        "label": "てちょう",
+        "reading": "てちょう",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "book"
+        }
+      },
+      {
+        "id": "hiragana-046-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-046-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-046-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-047",
+    "kana": "て",
+    "reading": "てさげかばん",
+    "choices": [
+      {
+        "id": "hiragana-047-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-047-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-047-choice-3",
+        "label": "てさげかばん",
+        "reading": "てさげかばん",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "backpack"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-047-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-048",
+    "kana": "と",
+    "reading": "とまと",
+    "choices": [
+      {
+        "id": "hiragana-048-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-048-choice-2",
+        "label": "とまと",
+        "reading": "とまと",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "tomato"
+        }
+      },
+      {
+        "id": "hiragana-048-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-048-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-049",
+    "kana": "と",
+    "reading": "とけい",
+    "choices": [
+      {
+        "id": "hiragana-049-choice-1",
+        "label": "とけい",
+        "reading": "とけい",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "clock"
+        }
+      },
+      {
+        "id": "hiragana-049-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-049-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-049-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-050",
+    "kana": "な",
+    "reading": "なし",
+    "choices": [
+      {
+        "id": "hiragana-050-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-050-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-050-choice-3",
+        "label": "なし",
+        "reading": "なし",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "pear"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-050-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-051",
+    "kana": "な",
+    "reading": "ながぐつ",
+    "choices": [
+      {
+        "id": "hiragana-051-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-051-choice-2",
+        "label": "ながぐつ",
+        "reading": "ながぐつ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "boots"
+        }
+      },
+      {
+        "id": "hiragana-051-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-051-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-052",
+    "kana": "な",
+    "reading": "なみ",
+    "choices": [
+      {
+        "id": "hiragana-052-choice-1",
+        "label": "なみ",
+        "reading": "なみ",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "wave"
+        }
+      },
+      {
+        "id": "hiragana-052-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-052-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-052-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-053",
+    "kana": "に",
+    "reading": "にんじん",
+    "choices": [
+      {
+        "id": "hiragana-053-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-053-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-053-choice-3",
+        "label": "にんじん",
+        "reading": "にんじん",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "carrot"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-053-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-054",
+    "kana": "に",
+    "reading": "にじ",
+    "choices": [
+      {
+        "id": "hiragana-054-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-054-choice-2",
+        "label": "にじ",
+        "reading": "にじ",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "rainbow"
+        }
+      },
+      {
+        "id": "hiragana-054-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-054-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-055",
+    "kana": "ぬ",
+    "reading": "ぬま",
+    "choices": [
+      {
+        "id": "hiragana-055-choice-1",
+        "label": "ぬま",
+        "reading": "ぬま",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "pond"
+        }
+      },
+      {
+        "id": "hiragana-055-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-055-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-055-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-056",
+    "kana": "ぬ",
+    "reading": "ぬりえ",
+    "choices": [
+      {
+        "id": "hiragana-056-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-056-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-056-choice-3",
+        "label": "ぬりえ",
+        "reading": "ぬりえ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "book"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-056-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-057",
+    "kana": "ね",
+    "reading": "ねこ",
+    "choices": [
+      {
+        "id": "hiragana-057-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-057-choice-2",
+        "label": "ねこ",
+        "reading": "ねこ",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "cat"
+        }
+      },
+      {
+        "id": "hiragana-057-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-057-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-058",
+    "kana": "ね",
+    "reading": "ねこのこ",
+    "choices": [
+      {
+        "id": "hiragana-058-choice-1",
+        "label": "ねこのこ",
+        "reading": "ねこのこ",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "cat"
+        }
+      },
+      {
+        "id": "hiragana-058-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-058-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-058-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-059",
+    "kana": "の",
+    "reading": "のりもの",
+    "choices": [
+      {
+        "id": "hiragana-059-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-059-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-059-choice-3",
+        "label": "のりもの",
+        "reading": "のりもの",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "bus"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-059-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-060",
+    "kana": "の",
+    "reading": "のみもの",
+    "choices": [
+      {
+        "id": "hiragana-060-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-060-choice-2",
+        "label": "のみもの",
+        "reading": "のみもの",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "milk"
+        }
+      },
+      {
+        "id": "hiragana-060-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-060-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-061",
+    "kana": "は",
+    "reading": "はな",
+    "choices": [
+      {
+        "id": "hiragana-061-choice-1",
+        "label": "はな",
+        "reading": "はな",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "flower"
+        }
+      },
+      {
+        "id": "hiragana-061-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-061-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-061-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-062",
+    "kana": "は",
+    "reading": "はさみ",
+    "choices": [
+      {
+        "id": "hiragana-062-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-062-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-062-choice-3",
+        "label": "はさみ",
+        "reading": "はさみ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "scissors"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-062-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-063",
+    "kana": "は",
+    "reading": "はっぱ",
+    "choices": [
+      {
+        "id": "hiragana-063-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-063-choice-2",
+        "label": "はっぱ",
+        "reading": "はっぱ",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "leaf"
+        }
+      },
+      {
+        "id": "hiragana-063-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-063-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-064",
+    "kana": "ひ",
+    "reading": "ひよこ",
+    "choices": [
+      {
+        "id": "hiragana-064-choice-1",
+        "label": "ひよこ",
+        "reading": "ひよこ",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "chick"
+        }
+      },
+      {
+        "id": "hiragana-064-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-064-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-064-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-065",
+    "kana": "ひ",
+    "reading": "ひので",
+    "choices": [
+      {
+        "id": "hiragana-065-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-065-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-065-choice-3",
+        "label": "ひので",
+        "reading": "ひので",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "sun"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-065-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-066",
+    "kana": "ふ",
+    "reading": "ふね",
+    "choices": [
+      {
+        "id": "hiragana-066-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-066-choice-2",
+        "label": "ふね",
+        "reading": "ふね",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "ship"
+        }
+      },
+      {
+        "id": "hiragana-066-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-066-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-067",
+    "kana": "ふ",
+    "reading": "ふくろう",
+    "choices": [
+      {
+        "id": "hiragana-067-choice-1",
+        "label": "ふくろう",
+        "reading": "ふくろう",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "owl"
+        }
+      },
+      {
+        "id": "hiragana-067-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-067-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-067-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-068",
+    "kana": "へ",
+    "reading": "へやのいす",
+    "choices": [
+      {
+        "id": "hiragana-068-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-068-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-068-choice-3",
+        "label": "へやのいす",
+        "reading": "へやのいす",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "chair"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-068-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-069",
+    "kana": "へ",
+    "reading": "へやのらんぷ",
+    "choices": [
+      {
+        "id": "hiragana-069-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-069-choice-2",
+        "label": "へやのらんぷ",
+        "reading": "へやのらんぷ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "lamp"
+        }
+      },
+      {
+        "id": "hiragana-069-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-069-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-070",
+    "kana": "ほ",
+    "reading": "ほし",
+    "choices": [
+      {
+        "id": "hiragana-070-choice-1",
+        "label": "ほし",
+        "reading": "ほし",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "star"
+        }
+      },
+      {
+        "id": "hiragana-070-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-070-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-070-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-071",
+    "kana": "ほ",
+    "reading": "ほっとけーき",
+    "choices": [
+      {
+        "id": "hiragana-071-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-071-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-071-choice-3",
+        "label": "ほっとけーき",
+        "reading": "ほっとけーき",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "hotcake"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-071-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-072",
+    "kana": "ま",
+    "reading": "まるいぼーる",
+    "choices": [
+      {
+        "id": "hiragana-072-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-072-choice-2",
+        "label": "まるいぼーる",
+        "reading": "まるいぼーる",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "ball"
+        }
+      },
+      {
+        "id": "hiragana-072-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-072-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-073",
+    "kana": "ま",
+    "reading": "まめ",
+    "choices": [
+      {
+        "id": "hiragana-073-choice-1",
+        "label": "まめ",
+        "reading": "まめ",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "seed"
+        }
+      },
+      {
+        "id": "hiragana-073-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-073-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-073-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-074",
+    "kana": "ま",
+    "reading": "まんまるおつきさま",
+    "choices": [
+      {
+        "id": "hiragana-074-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-074-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-074-choice-3",
+        "label": "まんまるおつきさま",
+        "reading": "まんまるおつきさま",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "moon"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-074-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-075",
+    "kana": "み",
+    "reading": "みかん",
+    "choices": [
+      {
+        "id": "hiragana-075-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-075-choice-2",
+        "label": "みかん",
+        "reading": "みかん",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "orange"
+        }
+      },
+      {
+        "id": "hiragana-075-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-075-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-076",
+    "kana": "み",
+    "reading": "みるく",
+    "choices": [
+      {
+        "id": "hiragana-076-choice-1",
+        "label": "みるく",
+        "reading": "みるく",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "milk"
+        }
+      },
+      {
+        "id": "hiragana-076-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-076-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-076-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-077",
+    "kana": "む",
+    "reading": "むし",
+    "choices": [
+      {
+        "id": "hiragana-077-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-077-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-077-choice-3",
+        "label": "むし",
+        "reading": "むし",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "ant"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-077-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-078",
+    "kana": "む",
+    "reading": "むらさきぶどう",
+    "choices": [
+      {
+        "id": "hiragana-078-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-078-choice-2",
+        "label": "むらさきぶどう",
+        "reading": "むらさきぶどう",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "grape"
+        }
+      },
+      {
+        "id": "hiragana-078-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-078-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-079",
+    "kana": "め",
+    "reading": "めろん",
+    "choices": [
+      {
+        "id": "hiragana-079-choice-1",
+        "label": "めろん",
+        "reading": "めろん",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "melon"
+        }
+      },
+      {
+        "id": "hiragana-079-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-079-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-079-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-080",
+    "kana": "め",
+    "reading": "めざましどけい",
+    "choices": [
+      {
+        "id": "hiragana-080-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-080-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-080-choice-3",
+        "label": "めざましどけい",
+        "reading": "めざましどけい",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "clock"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-080-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-081",
+    "kana": "も",
+    "reading": "もも",
+    "choices": [
+      {
+        "id": "hiragana-081-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-081-choice-2",
+        "label": "もも",
+        "reading": "もも",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "peach"
+        }
+      },
+      {
+        "id": "hiragana-081-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-081-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-082",
+    "kana": "も",
+    "reading": "もり",
+    "choices": [
+      {
+        "id": "hiragana-082-choice-1",
+        "label": "もり",
+        "reading": "もり",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "forest"
+        }
+      },
+      {
+        "id": "hiragana-082-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-082-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-082-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-083",
+    "kana": "や",
+    "reading": "やま",
+    "choices": [
+      {
+        "id": "hiragana-083-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-083-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-083-choice-3",
+        "label": "やま",
+        "reading": "やま",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "mountain"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-083-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-084",
+    "kana": "や",
+    "reading": "やさい",
+    "choices": [
+      {
+        "id": "hiragana-084-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-084-choice-2",
+        "label": "やさい",
+        "reading": "やさい",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "broccoli"
+        }
+      },
+      {
+        "id": "hiragana-084-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-084-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-085",
+    "kana": "ゆ",
+    "reading": "ゆきだるま",
+    "choices": [
+      {
+        "id": "hiragana-085-choice-1",
+        "label": "ゆきだるま",
+        "reading": "ゆきだるま",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "snowman"
+        }
+      },
+      {
+        "id": "hiragana-085-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-085-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-085-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-086",
+    "kana": "ゆ",
+    "reading": "ゆき",
+    "choices": [
+      {
+        "id": "hiragana-086-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-086-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-086-choice-3",
+        "label": "ゆき",
+        "reading": "ゆき",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "snowflake"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-086-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-087",
+    "kana": "よ",
+    "reading": "よーぐると",
+    "choices": [
+      {
+        "id": "hiragana-087-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-087-choice-2",
+        "label": "よーぐると",
+        "reading": "よーぐると",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "yogurt"
+        }
+      },
+      {
+        "id": "hiragana-087-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-087-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-088",
+    "kana": "よ",
+    "reading": "よっと",
+    "choices": [
+      {
+        "id": "hiragana-088-choice-1",
+        "label": "よっと",
+        "reading": "よっと",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "ship"
+        }
+      },
+      {
+        "id": "hiragana-088-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-088-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-088-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-089",
+    "kana": "ら",
+    "reading": "らいおん",
+    "choices": [
+      {
+        "id": "hiragana-089-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-089-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-089-choice-3",
+        "label": "らいおん",
+        "reading": "らいおん",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "lion"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-089-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-090",
+    "kana": "ら",
+    "reading": "らんどせる",
+    "choices": [
+      {
+        "id": "hiragana-090-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-090-choice-2",
+        "label": "らんどせる",
+        "reading": "らんどせる",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "backpack"
+        }
+      },
+      {
+        "id": "hiragana-090-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-090-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-091",
+    "kana": "り",
+    "reading": "りんご",
+    "choices": [
+      {
+        "id": "hiragana-091-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-091-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-091-choice-3",
+        "label": "かさ",
+        "reading": "かさ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "umbrella"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-091-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-092",
+    "kana": "り",
+    "reading": "りゅっくさっく",
+    "choices": [
+      {
+        "id": "hiragana-092-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-092-choice-2",
+        "label": "かさ",
+        "reading": "かさ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "umbrella"
+        }
+      },
+      {
+        "id": "hiragana-092-choice-3",
+        "label": "りゅっくさっく",
+        "reading": "りゅっくさっく",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "backpack"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-092-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-093",
+    "kana": "る",
+    "reading": "るすばんでんわ",
+    "choices": [
+      {
+        "id": "hiragana-093-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-093-choice-2",
+        "label": "るすばんでんわ",
+        "reading": "るすばんでんわ",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "phone"
+        }
+      },
+      {
+        "id": "hiragana-093-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-093-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-094",
+    "kana": "る",
+    "reading": "るりいろのとり",
+    "choices": [
+      {
+        "id": "hiragana-094-choice-1",
+        "label": "るりいろのとり",
+        "reading": "るりいろのとり",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "bird"
+        }
+      },
+      {
+        "id": "hiragana-094-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-094-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-094-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-095",
+    "kana": "れ",
+    "reading": "れもん",
+    "choices": [
+      {
+        "id": "hiragana-095-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-095-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-095-choice-3",
+        "label": "れもん",
+        "reading": "れもん",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "lemon"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-095-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-096",
+    "kana": "れ",
+    "reading": "れいんぼー",
+    "choices": [
+      {
+        "id": "hiragana-096-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-096-choice-2",
+        "label": "れいんぼー",
+        "reading": "れいんぼー",
+        "image": {
+          "atlasId": "nature-01",
+          "symbolId": "rainbow"
+        }
+      },
+      {
+        "id": "hiragana-096-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-096-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-097",
+    "kana": "ろ",
+    "reading": "ろーるぱん",
+    "choices": [
+      {
+        "id": "hiragana-097-choice-1",
+        "label": "ろーるぱん",
+        "reading": "ろーるぱん",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "bread"
+        }
+      },
+      {
+        "id": "hiragana-097-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-097-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-097-choice-1",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-098",
+    "kana": "ろ",
+    "reading": "ろーるけーき",
+    "choices": [
+      {
+        "id": "hiragana-098-choice-1",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-098-choice-2",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-098-choice-3",
+        "label": "ろーるけーき",
+        "reading": "ろーるけーき",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "cake"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-098-choice-3",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-099",
+    "kana": "わ",
+    "reading": "わっかどーなつ",
+    "choices": [
+      {
+        "id": "hiragana-099-choice-1",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      },
+      {
+        "id": "hiragana-099-choice-2",
+        "label": "わっかどーなつ",
+        "reading": "わっかどーなつ",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "donut"
+        }
+      },
+      {
+        "id": "hiragana-099-choice-3",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-099-choice-2",
+    "audioSrc": null
+  },
+  {
+    "type": "kana-to-picture",
+    "id": "hiragana-100",
+    "kana": "わ",
+    "reading": "わらうぱんだ",
+    "choices": [
+      {
+        "id": "hiragana-100-choice-1",
+        "label": "わらうぱんだ",
+        "reading": "わらうぱんだ",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "panda"
+        }
+      },
+      {
+        "id": "hiragana-100-choice-2",
+        "label": "りんご",
+        "reading": "りんご",
+        "image": {
+          "atlasId": "food-01",
+          "symbolId": "apple"
+        }
+      },
+      {
+        "id": "hiragana-100-choice-3",
+        "label": "さかな",
+        "reading": "さかな",
+        "image": {
+          "atlasId": "animals-01",
+          "symbolId": "fish"
+        }
+      }
+    ],
+    "correctChoiceId": "hiragana-100-choice-1",
     "audioSrc": null
   }
 ]

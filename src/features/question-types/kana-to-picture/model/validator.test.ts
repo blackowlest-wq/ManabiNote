@@ -86,6 +86,26 @@ describe('validateKanaToPictureQuestions', () => {
     expect(() => validateKanaToPictureQuestions([{ ...validQuestion, choices }], validManifest)).toThrow(QuestionDataError);
   });
 
+  it('rejects いす as an incorrect choice for an いぬ question', () => {
+    const question = {
+      ...validQuestion,
+      kana: 'い',
+      reading: 'いぬ',
+      choices: validQuestion.choices.map((choice) => {
+        if (choice.id === 'ant') {
+          return { ...choice, label: 'いぬ', reading: 'いぬ' };
+        }
+        if (choice.id === 'umbrella') {
+          return { ...choice, label: 'いす', reading: 'いす' };
+        }
+        return choice;
+      }),
+      correctChoiceId: 'ant',
+    };
+
+    expect(() => validateKanaToPictureQuestions([question], validManifest)).toThrow(QuestionDataError);
+  });
+
   it('rejects a choice image that references an unknown atlas', () => {
     const choices = validQuestion.choices.map((choice) =>
       choice.id === 'ant' ? { ...choice, image: { atlasId: 'missing', symbolId: 'ant' } } : choice,
