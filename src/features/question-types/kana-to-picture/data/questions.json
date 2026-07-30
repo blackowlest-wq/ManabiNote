@@ -8,7 +8,7 @@
       { "id": "ant", "label": "あり", "imageSrc": "/images/kana-to-picture/ant.svg" },
       { "id": "umbrella", "label": "かさ", "imageSrc": "/images/kana-to-picture/umbrella.svg" }
     ],
-    "correctChoiceId": "apple",
+    "correctChoiceId": "ant",
     "audioSrc": null
   },
   {

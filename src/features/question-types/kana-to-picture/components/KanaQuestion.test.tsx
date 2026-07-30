@@ -13,7 +13,7 @@ const question: KanaToPictureQuestion = {
     { id: 'ant', label: 'あり', imageSrc: '/images/kana-to-picture/ant.svg' },
     { id: 'umbrella', label: 'かさ', imageSrc: '/images/kana-to-picture/umbrella.svg' },
   ],
-  correctChoiceId: 'apple',
+  correctChoiceId: 'ant',
 }
 
 describe('KanaQuestion', () => {
@@ -42,14 +42,14 @@ describe('KanaQuestion', () => {
     render(
       <KanaQuestion
         question={question}
-        selectedChoiceId="apple"
+        selectedChoiceId="ant"
         disabled={false}
         onSelect={onSelect}
       />,
     )
 
-    expect(screen.getByRole('button', { name: 'りんご' })).toHaveAttribute('aria-pressed', 'true')
-    expect(screen.getByRole('button', { name: 'あり' })).toHaveAttribute('aria-pressed', 'false')
+    expect(screen.getByRole('button', { name: 'りんご' })).toHaveAttribute('aria-pressed', 'false')
+    expect(screen.getByRole('button', { name: 'あり' })).toHaveAttribute('aria-pressed', 'true')
 
     await user.click(screen.getByRole('button', { name: 'あり' }))
     expect(onSelect).toHaveBeenCalledWith('ant')
@@ -62,7 +62,7 @@ describe('KanaQuestion', () => {
     render(
       <KanaQuestion
         question={question}
-        selectedChoiceId="apple"
+        selectedChoiceId="ant"
         disabled={true}
         onSelect={onSelect}
       />,
