@@ -40,6 +40,7 @@ describe('QuizPage', () => {
     await user.click(screen.getByRole('button', { name: 'りんご' }))
 
     expect(screen.queryByText('正解！')).not.toBeInTheDocument()
+    expect(screen.queryByText('不正解。')).not.toBeInTheDocument()
     expect(screen.getByRole('button', { name: '回答する' })).toBeEnabled()
     expect(screen.getByRole('button', { name: 'りんご' })).toHaveAttribute('aria-pressed', 'true')
 
