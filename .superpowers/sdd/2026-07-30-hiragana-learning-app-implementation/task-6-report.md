@@ -7,6 +7,7 @@ DONE. Connected the four routes, quiz provider, learning flow, result save, and 
 ## Commit hash(es)
 
 - `eb7b34d6f11274522406f1b3daea9d51fec56dda` — `feat: connect quiz result and history pages`
+- `d353414e621993440576703a9a2d6ca893c873ad` — `fix: make result persistence and session errors safe`
 
 ## Files changed
 
@@ -29,6 +30,7 @@ DONE. Connected the four routes, quiz provider, learning flow, result save, and 
 - `npm run test`: PASS; 12 files / 50 tests.
 - `npm run typecheck`: PASS.
 - `git diff --check`: PASS before commit.
+- Review follow-up: result-save state moved into the provider so remounts do not duplicate history; failed starts now clear stale session state and do not navigate. Regression tests pass.
 
 ## Concerns
 
