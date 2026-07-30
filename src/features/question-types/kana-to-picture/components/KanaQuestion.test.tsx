@@ -37,6 +37,19 @@ describe('KanaQuestion', () => {
     expect(screen.getByRole('img', { name: 'かさ' })).toBeInTheDocument()
   })
 
+  it('uses the current kana in the instruction text', () => {
+    render(
+      <KanaQuestion
+        question={{ ...question, id: 'hiragana-u', kana: 'う' }}
+        selectedChoiceId={null}
+        disabled={false}
+        onSelect={vi.fn()}
+      />,
+    )
+
+    expect(screen.getByText('「う」から はじまる ことばを えらぼう')).toBeInTheDocument()
+  })
+
   it('renders atlas-backed external use references instead of an undefined source', () => {
     const { container } = render(
       <KanaQuestion
