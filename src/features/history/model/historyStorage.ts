@@ -92,3 +92,18 @@ export const appendHistory = (
     return isQuotaError(error) ? { ok: false, reason: 'quota' } : { ok: false, reason: 'unavailable' };
   }
 };
+
+export const clearHistory = (
+  storage: Storage = getDefaultStorage() as Storage,
+): StorageWriteResult => {
+  if (!storage) {
+    return { ok: false, reason: 'unavailable' };
+  }
+
+  try {
+    storage.removeItem(HISTORY_KEY);
+    return { ok: true };
+  } catch {
+    return { ok: false, reason: 'unavailable' };
+  }
+};

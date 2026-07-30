@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
-import { appendHistory, loadHistory } from './historyStorage';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { appendHistory, clearHistory, loadHistory } from './historyStorage';
 import type { HistoryRecord } from './historyTypes';
 
 const KEY = 'manabinote.history.v1';
@@ -35,6 +35,10 @@ const makeStorage = (initial: Record<string, string> = {}): Storage => {
 };
 
 describe('historyStorage', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('returns an empty list for empty storage', () => {
     expect(loadHistory(makeStorage())).toEqual([]);
   });
@@ -96,5 +100,42 @@ describe('historyStorage', () => {
     };
 
     expect(appendHistory(makeHistory('full'), storage)).toEqual({ ok: false, reason: 'quota' });
+  });
+
+  it('removes saved history without removing unrelated storage entries', () => {
+    const storage = makeStorage({
+      [KEY]: JSON.stringify([makeHistory('saved')]),
+      'other.key': 'keep me',
+    });
+
+    expect(clearHistory(storage)).toEqual({ ok: true });
+    expect(loadHistory(storage)).toEqual([]);
+    expect(storage.getItem('other.key')).toBe('keep me');
+  });
+
+  it('succeeds when history is already empty and remains idempotent', () => {
+    const storage = makeStorage();
+
+    expect(clearHistory(storage)).toEqual({ ok: true });
+    expect(clearHistory(storage)).toEqual({ ok: true });
+    expect(storage.length).toBe(0);
+  });
+
+  it('returns unavailable when default storage cannot be accessed', () => {
+    vi.spyOn(window, 'localStorage', 'get').mockImplementation(() => {
+      throw new Error('blocked');
+    });
+
+    expect(clearHistory()).toEqual({ ok: false, reason: 'unavailable' });
+  });
+
+  it('returns unavailable when history cannot be removed', () => {
+    const storage = makeStorage({ [KEY]: JSON.stringify([makeHistory('blocked')]) });
+    storage.removeItem = () => {
+      throw new Error('blocked');
+    };
+
+    expect(clearHistory(storage)).toEqual({ ok: false, reason: 'unavailable' });
+    expect(loadHistory(storage).map((record) => record.id)).toEqual(['blocked']);
   });
 });
