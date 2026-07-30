@@ -186,6 +186,8 @@ button:focus-visible {
 }
 
 .perfect-result-celebration__stars {
+  align-items: flex-end;
+  padding-bottom: 0.25rem;
   color: #f59e0b;
   animation: perfect-result-stars 1.6s ease-in-out infinite;
 }
