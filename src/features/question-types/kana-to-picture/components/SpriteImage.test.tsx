@@ -51,4 +51,5 @@ describe('SpriteImage', () => {
       '/images/kana-to-picture/atlases/animals-01.svg#dog',
     )
   })
+
 })

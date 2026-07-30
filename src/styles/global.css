@@ -122,7 +122,8 @@ button:focus-visible {
   opacity: 0.72;
 }
 
-.kana-picture-choice img {
+.kana-picture-choice img,
+.kana-picture-choice svg {
   width: min(10rem, 100%);
   max-width: 100%;
   aspect-ratio: 1;
@@ -170,7 +171,8 @@ button:focus-visible {
     font-size: 0.9rem;
   }
 
-  .kana-picture-choice img {
+  .kana-picture-choice img,
+  .kana-picture-choice svg {
     width: min(22vw, 5rem);
   }
 
