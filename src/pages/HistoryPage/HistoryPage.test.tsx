@@ -1,7 +1,7 @@
-import { render, screen, within } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { appendHistory, loadHistory } from '../../features/history/model/historyStorage'
 import type { HistoryRecord } from '../../features/history/model/historyTypes'
 import { HistoryPage } from './HistoryPage'
@@ -63,6 +63,47 @@ const renderPage = (storage?: Storage) =>
     </MemoryRouter>,
   )
 
+const installNativeDialogMethods = () => {
+  const showModalDescriptor = Object.getOwnPropertyDescriptor(
+    HTMLDialogElement.prototype,
+    'showModal',
+  )
+  const closeDescriptor = Object.getOwnPropertyDescriptor(HTMLDialogElement.prototype, 'close')
+  const showModal = vi.fn(function (this: HTMLDialogElement) {
+    this.setAttribute('open', '')
+  })
+  const close = vi.fn(function (this: HTMLDialogElement) {
+    this.removeAttribute('open')
+    this.dispatchEvent(new Event('close'))
+  })
+
+  Object.defineProperty(HTMLDialogElement.prototype, 'showModal', {
+    configurable: true,
+    value: showModal,
+  })
+  Object.defineProperty(HTMLDialogElement.prototype, 'close', {
+    configurable: true,
+    value: close,
+  })
+
+  return {
+    close,
+    restore: () => {
+      if (showModalDescriptor) {
+        Object.defineProperty(HTMLDialogElement.prototype, 'showModal', showModalDescriptor)
+      } else {
+        delete HTMLDialogElement.prototype.showModal
+      }
+      if (closeDescriptor) {
+        Object.defineProperty(HTMLDialogElement.prototype, 'close', closeDescriptor)
+      } else {
+        delete HTMLDialogElement.prototype.close
+      }
+    },
+    showModal,
+  }
+}
+
 describe('HistoryPage', () => {
   beforeEach(() => localStorage.clear())
 
@@ -95,18 +136,72 @@ describe('HistoryPage', () => {
     expect(appendHistory(makeHistory(), localStorage)).toEqual({ ok: true })
     renderPage()
 
-    await user.click(screen.getByRole('button', { name: '履歴をクリア' }))
+    const clearTrigger = screen.getByRole('button', { name: '履歴をクリア' })
+    await user.click(clearTrigger)
 
     const dialog = screen.getByRole('dialog', { name: '履歴をクリアしますか？' })
+    const cancelAction = within(dialog).getByRole('button', { name: 'キャンセル' })
     expect(dialog).toHaveAttribute('aria-modal', 'true')
     expect(within(dialog).getByRole('button', { name: '削除する' })).toBeInTheDocument()
+    expect(cancelAction).toHaveFocus()
 
-    await user.click(within(dialog).getByRole('button', { name: 'キャンセル' }))
+    await user.click(cancelAction)
 
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
     expect(screen.getByText('2 / 3')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '履歴をクリア' })).toBeInTheDocument()
+    expect(clearTrigger).toHaveFocus()
     expect(loadHistory(localStorage)).toHaveLength(1)
+  })
+
+  it('uses the native modal lifecycle when dialog methods are supported', async () => {
+    const dialogMethods = installNativeDialogMethods()
+
+    try {
+      const user = userEvent.setup()
+      expect(appendHistory(makeHistory(), localStorage)).toEqual({ ok: true })
+      renderPage()
+
+      const clearTrigger = screen.getByRole('button', { name: '履歴をクリア' })
+      await user.click(clearTrigger)
+
+      const dialog = screen.getByRole('dialog', { name: '履歴をクリアしますか？' })
+      expect(dialogMethods.showModal).toHaveBeenCalledOnce()
+      expect(within(dialog).getByRole('button', { name: 'キャンセル' })).toHaveFocus()
+
+      await user.click(within(dialog).getByRole('button', { name: 'キャンセル' }))
+
+      await waitFor(() => expect(dialogMethods.close).toHaveBeenCalledOnce())
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+      expect(clearTrigger).toHaveFocus()
+    } finally {
+      dialogMethods.restore()
+    }
+  })
+
+  it('handles native cancel events by closing and restoring focus without clearing history', async () => {
+    const dialogMethods = installNativeDialogMethods()
+
+    try {
+      const user = userEvent.setup()
+      expect(appendHistory(makeHistory(), localStorage)).toEqual({ ok: true })
+      renderPage()
+
+      const clearTrigger = screen.getByRole('button', { name: '履歴をクリア' })
+      await user.click(clearTrigger)
+      const dialog = screen.getByRole('dialog', { name: '履歴をクリアしますか？' })
+      const cancelEvent = new Event('cancel', { cancelable: true })
+
+      fireEvent(dialog, cancelEvent)
+
+      expect(cancelEvent.defaultPrevented).toBe(true)
+      await waitFor(() => expect(dialogMethods.close).toHaveBeenCalledOnce())
+      expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+      expect(clearTrigger).toHaveFocus()
+      expect(loadHistory(localStorage)).toHaveLength(1)
+    } finally {
+      dialogMethods.restore()
+    }
   })
 
   it('confirms clearing and immediately replaces the records with the empty state', async () => {

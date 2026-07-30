@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { clearHistory, loadHistory } from '../../features/history/model/historyStorage'
 import { PageLayout } from '../../shared/components/PageLayout'
@@ -16,6 +16,58 @@ export function HistoryPage({ storage }: HistoryPageProps = {}) {
   const [history, setHistory] = useState(() => loadHistory(storage))
   const [confirmOpen, setConfirmOpen] = useState(false)
   const [clearError, setClearError] = useState<string | null>(null)
+  const dialogRef = useRef<HTMLDialogElement>(null)
+  const clearTriggerRef = useRef<HTMLButtonElement>(null)
+  const firstDialogActionRef = useRef<HTMLButtonElement>(null)
+  const shouldRestoreFocusRef = useRef(false)
+
+  useEffect(() => {
+    const dialog = dialogRef.current
+    if (!dialog) {
+      return
+    }
+
+    if (confirmOpen) {
+      if (!dialog.open) {
+        if (typeof dialog.showModal === 'function') {
+          try {
+            dialog.showModal()
+          } catch {
+            dialog.setAttribute('open', '')
+          }
+        } else {
+          dialog.setAttribute('open', '')
+        }
+      }
+      firstDialogActionRef.current?.focus()
+      return
+    }
+
+    if (dialog.open) {
+      if (typeof dialog.close === 'function') {
+        try {
+          dialog.close()
+        } catch {
+          dialog.removeAttribute('open')
+        }
+      } else {
+        dialog.removeAttribute('open')
+      }
+    }
+
+    if (shouldRestoreFocusRef.current) {
+      shouldRestoreFocusRef.current = false
+      const clearTrigger = clearTriggerRef.current
+      if (clearTrigger?.isConnected) {
+        clearTrigger.focus()
+      }
+    }
+  }, [confirmOpen])
+
+  const closeConfirmation = () => {
+    setConfirmOpen(false)
+    setClearError(null)
+  }
 
   const handleClear = () => {
     const result = clearHistory(storage)
@@ -53,9 +105,11 @@ export function HistoryPage({ storage }: HistoryPageProps = {}) {
             ))}
           </ul>
           <button
+            ref={clearTriggerRef}
             type="button"
             onClick={() => {
               setClearError(null)
+              shouldRestoreFocusRef.current = true
               setConfirmOpen(true)
             }}
           >
@@ -63,24 +117,24 @@ export function HistoryPage({ storage }: HistoryPageProps = {}) {
           </button>
         </>
       )}
-      {confirmOpen && (
-        <dialog open aria-labelledby="history-clear-dialog-title" aria-modal="true">
-          <h2 id="history-clear-dialog-title">履歴をクリアしますか？</h2>
-          <p>保存されている学習履歴がすべて削除されます。</p>
-          {clearError && <p role="alert">{clearError}</p>}
-          <button
-            type="button"
-            autoFocus
-            onClick={() => {
-              setConfirmOpen(false)
-              setClearError(null)
-            }}
-          >
-            キャンセル
-          </button>
-          <button type="button" onClick={handleClear}>削除する</button>
-        </dialog>
-      )}
+      <dialog
+        ref={dialogRef}
+        aria-labelledby="history-clear-dialog-title"
+        aria-modal="true"
+        onCancel={(event) => {
+          event.preventDefault()
+          closeConfirmation()
+        }}
+        onClose={closeConfirmation}
+      >
+        <h2 id="history-clear-dialog-title">履歴をクリアしますか？</h2>
+        <p>保存されている学習履歴がすべて削除されます。</p>
+        {clearError && <p role="alert">{clearError}</p>}
+        <button ref={firstDialogActionRef} type="button" onClick={closeConfirmation}>
+          キャンセル
+        </button>
+        <button type="button" onClick={handleClear}>削除する</button>
+      </dialog>
       <Link to="/">ホームへ戻る</Link>
     </PageLayout>
   )
