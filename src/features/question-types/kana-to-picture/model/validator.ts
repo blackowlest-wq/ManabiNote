@@ -49,7 +49,12 @@ const validateQuestion = (raw: unknown): KanaToPictureQuestion => {
     return invalidData();
   }
 
-  if ('audioSrc' in raw && raw.audioSrc !== null && typeof raw.audioSrc !== 'string') {
+  let audioSrc: string | null | undefined;
+  if (raw.audioSrc === null) {
+    audioSrc = null;
+  } else if (typeof raw.audioSrc === 'string') {
+    audioSrc = raw.audioSrc;
+  } else if (raw.audioSrc !== undefined) {
     return invalidData();
   }
 
@@ -59,7 +64,7 @@ const validateQuestion = (raw: unknown): KanaToPictureQuestion => {
     kana: raw.kana,
     choices,
     correctChoiceId: raw.correctChoiceId,
-    ...(raw.audioSrc === undefined ? {} : { audioSrc: raw.audioSrc }),
+    ...(audioSrc === undefined ? {} : { audioSrc }),
   };
 };
 

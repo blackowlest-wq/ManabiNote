@@ -58,7 +58,7 @@ describe('historyStorage', () => {
     const history = loadHistory(storage);
     expect(history).toHaveLength(50);
     expect(history[0].id).toBe('record-50');
-    expect(history.at(-1)?.id).toBe('record-1');
+    expect(history[history.length - 1]?.id).toBe('record-1');
   });
 
   it.each([

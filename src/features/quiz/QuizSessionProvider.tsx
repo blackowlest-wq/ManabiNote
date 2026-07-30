@@ -53,7 +53,7 @@ export function QuizSessionProvider({ children, initialSession }: QuizSessionPro
     try {
       const nextSession = recordAnswer(session, choiceId)
       setSession(nextSession)
-      setLastAnswer(nextSession.answers.at(-1) ?? null)
+      setLastAnswer(nextSession.answers[nextSession.answers.length - 1] ?? null)
       if (isSessionComplete(nextSession)) setResult(nextSession)
     } catch (cause) {
       setError(cause instanceof Error ? cause : new Error('回答を記録できませんでした'))
