@@ -1,0 +1,133 @@
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { MemoryRouter, useLocation } from 'react-router-dom'
+import { describe, expect, it, vi } from 'vitest'
+import { loadStrokeQuestions } from '../../features/question-types/kana-to-stroke/model/loader'
+import { StrokePracticeProvider } from '../../features/stroke-order/StrokePracticeProvider'
+import {
+  advanceCharacter,
+  createPracticeSession,
+  recordStrokeSuccess,
+  type PracticeSession,
+} from '../../features/stroke-order/model/practiceSession'
+import { StrokeOrderPage } from './StrokeOrderPage'
+
+vi.mock('../../features/question-types/kana-to-stroke/components/StrokeCanvas', () => ({
+  StrokeCanvas: ({
+    onStrokeResult,
+    question,
+  }: {
+    onStrokeResult: (result: { accepted: boolean; reason: 'accepted' | 'incomplete'; progress: number }) => void
+    question: { kana: string }
+  }) => (
+    <div>
+      <p>mock canvas {question.kana}</p>
+      <button
+        type="button"
+        onClick={() => onStrokeResult({ accepted: true, reason: 'accepted', progress: 1 })}
+      >
+        mock success
+      </button>
+      <button
+        type="button"
+        onClick={() => onStrokeResult({ accepted: false, reason: 'incomplete', progress: 0 })}
+      >
+        mock failure
+      </button>
+    </div>
+  ),
+}))
+
+function LocationProbe() {
+  const location = useLocation()
+  return <span data-testid="location">{location.pathname}</span>
+}
+
+const questions = loadStrokeQuestions()
+const fixedClock = () => new Date('2026-07-31T10:00:00.000Z')
+
+const activeSession = () => createPracticeSession(questions, fixedClock)
+
+const characterCompleteSession = (): PracticeSession => {
+  let session = activeSession()
+  for (let index = 0; index < session.questions[0].strokes.length; index += 1) {
+    session = recordStrokeSuccess(session)
+  }
+  return session
+}
+
+const completeSession = (): PracticeSession => {
+  let session = activeSession()
+  for (let questionIndex = 0; questionIndex < questions.length; questionIndex += 1) {
+    for (let strokeIndex = 0; strokeIndex < session.questions[questionIndex].strokes.length; strokeIndex += 1) {
+      session = recordStrokeSuccess(session)
+    }
+    session = advanceCharacter(session)
+  }
+  return session
+}
+
+const renderPage = (initialSession?: PracticeSession) =>
+  render(
+    <MemoryRouter>
+      <StrokePracticeProvider initialSession={initialSession}>
+        <StrokeOrderPage />
+        <LocationProbe />
+      </StrokePracticeProvider>
+    </MemoryRouter>,
+  )
+
+describe('StrokeOrderPage', () => {
+  it('shows a recoverable start state without a session', () => {
+    renderPage()
+
+    expect(screen.getByRole('heading', { name: '書き順れんしゅう' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'れんしゅうをはじめる' })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'ホームへ戻る' })).toBeInTheDocument()
+  })
+
+  it('shows あ and the first stroke for an active session', () => {
+    renderPage(activeSession())
+
+    expect(screen.getByRole('heading', { name: 'あ' })).toBeInTheDocument()
+    expect(screen.getByText('1 / 5')).toBeInTheDocument()
+    expect(screen.getByText(/1画目/)).toBeInTheDocument()
+  })
+
+  it('advances the stroke after an accepted result', async () => {
+    const user = userEvent.setup()
+    renderPage(activeSession())
+
+    await user.click(screen.getByRole('button', { name: 'mock success' }))
+
+    expect(screen.getByText(/2画目/)).toBeInTheDocument()
+  })
+
+  it('shows a retry message without advancing after a rejected result', async () => {
+    const user = userEvent.setup()
+    renderPage(activeSession())
+
+    await user.click(screen.getByRole('button', { name: 'mock failure' }))
+
+    expect(screen.getByRole('status')).toHaveTextContent('もういちど なぞってみよう')
+    expect(screen.getByText(/1画目/)).toBeInTheDocument()
+  })
+
+  it('moves to い after the current character is complete', async () => {
+    const user = userEvent.setup()
+    renderPage(characterCompleteSession())
+
+    await user.click(screen.getByRole('button', { name: 'つぎの文字へ' }))
+
+    expect(screen.getByRole('heading', { name: 'い' })).toBeInTheDocument()
+  })
+
+  it('navigates to the result page after the final character', async () => {
+    const user = userEvent.setup()
+    renderPage(completeSession())
+
+    await user.click(screen.getByRole('button', { name: 'けっかを見る' }))
+
+    expect(screen.getByTestId('location')).toHaveTextContent('/stroke-order/result')
+  })
+})
