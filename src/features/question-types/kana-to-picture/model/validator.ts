@@ -18,6 +18,11 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 const isNonEmptyString = (value: unknown): value is string =>
   typeof value === 'string' && value.trim().length > 0;
 
+const startsWithKana = (label: string, kana: string): boolean => {
+  const escapedKana = kana.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`^${escapedKana}`).test(label);
+};
+
 const invalidData = (): never => {
   throw new QuestionDataError();
 };
@@ -46,6 +51,11 @@ const validateQuestion = (raw: unknown): KanaToPictureQuestion => {
   const choices = raw.choices.map(validateChoice);
   const choiceIds = choices.map((choice) => choice.id);
   if (new Set(choiceIds).size !== choiceIds.length || !choiceIds.includes(raw.correctChoiceId)) {
+    return invalidData();
+  }
+
+  const correctChoice = choices.find((choice) => choice.id === raw.correctChoiceId);
+  if (!correctChoice || !startsWithKana(correctChoice.label, raw.kana)) {
     return invalidData();
   }
 

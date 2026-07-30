@@ -10,7 +10,7 @@ const validQuestion = {
     { id: 'ant', label: 'あり', imageSrc: '/images/ant.svg' },
     { id: 'umbrella', label: 'かさ', imageSrc: '/images/umbrella.svg' },
   ],
-  correctChoiceId: 'apple',
+  correctChoiceId: 'ant',
   audioSrc: null,
 };
 
@@ -41,6 +41,10 @@ describe('validateKanaToPictureQuestions', () => {
 
   it('rejects a missing correct choice', () => {
     expect(() => validateKanaToPictureQuestions([{ ...validQuestion, correctChoiceId: 'missing' }])).toThrow(QuestionDataError);
+  });
+
+  it('rejects a correct choice whose label does not start with the displayed kana', () => {
+    expect(() => validateKanaToPictureQuestions([{ ...validQuestion, correctChoiceId: 'apple' }])).toThrow(QuestionDataError);
   });
 
   it('rejects an unsupported question type', () => {
