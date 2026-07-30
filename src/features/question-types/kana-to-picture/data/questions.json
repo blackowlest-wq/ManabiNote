@@ -3,6 +3,7 @@
     "type": "kana-to-picture",
     "id": "hiragana-a",
     "kana": "あ",
+    "reading": "あり",
     "choices": [
       { "id": "apple", "label": "りんご", "imageSrc": "/images/kana-to-picture/apple.svg" },
       { "id": "ant", "label": "あり", "imageSrc": "/images/kana-to-picture/ant.svg" },
@@ -15,6 +16,7 @@
     "type": "kana-to-picture",
     "id": "hiragana-i",
     "kana": "い",
+    "reading": "いぬ",
     "choices": [
       { "id": "dog", "label": "いぬ", "imageSrc": "/images/kana-to-picture/dog.svg" },
       { "id": "chair", "label": "いす", "imageSrc": "/images/kana-to-picture/chair.svg" },
@@ -27,6 +29,7 @@
     "type": "kana-to-picture",
     "id": "hiragana-u",
     "kana": "う",
+    "reading": "うし",
     "choices": [
       { "id": "cow", "label": "うし", "imageSrc": "/images/kana-to-picture/cow.svg" },
       { "id": "horse", "label": "うま", "imageSrc": "/images/kana-to-picture/horse.svg" },
@@ -39,6 +42,7 @@
     "type": "kana-to-picture",
     "id": "hiragana-e",
     "kana": "え",
+    "reading": "えんぴつ",
     "choices": [
       { "id": "pencil", "label": "えんぴつ", "imageSrc": "/images/kana-to-picture/pencil.svg" },
       { "id": "train", "label": "でんしゃ", "imageSrc": "/images/kana-to-picture/train.svg" },
@@ -51,6 +55,7 @@
     "type": "kana-to-picture",
     "id": "hiragana-o",
     "kana": "お",
+    "reading": "おにぎり",
     "choices": [
       { "id": "rice", "label": "おにぎり", "imageSrc": "/images/kana-to-picture/rice.svg" },
       { "id": "orange", "label": "みかん", "imageSrc": "/images/kana-to-picture/orange.svg" },

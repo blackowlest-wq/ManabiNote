@@ -8,6 +8,7 @@ export type PictureChoice = {
 
 export type KanaToPictureQuestion = BaseQuestion & {
   kana: string;
+  reading: string;
   choices: PictureChoice[];
   correctChoiceId: string;
   audioSrc?: string | null;

@@ -5,6 +5,7 @@ const validQuestion = {
   type: 'kana-to-picture',
   id: 'hiragana-a',
   kana: 'あ',
+  reading: 'あり',
   choices: [
     { id: 'apple', label: 'りんご', imageSrc: '/images/apple.svg' },
     { id: 'ant', label: 'あり', imageSrc: '/images/ant.svg' },
@@ -43,8 +44,18 @@ describe('validateKanaToPictureQuestions', () => {
     expect(() => validateKanaToPictureQuestions([{ ...validQuestion, correctChoiceId: 'missing' }])).toThrow(QuestionDataError);
   });
 
-  it('rejects a correct choice whose label does not start with the displayed kana', () => {
-    expect(() => validateKanaToPictureQuestions([{ ...validQuestion, correctChoiceId: 'apple' }])).toThrow(QuestionDataError);
+  it('rejects a reading that does not start with the displayed kana', () => {
+    expect(() => validateKanaToPictureQuestions([{ ...validQuestion, reading: 'りんご' }])).toThrow(QuestionDataError);
+  });
+
+  it('allows a display label to differ from its phonetic reading', () => {
+    const choices = validQuestion.choices.map((choice) =>
+      choice.id === 'ant' ? { ...choice, label: '蟻' } : choice,
+    );
+
+    const result = validateKanaToPictureQuestions([{ ...validQuestion, choices }]);
+
+    expect(result[0].reading).toBe('あり');
   });
 
   it('rejects an unsupported question type', () => {
@@ -55,6 +66,7 @@ describe('validateKanaToPictureQuestions', () => {
     ['non-array input', {}],
     ['non-object item', [null]],
     ['missing kana', [{ ...validQuestion, kana: '' }]],
+    ['missing reading', [{ ...validQuestion, reading: '' }]],
     ['missing choice label', [{ ...validQuestion, choices: validQuestion.choices.map((choice, index) => index === 0 ? { ...choice, label: '' } : choice) }]],
     ['missing choice image', [{ ...validQuestion, choices: validQuestion.choices.map((choice, index) => index === 0 ? { ...choice, imageSrc: '' } : choice) }]],
   ])('rejects %s', (_, raw) => {

@@ -15,6 +15,7 @@ const question: KanaToPictureQuestion = {
   type: 'kana-to-picture',
   id: 'q-0',
   kana: 'あ',
+  reading: 'テスト',
   choices: [
     { id: 'apple', label: 'りんご', imageSrc: '/images/apple.svg' },
     { id: 'ant', label: 'あり', imageSrc: '/images/ant.svg' },

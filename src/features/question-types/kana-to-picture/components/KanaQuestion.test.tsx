@@ -8,6 +8,7 @@ const question: KanaToPictureQuestion = {
   type: 'kana-to-picture',
   id: 'hiragana-a',
   kana: 'あ',
+  reading: 'あり',
   choices: [
     { id: 'apple', label: 'りんご', imageSrc: '/images/kana-to-picture/apple.svg' },
     { id: 'ant', label: 'あり', imageSrc: '/images/kana-to-picture/ant.svg' },

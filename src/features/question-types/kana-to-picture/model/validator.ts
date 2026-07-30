@@ -18,9 +18,9 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 const isNonEmptyString = (value: unknown): value is string =>
   typeof value === 'string' && value.trim().length > 0;
 
-const startsWithKana = (label: string, kana: string): boolean => {
+const startsWithKana = (reading: string, kana: string): boolean => {
   const escapedKana = kana.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return new RegExp(`^${escapedKana}`).test(label);
+  return new RegExp(`^${escapedKana}`).test(reading);
 };
 
 const invalidData = (): never => {
@@ -40,7 +40,13 @@ const validateChoice = (raw: unknown): PictureChoice => {
 };
 
 const validateQuestion = (raw: unknown): KanaToPictureQuestion => {
-  if (!isRecord(raw) || raw.type !== 'kana-to-picture' || !isNonEmptyString(raw.id) || !isNonEmptyString(raw.kana)) {
+  if (
+    !isRecord(raw) ||
+    raw.type !== 'kana-to-picture' ||
+    !isNonEmptyString(raw.id) ||
+    !isNonEmptyString(raw.kana) ||
+    !isNonEmptyString(raw.reading)
+  ) {
     return invalidData();
   }
 
@@ -55,7 +61,7 @@ const validateQuestion = (raw: unknown): KanaToPictureQuestion => {
   }
 
   const correctChoice = choices.find((choice) => choice.id === raw.correctChoiceId);
-  if (!correctChoice || !startsWithKana(correctChoice.label, raw.kana)) {
+  if (!correctChoice || !startsWithKana(raw.reading, raw.kana)) {
     return invalidData();
   }
 
@@ -72,6 +78,7 @@ const validateQuestion = (raw: unknown): KanaToPictureQuestion => {
     type: 'kana-to-picture',
     id: raw.id,
     kana: raw.kana,
+    reading: raw.reading,
     choices,
     correctChoiceId: raw.correctChoiceId,
     ...(audioSrc === undefined ? {} : { audioSrc }),

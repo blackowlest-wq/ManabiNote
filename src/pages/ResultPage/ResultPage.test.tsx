@@ -17,6 +17,7 @@ const makeFiveQuestions = (): KanaToPictureQuestion[] =>
     type: 'kana-to-picture' as const,
     id: `question-${index}`,
     kana: ['あ', 'い', 'う', 'え', 'お'][index],
+    reading: 'テスト',
     choices: [
       { id: 'apple', label: 'りんご', imageSrc: '/images/apple.svg' },
       { id: 'ant', label: 'あり', imageSrc: '/images/ant.svg' },

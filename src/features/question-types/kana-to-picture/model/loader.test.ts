@@ -10,12 +10,11 @@ describe('loadKanaToPictureQuestions', () => {
     expect(questions.every((question) => question.choices.length === 3)).toBe(true);
   });
 
-  it('uses a picture whose label starts with the displayed kana', () => {
+  it('loads readings that start with the displayed kana', () => {
     const questions = loadKanaToPictureQuestions();
 
     for (const question of questions) {
-      const correctChoice = question.choices.find((choice) => choice.id === question.correctChoiceId);
-      expect(correctChoice?.label.startsWith(question.kana)).toBe(true);
+      expect(question.reading.startsWith(question.kana)).toBe(true);
     }
   });
 });
