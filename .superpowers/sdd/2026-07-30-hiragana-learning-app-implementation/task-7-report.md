@@ -14,6 +14,7 @@ style: add child friendly accessible layout
 
 - `ea9527bfcfd4690af1e954212326bdba362b72f8` — `style: add child friendly accessible layout`
 - `096370529ecbb64f578c282f46a1c28566eef5e7` — `fix: make build compatible with es2020`
+- `c8588f3e73823a89d21ab2ee11019b739d931fba` — `fix: improve focus ring contrast`
 
 ## Files changed
 
@@ -42,5 +43,7 @@ style: add child friendly accessible layout
 ## Concerns
 
 The build-target compatibility issue found during Task 7 verification was fixed in `0963705`: `.at()` calls now use ES2020-compatible indexing and `audioSrc` is explicitly narrowed before object spread. The clean build passed and generated local `dist/` output.
+
+The review finding about focus contrast was fixed in `c8588f3` by changing the focus outline to the darker `#0f172a`; shared tests and typecheck pass.
 
 The default Vitest invocation also remains slow to terminate in this environment after printing successful results; the bounded single-worker invocation exits cleanly and was used for final focused verification.
