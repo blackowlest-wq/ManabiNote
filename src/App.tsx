@@ -1,5 +1,1 @@
-function App() {
-  return <h1>ManabiNote</h1>
-}
-
-export default App
+export { App as default } from './app/App'

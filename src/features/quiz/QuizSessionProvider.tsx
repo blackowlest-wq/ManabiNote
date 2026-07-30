@@ -1,0 +1,68 @@
+import { createContext, useContext, useMemo, useState, type ReactNode } from 'react'
+import { loadKanaToPictureQuestions } from '../question-types/kana-to-picture/model/loader'
+import type { KanaToPictureQuestion } from '../question-types/kana-to-picture/model/types'
+import { createQuizSession, isSessionComplete, recordAnswer, type QuizAnswer, type QuizSession } from './model/quizSession'
+
+type QuizSessionContextValue = {
+  session: QuizSession | null
+  result: QuizSession | null
+  lastAnswer: QuizAnswer | null
+  error: Error | null
+  startSession: () => void
+  answer: (choiceId: string) => void
+  nextQuestion: () => void
+}
+
+const QuizSessionContext = createContext<QuizSessionContextValue | null>(null)
+
+export type QuizSessionProviderProps = {
+  children: ReactNode
+  initialSession?: QuizSession
+}
+
+export function QuizSessionProvider({ children, initialSession }: QuizSessionProviderProps) {
+  const [session, setSession] = useState<QuizSession | null>(initialSession ?? null)
+  const [result, setResult] = useState<QuizSession | null>(initialSession && isSessionComplete(initialSession) ? initialSession : null)
+  const [lastAnswer, setLastAnswer] = useState<QuizAnswer | null>(null)
+  const [error, setError] = useState<Error | null>(null)
+
+  const startSession = () => {
+    try {
+      const questions: KanaToPictureQuestion[] = loadKanaToPictureQuestions()
+      const nextSession = createQuizSession(questions)
+      setSession(nextSession)
+      setResult(null)
+      setLastAnswer(null)
+      setError(null)
+    } catch (cause) {
+      setError(cause instanceof Error ? cause : new Error('問題を開始できませんでした'))
+    }
+  }
+
+  const answer = (choiceId: string) => {
+    if (!session || lastAnswer) return
+    try {
+      const nextSession = recordAnswer(session, choiceId)
+      setSession(nextSession)
+      setLastAnswer(nextSession.answers.at(-1) ?? null)
+      if (isSessionComplete(nextSession)) setResult(nextSession)
+    } catch (cause) {
+      setError(cause instanceof Error ? cause : new Error('回答を記録できませんでした'))
+    }
+  }
+
+  const nextQuestion = () => setLastAnswer(null)
+
+  const value = useMemo<QuizSessionContextValue>(
+    () => ({ session, result, lastAnswer, error, startSession, answer, nextQuestion }),
+    [session, result, lastAnswer, error],
+  )
+
+  return <QuizSessionContext.Provider value={value}>{children}</QuizSessionContext.Provider>
+}
+
+export function useQuizSession() {
+  const context = useContext(QuizSessionContext)
+  if (!context) throw new Error('QuizSessionProviderの内側で使用してください')
+  return context
+}
