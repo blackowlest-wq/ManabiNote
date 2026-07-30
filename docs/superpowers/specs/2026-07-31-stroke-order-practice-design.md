@@ -159,7 +159,7 @@ validatorは次を確認する。
 - guidePathが空でない
 - checkpointsが2点以上あり、座標がviewBox内にある
 
-表示用パスと判定用checkpointsは同じ線を表すデータとして手作業で作成する。checkpointsの間隔は、判定の粗さが文字ごとに偏らないように調整する。
+表示用パスと判定用checkpointsは、書き順の正確さを担保するため、AnimCJKの日本語かなSVGに含まれるメディアン線を200×200の座標へ変換して作成する。表示用guidePathは折れ点が角張らないようBezier曲線へ整え、checkpointsは元の書き順線に沿って保持する。出典とライセンスは `src/features/question-types/kana-to-stroke/data/README.md` に記録する。
 
 ## 8. なぞり判定
 
