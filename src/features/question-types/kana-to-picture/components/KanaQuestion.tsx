@@ -11,19 +11,10 @@ export type KanaQuestionProps = {
 export function KanaQuestion({ question, selectedChoiceId, disabled, onSelect }: KanaQuestionProps) {
   return (
     <section aria-label="かなの問題">
-      <style>{`
-        .kana-picture-choice:focus-visible {
-          outline: 4px solid #f59e0b;
-          outline-offset: 4px;
-        }
-        .kana-picture-choice:disabled {
-          opacity: 0.72;
-        }
-      `}</style>
-      <h2 style={{ color: '#0f172a', fontSize: 'clamp(4rem, 16vw, 7rem)', lineHeight: 1, margin: '0 0 2rem', textAlign: 'center' }}>
+      <h2 className="kana-question__kana">
         {question.kana}
       </h2>
-      <div style={{ display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(auto-fit, minmax(9rem, 1fr))' }}>
+      <div className="kana-question__choices">
         {question.choices.map((choice) => (
           <PictureChoice
             key={choice.id}

@@ -5,7 +5,7 @@ export type AnswerFeedbackProps = {
 
 export function AnswerFeedback({ isCorrect, correctLabel }: AnswerFeedbackProps) {
   return (
-    <div role="status" aria-live="polite">
+    <div className="choice-feedback" role="status" aria-live="polite">
       {isCorrect ? (
         <p><span aria-hidden="true">✅</span> <span>正解！</span></p>
       ) : (

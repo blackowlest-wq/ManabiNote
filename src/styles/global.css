@@ -1,0 +1,146 @@
+:root {
+  color: #172033;
+  background: #f5f9ff;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  font-synthesis: none;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: #075985;
+  font-weight: 700;
+  text-underline-offset: 0.2em;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 4px solid #f59e0b;
+  outline-offset: 4px;
+}
+
+.page-layout {
+  min-height: 100vh;
+  padding: clamp(1rem, 4vw, 3rem);
+}
+
+.page-layout__content {
+  width: min(100%, 62rem);
+  margin: 0 auto;
+}
+
+.page-layout h1 {
+  margin: 0 0 1.5rem;
+  color: #172033;
+  font-size: clamp(1.75rem, 7vw, 3rem);
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.page-layout p {
+  font-size: 1.125rem;
+}
+
+.primary-button {
+  min-height: 3rem;
+  border: 3px solid #075985;
+  border-radius: 0.875rem;
+  padding: 0.7rem 1.25rem;
+  background: #075985;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: #0c4a6e;
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+.kana-question__kana {
+  margin: 0 0 2rem;
+  color: #172033;
+  font-size: clamp(4rem, 16vw, 7rem);
+  line-height: 1;
+  text-align: center;
+}
+
+.kana-question__choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+  gap: 1rem;
+}
+
+.kana-picture-choice {
+  min-height: 12rem;
+  width: 100%;
+  align-items: center;
+  border: 2px solid #334155;
+  border-radius: 1rem;
+  padding: 1rem;
+  background: #ffffff;
+  color: #172033;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+
+.kana-picture-choice[aria-pressed='true'] {
+  border-width: 3px;
+  border-color: #075985;
+  background: #e0f2fe;
+}
+
+.kana-picture-choice:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.kana-picture-choice img {
+  max-width: 100%;
+  height: auto;
+}
+
+.choice-feedback {
+  margin: 1.5rem 0;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  font-weight: 700;
+}
+
+@media (max-width: 26rem) {
+  .page-layout {
+    padding: 1rem;
+  }
+
+  .kana-question__choices {
+    grid-template-columns: 1fr;
+  }
+}

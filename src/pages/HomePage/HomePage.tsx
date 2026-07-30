@@ -1,5 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useQuizSession } from '../../features/quiz/QuizSessionProvider'
+import { PageLayout } from '../../shared/components/PageLayout'
+import { PrimaryButton } from '../../shared/components/PrimaryButton'
 
 export function HomePage() {
   const navigate = useNavigate()
@@ -10,12 +12,11 @@ export function HomePage() {
   }
 
   return (
-    <main>
-      <h1>ManabiNote</h1>
+    <PageLayout title="ManabiNote">
       <p>ひらがなと えを おぼえよう</p>
-      <button type="button" onClick={handleStart}>学習をはじめる</button>
+      <PrimaryButton onClick={handleStart}>学習をはじめる</PrimaryButton>
       <p><Link to="/history">履歴を見る</Link></p>
       {error && <p role="alert">問題を読み込めませんでした。</p>}
-    </main>
+    </PageLayout>
   )
 }
