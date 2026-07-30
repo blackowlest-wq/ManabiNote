@@ -98,7 +98,7 @@ describe('StrokeCanvas', () => {
         onStrokeResult={onStrokeResult}
       />,
     )
-    const svg = screen.getByTestId('stroke-canvas')
+    const svg = screen.getByTestId('stroke-canvas') as unknown as SVGSVGElement
     setSvgRect(svg)
 
     dispatchPointer(svg, 'pointerdown', 20, 20)
@@ -121,7 +121,7 @@ describe('StrokeCanvas', () => {
         onStrokeResult={onStrokeResult}
       />,
     )
-    const svg = screen.getByTestId('stroke-canvas')
+    const svg = screen.getByTestId('stroke-canvas') as unknown as SVGSVGElement
     setSvgRect(svg)
 
     dispatchPointer(svg, 'pointerdown', 160, 20)
@@ -142,7 +142,7 @@ describe('StrokeCanvas', () => {
         onStrokeResult={onStrokeResult}
       />,
     )
-    const svg = screen.getByTestId('stroke-canvas')
+    const svg = screen.getByTestId('stroke-canvas') as unknown as SVGSVGElement
     setSvgRect(svg)
 
     dispatchPointer(svg, 'pointerdown', 20, 20)
@@ -167,7 +167,7 @@ describe('StrokeCanvas', () => {
         onStrokeResult={onStrokeResult}
       />,
     )
-    const svg = screen.getByTestId('stroke-canvas')
+    const svg = screen.getByTestId('stroke-canvas') as unknown as SVGSVGElement
     setSvgRect(svg)
 
     dispatchPointer(svg, 'pointerdown', 20, 20)
