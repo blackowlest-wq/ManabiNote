@@ -29,9 +29,11 @@ npm run test
 npm run test:coverage
 npm run typecheck
 npm run build
+npm run test:pwa
 ```
 
 カバレッジの Statements / Branches / Functions / Lines は、それぞれ80%以上をCIで必須にしています。
+`npm run test:pwa` はproduction build後にmanifest、Service Worker、全問題画像のprecacheを検証します。
 
 ## Cloudflare Pages
 
