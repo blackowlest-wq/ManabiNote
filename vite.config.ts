@@ -1,13 +1,19 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+import imageAtlasManifest from './src/features/question-types/kana-to-picture/data/image-atlas-manifest.json'
+
+const atlasAssets = imageAtlasManifest.atlases.map((atlas) => atlas.src.replace(/^\//, ''))
 
 export default defineConfig({
+  build: {
+    reportCompressedSize: false,
+  },
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg'],
+      includeAssets: ['favicon.svg', ...atlasAssets],
       manifest: {
         name: 'ManabiNote',
         short_name: 'ManabiNote',
@@ -33,6 +39,7 @@ export default defineConfig({
         globPatterns: [
           '**/*.{js,css,html,svg,webmanifest}',
           'images/**/*.{svg,png,jpg,jpeg,webp}',
+          'images/kana-to-picture/atlases/**/*.{svg,png,jpg,jpeg,webp}',
         ],
       },
     }),

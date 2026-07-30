@@ -6,6 +6,10 @@ const distDirectory = resolve(process.cwd(), 'dist')
 const manifestPath = resolve(distDirectory, 'manifest.webmanifest')
 const serviceWorkerPath = resolve(distDirectory, 'sw.js')
 const questionImageDirectory = resolve(process.cwd(), 'public/images/kana-to-picture')
+const atlasManifestPath = resolve(
+  process.cwd(),
+  'src/features/question-types/kana-to-picture/data/image-atlas-manifest.json',
+)
 
 describe('production PWA output', () => {
   it('contains the offline manifest and local image precache', () => {
@@ -21,6 +25,9 @@ describe('production PWA output', () => {
       theme_color: string
       background_color: string
       icons: Array<{ src: string; sizes: string; type: string }>
+    }
+    const atlasManifest = JSON.parse(readFileSync(atlasManifestPath, 'utf8')) as {
+      atlases: Array<{ id: string; src: string; symbols: string[] }>
     }
     const serviceWorker = readFileSync(serviceWorkerPath, 'utf8')
     const questionImages = readdirSync(questionImageDirectory).filter((file) => file.endsWith('.svg'))
@@ -41,6 +48,11 @@ describe('production PWA output', () => {
     expect(questionImages).toHaveLength(15)
     for (const image of questionImages) {
       expect(serviceWorker).toContain(`images/kana-to-picture/${image}`)
+    }
+    expect(atlasManifest.atlases).toHaveLength(4)
+    for (const atlas of atlasManifest.atlases) {
+      expect(atlas.symbols.length).toBeGreaterThan(0)
+      expect(serviceWorker).toContain(atlas.src.replace(/^\//, ''))
     }
     expect(serviceWorker).not.toMatch(/https?:\/\//)
   })

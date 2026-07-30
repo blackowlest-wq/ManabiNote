@@ -10,9 +10,9 @@ const question: KanaToPictureQuestion = {
   kana: 'あ',
   reading: 'あり',
   choices: [
-    { id: 'apple', label: 'りんご', reading: 'りんご', image: { atlasId: 'default', symbolId: 'apple' } },
-    { id: 'ant', label: 'あり', reading: 'あり', image: { atlasId: 'default', symbolId: 'ant' } },
-    { id: 'umbrella', label: 'かさ', reading: 'かさ', image: { atlasId: 'default', symbolId: 'umbrella' } },
+    { id: 'apple', label: 'りんご', reading: 'りんご', image: { atlasId: 'food-01', symbolId: 'apple' } },
+    { id: 'ant', label: 'あり', reading: 'あり', image: { atlasId: 'animals-01', symbolId: 'ant' } },
+    { id: 'umbrella', label: 'かさ', reading: 'かさ', image: { atlasId: 'objects-01', symbolId: 'umbrella' } },
   ],
   correctChoiceId: 'ant',
 }
@@ -31,13 +31,13 @@ describe('KanaQuestion', () => {
     expect(screen.getByRole('heading', { name: 'あ' })).toBeInTheDocument()
     expect(screen.getAllByRole('button')).toHaveLength(3)
     expect(screen.getByRole('button', { name: 'りんご' })).toBeInTheDocument()
-    expect(screen.getByAltText('りんご')).toBeInTheDocument()
-    expect(screen.getByAltText('あり')).toBeInTheDocument()
-    expect(screen.getByAltText('かさ')).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'りんご' })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'あり' })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'かさ' })).toBeInTheDocument()
   })
 
-  it('renders atlas-backed image sources instead of an undefined source', () => {
-    render(
+  it('renders atlas-backed external use references instead of an undefined source', () => {
+    const { container } = render(
       <KanaQuestion
         question={question}
         selectedChoiceId={null}
@@ -46,12 +46,11 @@ describe('KanaQuestion', () => {
       />,
     )
 
-    const appleImage = screen.getByAltText('りんご')
+    const appleImage = screen.getByRole('img', { name: 'りんご' })
+    const useElement = container.querySelector('use')
 
-    expect(appleImage.getAttribute('src')).toBeTruthy()
-    expect(appleImage.getAttribute('src')).not.toContain('undefined')
-    expect(appleImage.getAttribute('src')).toContain('data:image/svg+xml')
-    expect(appleImage.getAttribute('src')).toContain('default-atlas.svg')
+    expect(appleImage.tagName.toLowerCase()).toBe('svg')
+    expect(useElement).toHaveAttribute('href', '/images/kana-to-picture/atlases/food-01.svg#apple')
   })
 
   it('reports the selected choice id and exposes its pressed state', async () => {

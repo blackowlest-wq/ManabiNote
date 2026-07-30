@@ -12,9 +12,9 @@ const makeQuestion = (index: number): KanaToPictureQuestion => ({
   kana: `か${index}`,
   reading: `か${index}`,
   choices: [
-    { id: 'apple', label: 'りんご', reading: 'りんご', imageSrc: '/apple.png' },
-    { id: 'cat', label: 'ねこ', reading: 'ねこ', imageSrc: '/cat.png' },
-    { id: 'dog', label: 'いぬ', reading: 'いぬ', imageSrc: '/dog.png' },
+    { id: 'apple', label: 'りんご', reading: 'りんご', image: { atlasId: 'food-01', symbolId: 'apple' } },
+    { id: 'cat', label: 'ねこ', reading: 'ねこ', image: { atlasId: 'animals-01', symbolId: 'cat' } },
+    { id: 'dog', label: 'いぬ', reading: 'いぬ', image: { atlasId: 'animals-01', symbolId: 'dog' } },
   ],
   correctChoiceId: 'apple',
 });

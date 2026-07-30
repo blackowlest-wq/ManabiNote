@@ -1,5 +1,4 @@
-import type { PictureImageRef } from '../model/imageAtlas'
-import { resolvePictureImageSrc } from '../model/imageAtlas'
+import { loadImageAtlasManifest, resolveImageAtlas, type PictureImageRef } from '../model/imageAtlas'
 
 export type SpriteImageProps = {
   image: PictureImageRef
@@ -8,8 +7,21 @@ export type SpriteImageProps = {
   height?: number
 }
 
-export function SpriteImage({ image, alt, width = 160, height = 160 }: SpriteImageProps) {
-  const src = resolvePictureImageSrc(image)
+const atlasManifest = loadImageAtlasManifest()
 
-  return <img src={src} alt={alt} width={width} height={height} />
+export function SpriteImage({ image, alt, width = 160, height = 160 }: SpriteImageProps) {
+  const atlas = resolveImageAtlas(image, atlasManifest)
+  const href = `${atlas.src}#${image.symbolId}`
+
+  return (
+    <svg
+      role="img"
+      aria-label={alt}
+      viewBox="0 0 160 160"
+      width={width}
+      height={height}
+    >
+      <use href={href} />
+    </svg>
+  )
 }

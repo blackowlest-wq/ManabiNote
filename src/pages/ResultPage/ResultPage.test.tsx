@@ -19,9 +19,9 @@ const makeFiveQuestions = (): KanaToPictureQuestion[] =>
     kana: ['あ', 'い', 'う', 'え', 'お'][index],
     reading: 'テスト',
     choices: [
-      { id: 'apple', label: 'りんご', reading: 'りんご', imageSrc: '/images/apple.svg' },
-      { id: 'ant', label: 'あり', reading: 'あり', imageSrc: '/images/ant.svg' },
-      { id: 'umbrella', label: 'かさ', reading: 'かさ', imageSrc: '/images/umbrella.svg' },
+      { id: 'apple', label: 'りんご', reading: 'りんご', image: { atlasId: 'food-01', symbolId: 'apple' } },
+      { id: 'ant', label: 'あり', reading: 'あり', image: { atlasId: 'animals-01', symbolId: 'ant' } },
+      { id: 'umbrella', label: 'かさ', reading: 'かさ', image: { atlasId: 'objects-01', symbolId: 'umbrella' } },
     ],
     correctChoiceId: 'apple',
   }))
