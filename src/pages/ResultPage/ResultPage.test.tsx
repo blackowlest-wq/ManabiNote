@@ -33,6 +33,10 @@ function completedSession() {
   return session
 }
 
+function ToggleResult({ visible }: { visible: boolean }) {
+  return visible ? <ResultPage /> : null
+}
+
 describe('ResultPage', () => {
   beforeEach(() => vi.clearAllMocks())
 
@@ -62,5 +66,32 @@ describe('ResultPage', () => {
 
     expect(screen.getByText('結果を表示できません')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'ホームへ戻る' })).toBeInTheDocument()
+  })
+
+  it('saves a completed result only once when the result page remounts', () => {
+    const view = render(
+      <MemoryRouter>
+        <QuizSessionProvider initialSession={completedSession()}>
+          <ToggleResult visible />
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    view.rerender(
+      <MemoryRouter>
+        <QuizSessionProvider initialSession={completedSession()}>
+          <ToggleResult visible={false} />
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+    view.rerender(
+      <MemoryRouter>
+        <QuizSessionProvider initialSession={completedSession()}>
+          <ToggleResult visible />
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    expect(appendHistory).toHaveBeenCalledTimes(1)
   })
 })

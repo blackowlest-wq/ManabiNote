@@ -6,8 +6,7 @@ export function HomePage() {
   const { startSession, error } = useQuizSession()
 
   const handleStart = () => {
-    startSession()
-    navigate('/quiz')
+    if (startSession()) navigate('/quiz')
   }
 
   return (
