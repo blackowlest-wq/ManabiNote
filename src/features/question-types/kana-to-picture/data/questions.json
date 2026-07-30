@@ -760,7 +760,7 @@
         "reading": "くま",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "panda"
+          "symbolId": "bear"
         }
       },
       {
@@ -1176,7 +1176,7 @@
         "reading": "しろくま",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "bear"
+          "symbolId": "polar-bear"
         }
       }
     ],
