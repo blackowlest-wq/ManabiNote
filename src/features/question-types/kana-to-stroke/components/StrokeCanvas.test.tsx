@@ -58,6 +58,12 @@ const dispatchPointer = (
   svg.dispatchEvent(event)
 }
 
+const dispatchTouch = (svg: SVGSVGElement, type: 'touchstart' | 'touchmove') => {
+  const event = new Event(type, { bubbles: true, cancelable: true })
+  svg.dispatchEvent(event)
+  return event
+}
+
 describe('StrokeCanvas', () => {
   it('renders the fixed viewBox and guide paths', () => {
     render(
@@ -86,6 +92,24 @@ describe('StrokeCanvas', () => {
     )
 
     expect(screen.getByText('ここから なぞろう')).toBeInTheDocument()
+  })
+
+  it('prevents the page from scrolling during touch tracing', () => {
+    render(
+      <StrokeCanvas
+        question={question}
+        currentStrokeIndex={0}
+        completedStrokeIndexes={[]}
+        onStrokeResult={vi.fn()}
+      />,
+    )
+    const svg = screen.getByTestId('stroke-canvas') as unknown as SVGSVGElement
+
+    const touchStart = dispatchTouch(svg, 'touchstart')
+    const touchMove = dispatchTouch(svg, 'touchmove')
+
+    expect(touchStart.defaultPrevented).toBe(true)
+    expect(touchMove.defaultPrevented).toBe(true)
   })
 
   it('reports an accepted result after tracing every checkpoint', () => {

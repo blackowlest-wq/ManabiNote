@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   recognizeStroke,
   type StrokeRecognitionResult,
@@ -46,6 +46,24 @@ export function StrokeCanvas({
   const inputPointsRef = useRef<StrokePoint[]>([])
   const [inputPoints, setInputPoints] = useState<StrokePoint[]>([])
   const activeStroke = question.strokes[currentStrokeIndex] ?? question.strokes[0]
+
+  useEffect(() => {
+    const svg = svgRef.current
+    if (!svg || disabled) return
+
+    const preventTouchScroll = (event: TouchEvent) => {
+      event.preventDefault()
+    }
+    const options: AddEventListenerOptions = { passive: false }
+
+    svg.addEventListener('touchstart', preventTouchScroll, options)
+    svg.addEventListener('touchmove', preventTouchScroll, options)
+
+    return () => {
+      svg.removeEventListener('touchstart', preventTouchScroll, options)
+      svg.removeEventListener('touchmove', preventTouchScroll, options)
+    }
+  }, [disabled])
 
   const toPoint = (clientX: number, clientY: number) => {
     if (!svgRef.current) return { x: 0, y: 0 }
