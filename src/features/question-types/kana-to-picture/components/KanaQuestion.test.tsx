@@ -18,7 +18,7 @@ const question: KanaToPictureQuestion = {
 }
 
 describe('KanaQuestion', () => {
-  it('renders the kana and three labelled image buttons', () => {
+  it('renders the kana and three image buttons without visible labels before answering', () => {
     render(
       <KanaQuestion
         question={question}
@@ -31,10 +31,28 @@ describe('KanaQuestion', () => {
     expect(screen.getByRole('heading', { name: 'あ' })).toBeInTheDocument()
     expect(screen.getByText('「あ」から はじまる ことばを えらぼう')).toBeInTheDocument()
     expect(screen.getAllByRole('button')).toHaveLength(3)
+    expect(screen.queryByText('りんご')).not.toBeInTheDocument()
+    expect(screen.queryByText('あり')).not.toBeInTheDocument()
+    expect(screen.queryByText('かさ')).not.toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'りんご' })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: 'りんご' })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: 'あり' })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: 'かさ' })).toBeInTheDocument()
+  })
+
+  it('reveals the picture labels after answering', () => {
+    render(
+      <KanaQuestion
+        question={question}
+        selectedChoiceId="ant"
+        disabled={true}
+        onSelect={vi.fn()}
+      />,
+    )
+
+    expect(screen.getByText('りんご')).toBeInTheDocument()
+    expect(screen.getByText('あり')).toBeInTheDocument()
+    expect(screen.getByText('かさ')).toBeInTheDocument()
   })
 
   it('uses the current kana in the instruction text', () => {

@@ -35,11 +35,13 @@ describe('SpriteImage', () => {
         choice={dogChoice}
         selected={true}
         disabled={false}
+        showLabel={false}
         onSelect={vi.fn()}
       />,
     )
 
     const button = screen.getByRole('button', { name: 'いぬ' })
+    expect(screen.queryByText('いぬ')).not.toBeInTheDocument()
     const image = within(button).getByRole('img', { name: 'いぬ' })
     const useElement = image.querySelector('use')
 

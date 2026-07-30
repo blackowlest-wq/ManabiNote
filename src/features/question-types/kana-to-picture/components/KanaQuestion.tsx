@@ -24,6 +24,7 @@ export function KanaQuestion({ question, selectedChoiceId, disabled, onSelect }:
             choice={choice}
             selected={selectedChoiceId === choice.id}
             disabled={disabled}
+            showLabel={disabled}
             onSelect={onSelect}
           />
         ))}

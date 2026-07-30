@@ -5,10 +5,11 @@ export type PictureChoiceProps = {
   choice: PictureChoiceData
   selected: boolean
   disabled: boolean
+  showLabel: boolean
   onSelect: (choiceId: string) => void
 }
 
-export function PictureChoice({ choice, selected, disabled, onSelect }: PictureChoiceProps) {
+export function PictureChoice({ choice, selected, disabled, showLabel, onSelect }: PictureChoiceProps) {
   return (
     <button
       type="button"
@@ -19,7 +20,7 @@ export function PictureChoice({ choice, selected, disabled, onSelect }: PictureC
       onClick={() => onSelect(choice.id)}
     >
       <SpriteImage image={choice.image} alt={choice.label} />
-      <span>{choice.label}</span>
+      {showLabel && <span>{choice.label}</span>}
     </button>
   )
 }

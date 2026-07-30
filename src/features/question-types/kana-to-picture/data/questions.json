@@ -16,20 +16,20 @@
       },
       {
         "id": "hiragana-001-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "いす",
+        "reading": "いす",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "chair"
         }
       },
       {
         "id": "hiragana-001-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "いちご",
+        "reading": "いちご",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "strawberry"
         }
       }
     ],
@@ -44,20 +44,20 @@
     "choices": [
       {
         "id": "hiragana-002-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "いぬ",
+        "reading": "いぬ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "dog"
         }
       },
       {
         "id": "hiragana-002-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "うさぎ",
+        "reading": "うさぎ",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "rabbit"
         }
       },
       {
@@ -81,11 +81,11 @@
     "choices": [
       {
         "id": "hiragana-003-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "うし",
+        "reading": "うし",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "cow"
         }
       },
       {
@@ -99,11 +99,11 @@
       },
       {
         "id": "hiragana-003-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "うま",
+        "reading": "うま",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "horse"
         }
       }
     ],
@@ -127,20 +127,20 @@
       },
       {
         "id": "hiragana-004-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "あいすくりーむ",
+        "reading": "あいすくりーむ",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "icecream"
         }
       },
       {
         "id": "hiragana-004-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "あめ",
+        "reading": "あめ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "rain"
         }
       }
     ],
@@ -155,20 +155,20 @@
     "choices": [
       {
         "id": "hiragana-005-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "あり",
+        "reading": "あり",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "ant"
         }
       },
       {
         "id": "hiragana-005-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "えほん",
+        "reading": "えほん",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "book"
         }
       },
       {
@@ -192,11 +192,11 @@
     "choices": [
       {
         "id": "hiragana-006-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "えんぴつ",
+        "reading": "えんぴつ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "pencil"
         }
       },
       {
@@ -210,11 +210,11 @@
       },
       {
         "id": "hiragana-006-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "おか",
+        "reading": "おか",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "hill"
         }
       }
     ],
@@ -238,20 +238,20 @@
       },
       {
         "id": "hiragana-007-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "おにぎり",
+        "reading": "おにぎり",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "rice"
         }
       },
       {
         "id": "hiragana-007-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "おれんじ",
+        "reading": "おれんじ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "orange"
         }
       }
     ],
@@ -266,20 +266,20 @@
     "choices": [
       {
         "id": "hiragana-008-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "かさ",
+        "reading": "かさ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "umbrella"
         }
       },
       {
         "id": "hiragana-008-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "かに",
+        "reading": "かに",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "crab"
         }
       },
       {
@@ -303,11 +303,11 @@
     "choices": [
       {
         "id": "hiragana-009-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "かめ",
+        "reading": "かめ",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "turtle"
         }
       },
       {
@@ -321,11 +321,11 @@
       },
       {
         "id": "hiragana-009-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "きつね",
+        "reading": "きつね",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "fox"
         }
       }
     ],
@@ -349,20 +349,20 @@
       },
       {
         "id": "hiragana-010-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "きのこ",
+        "reading": "きのこ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "mushroom"
         }
       },
       {
         "id": "hiragana-010-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "きりん",
+        "reading": "きりん",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "giraffe"
         }
       }
     ],
@@ -377,20 +377,20 @@
     "choices": [
       {
         "id": "hiragana-011-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "くま",
+        "reading": "くま",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "bear"
         }
       },
       {
         "id": "hiragana-011-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "くも",
+        "reading": "くも",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "cloud"
         }
       },
       {
@@ -414,11 +414,11 @@
     "choices": [
       {
         "id": "hiragana-012-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "けいたいでんわ",
+        "reading": "けいたいでんわ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "phone"
         }
       },
       {
@@ -432,11 +432,11 @@
       },
       {
         "id": "hiragana-012-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "けーき",
+        "reading": "けーき",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "cake"
         }
       }
     ],
@@ -460,20 +460,20 @@
       },
       {
         "id": "hiragana-013-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "こあら",
+        "reading": "こあら",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "koala"
         }
       },
       {
         "id": "hiragana-013-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "こいぬ",
+        "reading": "こいぬ",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "dog"
         }
       }
     ],
@@ -488,11 +488,11 @@
     "choices": [
       {
         "id": "hiragana-014-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "こっぷ",
+        "reading": "こっぷ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "cup"
         }
       },
       {
@@ -525,11 +525,11 @@
     "choices": [
       {
         "id": "hiragana-015-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "さくらんぼ",
+        "reading": "さくらんぼ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "cherry"
         }
       },
       {
@@ -543,11 +543,11 @@
       },
       {
         "id": "hiragana-015-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "さる",
+        "reading": "さる",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "monkey"
         }
       }
     ],
@@ -571,20 +571,20 @@
       },
       {
         "id": "hiragana-016-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "しか",
+        "reading": "しか",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "deer"
         }
       },
       {
         "id": "hiragana-016-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "しろくま",
+        "reading": "しろくま",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "polar-bear"
         }
       }
     ],
@@ -599,20 +599,20 @@
     "choices": [
       {
         "id": "hiragana-017-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "すいか",
+        "reading": "すいか",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "watermelon"
         }
       },
       {
         "id": "hiragana-017-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "すし",
+        "reading": "すし",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "sushi"
         }
       },
       {
@@ -636,11 +636,11 @@
     "choices": [
       {
         "id": "hiragana-018-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "せのたかいきりん",
+        "reading": "せのたかいきりん",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "giraffe"
         }
       },
       {
@@ -654,11 +654,11 @@
       },
       {
         "id": "hiragana-018-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "せんろをはしるでんしゃ",
+        "reading": "せんろをはしるでんしゃ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "train"
         }
       }
     ],
@@ -682,20 +682,20 @@
       },
       {
         "id": "hiragana-019-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "そらのくも",
+        "reading": "そらのくも",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "cloud"
         }
       },
       {
         "id": "hiragana-019-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "そらのたいよう",
+        "reading": "そらのたいよう",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "sun"
         }
       }
     ],
@@ -710,20 +710,20 @@
     "choices": [
       {
         "id": "hiragana-020-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "たいこ",
+        "reading": "たいこ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "drum"
         }
       },
       {
         "id": "hiragana-020-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "たこ",
+        "reading": "たこ",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "octopus"
         }
       },
       {
@@ -747,11 +747,11 @@
     "choices": [
       {
         "id": "hiragana-021-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "たこあげ",
+        "reading": "たこあげ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "kite"
         }
       },
       {
@@ -765,11 +765,11 @@
       },
       {
         "id": "hiragana-021-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ちゅーりっぷ",
+        "reading": "ちゅーりっぷ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "tulip"
         }
       }
     ],
@@ -793,20 +793,20 @@
       },
       {
         "id": "hiragana-022-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ちょうちょ",
+        "reading": "ちょうちょ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "butterfly"
         }
       },
       {
         "id": "hiragana-022-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "つき",
+        "reading": "つき",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "moon"
         }
       }
     ],
@@ -821,20 +821,20 @@
     "choices": [
       {
         "id": "hiragana-023-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "つばめ",
+        "reading": "つばめ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "bird"
         }
       },
       {
         "id": "hiragana-023-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "てさげかばん",
+        "reading": "てさげかばん",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "backpack"
         }
       },
       {
@@ -858,11 +858,11 @@
     "choices": [
       {
         "id": "hiragana-024-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "てちょう",
+        "reading": "てちょう",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "book"
         }
       },
       {
@@ -876,11 +876,11 @@
       },
       {
         "id": "hiragana-024-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "とけい",
+        "reading": "とけい",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "clock"
         }
       }
     ],
@@ -904,20 +904,20 @@
       },
       {
         "id": "hiragana-025-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "とまと",
+        "reading": "とまと",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "tomato"
         }
       },
       {
         "id": "hiragana-025-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ながぐつ",
+        "reading": "ながぐつ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "boots"
         }
       }
     ],
@@ -932,20 +932,20 @@
     "choices": [
       {
         "id": "hiragana-026-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "なし",
+        "reading": "なし",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "pear"
         }
       },
       {
         "id": "hiragana-026-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "なみ",
+        "reading": "なみ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "wave"
         }
       },
       {
@@ -969,11 +969,11 @@
     "choices": [
       {
         "id": "hiragana-027-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "にじ",
+        "reading": "にじ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "rainbow"
         }
       },
       {
@@ -987,11 +987,11 @@
       },
       {
         "id": "hiragana-027-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "にんじん",
+        "reading": "にんじん",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "carrot"
         }
       }
     ],
@@ -1015,20 +1015,20 @@
       },
       {
         "id": "hiragana-028-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ぬま",
+        "reading": "ぬま",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "pond"
         }
       },
       {
         "id": "hiragana-028-choice-3",
-        "label": "かさ",
-        "reading": "かさ",
+        "label": "ぬりえ",
+        "reading": "ぬりえ",
         "image": {
           "atlasId": "objects-01",
-          "symbolId": "umbrella"
+          "symbolId": "book"
         }
       }
     ],
@@ -1043,20 +1043,20 @@
     "choices": [
       {
         "id": "hiragana-029-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ねこ",
+        "reading": "ねこ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "cat"
         }
       },
       {
         "id": "hiragana-029-choice-2",
-        "label": "かさ",
-        "reading": "かさ",
+        "label": "ねこのこ",
+        "reading": "ねこのこ",
         "image": {
-          "atlasId": "objects-01",
-          "symbolId": "umbrella"
+          "atlasId": "animals-01",
+          "symbolId": "cat"
         }
       },
       {
@@ -1080,11 +1080,11 @@
     "choices": [
       {
         "id": "hiragana-030-choice-1",
-        "label": "かさ",
-        "reading": "かさ",
+        "label": "のみもの",
+        "reading": "のみもの",
         "image": {
-          "atlasId": "objects-01",
-          "symbolId": "umbrella"
+          "atlasId": "food-01",
+          "symbolId": "milk"
         }
       },
       {
@@ -1098,11 +1098,11 @@
       },
       {
         "id": "hiragana-030-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "のりもの",
+        "reading": "のりもの",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "bus"
         }
       }
     ],
@@ -1126,20 +1126,20 @@
       },
       {
         "id": "hiragana-031-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "はさみ",
+        "reading": "はさみ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "scissors"
         }
       },
       {
         "id": "hiragana-031-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "はっぱ",
+        "reading": "はっぱ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "leaf"
         }
       }
     ],
@@ -1154,20 +1154,20 @@
     "choices": [
       {
         "id": "hiragana-032-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "はな",
+        "reading": "はな",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "flower"
         }
       },
       {
         "id": "hiragana-032-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ひので",
+        "reading": "ひので",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "sun"
         }
       },
       {
@@ -1191,11 +1191,11 @@
     "choices": [
       {
         "id": "hiragana-033-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ひよこ",
+        "reading": "ひよこ",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "chick"
         }
       },
       {
@@ -1209,11 +1209,11 @@
       },
       {
         "id": "hiragana-033-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ふくろう",
+        "reading": "ふくろう",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "owl"
         }
       }
     ],
@@ -1237,20 +1237,20 @@
       },
       {
         "id": "hiragana-034-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ふね",
+        "reading": "ふね",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "ship"
         }
       },
       {
         "id": "hiragana-034-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "へやのいす",
+        "reading": "へやのいす",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "chair"
         }
       }
     ],
@@ -1265,20 +1265,20 @@
     "choices": [
       {
         "id": "hiragana-035-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "へやのらんぷ",
+        "reading": "へやのらんぷ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "lamp"
         }
       },
       {
         "id": "hiragana-035-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ほし",
+        "reading": "ほし",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "star"
         }
       },
       {
@@ -1302,11 +1302,11 @@
     "choices": [
       {
         "id": "hiragana-036-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ほっとけーき",
+        "reading": "ほっとけーき",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "hotcake"
         }
       },
       {
@@ -1320,11 +1320,11 @@
       },
       {
         "id": "hiragana-036-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "まめ",
+        "reading": "まめ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "seed"
         }
       }
     ],
@@ -1348,20 +1348,20 @@
       },
       {
         "id": "hiragana-037-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "まるいぼーる",
+        "reading": "まるいぼーる",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "ball"
         }
       },
       {
         "id": "hiragana-037-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "まんまるおつきさま",
+        "reading": "まんまるおつきさま",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "moon"
         }
       }
     ],
@@ -1376,20 +1376,20 @@
     "choices": [
       {
         "id": "hiragana-038-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "みかん",
+        "reading": "みかん",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "orange"
         }
       },
       {
         "id": "hiragana-038-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "みるく",
+        "reading": "みるく",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "milk"
         }
       },
       {
@@ -1413,11 +1413,11 @@
     "choices": [
       {
         "id": "hiragana-039-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "むし",
+        "reading": "むし",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "ant"
         }
       },
       {
@@ -1431,11 +1431,11 @@
       },
       {
         "id": "hiragana-039-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "むらさきぶどう",
+        "reading": "むらさきぶどう",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "grape"
         }
       }
     ],
@@ -1459,20 +1459,20 @@
       },
       {
         "id": "hiragana-040-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "めざましどけい",
+        "reading": "めざましどけい",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "clock"
         }
       },
       {
         "id": "hiragana-040-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "めろん",
+        "reading": "めろん",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "melon"
         }
       }
     ],
@@ -1487,20 +1487,20 @@
     "choices": [
       {
         "id": "hiragana-041-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "もも",
+        "reading": "もも",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "peach"
         }
       },
       {
         "id": "hiragana-041-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "もり",
+        "reading": "もり",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "forest"
         }
       },
       {
@@ -1524,11 +1524,11 @@
     "choices": [
       {
         "id": "hiragana-042-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "やさい",
+        "reading": "やさい",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "broccoli"
         }
       },
       {
@@ -1542,11 +1542,11 @@
       },
       {
         "id": "hiragana-042-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "やま",
+        "reading": "やま",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "mountain"
         }
       }
     ],
@@ -1570,20 +1570,20 @@
       },
       {
         "id": "hiragana-043-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ゆき",
+        "reading": "ゆき",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "snowflake"
         }
       },
       {
         "id": "hiragana-043-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ゆきだるま",
+        "reading": "ゆきだるま",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "snowman"
         }
       }
     ],
@@ -1598,20 +1598,20 @@
     "choices": [
       {
         "id": "hiragana-044-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "よーぐると",
+        "reading": "よーぐると",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "yogurt"
         }
       },
       {
         "id": "hiragana-044-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "よっと",
+        "reading": "よっと",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "ship"
         }
       },
       {
@@ -1635,11 +1635,11 @@
     "choices": [
       {
         "id": "hiragana-045-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "らいおん",
+        "reading": "らいおん",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "lion"
         }
       },
       {
@@ -1653,11 +1653,11 @@
       },
       {
         "id": "hiragana-045-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "らんどせる",
+        "reading": "らんどせる",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "backpack"
         }
       }
     ],
@@ -1681,20 +1681,20 @@
       },
       {
         "id": "hiragana-046-choice-2",
+        "label": "りゅっくさっく",
+        "reading": "りゅっくさっく",
+        "image": {
+          "atlasId": "objects-01",
+          "symbolId": "backpack"
+        }
+      },
+      {
+        "id": "hiragana-046-choice-3",
         "label": "りんご",
         "reading": "りんご",
         "image": {
           "atlasId": "food-01",
           "symbolId": "apple"
-        }
-      },
-      {
-        "id": "hiragana-046-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
-        "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
         }
       }
     ],
@@ -1709,20 +1709,20 @@
     "choices": [
       {
         "id": "hiragana-047-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "るーれっと",
+        "reading": "るーれっと",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "roulette"
         }
       },
       {
         "id": "hiragana-047-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "るびー",
+        "reading": "るびー",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "ruby"
         }
       },
       {
@@ -1746,11 +1746,11 @@
     "choices": [
       {
         "id": "hiragana-048-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "れいんぼー",
+        "reading": "れいんぼー",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "rainbow"
         }
       },
       {
@@ -1764,11 +1764,11 @@
       },
       {
         "id": "hiragana-048-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "れもん",
+        "reading": "れもん",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "lemon"
         }
       }
     ],
@@ -1792,20 +1792,20 @@
       },
       {
         "id": "hiragana-049-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ろーるけーき",
+        "reading": "ろーるけーき",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "cake"
         }
       },
       {
         "id": "hiragana-049-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ろーるぱん",
+        "reading": "ろーるぱん",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "bread"
         }
       }
     ],
@@ -1820,20 +1820,20 @@
     "choices": [
       {
         "id": "hiragana-050-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "わっかどーなつ",
+        "reading": "わっかどーなつ",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "donut"
         }
       },
       {
         "id": "hiragana-050-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "わらうぱんだ",
+        "reading": "わらうぱんだ",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "panda"
         }
       },
       {
@@ -1857,11 +1857,11 @@
     "choices": [
       {
         "id": "hiragana-051-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "あいすくりーむ",
+        "reading": "あいすくりーむ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "icecream"
         }
       },
       {
@@ -1875,11 +1875,11 @@
       },
       {
         "id": "hiragana-051-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "あめ",
+        "reading": "あめ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "rain"
         }
       }
     ],
@@ -1903,20 +1903,20 @@
       },
       {
         "id": "hiragana-052-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "あり",
+        "reading": "あり",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "ant"
         }
       },
       {
         "id": "hiragana-052-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "いす",
+        "reading": "いす",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "chair"
         }
       }
     ],
@@ -1931,20 +1931,20 @@
     "choices": [
       {
         "id": "hiragana-053-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "いちご",
+        "reading": "いちご",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "strawberry"
         }
       },
       {
         "id": "hiragana-053-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "いぬ",
+        "reading": "いぬ",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "dog"
         }
       },
       {
@@ -1968,11 +1968,11 @@
     "choices": [
       {
         "id": "hiragana-054-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "うさぎ",
+        "reading": "うさぎ",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "rabbit"
         }
       },
       {
@@ -1986,11 +1986,11 @@
       },
       {
         "id": "hiragana-054-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "うし",
+        "reading": "うし",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "cow"
         }
       }
     ],
@@ -2014,20 +2014,20 @@
       },
       {
         "id": "hiragana-055-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "うま",
+        "reading": "うま",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "horse"
         }
       },
       {
         "id": "hiragana-055-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "えほん",
+        "reading": "えほん",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "book"
         }
       }
     ],
@@ -2042,20 +2042,20 @@
     "choices": [
       {
         "id": "hiragana-056-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "えんぴつ",
+        "reading": "えんぴつ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "pencil"
         }
       },
       {
         "id": "hiragana-056-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "おか",
+        "reading": "おか",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "hill"
         }
       },
       {
@@ -2079,11 +2079,11 @@
     "choices": [
       {
         "id": "hiragana-057-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "おにぎり",
+        "reading": "おにぎり",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "rice"
         }
       },
       {
@@ -2097,11 +2097,11 @@
       },
       {
         "id": "hiragana-057-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "おれんじ",
+        "reading": "おれんじ",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "orange"
         }
       }
     ],
@@ -2125,20 +2125,20 @@
       },
       {
         "id": "hiragana-058-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "かさ",
+        "reading": "かさ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "umbrella"
         }
       },
       {
         "id": "hiragana-058-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "かに",
+        "reading": "かに",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "crab"
         }
       }
     ],
@@ -2153,20 +2153,20 @@
     "choices": [
       {
         "id": "hiragana-059-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "かめ",
+        "reading": "かめ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "turtle"
         }
       },
       {
         "id": "hiragana-059-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "きつね",
+        "reading": "きつね",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "fox"
         }
       },
       {
@@ -2190,11 +2190,11 @@
     "choices": [
       {
         "id": "hiragana-060-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "きのこ",
+        "reading": "きのこ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "mushroom"
         }
       },
       {
@@ -2208,11 +2208,11 @@
       },
       {
         "id": "hiragana-060-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "きりん",
+        "reading": "きりん",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "giraffe"
         }
       }
     ],
@@ -2236,20 +2236,20 @@
       },
       {
         "id": "hiragana-061-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "くま",
+        "reading": "くま",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "bear"
         }
       },
       {
         "id": "hiragana-061-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "くも",
+        "reading": "くも",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "cloud"
         }
       }
     ],
@@ -2264,20 +2264,20 @@
     "choices": [
       {
         "id": "hiragana-062-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "けいたいでんわ",
+        "reading": "けいたいでんわ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "phone"
         }
       },
       {
         "id": "hiragana-062-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "けーき",
+        "reading": "けーき",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "cake"
         }
       },
       {
@@ -2301,11 +2301,11 @@
     "choices": [
       {
         "id": "hiragana-063-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "こあら",
+        "reading": "こあら",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "koala"
         }
       },
       {
@@ -2319,11 +2319,11 @@
       },
       {
         "id": "hiragana-063-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "こいぬ",
+        "reading": "こいぬ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "dog"
         }
       }
     ],
@@ -2347,11 +2347,11 @@
       },
       {
         "id": "hiragana-064-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "こっぷ",
+        "reading": "こっぷ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "cup"
         }
       },
       {
@@ -2375,20 +2375,20 @@
     "choices": [
       {
         "id": "hiragana-065-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "さくらんぼ",
+        "reading": "さくらんぼ",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "cherry"
         }
       },
       {
         "id": "hiragana-065-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "さる",
+        "reading": "さる",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "monkey"
         }
       },
       {
@@ -2412,11 +2412,11 @@
     "choices": [
       {
         "id": "hiragana-066-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "しか",
+        "reading": "しか",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "deer"
         }
       },
       {
@@ -2430,11 +2430,11 @@
       },
       {
         "id": "hiragana-066-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "しろくま",
+        "reading": "しろくま",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "polar-bear"
         }
       }
     ],
@@ -2458,20 +2458,20 @@
       },
       {
         "id": "hiragana-067-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "すいか",
+        "reading": "すいか",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "watermelon"
         }
       },
       {
         "id": "hiragana-067-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "すし",
+        "reading": "すし",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "sushi"
         }
       }
     ],
@@ -2486,20 +2486,20 @@
     "choices": [
       {
         "id": "hiragana-068-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "せのたかいきりん",
+        "reading": "せのたかいきりん",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "giraffe"
         }
       },
       {
         "id": "hiragana-068-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "せんろをはしるでんしゃ",
+        "reading": "せんろをはしるでんしゃ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "train"
         }
       },
       {
@@ -2523,11 +2523,11 @@
     "choices": [
       {
         "id": "hiragana-069-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "そらのくも",
+        "reading": "そらのくも",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "cloud"
         }
       },
       {
@@ -2541,11 +2541,11 @@
       },
       {
         "id": "hiragana-069-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "そらのたいよう",
+        "reading": "そらのたいよう",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "sun"
         }
       }
     ],
@@ -2569,20 +2569,20 @@
       },
       {
         "id": "hiragana-070-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "たいこ",
+        "reading": "たいこ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "drum"
         }
       },
       {
         "id": "hiragana-070-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "たこ",
+        "reading": "たこ",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "octopus"
         }
       }
     ],
@@ -2597,20 +2597,20 @@
     "choices": [
       {
         "id": "hiragana-071-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "たこあげ",
+        "reading": "たこあげ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "kite"
         }
       },
       {
         "id": "hiragana-071-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ちゅーりっぷ",
+        "reading": "ちゅーりっぷ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "tulip"
         }
       },
       {
@@ -2634,11 +2634,11 @@
     "choices": [
       {
         "id": "hiragana-072-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ちょうちょ",
+        "reading": "ちょうちょ",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "butterfly"
         }
       },
       {
@@ -2652,11 +2652,11 @@
       },
       {
         "id": "hiragana-072-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "つき",
+        "reading": "つき",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "moon"
         }
       }
     ],
@@ -2680,20 +2680,20 @@
       },
       {
         "id": "hiragana-073-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "つばめ",
+        "reading": "つばめ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "bird"
         }
       },
       {
         "id": "hiragana-073-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "てさげかばん",
+        "reading": "てさげかばん",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "backpack"
         }
       }
     ],
@@ -2708,20 +2708,20 @@
     "choices": [
       {
         "id": "hiragana-074-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "てちょう",
+        "reading": "てちょう",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "book"
         }
       },
       {
         "id": "hiragana-074-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "とけい",
+        "reading": "とけい",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "clock"
         }
       },
       {
@@ -2745,11 +2745,11 @@
     "choices": [
       {
         "id": "hiragana-075-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "とまと",
+        "reading": "とまと",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "tomato"
         }
       },
       {
@@ -2763,11 +2763,11 @@
       },
       {
         "id": "hiragana-075-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ながぐつ",
+        "reading": "ながぐつ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "boots"
         }
       }
     ],
@@ -2791,20 +2791,20 @@
       },
       {
         "id": "hiragana-076-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "なし",
+        "reading": "なし",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "pear"
         }
       },
       {
         "id": "hiragana-076-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "なみ",
+        "reading": "なみ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "wave"
         }
       }
     ],
@@ -2819,20 +2819,20 @@
     "choices": [
       {
         "id": "hiragana-077-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "にじ",
+        "reading": "にじ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "rainbow"
         }
       },
       {
         "id": "hiragana-077-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "にんじん",
+        "reading": "にんじん",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "carrot"
         }
       },
       {
@@ -2856,11 +2856,11 @@
     "choices": [
       {
         "id": "hiragana-078-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ぬま",
+        "reading": "ぬま",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "pond"
         }
       },
       {
@@ -2874,11 +2874,11 @@
       },
       {
         "id": "hiragana-078-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ぬりえ",
+        "reading": "ぬりえ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "book"
         }
       }
     ],
@@ -2902,20 +2902,20 @@
       },
       {
         "id": "hiragana-079-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ねこ",
+        "reading": "ねこ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "cat"
         }
       },
       {
         "id": "hiragana-079-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ねこのこ",
+        "reading": "ねこのこ",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "cat"
         }
       }
     ],
@@ -2930,20 +2930,20 @@
     "choices": [
       {
         "id": "hiragana-080-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "のみもの",
+        "reading": "のみもの",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "milk"
         }
       },
       {
         "id": "hiragana-080-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "のりもの",
+        "reading": "のりもの",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "bus"
         }
       },
       {
@@ -2967,11 +2967,11 @@
     "choices": [
       {
         "id": "hiragana-081-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "はさみ",
+        "reading": "はさみ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "scissors"
         }
       },
       {
@@ -2985,11 +2985,11 @@
       },
       {
         "id": "hiragana-081-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "はっぱ",
+        "reading": "はっぱ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "leaf"
         }
       }
     ],
@@ -3013,20 +3013,20 @@
       },
       {
         "id": "hiragana-082-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "はな",
+        "reading": "はな",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "flower"
         }
       },
       {
         "id": "hiragana-082-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ひので",
+        "reading": "ひので",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "sun"
         }
       }
     ],
@@ -3041,20 +3041,20 @@
     "choices": [
       {
         "id": "hiragana-083-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ひよこ",
+        "reading": "ひよこ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "chick"
         }
       },
       {
         "id": "hiragana-083-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ふくろう",
+        "reading": "ふくろう",
         "image": {
           "atlasId": "animals-01",
-          "symbolId": "fish"
+          "symbolId": "owl"
         }
       },
       {
@@ -3078,11 +3078,11 @@
     "choices": [
       {
         "id": "hiragana-084-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ふね",
+        "reading": "ふね",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "ship"
         }
       },
       {
@@ -3096,11 +3096,11 @@
       },
       {
         "id": "hiragana-084-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "へやのいす",
+        "reading": "へやのいす",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "chair"
         }
       }
     ],
@@ -3124,20 +3124,20 @@
       },
       {
         "id": "hiragana-085-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "へやのらんぷ",
+        "reading": "へやのらんぷ",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "lamp"
         }
       },
       {
         "id": "hiragana-085-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ほし",
+        "reading": "ほし",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "star"
         }
       }
     ],
@@ -3152,20 +3152,20 @@
     "choices": [
       {
         "id": "hiragana-086-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ほっとけーき",
+        "reading": "ほっとけーき",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "hotcake"
         }
       },
       {
         "id": "hiragana-086-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "まめ",
+        "reading": "まめ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "seed"
         }
       },
       {
@@ -3189,11 +3189,11 @@
     "choices": [
       {
         "id": "hiragana-087-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "まるいぼーる",
+        "reading": "まるいぼーる",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "ball"
         }
       },
       {
@@ -3207,11 +3207,11 @@
       },
       {
         "id": "hiragana-087-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "まんまるおつきさま",
+        "reading": "まんまるおつきさま",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "moon"
         }
       }
     ],
@@ -3235,20 +3235,20 @@
       },
       {
         "id": "hiragana-088-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "みかん",
+        "reading": "みかん",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "orange"
         }
       },
       {
         "id": "hiragana-088-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "みるく",
+        "reading": "みるく",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "milk"
         }
       }
     ],
@@ -3263,20 +3263,20 @@
     "choices": [
       {
         "id": "hiragana-089-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "むし",
+        "reading": "むし",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "ant"
         }
       },
       {
         "id": "hiragana-089-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "むらさきぶどう",
+        "reading": "むらさきぶどう",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "grape"
         }
       },
       {
@@ -3300,11 +3300,11 @@
     "choices": [
       {
         "id": "hiragana-090-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "めざましどけい",
+        "reading": "めざましどけい",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "clock"
         }
       },
       {
@@ -3318,11 +3318,11 @@
       },
       {
         "id": "hiragana-090-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "めろん",
+        "reading": "めろん",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "melon"
         }
       }
     ],
@@ -3346,20 +3346,20 @@
       },
       {
         "id": "hiragana-091-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "もも",
+        "reading": "もも",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "peach"
         }
       },
       {
         "id": "hiragana-091-choice-3",
-        "label": "かさ",
-        "reading": "かさ",
+        "label": "もり",
+        "reading": "もり",
         "image": {
-          "atlasId": "objects-01",
-          "symbolId": "umbrella"
+          "atlasId": "nature-01",
+          "symbolId": "forest"
         }
       }
     ],
@@ -3374,20 +3374,20 @@
     "choices": [
       {
         "id": "hiragana-092-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "やさい",
+        "reading": "やさい",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "broccoli"
         }
       },
       {
         "id": "hiragana-092-choice-2",
-        "label": "かさ",
-        "reading": "かさ",
+        "label": "やま",
+        "reading": "やま",
         "image": {
-          "atlasId": "objects-01",
-          "symbolId": "umbrella"
+          "atlasId": "nature-01",
+          "symbolId": "mountain"
         }
       },
       {
@@ -3411,11 +3411,11 @@
     "choices": [
       {
         "id": "hiragana-093-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ゆき",
+        "reading": "ゆき",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "snowflake"
         }
       },
       {
@@ -3429,11 +3429,11 @@
       },
       {
         "id": "hiragana-093-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ゆきだるま",
+        "reading": "ゆきだるま",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "snowman"
         }
       }
     ],
@@ -3457,20 +3457,20 @@
       },
       {
         "id": "hiragana-094-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "よーぐると",
+        "reading": "よーぐると",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "yogurt"
         }
       },
       {
         "id": "hiragana-094-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "よっと",
+        "reading": "よっと",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "ship"
         }
       }
     ],
@@ -3485,20 +3485,20 @@
     "choices": [
       {
         "id": "hiragana-095-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "らいおん",
+        "reading": "らいおん",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "animals-01",
+          "symbolId": "lion"
         }
       },
       {
         "id": "hiragana-095-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "らんどせる",
+        "reading": "らんどせる",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "backpack"
         }
       },
       {
@@ -3522,11 +3522,11 @@
     "choices": [
       {
         "id": "hiragana-096-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "りゅっくさっく",
+        "reading": "りゅっくさっく",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "backpack"
         }
       },
       {
@@ -3568,20 +3568,20 @@
       },
       {
         "id": "hiragana-097-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "るーれっと",
+        "reading": "るーれっと",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "objects-01",
+          "symbolId": "roulette"
         }
       },
       {
         "id": "hiragana-097-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "るびー",
+        "reading": "るびー",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "objects-01",
+          "symbolId": "ruby"
         }
       }
     ],
@@ -3596,20 +3596,20 @@
     "choices": [
       {
         "id": "hiragana-098-choice-1",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "れいんぼー",
+        "reading": "れいんぼー",
         "image": {
-          "atlasId": "food-01",
-          "symbolId": "apple"
+          "atlasId": "nature-01",
+          "symbolId": "rainbow"
         }
       },
       {
         "id": "hiragana-098-choice-2",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "れもん",
+        "reading": "れもん",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "lemon"
         }
       },
       {
@@ -3633,11 +3633,11 @@
     "choices": [
       {
         "id": "hiragana-099-choice-1",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "ろーるけーき",
+        "reading": "ろーるけーき",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "food-01",
+          "symbolId": "cake"
         }
       },
       {
@@ -3651,11 +3651,11 @@
       },
       {
         "id": "hiragana-099-choice-3",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "ろーるぱん",
+        "reading": "ろーるぱん",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "bread"
         }
       }
     ],
@@ -3679,20 +3679,20 @@
       },
       {
         "id": "hiragana-100-choice-2",
-        "label": "りんご",
-        "reading": "りんご",
+        "label": "あいすくりーむ",
+        "reading": "あいすくりーむ",
         "image": {
           "atlasId": "food-01",
-          "symbolId": "apple"
+          "symbolId": "icecream"
         }
       },
       {
         "id": "hiragana-100-choice-3",
-        "label": "さかな",
-        "reading": "さかな",
+        "label": "あめ",
+        "reading": "あめ",
         "image": {
-          "atlasId": "animals-01",
-          "symbolId": "fish"
+          "atlasId": "nature-01",
+          "symbolId": "rain"
         }
       }
     ],

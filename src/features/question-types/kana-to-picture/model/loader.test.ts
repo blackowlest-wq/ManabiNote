@@ -63,6 +63,23 @@ describe('loadKanaToPictureQuestions', () => {
     }
   });
 
+  it('keeps distractor choices balanced across the question bank', () => {
+    const questions = loadKanaToPictureQuestions();
+    const distractorCounts = new Map<string, number>();
+
+    for (const question of questions) {
+      for (const choice of question.choices) {
+        if (choice.id !== question.correctChoiceId) {
+          distractorCounts.set(choice.reading, (distractorCounts.get(choice.reading) ?? 0) + 1);
+        }
+      }
+    }
+
+    expect(distractorCounts.get('りんご')).toBeLessThanOrEqual(4);
+    expect(distractorCounts.get('さかな')).toBeLessThanOrEqual(4);
+    expect(Math.max(...distractorCounts.values())).toBeLessThanOrEqual(4);
+  });
+
   it('rejects the reviewed unnatural placeholder readings', () => {
     const readings = loadKanaToPictureQuestions().map((question) => question.reading);
 
