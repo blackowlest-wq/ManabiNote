@@ -52,8 +52,11 @@ export function StrokeOrderPage() {
 
   const isCharacterComplete = session.status === 'character-complete'
   const isLastCharacter = session.currentQuestionIndex === session.questions.length - 1
+  const completedStrokeCount = isCharacterComplete
+    ? session.currentStrokeIndex + 1
+    : session.currentStrokeIndex
   const completedStrokeIndexes = Array.from(
-    { length: session.currentStrokeIndex },
+    { length: completedStrokeCount },
     (_, index) => index,
   )
 

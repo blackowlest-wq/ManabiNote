@@ -17,14 +17,17 @@ vi.mock('../../features/question-types/kana-to-stroke/components/StrokeCanvas', 
     onStrokeResult,
     question,
     showFailureHint = false,
+    completedStrokeIndexes = [],
   }: {
     onStrokeResult: (result: { accepted: boolean; reason: 'accepted' | 'incomplete'; progress: number }) => void
     question: { kana: string }
     showFailureHint?: boolean
+    completedStrokeIndexes?: readonly number[]
   }) => (
     <div>
       <p>mock canvas {question.kana}</p>
       <span data-testid="stroke-guide-visibility">{showFailureHint ? 'shown' : 'hidden'}</span>
+      <span data-testid="completed-strokes">{completedStrokeIndexes.join(',')}</span>
       <button
         type="button"
         onClick={() => onStrokeResult({ accepted: true, reason: 'accepted', progress: 1 })}
@@ -54,6 +57,14 @@ const activeSession = () => createPracticeSession(questions, fixedClock)
 const characterCompleteSession = (): PracticeSession => {
   let session = activeSession()
   for (let index = 0; index < session.questions[0].strokes.length; index += 1) {
+    session = recordStrokeSuccess(session)
+  }
+  return session
+}
+
+const finalStrokeSession = (): PracticeSession => {
+  let session = activeSession()
+  for (let index = 0; index < session.questions[0].strokes.length - 1; index += 1) {
     session = recordStrokeSuccess(session)
   }
   return session
@@ -112,6 +123,15 @@ describe('StrokeOrderPage', () => {
 
     expect(screen.getByText(/2画目/)).toBeInTheDocument()
     expect(screen.getByRole('status')).toHaveTextContent('できたよ！')
+  })
+
+  it('marks the final stroke as completed after it is accepted', async () => {
+    const user = userEvent.setup()
+    renderPage(finalStrokeSession())
+
+    await user.click(screen.getByRole('button', { name: 'mock success' }))
+
+    expect(screen.getByTestId('completed-strokes')).toHaveTextContent('0,1,2')
   })
 
   it('shows a retry message without advancing after a rejected result', async () => {
