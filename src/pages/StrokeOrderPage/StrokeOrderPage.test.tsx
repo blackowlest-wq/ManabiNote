@@ -16,12 +16,15 @@ vi.mock('../../features/question-types/kana-to-stroke/components/StrokeCanvas', 
   StrokeCanvas: ({
     onStrokeResult,
     question,
+    showGuide = false,
   }: {
     onStrokeResult: (result: { accepted: boolean; reason: 'accepted' | 'incomplete'; progress: number }) => void
     question: { kana: string }
+    showGuide?: boolean
   }) => (
     <div>
       <p>mock canvas {question.kana}</p>
+      <span data-testid="stroke-guide-visibility">{showGuide ? 'shown' : 'hidden'}</span>
       <button
         type="button"
         onClick={() => onStrokeResult({ accepted: true, reason: 'accepted', progress: 1 })}
@@ -119,6 +122,17 @@ describe('StrokeOrderPage', () => {
 
     expect(screen.getByRole('status')).toHaveTextContent('もういちど なぞってみよう')
     expect(screen.getByText(/1画目/)).toBeInTheDocument()
+  })
+
+  it('reveals the guide only after the first failed trace', async () => {
+    const user = userEvent.setup()
+    renderPage(activeSession())
+
+    expect(screen.getByTestId('stroke-guide-visibility')).toHaveTextContent('hidden')
+
+    await user.click(screen.getByRole('button', { name: 'mock failure' }))
+
+    expect(screen.getByTestId('stroke-guide-visibility')).toHaveTextContent('shown')
   })
 
   it('moves to い after the current character is complete', async () => {

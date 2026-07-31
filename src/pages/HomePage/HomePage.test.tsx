@@ -25,7 +25,9 @@ describe('HomePage', () => {
       </MemoryRouter>,
     )
 
-    await user.click(screen.getByRole('button', { name: '学習をはじめる' }))
+    expect(screen.getByTestId('home-actions')).toHaveClass('home-actions')
+
+    await user.click(screen.getByRole('button', { name: 'ひらがなから えを えらぼう' }))
 
     expect(screen.getByTestId('location')).toHaveTextContent('/quiz')
   })

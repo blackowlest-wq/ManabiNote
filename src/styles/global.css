@@ -48,6 +48,17 @@ button:focus-visible {
   margin: 0 auto;
 }
 
+.home-actions {
+  display: flex;
+  width: min(100%, 28rem);
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.home-actions .primary-button {
+  width: 100%;
+}
+
 .page-layout h1 {
   margin: 0 0 1.5rem;
   color: #172033;
@@ -242,6 +253,11 @@ button:focus-visible {
 .stroke-guide--completed {
   stroke: #38bdf8;
   opacity: 0.92;
+}
+
+.stroke-guide--hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .stroke-input {

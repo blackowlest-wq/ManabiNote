@@ -71,6 +71,7 @@ describe('StrokeCanvas', () => {
         question={question}
         currentStrokeIndex={1}
         completedStrokeIndexes={[0]}
+        showGuide
         onStrokeResult={vi.fn()}
       />,
     )
@@ -79,6 +80,20 @@ describe('StrokeCanvas', () => {
     expect(screen.getByTestId('stroke-guide-0')).toHaveAttribute('d', question.strokes[0].guidePath)
     expect(screen.getByTestId('stroke-guide-1')).toHaveClass('stroke-guide--active')
     expect(screen.getByTestId('stroke-guide-0')).toHaveClass('stroke-guide--completed')
+  })
+
+  it('hides guide paths before the first failed trace', () => {
+    render(
+      <StrokeCanvas
+        question={question}
+        currentStrokeIndex={0}
+        completedStrokeIndexes={[]}
+        onStrokeResult={vi.fn()}
+      />,
+    )
+
+    expect(screen.getByTestId('stroke-guide-0')).toHaveClass('stroke-guide--hidden')
+    expect(screen.getByTestId('stroke-guide-1')).toHaveClass('stroke-guide--hidden')
   })
 
   it('shows a readable start hint for the active stroke', () => {

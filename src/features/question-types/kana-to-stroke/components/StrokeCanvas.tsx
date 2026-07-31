@@ -9,6 +9,7 @@ export type StrokeCanvasProps = {
   question: KanaToStrokeQuestion
   currentStrokeIndex: number
   completedStrokeIndexes: readonly number[]
+  showGuide?: boolean
   disabled?: boolean
   onStrokeResult: (result: StrokeRecognitionResult) => void
 }
@@ -39,6 +40,7 @@ export function StrokeCanvas({
   question,
   currentStrokeIndex,
   completedStrokeIndexes,
+  showGuide = false,
   disabled = false,
   onStrokeResult,
 }: StrokeCanvasProps) {
@@ -121,6 +123,7 @@ export function StrokeCanvas({
       {question.strokes.map((stroke, index) => {
         const isCompleted = completedStrokeIndexes.includes(index)
         const isActive = index === currentStrokeIndex
+        const shouldShowGuide = isCompleted || showGuide
         return (
           <path
             key={stroke.order}
@@ -129,6 +132,7 @@ export function StrokeCanvas({
               'stroke-guide',
               isActive ? 'stroke-guide--active' : '',
               isCompleted ? 'stroke-guide--completed' : '',
+              !shouldShowGuide ? 'stroke-guide--hidden' : '',
             ].filter(Boolean).join(' ')}
             d={stroke.guidePath}
             aria-hidden="true"
