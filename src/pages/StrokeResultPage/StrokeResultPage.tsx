@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { getStrokeRow } from '../../features/question-types/kana-to-stroke/model/kanaRows'
 import { useStrokePractice } from '../../features/stroke-order/StrokePracticeProvider'
 import { PageLayout } from '../../shared/components/PageLayout'
 import { PrimaryButton } from '../../shared/components/PrimaryButton'
@@ -17,12 +18,12 @@ export function StrokeResultPage() {
   }
 
   const handleRetry = () => {
-    if (startPractice()) navigate('/stroke-order')
+    if (startPractice(session.rowId)) navigate('/stroke-order')
   }
 
   return (
     <PageLayout title="れんしゅう結果">
-      <h2>5もじ できたよ</h2>
+      <h2>{getStrokeRow(session.rowId).label}の {session.questions.length}もじ できたよ</h2>
       <ul className="stroke-result-list">
         {session.questions.map((question, index) => (
           <li key={question.id}>

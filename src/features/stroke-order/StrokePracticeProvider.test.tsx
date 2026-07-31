@@ -8,7 +8,7 @@ function Consumer() {
 
   return (
     <div>
-      <button type="button" onClick={startPractice}>start</button>
+      <button type="button" onClick={() => startPractice('a')}>start</button>
       <button type="button" onClick={recordFailure}>failure</button>
       <button type="button" onClick={recordSuccess}>success</button>
       <button type="button" onClick={nextCharacter}>next</button>
@@ -33,7 +33,7 @@ describe('StrokePracticeProvider', () => {
     vi.restoreAllMocks()
   })
 
-  it('starts the fixed five-character practice session', () => {
+  it('starts the selected row practice session', () => {
     renderProvider()
 
     fireEvent.click(screen.getByRole('button', { name: 'start' }))
@@ -56,7 +56,7 @@ describe('StrokePracticeProvider', () => {
   })
 
   it('exposes a safe error when loading data fails', () => {
-    vi.spyOn(loader, 'loadStrokeQuestions').mockImplementationOnce(() => {
+    vi.spyOn(loader, 'loadStrokeQuestionsForRow').mockImplementationOnce(() => {
       throw new Error('broken loader')
     })
     renderProvider()

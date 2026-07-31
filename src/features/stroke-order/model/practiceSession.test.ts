@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { loadStrokeQuestions } from '../../question-types/kana-to-stroke/model/loader'
+import { loadStrokeQuestionsForRow } from '../../question-types/kana-to-stroke/model/loader'
+import { getStrokeRow, type StrokeRowId } from '../../question-types/kana-to-stroke/model/kanaRows'
 import {
   advanceCharacter,
   createPracticeSession,
@@ -9,7 +10,8 @@ import {
   recordStrokeSuccess,
 } from './practiceSession'
 
-const questions = loadStrokeQuestions()
+const rowId: StrokeRowId = 'a'
+const questions = loadStrokeQuestionsForRow(rowId)
 const fixedClock = () => new Date('2026-07-31T10:00:00.000Z')
 
 const completeCurrentCharacter = (session: ReturnType<typeof createPracticeSession>) => {
@@ -24,9 +26,10 @@ const completeCurrentCharacter = (session: ReturnType<typeof createPracticeSessi
 }
 
 describe('practice session', () => {
-  it('starts at あ with five zero-attempt characters', () => {
-    const session = createPracticeSession(questions, fixedClock)
+  it('starts at あ with five zero-attempt characters and the selected row', () => {
+    const session = createPracticeSession(questions, rowId, fixedClock)
 
+    expect(session.rowId).toBe(rowId)
     expect(session.currentQuestionIndex).toBe(0)
     expect(session.currentStrokeIndex).toBe(0)
     expect(session.status).toBe('active')
@@ -35,7 +38,7 @@ describe('practice session', () => {
   })
 
   it('counts a failed attempt without advancing the current stroke', () => {
-    const session = createPracticeSession(questions, fixedClock)
+    const session = createPracticeSession(questions, rowId, fixedClock)
     const failed = recordStrokeFailure(session)
 
     expect(failed.attempts).toEqual([1, 0, 0, 0, 0])
@@ -45,7 +48,7 @@ describe('practice session', () => {
   })
 
   it('advances the stroke and counts a successful attempt', () => {
-    const session = createPracticeSession(questions, fixedClock)
+    const session = createPracticeSession(questions, rowId, fixedClock)
     const succeeded = recordStrokeSuccess(session)
 
     expect(succeeded.attempts[0]).toBe(1)
@@ -55,7 +58,7 @@ describe('practice session', () => {
   })
 
   it('marks a character complete after its final stroke', () => {
-    const session = completeCurrentCharacter(createPracticeSession(questions, fixedClock))
+    const session = completeCurrentCharacter(createPracticeSession(questions, rowId, fixedClock))
 
     expect(session.currentQuestionIndex).toBe(0)
     expect(session.status).toBe('character-complete')
@@ -63,7 +66,7 @@ describe('practice session', () => {
   })
 
   it('moves to い and resets the stroke index after character completion', () => {
-    const completedA = completeCurrentCharacter(createPracticeSession(questions, fixedClock))
+    const completedA = completeCurrentCharacter(createPracticeSession(questions, rowId, fixedClock))
     const next = advanceCharacter(completedA)
 
     expect(next.currentQuestionIndex).toBe(1)
@@ -73,7 +76,7 @@ describe('practice session', () => {
   })
 
   it('completes after advancing beyond お', () => {
-    let session = createPracticeSession(questions, fixedClock)
+    let session = createPracticeSession(questions, rowId, fixedClock)
 
     for (let questionIndex = 0; questionIndex < questions.length; questionIndex += 1) {
       session = completeCurrentCharacter(session)
@@ -86,7 +89,7 @@ describe('practice session', () => {
   })
 
   it('rejects transitions after the practice is complete', () => {
-    let session = createPracticeSession(questions, fixedClock)
+    let session = createPracticeSession(questions, rowId, fixedClock)
 
     for (let questionIndex = 0; questionIndex < questions.length; questionIndex += 1) {
       session = completeCurrentCharacter(session)
@@ -98,7 +101,17 @@ describe('practice session', () => {
     expect(() => advanceCharacter(session)).toThrow()
   })
 
-  it('rejects a question list that is not あいうえお in fixed order', () => {
-    expect(() => createPracticeSession([...questions].reverse(), fixedClock)).toThrow()
+  it('accepts a different selected row with its own character count', () => {
+    const kaQuestions = loadStrokeQuestionsForRow('ka')
+    const session = createPracticeSession(kaQuestions, 'ka', fixedClock)
+
+    expect(session.rowId).toBe('ka')
+    expect(session.questions.map((question) => question.kana)).toEqual(getStrokeRow('ka').kana)
+    expect(session.attempts).toEqual([0, 0, 0, 0, 0])
+  })
+
+  it('rejects a question list that does not match the selected row', () => {
+    expect(() => createPracticeSession([...questions].reverse(), rowId, fixedClock)).toThrow()
+    expect(() => createPracticeSession(loadStrokeQuestionsForRow('ka'), rowId, fixedClock)).toThrow()
   })
 })

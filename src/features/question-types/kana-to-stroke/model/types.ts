@@ -1,6 +1,6 @@
-export const STROKE_KANA = ['あ', 'い', 'う', 'え', 'お'] as const
+import type { StrokeKana } from './kanaRows'
 
-export type StrokeKana = (typeof STROKE_KANA)[number]
+export type { StrokeKana } from './kanaRows'
 
 export type StrokePoint = {
   x: number

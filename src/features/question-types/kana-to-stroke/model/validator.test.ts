@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { STROKE_KANA } from './kanaRows'
 import { StrokeDataError, validateStrokeQuestions } from './validator'
 
 const makeStroke = () => ({
@@ -18,14 +19,14 @@ const makeQuestion = (kana: string, id = 'hiragana-' + kana) => ({
   strokes: [makeStroke()],
 })
 
-const makeQuestions = () => ['あ', 'い', 'う', 'え', 'お'].map((kana) => makeQuestion(kana))
+const makeQuestions = () => STROKE_KANA.map((kana) => makeQuestion(kana))
 
 describe('validateStrokeQuestions', () => {
-  it('returns typed data for the fixed five-character set', () => {
+  it('returns typed data for the fixed 46-character set', () => {
     const result = validateStrokeQuestions(makeQuestions())
 
-    expect(result).toHaveLength(5)
-    expect(result.map((question) => question.kana)).toEqual(['あ', 'い', 'う', 'え', 'お'])
+    expect(result).toHaveLength(46)
+    expect(result.map((question) => question.kana)).toEqual(STROKE_KANA)
     expect(result[0].strokes[0].checkpoints).toHaveLength(2)
   })
 
@@ -49,7 +50,7 @@ describe('validateStrokeQuestions', () => {
 
   it('rejects a question set that is not exactly the target kana set', () => {
     const questions = makeQuestions()
-    questions[4].kana = 'か'
+    questions[45].kana = 'あ'
 
     expect(() => validateStrokeQuestions(questions)).toThrow(StrokeDataError)
   })

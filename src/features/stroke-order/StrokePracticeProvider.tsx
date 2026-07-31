@@ -1,5 +1,6 @@
 import { createContext, useContext, useMemo, useState, type ReactNode } from 'react'
-import { loadStrokeQuestions } from '../question-types/kana-to-stroke/model/loader'
+import { loadStrokeQuestionsForRow } from '../question-types/kana-to-stroke/model/loader'
+import type { StrokeRowId } from '../question-types/kana-to-stroke/model/kanaRows'
 import {
   advanceCharacter,
   createPracticeSession,
@@ -11,7 +12,7 @@ import {
 type StrokePracticeContextValue = {
   session: PracticeSession | null
   error: Error | null
-  startPractice: () => boolean
+  startPractice: (rowId: StrokeRowId) => boolean
   recordFailure: () => void
   recordSuccess: () => void
   nextCharacter: () => void
@@ -34,9 +35,9 @@ export function StrokePracticeProvider({
   const [session, setSession] = useState<PracticeSession | null>(initialSession ?? null)
   const [error, setError] = useState<Error | null>(null)
 
-  const startPractice = () => {
+  const startPractice = (rowId: StrokeRowId) => {
     try {
-      const nextSession = createPracticeSession(loadStrokeQuestions())
+      const nextSession = createPracticeSession(loadStrokeQuestionsForRow(rowId), rowId)
       setSession(nextSession)
       setError(null)
       return true

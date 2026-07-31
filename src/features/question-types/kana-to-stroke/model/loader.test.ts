@@ -1,12 +1,18 @@
 import { describe, expect, it } from 'vitest'
-import { loadStrokeQuestions } from './loader'
+import { loadStrokeQuestions, loadStrokeQuestionsForRow } from './loader'
+import { STROKE_KANA } from './kanaRows'
 
 describe('loadStrokeQuestions', () => {
-  it('loads the five kana in fixed practice order', () => {
+  it('loads all basic hiragana in fixed practice order', () => {
     const questions = loadStrokeQuestions()
 
-    expect(questions).toHaveLength(5)
-    expect(questions.map((question) => question.kana)).toEqual(['あ', 'い', 'う', 'え', 'お'])
+    expect(questions).toHaveLength(46)
+    expect(questions.map((question) => question.kana)).toEqual(STROKE_KANA)
+  })
+
+  it('loads only the selected row in row order', () => {
+    expect(loadStrokeQuestionsForRow('sa').map((question) => question.kana)).toEqual(['さ', 'し', 'す', 'せ', 'そ'])
+    expect(loadStrokeQuestionsForRow('n').map((question) => question.kana)).toEqual(['ん'])
   })
 
   it('loads visible and judgeable data for every stroke', () => {
@@ -23,7 +29,7 @@ describe('loadStrokeQuestions', () => {
     expect(questions.flatMap((question) => question.strokes).every((stroke) => stroke.checkpoints.length >= 2)).toBe(true)
   })
 
-  it('uses recognizable glyph-shaped guide paths for all five kana', () => {
+  it('keeps the recognizable glyph-shaped guide paths for the original five kana', () => {
     const expectedStrokeEnds: Record<string, readonly (readonly [number, number, number, number])[]> = {
       あ: [
         [34, 50.4, 136.1, 47.1],
@@ -49,7 +55,7 @@ describe('loadStrokeQuestions', () => {
       ],
     }
 
-    for (const question of loadStrokeQuestions()) {
+    for (const question of loadStrokeQuestions().filter((candidate) => candidate.kana in expectedStrokeEnds)) {
       question.strokes.forEach((stroke, index) => {
         const [startX, startY, endX, endY] = expectedStrokeEnds[question.kana][index]
         expect(stroke.checkpoints[0]).toEqual({ x: startX, y: startY })

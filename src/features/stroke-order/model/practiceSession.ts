@@ -1,12 +1,11 @@
-import {
-  STROKE_KANA,
-  type KanaToStrokeQuestion,
-} from '../../question-types/kana-to-stroke/model/types'
+import { getStrokeRow, type StrokeRowId } from '../../question-types/kana-to-stroke/model/kanaRows'
+import type { KanaToStrokeQuestion } from '../../question-types/kana-to-stroke/model/types'
 
 export type PracticeStatus = 'active' | 'character-complete' | 'complete'
 
 export type PracticeSession = {
   id: string
+  rowId: StrokeRowId
   questions: readonly KanaToStrokeQuestion[]
   currentQuestionIndex: number
   currentStrokeIndex: number
@@ -15,25 +14,26 @@ export type PracticeSession = {
   startedAt: string
 }
 
-const isFixedQuestionSet = (questions: readonly KanaToStrokeQuestion[]): boolean =>
-  questions.length === STROKE_KANA.length &&
-  questions.every(
-    (question, index) =>
-      question.type === 'kana-to-stroke' &&
-      question.kana === STROKE_KANA[index],
+const isQuestionSetForRow = (questions: readonly KanaToStrokeQuestion[], rowId: StrokeRowId): boolean => {
+  const row = getStrokeRow(rowId)
+  return questions.length === row.kana.length && questions.every(
+    (question, index) => question.type === 'kana-to-stroke' && question.kana === row.kana[index],
   )
+}
 
 export const createPracticeSession = (
   questions: readonly KanaToStrokeQuestion[],
+  rowId: StrokeRowId,
   now: () => Date = () => new Date(),
 ): PracticeSession => {
-  if (!isFixedQuestionSet(questions)) {
-    throw new Error('あいうえおの練習データが必要です')
+  if (!isQuestionSetForRow(questions, rowId)) {
+    throw new Error(`${getStrokeRow(rowId).label}の練習データが必要です`)
   }
 
   const startedAt = now()
   return {
     id: 'stroke-practice-' + startedAt.getTime(),
+    rowId,
     questions: [...questions],
     currentQuestionIndex: 0,
     currentStrokeIndex: 0,

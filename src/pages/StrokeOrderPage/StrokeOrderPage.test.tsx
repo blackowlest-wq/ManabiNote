@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter, useLocation } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
-import { loadStrokeQuestions } from '../../features/question-types/kana-to-stroke/model/loader'
+import { loadStrokeQuestionsForRow } from '../../features/question-types/kana-to-stroke/model/loader'
 import { StrokePracticeProvider } from '../../features/stroke-order/StrokePracticeProvider'
 import {
   advanceCharacter,
@@ -49,10 +49,10 @@ function LocationProbe() {
   return <span data-testid="location">{location.pathname}</span>
 }
 
-const questions = loadStrokeQuestions()
+const questions = loadStrokeQuestionsForRow('a')
 const fixedClock = () => new Date('2026-07-31T10:00:00.000Z')
 
-const activeSession = () => createPracticeSession(questions, fixedClock)
+const activeSession = () => createPracticeSession(questions, 'a', fixedClock)
 
 const characterCompleteSession = (): PracticeSession => {
   let session = activeSession()
@@ -96,8 +96,32 @@ describe('StrokeOrderPage', () => {
     renderPage()
 
     expect(screen.getByRole('heading', { name: '書き順れんしゅう' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'あ行' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByRole('button', { name: 'か行' })).toHaveAttribute('aria-pressed', 'false')
     expect(screen.getByRole('button', { name: 'れんしゅうをはじめる' })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'ホームへ戻る' })).toBeInTheDocument()
+  })
+
+  it('starts the selected row and shows its first character', async () => {
+    const user = userEvent.setup()
+    renderPage()
+
+    await user.click(screen.getByRole('button', { name: 'か行' }))
+    await user.click(screen.getByRole('button', { name: 'れんしゅうをはじめる' }))
+
+    expect(screen.getByRole('heading', { name: 'か' })).toBeInTheDocument()
+    expect(screen.getByText('1 / 5')).toBeInTheDocument()
+  })
+
+  it('uses the shorter progress count for や行', async () => {
+    const user = userEvent.setup()
+    renderPage()
+
+    await user.click(screen.getByRole('button', { name: 'や行' }))
+    await user.click(screen.getByRole('button', { name: 'れんしゅうをはじめる' }))
+
+    expect(screen.getByRole('heading', { name: 'や' })).toBeInTheDocument()
+    expect(screen.getByText('1 / 3')).toBeInTheDocument()
   })
 
   it('shows あ and the first stroke for an active session', () => {

@@ -1,4 +1,5 @@
-import { STROKE_KANA, type KanaToStrokeQuestion, type StrokeDefinition, type StrokeKana, type StrokePoint } from './types'
+import { STROKE_KANA, type StrokeKana } from './kanaRows'
+import type { KanaToStrokeQuestion, StrokeDefinition, StrokePoint } from './types'
 
 export type StrokeDataErrorCode = 'INVALID_STROKE_DATA'
 

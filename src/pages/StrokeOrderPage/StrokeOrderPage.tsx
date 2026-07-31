@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { StrokeCanvas } from '../../features/question-types/kana-to-stroke/components/StrokeCanvas'
+import { STROKE_ROWS, type StrokeRowId } from '../../features/question-types/kana-to-stroke/model/kanaRows'
 import type { StrokeRecognitionResult } from '../../features/question-types/kana-to-stroke/model/strokeRecognizer'
 import { useStrokePractice } from '../../features/stroke-order/StrokePracticeProvider'
 import { PageLayout } from '../../shared/components/PageLayout'
@@ -17,12 +18,30 @@ export function StrokeOrderPage() {
     nextCharacter,
   } = useStrokePractice()
   const [feedback, setFeedback] = useState<'retry' | 'success' | null>(null)
+  const [selectedRowId, setSelectedRowId] = useState<StrokeRowId>('a')
 
   if (!session) {
+    const handleStart = () => {
+      startPractice(selectedRowId)
+    }
+
     return (
       <PageLayout title="書き順れんしゅう">
-        <p>お手本をなぞって、ひらがなを書いてみよう。</p>
-        <PrimaryButton onClick={startPractice}>れんしゅうをはじめる</PrimaryButton>
+        <p>れんしゅうする行をえらぼう。</p>
+        <div className="stroke-row-options" data-testid="stroke-row-options">
+          {STROKE_ROWS.map((row) => (
+            <button
+              key={row.id}
+              type="button"
+              className="stroke-row-option"
+              aria-pressed={selectedRowId === row.id}
+              onClick={() => setSelectedRowId(row.id)}
+            >
+              {row.label}
+            </button>
+          ))}
+        </div>
+        <PrimaryButton onClick={handleStart}>れんしゅうをはじめる</PrimaryButton>
         {error && <p role="alert">{error.message}</p>}
         <p><Link to="/">ホームへ戻る</Link></p>
       </PageLayout>
