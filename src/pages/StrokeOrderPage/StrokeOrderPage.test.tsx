@@ -16,15 +16,15 @@ vi.mock('../../features/question-types/kana-to-stroke/components/StrokeCanvas', 
   StrokeCanvas: ({
     onStrokeResult,
     question,
-    showStartHint = false,
+    showFailureHint = false,
   }: {
     onStrokeResult: (result: { accepted: boolean; reason: 'accepted' | 'incomplete'; progress: number }) => void
     question: { kana: string }
-    showStartHint?: boolean
+    showFailureHint?: boolean
   }) => (
     <div>
       <p>mock canvas {question.kana}</p>
-      <span data-testid="stroke-guide-visibility">{showStartHint ? 'shown' : 'hidden'}</span>
+      <span data-testid="stroke-guide-visibility">{showFailureHint ? 'shown' : 'hidden'}</span>
       <button
         type="button"
         onClick={() => onStrokeResult({ accepted: true, reason: 'accepted', progress: 1 })}

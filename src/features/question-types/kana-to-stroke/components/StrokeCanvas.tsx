@@ -9,7 +9,7 @@ export type StrokeCanvasProps = {
   question: KanaToStrokeQuestion
   currentStrokeIndex: number
   completedStrokeIndexes: readonly number[]
-  showStartHint?: boolean
+  showFailureHint?: boolean
   disabled?: boolean
   onStrokeResult: (result: StrokeRecognitionResult) => void
 }
@@ -40,7 +40,7 @@ export function StrokeCanvas({
   question,
   currentStrokeIndex,
   completedStrokeIndexes,
-  showStartHint = false,
+  showFailureHint = false,
   disabled = false,
   onStrokeResult,
 }: StrokeCanvasProps) {
@@ -129,7 +129,7 @@ export function StrokeCanvas({
             data-testid={'stroke-guide-' + index}
             className={[
               'stroke-guide',
-              isActive ? 'stroke-guide--active' : '',
+              showFailureHint && isActive ? 'stroke-guide--active' : '',
               isCompleted ? 'stroke-guide--completed' : '',
             ].filter(Boolean).join(' ')}
             d={stroke.guidePath}
@@ -148,7 +148,7 @@ export function StrokeCanvas({
       <circle
         className={[
           'stroke-hint-start',
-          !showStartHint ? 'stroke-hint--hidden' : '',
+          !showFailureHint ? 'stroke-hint--hidden' : '',
         ].filter(Boolean).join(' ')}
         data-testid="stroke-hint-start"
         cx={activeStroke.checkpoints[0].x}
@@ -159,7 +159,7 @@ export function StrokeCanvas({
       <path
         className={[
           'stroke-hint-arrow',
-          !showStartHint ? 'stroke-hint--hidden' : '',
+          !showFailureHint ? 'stroke-hint--hidden' : '',
         ].filter(Boolean).join(' ')}
         data-testid="stroke-hint-arrow"
         d={
