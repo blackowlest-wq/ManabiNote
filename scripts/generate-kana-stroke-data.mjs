@@ -77,10 +77,10 @@ const parsePoints = (path) => {
         command = absolute ? 'L' : 'l'
       }
     } else if (commandType === 'H') {
-      current = makePoint(values[0], 0)
+      current = { x: absolute ? values[0] : current.x + values[0], y: current.y }
       points.push(current)
     } else if (commandType === 'V') {
-      current = makePoint(0, values[0])
+      current = { x: current.x, y: absolute ? values[0] : current.y + values[0] }
       points.push(current)
     } else {
       current = makePoint(values[values.length - 2], values[values.length - 1])

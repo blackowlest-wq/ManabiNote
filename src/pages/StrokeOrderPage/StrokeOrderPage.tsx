@@ -28,6 +28,10 @@ export function StrokeOrderPage() {
     return (
       <PageLayout title="書き順れんしゅう">
         <p>れんしゅうする行をえらぼう。</p>
+        <div className="stroke-row-actions">
+          <PrimaryButton onClick={handleStart}>れんしゅうをはじめる</PrimaryButton>
+          <p><Link to="/">ホームへ戻る</Link></p>
+        </div>
         <div className="stroke-row-options" data-testid="stroke-row-options">
           {STROKE_ROWS.map((row) => (
             <button
@@ -41,9 +45,7 @@ export function StrokeOrderPage() {
             </button>
           ))}
         </div>
-        <PrimaryButton onClick={handleStart}>れんしゅうをはじめる</PrimaryButton>
         {error && <p role="alert">{error.message}</p>}
-        <p><Link to="/">ホームへ戻る</Link></p>
       </PageLayout>
     )
   }

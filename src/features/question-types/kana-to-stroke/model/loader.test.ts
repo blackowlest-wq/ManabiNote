@@ -15,6 +15,12 @@ describe('loadStrokeQuestions', () => {
     expect(loadStrokeQuestionsForRow('n').map((question) => question.kana)).toEqual(['ん'])
   })
 
+  it('preserves the current y coordinate when a guide uses a horizontal command', () => {
+    const question = loadStrokeQuestions().find((candidate) => candidate.kana === 'す')
+
+    expect(question?.strokes[1].checkpoints[8]).toEqual({ x: 94.9, y: 89.3 })
+  })
+
   it('loads visible and judgeable data for every stroke', () => {
     const questions = loadStrokeQuestions()
 

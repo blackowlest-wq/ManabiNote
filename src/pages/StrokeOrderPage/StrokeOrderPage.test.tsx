@@ -98,8 +98,11 @@ describe('StrokeOrderPage', () => {
     expect(screen.getByRole('heading', { name: '書き順れんしゅう' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'あ行' })).toHaveAttribute('aria-pressed', 'true')
     expect(screen.getByRole('button', { name: 'か行' })).toHaveAttribute('aria-pressed', 'false')
-    expect(screen.getByRole('button', { name: 'れんしゅうをはじめる' })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'ホームへ戻る' })).toBeInTheDocument()
+    const rowOptions = screen.getByTestId('stroke-row-options')
+    const startButton = screen.getByRole('button', { name: 'れんしゅうをはじめる' })
+    const homeLink = screen.getByRole('link', { name: 'ホームへ戻る' })
+    expect(startButton.compareDocumentPosition(rowOptions) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(homeLink.compareDocumentPosition(rowOptions) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
   })
 
   it('starts the selected row and shows its first character', async () => {
