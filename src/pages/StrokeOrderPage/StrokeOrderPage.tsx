@@ -81,16 +81,18 @@ export function StrokeOrderPage() {
         <p className="stroke-order-stroke-progress">
           {session.currentStrokeIndex + 1}画目 / {question.strokes.length}画
         </p>
-        {feedback === 'retry' && (
-          <p className="stroke-feedback stroke-feedback--retry" role="status" aria-live="polite">
-            もういちど なぞってみよう
-          </p>
-        )}
-        {feedback === 'success' && (
-          <p className="stroke-feedback stroke-feedback--success" role="status" aria-live="polite">
-            できたよ！
-          </p>
-        )}
+        <div className="stroke-feedback-slot" data-testid="stroke-feedback-slot">
+          {feedback === 'retry' && (
+            <p className="stroke-feedback stroke-feedback--retry" role="status" aria-live="polite">
+              もういちど なぞってみよう
+            </p>
+          )}
+          {feedback === 'success' && (
+            <p className="stroke-feedback stroke-feedback--success" role="status" aria-live="polite">
+              できたよ！
+            </p>
+          )}
+        </div>
         <StrokeCanvas
           question={question}
           currentStrokeIndex={session.currentStrokeIndex}
@@ -98,11 +100,13 @@ export function StrokeOrderPage() {
           disabled={isCharacterComplete}
           onStrokeResult={handleStrokeResult}
         />
-        {isCharacterComplete && (
-          <PrimaryButton onClick={handleNextCharacter}>
-            {isLastCharacter ? 'けっかを見る' : 'つぎの文字へ'}
-          </PrimaryButton>
-        )}
+        <div className="stroke-next-slot" data-testid="stroke-next-slot">
+          {isCharacterComplete && (
+            <PrimaryButton onClick={handleNextCharacter}>
+              {isLastCharacter ? 'けっかを見る' : 'つぎの文字へ'}
+            </PrimaryButton>
+          )}
+        </div>
         {error && <p role="alert">{error.message}</p>}
       </div>
     </PageLayout>

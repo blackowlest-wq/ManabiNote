@@ -94,6 +94,13 @@ describe('StrokeOrderPage', () => {
     expect(screen.getByText(/1画目/)).toBeInTheDocument()
   })
 
+  it('keeps feedback and next-action slots mounted before interaction', () => {
+    renderPage(activeSession())
+
+    expect(screen.getByTestId('stroke-feedback-slot')).toBeInTheDocument()
+    expect(screen.getByTestId('stroke-next-slot')).toBeInTheDocument()
+  })
+
   it('advances the stroke after an accepted result', async () => {
     const user = userEvent.setup()
     renderPage(activeSession())
