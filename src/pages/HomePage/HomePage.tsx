@@ -1,17 +1,20 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useQuizSession } from '../../features/quiz/QuizSessionProvider'
+import { useStrokePractice } from '../../features/stroke-order/StrokePracticeProvider'
 import { PageLayout } from '../../shared/components/PageLayout'
 import { PrimaryButton } from '../../shared/components/PrimaryButton'
 
 export function HomePage() {
   const navigate = useNavigate()
   const { startSession, error } = useQuizSession()
+  const { resetPractice } = useStrokePractice()
 
   const handleStart = () => {
     if (startSession()) navigate('/quiz')
   }
 
   const handleStrokePracticeStart = () => {
+    resetPractice()
     navigate('/stroke-order')
   }
 

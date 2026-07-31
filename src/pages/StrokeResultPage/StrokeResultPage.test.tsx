@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { MemoryRouter, useLocation } from 'react-router-dom'
+import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import { loadStrokeQuestionsForRow } from '../../features/question-types/kana-to-stroke/model/loader'
 import { StrokePracticeProvider } from '../../features/stroke-order/StrokePracticeProvider'
@@ -10,6 +10,7 @@ import {
   recordStrokeSuccess,
   type PracticeSession,
 } from '../../features/stroke-order/model/practiceSession'
+import { StrokeOrderPage } from '../StrokeOrderPage/StrokeOrderPage'
 import { StrokeResultPage } from './StrokeResultPage'
 
 function LocationProbe() {
@@ -60,5 +61,24 @@ describe('StrokeResultPage', () => {
     await user.click(screen.getByRole('button', { name: 'もう一度れんしゅう' }))
 
     expect(screen.getByTestId('location')).toHaveTextContent('/stroke-order')
+  })
+
+  it('returns to row selection instead of restarting the previous row', async () => {
+    const user = userEvent.setup()
+    render(
+      <MemoryRouter initialEntries={['/stroke-order/result']}>
+        <StrokePracticeProvider initialSession={makeCompleteSession()}>
+          <Routes>
+            <Route path="/stroke-order/result" element={<StrokeResultPage />} />
+            <Route path="/stroke-order" element={<StrokeOrderPage />} />
+          </Routes>
+        </StrokePracticeProvider>
+      </MemoryRouter>,
+    )
+
+    await user.click(screen.getByRole('button', { name: 'もう一度れんしゅう' }))
+
+    expect(screen.getByRole('button', { name: 'あ行' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'れんしゅうをはじめる' })).toBeInTheDocument()
   })
 })

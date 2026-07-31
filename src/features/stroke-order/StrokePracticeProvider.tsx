@@ -13,6 +13,7 @@ type StrokePracticeContextValue = {
   session: PracticeSession | null
   error: Error | null
   startPractice: (rowId: StrokeRowId) => boolean
+  resetPractice: () => void
   recordFailure: () => void
   recordSuccess: () => void
   nextCharacter: () => void
@@ -46,6 +47,11 @@ export function StrokePracticeProvider({
       setError(new Error('書き順練習を開始できませんでした。'))
       return false
     }
+  }
+
+  const resetPractice = () => {
+    setSession(null)
+    setError(null)
   }
 
   const recordFailure = () => {
@@ -88,7 +94,7 @@ export function StrokePracticeProvider({
   }
 
   const value = useMemo<StrokePracticeContextValue>(
-    () => ({ session, error, startPractice, recordFailure, recordSuccess, nextCharacter }),
+    () => ({ session, error, startPractice, resetPractice, recordFailure, recordSuccess, nextCharacter }),
     [session, error],
   )
 

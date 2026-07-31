@@ -4,11 +4,12 @@ import * as loader from '../question-types/kana-to-stroke/model/loader'
 import { StrokePracticeProvider, useStrokePractice } from './StrokePracticeProvider'
 
 function Consumer() {
-  const { session, error, startPractice, recordFailure, recordSuccess, nextCharacter } = useStrokePractice()
+  const { session, error, startPractice, resetPractice, recordFailure, recordSuccess, nextCharacter } = useStrokePractice()
 
   return (
     <div>
       <button type="button" onClick={() => startPractice('a')}>start</button>
+      <button type="button" onClick={resetPractice}>reset</button>
       <button type="button" onClick={recordFailure}>failure</button>
       <button type="button" onClick={recordSuccess}>success</button>
       <button type="button" onClick={nextCharacter}>next</button>
@@ -53,6 +54,16 @@ describe('StrokePracticeProvider', () => {
     fireEvent.click(screen.getByRole('button', { name: 'success' }))
     expect(screen.getByTestId('attempts')).toHaveTextContent('2')
     expect(screen.getByTestId('stroke')).toHaveTextContent('1')
+  })
+
+  it('clears the current session for a fresh practice entry', () => {
+    renderProvider()
+    fireEvent.click(screen.getByRole('button', { name: 'start' }))
+
+    fireEvent.click(screen.getByRole('button', { name: 'reset' }))
+
+    expect(screen.getByTestId('kana')).toHaveTextContent('none')
+    expect(screen.getByTestId('status')).toHaveTextContent('none')
   })
 
   it('exposes a safe error when loading data fails', () => {

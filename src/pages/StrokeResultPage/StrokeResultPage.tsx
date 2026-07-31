@@ -6,7 +6,7 @@ import { PrimaryButton } from '../../shared/components/PrimaryButton'
 
 export function StrokeResultPage() {
   const navigate = useNavigate()
-  const { session, startPractice } = useStrokePractice()
+  const { session, resetPractice } = useStrokePractice()
 
   if (!session || session.status !== 'complete') {
     return (
@@ -18,7 +18,8 @@ export function StrokeResultPage() {
   }
 
   const handleRetry = () => {
-    if (startPractice(session.rowId)) navigate('/stroke-order')
+    resetPractice()
+    navigate('/stroke-order')
   }
 
   return (
