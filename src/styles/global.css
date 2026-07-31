@@ -255,7 +255,7 @@ button:focus-visible {
   opacity: 0.92;
 }
 
-.stroke-guide--hidden {
+.stroke-hint--hidden {
   opacity: 0;
   pointer-events: none;
 }

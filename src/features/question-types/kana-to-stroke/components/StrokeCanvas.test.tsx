@@ -71,7 +71,6 @@ describe('StrokeCanvas', () => {
         question={question}
         currentStrokeIndex={1}
         completedStrokeIndexes={[0]}
-        showGuide
         onStrokeResult={vi.fn()}
       />,
     )
@@ -82,7 +81,7 @@ describe('StrokeCanvas', () => {
     expect(screen.getByTestId('stroke-guide-0')).toHaveClass('stroke-guide--completed')
   })
 
-  it('hides guide paths before the first failed trace', () => {
+  it('keeps guide paths visible while hiding the start hint before the first failed trace', () => {
     render(
       <StrokeCanvas
         question={question}
@@ -92,8 +91,27 @@ describe('StrokeCanvas', () => {
       />,
     )
 
-    expect(screen.getByTestId('stroke-guide-0')).toHaveClass('stroke-guide--hidden')
-    expect(screen.getByTestId('stroke-guide-1')).toHaveClass('stroke-guide--hidden')
+    expect(screen.getByTestId('stroke-guide-0')).not.toHaveClass('stroke-guide--hidden')
+    expect(screen.getByTestId('stroke-guide-1')).not.toHaveClass('stroke-guide--hidden')
+    expect(screen.getByTestId('stroke-hint-start')).toHaveClass('stroke-hint--hidden')
+    expect(screen.getByTestId('stroke-hint-arrow')).toHaveClass('stroke-hint--hidden')
+    expect(screen.getByTestId('stroke-hint-label')).not.toHaveClass('stroke-hint--hidden')
+  })
+
+  it('shows the start hint after the first failed trace', () => {
+    render(
+      <StrokeCanvas
+        question={question}
+        currentStrokeIndex={0}
+        completedStrokeIndexes={[]}
+        showStartHint
+        onStrokeResult={vi.fn()}
+      />,
+    )
+
+    expect(screen.getByTestId('stroke-hint-start')).not.toHaveClass('stroke-hint--hidden')
+    expect(screen.getByTestId('stroke-hint-arrow')).not.toHaveClass('stroke-hint--hidden')
+    expect(screen.getByTestId('stroke-hint-label')).not.toHaveClass('stroke-hint--hidden')
   })
 
   it('shows a readable start hint for the active stroke', () => {
@@ -106,7 +124,7 @@ describe('StrokeCanvas', () => {
       />,
     )
 
-    expect(screen.getByText('ここから なぞろう')).toBeInTheDocument()
+    expect(screen.getByText('文字を なぞろう')).toBeInTheDocument()
   })
 
   it('prevents the page from scrolling during touch tracing', () => {

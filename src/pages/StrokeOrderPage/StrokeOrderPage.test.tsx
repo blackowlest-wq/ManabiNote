@@ -16,15 +16,15 @@ vi.mock('../../features/question-types/kana-to-stroke/components/StrokeCanvas', 
   StrokeCanvas: ({
     onStrokeResult,
     question,
-    showGuide = false,
+    showStartHint = false,
   }: {
     onStrokeResult: (result: { accepted: boolean; reason: 'accepted' | 'incomplete'; progress: number }) => void
     question: { kana: string }
-    showGuide?: boolean
+    showStartHint?: boolean
   }) => (
     <div>
       <p>mock canvas {question.kana}</p>
-      <span data-testid="stroke-guide-visibility">{showGuide ? 'shown' : 'hidden'}</span>
+      <span data-testid="stroke-guide-visibility">{showStartHint ? 'shown' : 'hidden'}</span>
       <button
         type="button"
         onClick={() => onStrokeResult({ accepted: true, reason: 'accepted', progress: 1 })}
@@ -124,7 +124,7 @@ describe('StrokeOrderPage', () => {
     expect(screen.getByText(/1画目/)).toBeInTheDocument()
   })
 
-  it('reveals the guide only after the first failed trace', async () => {
+  it('reveals the start hint only after the first failed trace', async () => {
     const user = userEvent.setup()
     renderPage(activeSession())
 

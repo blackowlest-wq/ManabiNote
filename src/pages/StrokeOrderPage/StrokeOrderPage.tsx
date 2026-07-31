@@ -97,7 +97,7 @@ export function StrokeOrderPage() {
           question={question}
           currentStrokeIndex={session.currentStrokeIndex}
           completedStrokeIndexes={completedStrokeIndexes}
-          showGuide={feedback === 'retry'}
+          showStartHint={feedback === 'retry'}
           disabled={isCharacterComplete}
           onStrokeResult={handleStrokeResult}
         />

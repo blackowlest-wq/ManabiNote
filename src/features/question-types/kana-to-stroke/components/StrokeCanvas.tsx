@@ -9,7 +9,7 @@ export type StrokeCanvasProps = {
   question: KanaToStrokeQuestion
   currentStrokeIndex: number
   completedStrokeIndexes: readonly number[]
-  showGuide?: boolean
+  showStartHint?: boolean
   disabled?: boolean
   onStrokeResult: (result: StrokeRecognitionResult) => void
 }
@@ -40,7 +40,7 @@ export function StrokeCanvas({
   question,
   currentStrokeIndex,
   completedStrokeIndexes,
-  showGuide = false,
+  showStartHint = false,
   disabled = false,
   onStrokeResult,
 }: StrokeCanvasProps) {
@@ -123,7 +123,6 @@ export function StrokeCanvas({
       {question.strokes.map((stroke, index) => {
         const isCompleted = completedStrokeIndexes.includes(index)
         const isActive = index === currentStrokeIndex
-        const shouldShowGuide = isCompleted || showGuide
         return (
           <path
             key={stroke.order}
@@ -132,7 +131,6 @@ export function StrokeCanvas({
               'stroke-guide',
               isActive ? 'stroke-guide--active' : '',
               isCompleted ? 'stroke-guide--completed' : '',
-              !shouldShowGuide ? 'stroke-guide--hidden' : '',
             ].filter(Boolean).join(' ')}
             d={stroke.guidePath}
             aria-hidden="true"
@@ -148,7 +146,10 @@ export function StrokeCanvas({
         />
       )}
       <circle
-        className="stroke-hint-start"
+        className={[
+          'stroke-hint-start',
+          !showStartHint ? 'stroke-hint--hidden' : '',
+        ].filter(Boolean).join(' ')}
         data-testid="stroke-hint-start"
         cx={activeStroke.checkpoints[0].x}
         cy={activeStroke.checkpoints[0].y}
@@ -156,7 +157,11 @@ export function StrokeCanvas({
         aria-hidden="true"
       />
       <path
-        className="stroke-hint-arrow"
+        className={[
+          'stroke-hint-arrow',
+          !showStartHint ? 'stroke-hint--hidden' : '',
+        ].filter(Boolean).join(' ')}
+        data-testid="stroke-hint-arrow"
         d={
           'M ' +
           activeStroke.checkpoints[0].x +
@@ -171,11 +176,12 @@ export function StrokeCanvas({
       />
       <text
         className="stroke-hint-label"
+        data-testid="stroke-hint-label"
         x="10"
         y="188"
         aria-hidden="true"
       >
-        ここから なぞろう
+        文字を なぞろう
       </text>
     </svg>
   )
