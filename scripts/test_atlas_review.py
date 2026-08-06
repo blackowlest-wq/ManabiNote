@@ -1,0 +1,57 @@
+import json
+import re
+import subprocess
+import sys
+import unittest
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+GENERATOR = ROOT / "scripts" / "generate-atlas-review.py"
+OUTPUT = ROOT / "public" / "kana-to-picture-atlas-review.html"
+MANIFEST = ROOT / "src" / "features" / "question-types" / "kana-to-picture" / "data" / "image-atlas-manifest.json"
+
+
+class AtlasReviewPageTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        subprocess.run([sys.executable, str(GENERATOR)], cwd=ROOT, check=True)
+        cls.html = OUTPUT.read_text(encoding="utf-8")
+        cls.manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+
+    def test_has_four_sections_and_all_manifest_symbols(self):
+        self.assertEqual(self.html.count('class="review-section"'), 4)
+        self.assertEqual(self.html.count('class="review-card'), 107)
+
+        for atlas in self.manifest["atlases"]:
+            for symbol in atlas["symbols"]:
+                self.assertIn(f'data-symbol-id="{symbol}"', self.html)
+
+    def test_preserves_multiple_names_for_one_image(self):
+        ant_card = re.search(
+            r'<article class="review-card[^\"]*" data-atlas-id="animals-01" data-symbol-id="ant".*?</article>',
+            self.html,
+            re.DOTALL,
+        )
+
+        self.assertIsNotNone(ant_card)
+        self.assertIn("あり", ant_card.group(0))
+        self.assertIn("むし", ant_card.group(0))
+
+    def test_uses_only_the_four_raster_atlases(self):
+        sources = set(re.findall(r"""/images/kana-to-picture/atlases/[^"']+\.webp""", self.html))
+
+        self.assertEqual(
+            sources,
+            {
+                "/images/kana-to-picture/atlases/animals-01-v2.webp",
+                "/images/kana-to-picture/atlases/food-01-v2.webp",
+                "/images/kana-to-picture/atlases/objects-01-v2.webp",
+                "/images/kana-to-picture/atlases/nature-01-v2.webp",
+            },
+        )
+        self.assertNotRegex(self.html, r"/images/kana-to-picture/atlases/[^\"']+\.svg")
+
+
+if __name__ == "__main__":
+    unittest.main()
