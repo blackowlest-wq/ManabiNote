@@ -21,10 +21,11 @@ describe('SpriteImage', () => {
     const image = screen.getByRole('img', { name: 'いぬ' })
 
     expect(image.tagName.toLowerCase()).toBe('div')
+    expect(image).toHaveClass('kana-picture-choice__image')
     expect(image).toHaveStyle({
       backgroundImage: 'url("/images/kana-to-picture/atlases/animals-01-v2.webp")',
-      backgroundSize: '960px 960px',
-      backgroundPosition: '-480px -160px',
+      backgroundSize: '600% 600%',
+      backgroundPosition: '60% 20%',
     })
     expect(container.querySelector('use')).toBeNull()
   })
@@ -41,10 +42,11 @@ describe('SpriteImage', () => {
     const image = screen.getByRole('img', { name: 'りんご' })
 
     expect(image.tagName.toLowerCase()).toBe('div')
+    expect(image).toHaveClass('kana-picture-choice__image')
     expect(image).toHaveStyle({
       backgroundImage: 'url("/images/kana-to-picture/atlases/food-01-v2.webp")',
-      backgroundSize: '960px 800px',
-      backgroundPosition: '0px 0px',
+      backgroundSize: '600% 500%',
+      backgroundPosition: '0% 0%',
     })
     expect(container.querySelector('use')).toBeNull()
   })
@@ -68,7 +70,7 @@ describe('SpriteImage', () => {
     expect(image).toHaveStyle({
       width: '160px',
       height: '160px',
-      backgroundPosition: '-480px -160px',
+      backgroundPosition: '60% 20%',
     })
   })
 

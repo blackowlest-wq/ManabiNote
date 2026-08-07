@@ -81,10 +81,11 @@ describe('KanaQuestion', () => {
     const appleImage = screen.getByRole('img', { name: 'りんご' })
 
     expect(appleImage.tagName.toLowerCase()).toBe('div')
+    expect(appleImage).toHaveClass('kana-picture-choice__image')
     expect(appleImage).toHaveStyle({
       backgroundImage: 'url("/images/kana-to-picture/atlases/food-01-v2.webp")',
-      backgroundSize: '960px 800px',
-      backgroundPosition: '0px 0px',
+      backgroundSize: '600% 500%',
+      backgroundPosition: '0% 0%',
     })
     expect(container.querySelector('use')).toBeNull()
   })

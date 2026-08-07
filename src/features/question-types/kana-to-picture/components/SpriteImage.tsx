@@ -21,14 +21,15 @@ export function SpriteImage({ image, alt, width = 160, height = 160 }: SpriteIma
       <div
         role="img"
         aria-label={alt}
+        className="kana-picture-choice__image"
         style={{
           width,
           height,
           flex: '0 0 auto',
           backgroundImage: `url("${atlas.src}")`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: `${width * atlas.columns}px ${height * atlas.rows}px`,
-          backgroundPosition: `-${column * width}px -${row * height}px`,
+          backgroundSize: `${atlas.columns * 100}% ${atlas.rows * 100}%`,
+          backgroundPosition: `${(column / Math.max(atlas.columns - 1, 1)) * 100}% ${(row / Math.max(atlas.rows - 1, 1)) * 100}%`,
         }}
       />
     )
@@ -40,6 +41,7 @@ export function SpriteImage({ image, alt, width = 160, height = 160 }: SpriteIma
     <svg
       role="img"
       aria-label={alt}
+      className="kana-picture-choice__image"
       viewBox="0 0 160 160"
       width={width}
       height={height}
