@@ -9,7 +9,11 @@ import { PrimaryButton } from '../../shared/components/PrimaryButton'
 
 export function WordBuilderPage() {
   const navigate = useNavigate()
-  const { session, error, selectTile, undoLastTile, submitWord, nextWord } = useWordBuilderSession()
+  const { session, error, startSession, selectTile, undoLastTile, submitWord, nextWord } = useWordBuilderSession()
+
+  useEffect(() => {
+    if (!session && !error) startSession()
+  }, [session, error, startSession])
 
   useEffect(() => {
     if (

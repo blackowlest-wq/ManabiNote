@@ -49,6 +49,19 @@ describe('WordBuilderPage', () => {
     expect(screen.getByRole('button', { name: 'もどす' })).toBeDisabled()
   })
 
+  it('starts a new session when entering the game without an existing session', async () => {
+    render(<WordBuilderPage />, {
+      wrapper: ({ children }) => (
+        <MemoryRouter>
+          <WordBuilderSessionProvider>{children}</WordBuilderSessionProvider>
+        </MemoryRouter>
+      ),
+    })
+
+    expect(await screen.findByRole('img')).toBeInTheDocument()
+    expect(screen.getByText('1 / 5')).toBeInTheDocument()
+  })
+
   it('shows a completion result after the fifth word', async () => {
     const user = userEvent.setup()
     render(
