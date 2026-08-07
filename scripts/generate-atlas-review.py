@@ -58,6 +58,10 @@ def _validate_and_build_cards(manifest: dict, aliases: dict[tuple[str, str], lis
             symbol_aliases = aliases.get(key, [])
             if not symbol_aliases:
                 raise ValueError(f"No question name found for {atlas['id']}:{symbol}")
+            if len(symbol_aliases) > 1:
+                raise ValueError(
+                    f"An image must have exactly one name: {atlas['id']}:{symbol} -> {symbol_aliases}"
+                )
 
             column = index % columns
             row = index // columns

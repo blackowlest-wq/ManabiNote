@@ -31,7 +31,7 @@
 
 - [ ] **Step 1: Write the failing test**
 
-Test the generated page for exactly 4 category sections, 107 cards, every manifest symbol ID, all four WebP atlas sources, and known multiple aliases such as `あり` / `むし` for `ant`.
+Test the generated page for exactly 4 category sections, every current manifest card, every manifest symbol ID, all four WebP atlas sources, and the absence of the retired duplicate aliases.
 
 - [ ] **Step 2: Run the test and confirm it fails**
 

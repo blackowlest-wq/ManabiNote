@@ -27,7 +27,7 @@ describe('production PWA output', () => {
       icons: Array<{ src: string; sizes: string; type: string }>
     }
     const atlasManifest = JSON.parse(readFileSync(atlasManifestPath, 'utf8')) as {
-      atlases: Array<{ id: string; src: string; symbols: string[] }>
+      atlases: Array<{ id: string; src: string; format: string; symbols: string[] }>
     }
     const serviceWorker = readFileSync(serviceWorkerPath, 'utf8')
     const questionImages = readdirSync(questionImageDirectory).filter((file) => file.endsWith('.svg'))
@@ -52,8 +52,15 @@ describe('production PWA output', () => {
     expect(atlasManifest.atlases).toHaveLength(4)
     for (const atlas of atlasManifest.atlases) {
       expect(atlas.symbols.length).toBeGreaterThan(0)
+      expect(atlas.format).toBe('raster-grid')
+      expect(atlas.src).toMatch(/-v2\.webp$/)
       expect(serviceWorker).toContain(atlas.src.replace(/^\//, ''))
     }
+    const animalAtlas = atlasManifest.atlases.find((atlas) => atlas.id === 'animals-01')
+    expect(animalAtlas?.src).toBe('/images/kana-to-picture/atlases/animals-01-v2.webp')
+    expect(
+      animalAtlas && existsSync(resolve(distDirectory, animalAtlas.src.replace(/^\//, ''))),
+    ).toBe(true)
     expect(serviceWorker).not.toMatch(/https?:\/\//)
   })
 })

@@ -19,30 +19,42 @@ const { bankQuestions, makeValidBank } = vi.hoisted(() => {
           { reading: 'りんご', atlasId: 'food-01', symbolId: 'apple' },
           { reading: 'さかな', atlasId: 'animals-01', symbolId: 'fish' },
           { reading: 'ねこ', atlasId: 'animals-01', symbolId: 'cat' },
+          { reading: 'みかん', atlasId: 'food-01', symbolId: 'orange' },
         ]
           .filter((choice) => !choice.reading.startsWith(kana))
-          .slice(0, 2);
+          .slice(0, 3);
+
+        const correctChoice = {
+          id: `${id}-correct`,
+          label: reading,
+          reading,
+          image: { atlasId: 'animals-01', symbolId: 'ant' },
+        };
+        const baseChoices = [
+          correctChoice,
+          ...distractors.map((choice) => ({
+            label: choice.reading,
+            reading: choice.reading,
+            image: { atlasId: choice.atlasId, symbolId: choice.symbolId },
+          })),
+        ];
+        const correctPosition = (questionNumber - 1) % 4;
+        let distractorIndex = 1;
+        const choices = Array.from({ length: 4 }, (_, choiceIndex) => {
+          const choice = choiceIndex === correctPosition ? baseChoices[0] : baseChoices[distractorIndex++];
+          return {
+            ...choice,
+            id: `${id}-choice-${choiceIndex + 1}`,
+          };
+        });
 
         return {
           type: 'kana-to-picture',
           id,
           kana,
           reading,
-          choices: [
-            {
-              id: `${id}-correct`,
-              label: reading,
-              reading,
-              image: { atlasId: 'animals-01', symbolId: 'ant' },
-            },
-            ...distractors.map((choice, choiceIndex) => ({
-              id: `${id}-incorrect-${choiceIndex + 1}`,
-              label: choice.reading,
-              reading: choice.reading,
-              image: { atlasId: choice.atlasId, symbolId: choice.symbolId },
-            })),
-          ],
-          correctChoiceId: `${id}-correct`,
+          choices,
+          correctChoiceId: choices[correctPosition].id,
           audioSrc: null,
         };
       });
@@ -80,8 +92,12 @@ describe('loadKanaToPictureQuestions question-bank contract', () => {
 
     question.kana = 'あ';
     question.reading = 'あお';
-    question.choices[0].label = 'あお';
-    question.choices[0].reading = 'あお';
+    const correctChoice = question.choices.find((choice) => choice.id === question.correctChoiceId);
+    if (!correctChoice) {
+      throw new Error('expected a correct choice');
+    }
+    correctChoice.label = 'あお';
+    correctChoice.reading = 'あお';
 
     expect(() => loadKanaToPictureQuestions()).toThrow(QuestionDataError);
   });
@@ -93,8 +109,25 @@ describe('loadKanaToPictureQuestions question-bank contract', () => {
     }
 
     questions[1].reading = questions[0].reading;
-    questions[1].choices[0].label = questions[0].reading;
-    questions[1].choices[0].reading = questions[0].reading;
+    const correctChoice = questions[1].choices.find((choice) => choice.id === questions[1].correctChoiceId);
+    if (!correctChoice) {
+      throw new Error('expected a correct choice');
+    }
+    correctChoice.label = questions[0].reading;
+    correctChoice.reading = questions[0].reading;
+
+    expect(() => loadKanaToPictureQuestions()).toThrow(QuestionDataError);
+  });
+
+  it('rejects a bank with correct answers concentrated in the first position', () => {
+    for (const question of bankQuestions) {
+      const correctIndex = question.choices.findIndex((choice) => choice.id === question.correctChoiceId);
+      [question.choices[0], question.choices[correctIndex]] = [
+        question.choices[correctIndex],
+        question.choices[0],
+      ];
+      question.correctChoiceId = question.choices[0].id;
+    }
 
     expect(() => loadKanaToPictureQuestions()).toThrow(QuestionDataError);
   });

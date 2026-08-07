@@ -21,22 +21,21 @@ class AtlasReviewPageTest(unittest.TestCase):
 
     def test_has_four_sections_and_all_manifest_symbols(self):
         self.assertEqual(self.html.count('class="review-section"'), 4)
-        self.assertEqual(self.html.count('class="review-card'), 107)
+        self.assertEqual(self.html.count('class="review-card'), sum(len(atlas["symbols"]) for atlas in self.manifest["atlases"]))
 
         for atlas in self.manifest["atlases"]:
             for symbol in atlas["symbols"]:
                 self.assertIn(f'data-symbol-id="{symbol}"', self.html)
 
-    def test_preserves_multiple_names_for_one_image(self):
-        ant_card = re.search(
-            r'<article class="review-card[^\"]*" data-atlas-id="animals-01" data-symbol-id="ant".*?</article>',
-            self.html,
-            re.DOTALL,
-        )
-
-        self.assertIsNotNone(ant_card)
-        self.assertIn("あり", ant_card.group(0))
-        self.assertIn("むし", ant_card.group(0))
+    def test_does_not_preserve_old_aliases_or_duplicate_image_names(self):
+        self.assertNotIn("むし", self.html)
+        self.assertNotIn("へやのいす", self.html)
+        self.assertNotIn("ろーるけーき", self.html)
+        self.assertNotIn("のみもの", self.html)
+        self.assertNotIn("みかん", self.html)
+        self.assertNotIn("おくとぱす", self.html)
+        self.assertNotIn("えほん", self.html)
+        self.assertNotIn('class="review-card multiple"', self.html)
 
     def test_uses_only_the_four_raster_atlases(self):
         sources = set(re.findall(r"""/images/kana-to-picture/atlases/[^"']+\.webp""", self.html))

@@ -11,6 +11,29 @@ const atlasManifest = loadImageAtlasManifest()
 
 export function SpriteImage({ image, alt, width = 160, height = 160 }: SpriteImageProps) {
   const atlas = resolveImageAtlas(image, atlasManifest)
+
+  if (atlas.format === 'raster-grid') {
+    const symbolIndex = atlas.symbols.indexOf(image.symbolId)
+    const column = symbolIndex % atlas.columns
+    const row = Math.floor(symbolIndex / atlas.columns)
+
+    return (
+      <div
+        role="img"
+        aria-label={alt}
+        style={{
+          width,
+          height,
+          flex: '0 0 auto',
+          backgroundImage: `url("${atlas.src}")`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: `${width * atlas.columns}px ${height * atlas.rows}px`,
+          backgroundPosition: `-${column * width}px -${row * height}px`,
+        }}
+      />
+    )
+  }
+
   const href = `${atlas.src}#${image.symbolId}`
 
   return (

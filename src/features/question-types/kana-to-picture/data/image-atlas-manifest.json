@@ -2,7 +2,11 @@
   "atlases": [
     {
       "id": "animals-01",
-      "src": "/images/kana-to-picture/atlases/animals-01.svg",
+      "src": "/images/kana-to-picture/atlases/animals-01-v2.webp",
+      "format": "raster-grid",
+      "columns": 6,
+      "rows": 6,
+      "cellSize": 320,
       "symbols": [
         "ant",
         "bear",
@@ -29,12 +33,22 @@
         "panda",
         "polar-bear",
         "rabbit",
-        "turtle"
+        "turtle",
+        "cicada",
+        "crocodile",
+        "pig",
+        "mouse",
+        "flying-squirrel",
+        "snake"
       ]
     },
     {
       "id": "food-01",
-      "src": "/images/kana-to-picture/atlases/food-01.svg",
+      "src": "/images/kana-to-picture/atlases/food-01-v2.webp",
+      "format": "raster-grid",
+      "columns": 6,
+      "rows": 5,
+      "cellSize": 320,
       "symbols": [
         "apple",
         "banana",
@@ -60,12 +74,21 @@
         "sushi",
         "tomato",
         "watermelon",
-        "yogurt"
+        "yogurt",
+        "miso-soup",
+        "egg",
+        "cotton-candy",
+        "lettuce",
+        "wheat"
       ]
     },
     {
       "id": "objects-01",
-      "src": "/images/kana-to-picture/atlases/objects-01.svg",
+      "src": "/images/kana-to-picture/atlases/objects-01-v2.webp",
+      "format": "raster-grid",
+      "columns": 6,
+      "rows": 8,
+      "cellSize": 320,
       "symbols": [
         "backpack",
         "ball",
@@ -93,15 +116,39 @@
         "socks",
         "spoon",
         "train",
-        "umbrella"
+        "umbrella",
+        "randoseru",
+        "letter",
+        "gloves",
+        "helmet",
+        "glasses",
+        "yoyo",
+        "eraser",
+        "desk",
+        "kettle",
+        "rocket",
+        "candle",
+        "notebook",
+        "sofa",
+        "pillow",
+        "window",
+        "spinning-top",
+        "plush-toy",
+        "sled",
+        "plate",
+        "fan",
+        "apron"
       ]
     },
     {
       "id": "nature-01",
-      "src": "/images/kana-to-picture/atlases/nature-01.svg",
+      "src": "/images/kana-to-picture/atlases/nature-01-v2.webp",
+      "format": "raster-grid",
+      "columns": 6,
+      "rows": 5,
+      "cellSize": 320,
       "symbols": [
         "acorn",
-        "cloud",
         "flower",
         "forest",
         "hill",
@@ -114,7 +161,6 @@
         "rainbow",
         "river",
         "rock",
-        "seed",
         "shell",
         "snowflake",
         "snowman",
@@ -124,7 +170,9 @@
         "tulip",
         "volcano",
         "wave",
-        "wind"
+        "wind",
+        "sunflower",
+        "pinecone"
       ]
     }
   ]

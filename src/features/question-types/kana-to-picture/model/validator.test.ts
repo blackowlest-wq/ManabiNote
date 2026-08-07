@@ -3,8 +3,8 @@ import { QuestionDataError, validateKanaToPictureQuestions } from './validator';
 
 const validManifest = {
   atlases: [
-    { id: 'animals', src: '/images/animals.svg', symbols: ['ant'] },
-    { id: 'objects', src: '/images/objects.svg', symbols: ['apple', 'umbrella'] },
+    { id: 'animals', src: '/images/animals.svg', format: 'svg-symbol' as const, symbols: ['ant', 'fish'] },
+    { id: 'objects', src: '/images/objects.svg', format: 'svg-symbol' as const, symbols: ['apple', 'umbrella'] },
   ],
 };
 
@@ -17,6 +17,7 @@ const validQuestion = {
     { id: 'apple', label: 'りんご', reading: 'りんご', image: { atlasId: 'objects', symbolId: 'apple' } },
     { id: 'ant', label: 'あり', reading: 'あり', image: { atlasId: 'animals', symbolId: 'ant' } },
     { id: 'umbrella', label: 'かさ', reading: 'かさ', image: { atlasId: 'objects', symbolId: 'umbrella' } },
+    { id: 'fish', label: 'さかな', reading: 'さかな', image: { atlasId: 'animals', symbolId: 'fish' } },
   ],
   correctChoiceId: 'ant',
   audioSrc: null,
@@ -27,13 +28,13 @@ describe('validateKanaToPictureQuestions', () => {
     const result = validateKanaToPictureQuestions([validQuestion], validManifest);
 
     expect(result[0].type).toBe('kana-to-picture');
-    expect(result[0].choices).toHaveLength(3);
+    expect(result[0].choices).toHaveLength(4);
   });
 
   it.each([
-    ['fewer than three choices', validQuestion.choices.slice(0, 2)],
+    ['fewer than four choices', validQuestion.choices.slice(0, 3)],
     [
-      'more than three choices',
+      'more than four choices',
       [
         ...validQuestion.choices,
         {
@@ -56,6 +57,22 @@ describe('validateKanaToPictureQuestions', () => {
 
   it('rejects duplicate choice IDs', () => {
     const choices = validQuestion.choices.map((choice, index) => ({ ...choice, id: index === 1 ? 'apple' : choice.id }));
+
+    expect(() => validateKanaToPictureQuestions([{ ...validQuestion, choices }], validManifest)).toThrow(QuestionDataError);
+  });
+
+  it('rejects duplicate image references within one question', () => {
+    const choices = validQuestion.choices.map((choice) =>
+      choice.id === 'ant' ? { ...choice, image: { atlasId: 'objects', symbolId: 'apple' } } : choice,
+    );
+
+    expect(() => validateKanaToPictureQuestions([{ ...validQuestion, choices }], validManifest)).toThrow(QuestionDataError);
+  });
+
+  it('rejects duplicate reading first characters within one question', () => {
+    const choices = validQuestion.choices.map((choice) =>
+      choice.id === 'fish' ? { ...choice, label: 'りす', reading: 'りす' } : choice,
+    );
 
     expect(() => validateKanaToPictureQuestions([{ ...validQuestion, choices }], validManifest)).toThrow(QuestionDataError);
   });

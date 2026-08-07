@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Generate 26 high-quality animal illustrations from the supplied reference style, preserve the existing SVG atlas, compose a project-bound raster atlas under 25MB, and integrate it into the kana picture-question UI with four choices per question.
+**Goal:** Generate 30 high-quality animal illustrations from the supplied reference style, preserve the existing SVG atlas, compose a project-bound raster atlas under 25MB, and integrate it into the kana picture-question UI with four choices per question.
 
 **Architecture:** Keep the existing four-atlas manifest and SVG rendering for food, objects, and nature. Add a raster-grid atlas variant for animals, with fixed 320px cells in a 6×5 WebP sheet and row-major symbol placement. The existing `animals-01.svg` remains untouched as the rollback/reference asset; the manifest points animal questions to the new WebP only after the asset and rendering tests pass.
 
@@ -11,20 +11,20 @@
 ## Global Constraints
 
 - Preserve `public/images/kana-to-picture/atlases/animals-01.svg`; never overwrite or delete it.
-- Generate each of the 26 animal illustrations individually, using the attached cat image as a style reference, then inspect and selectively regenerate weak outputs.
-- Compose the final animal atlas as `public/images/kana-to-picture/atlases/animals-01-v2.webp` with a 6×5 row-major grid, 320×320px cells, and a file size below 25MB.
+- Generate each of the 30 animal illustrations individually, using the attached cat image as a style reference, then inspect and selectively regenerate weak outputs.
+- Compose the final animal atlas as `public/images/kana-to-picture/atlases/animals-01-v2.webp` with a 6×6 row-major grid, 320×320px cells, and a file size below 25MB.
 - Keep the three non-animal SVG atlases unchanged.
 - Every question must contain exactly four choices: one correct choice and three incorrect choices.
 - Incorrect readings must not begin with the question kana; all 100 correct readings remain unique.
-- All 26 animal symbols must be referenced by at least one question choice.
-- Preserve the approved noun policy: remove descriptive phrases such as `ねこのこ`, while retaining familiar one-word compounds such as `おにぎり` and `しろくま`.
+- All 32 animal symbols must be referenced by at least one question choice.
+- Preserve the approved noun policy: remove descriptive phrases such as `ねこのこ`, while retaining familiar one-word compounds such as `しろくま`; use the current canonical-name table for the reviewed bank.
 
 ---
 
-### Task 1: Generate and normalize the 26 animal source illustrations
+### Task 1: Generate and normalize the 30 animal source illustrations
 
 **Files:**
-- Create: `artwork/imagegen/animals-v2/ant.png` through `artwork/imagegen/animals-v2/turtle.png` as reviewable source outputs
+- Create: `artwork/imagegen/animals-v2/*.png` as reviewable source outputs for all 30 manifest symbols
 - Create: `artwork/imagegen/animals-v2/README.md` with the shared prompt and symbol order
 - Preserve: `public/images/kana-to-picture/atlases/animals-01.svg`
 
@@ -63,9 +63,9 @@ Constraints: no text, no letters, no numbers, no logo, no watermark, no extra an
 Avoid: photorealism, complex background, scary expression, clutter, anatomy errors, duplicate limbs
 ```
 
-Use the symbol order from `image-atlas-manifest.json`: ant, bear, bird, butterfly, cat, chick, cow, crab, deer, dog, dolphin, elephant, fish, fox, frog, giraffe, horse, koala, lion, monkey, octopus, owl, panda, polar-bear, rabbit, turtle.
+Use the symbol order from `image-atlas-manifest.json`: ant, bear, bird, butterfly, cat, chick, cow, crab, deer, dog, dolphin, elephant, fish, fox, frog, giraffe, horse, koala, lion, monkey, octopus, owl, panda, polar-bear, rabbit, turtle, cicada, crocodile, pig, mouse.
 
-- [ ] **Step 3: Inspect all 26 outputs and regenerate only failures**
+- [ ] **Step 3: Inspect all 30 outputs and regenerate only failures**
 
 Check each output for exact species recognition, full-body visibility, consistent padding, clean edges, no text, and visual compatibility with the supplied reference. Regenerate only the failed symbol with a targeted prompt such as `make the ears and long trunk unmistakably elephant-like; preserve the same cute pastel picture-card style and square framing`.
 
@@ -92,11 +92,11 @@ Expected: the hash matches the value recorded in Step 1.
 
 **Interfaces:**
 - Consumes: `artwork/imagegen/animals-v2/*.png`
-- Produces: a 1,920×1,600px WebP with 6 columns, 5 rows, and 320px cells; blank cells are the final four row-major slots
+- Produces: a 1,920×1,600px WebP with 6 columns, 5 rows, and 320px cells; all 30 cells contain an animal
 
 - [ ] **Step 1: Add a failing composition check**
 
-The Python `unittest` check must assert that the output exists, has the expected dimensions, is WebP, is smaller than 25MB, and that all 26 source filenames are consumed exactly once.
+The Python `unittest` check must assert that the output exists, has the expected dimensions, is WebP, is smaller than 25MB, and that all 30 source filenames are consumed exactly once.
 
 - [ ] **Step 2: Run the check and confirm it fails before the composer exists**
 
@@ -110,7 +110,7 @@ Expected: FAIL because the composer and final atlas do not exist yet.
 
 - [ ] **Step 3: Implement the deterministic composer**
 
-Use Pillow to resize each source image into a 320×320 cell using contain behavior, place cells row-major by the manifest symbol order, leave the final four cells blank, and export WebP at a quality that keeps the file comfortably below 25MB. The script must fail with a clear error if a source symbol is missing or if the output exceeds 25MB.
+Use Pillow to resize each source image into a 320×320 cell using contain behavior, place cells row-major by the manifest symbol order, and export WebP at a quality that keeps the file comfortably below 25MB. The script must fail with a clear error if a source symbol is missing or if the output exceeds 25MB.
 
 - [ ] **Step 4: Run the composer and its check**
 
@@ -125,7 +125,7 @@ Expected: PASS; the output is present at `public/images/kana-to-picture/atlases/
 
 - [ ] **Step 5: Visually inspect the atlas**
 
-Open the generated WebP and confirm that every cell contains the intended species, no cell is cropped, and the four unused cells are blank. If any source is wrong, regenerate that source and rerun the composer.
+Open the generated WebP and confirm that every cell contains the intended species and no cell is cropped. If any source is wrong, regenerate that source and rerun the composer.
 
 ### Task 3: Add raster-grid atlas metadata and rendering
 
@@ -156,7 +156,7 @@ Expected: FAIL for the new raster expectations.
 
 - [ ] **Step 3: Extend the manifest model and validator**
 
-Add a discriminated atlas format. Validate that raster atlases have positive integer columns, rows, and cell size, that `symbols.length <= columns * rows`, and that existing SVG entries continue to validate without raster fields. Point only `animals-01` at the new WebP and retain all 26 symbol IDs in the existing order.
+Add a discriminated atlas format. Validate that raster atlases have positive integer columns, rows, and cell size, that `symbols.length <= columns * rows`, and that existing SVG entries continue to validate without raster fields. Point only `animals-01` at the new WebP and retain all 30 symbol IDs in the existing order.
 
 - [ ] **Step 4: Implement raster rendering without changing accessibility**
 
@@ -209,12 +209,12 @@ Run the same focused command. Expected: PASS for the updated contract tests.
 - Test: `src/features/question-types/kana-to-picture/model/loader.test.ts`
 
 **Interfaces:**
-- Consumes: the 26-symbol animal manifest and four-choice validator
+- Consumes: the 30-symbol animal manifest and four-choice validator
 - Produces: 100 valid questions, each with four choices, with all animal symbols referenced at least once
 
 - [ ] **Step 1: Add a failing animal-coverage test**
 
-Load the bank, collect `animals-01` symbol IDs from every choice, and assert that the set contains all 26 manifest symbols. Also assert that each question has exactly four choices and that the normalized labels are used.
+Load the bank, collect `animals-01` symbol IDs from every choice, and assert that the set contains all 30 manifest symbols. Also assert that each question has exactly four choices and that the normalized labels are used.
 
 - [ ] **Step 2: Run the focused loader test and confirm it fails**
 
@@ -224,11 +224,11 @@ Run:
 npm test -- --run src/features/question-types/kana-to-picture/model/loader.test.ts
 ```
 
-Expected: FAIL because the existing bank has three choices and omits dolphin, elephant, and frog.
+Expected: FAIL because the existing bank has three choices and omits animal symbols required by the expanded manifest.
 
 - [ ] **Step 3: Add the fourth distractor to all 100 questions**
 
-Preserve each question's correct choice and three existing distractors, adding one fourth distractor with a unique choice ID. Choose the new reading so it does not start with the question kana and avoid duplicate image references within a question. Include `いるか`, `ぞう`, and `かえる` in the bank so dolphin, elephant, and frog are each referenced. Normalize the approved animal labels without changing question readings that are already valid.
+Preserve each question's correct choice and three existing distractors, adding one fourth distractor with a unique choice ID. Choose the new reading so it does not start with the question kana and avoid duplicate image references within a question. Include all newly required animal readings in the bank so every manifest symbol is referenced. Normalize the approved animal labels without changing question readings that are already valid.
 
 - [ ] **Step 4: Run the focused loader test and confirm it passes**
 
@@ -275,7 +275,7 @@ npm run build
 npm run test:pwa
 ```
 
-Expected: all commands exit successfully; the old SVG remains unchanged; the WebP is below 25MB; all 100 questions load with four choices; and all 26 animal symbols are used.
+Expected: all commands exit successfully; the old SVG remains unchanged; the WebP is below 25MB; all 100 questions load with four choices; and all 30 animal symbols are used.
 
 - [ ] **Step 5: Commit the implementation as a coherent change**
 

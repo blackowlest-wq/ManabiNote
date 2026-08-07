@@ -38,5 +38,17 @@ export const validateKanaToPictureQuestionBank = (
     return invalidData();
   }
 
+  const correctPositionCounts = [0, 0, 0, 0];
+  for (const question of questions) {
+    const correctPosition = question.choices.findIndex((choice) => choice.id === question.correctChoiceId);
+    if (correctPosition < 0) {
+      return invalidData();
+    }
+    correctPositionCounts[correctPosition] += 1;
+  }
+  if (Math.max(...correctPositionCounts) > questions.length * 0.4) {
+    return invalidData();
+  }
+
   return questions;
 };

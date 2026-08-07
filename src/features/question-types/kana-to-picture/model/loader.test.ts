@@ -28,7 +28,7 @@ describe('loadKanaToPictureQuestions', () => {
     );
   });
 
-  it('loads unique question IDs and unique correct readings with exactly three choices', () => {
+  it('loads unique question IDs and unique correct readings with exactly four choices', () => {
     const questions = loadKanaToPictureQuestions();
     const correctReadings = questions.map((question) => question.reading);
 
@@ -38,9 +38,40 @@ describe('loadKanaToPictureQuestions', () => {
     for (const question of questions) {
       const correctChoice = question.choices.find((choice) => choice.id === question.correctChoiceId);
 
-      expect(question.choices).toHaveLength(3);
-      expect(new Set(question.choices.map((choice) => choice.id)).size).toBe(3);
+      expect(question.choices).toHaveLength(4);
+      expect(new Set(question.choices.map((choice) => choice.id)).size).toBe(4);
       expect(correctChoice?.reading).toBe(question.reading);
+    }
+  });
+
+  it('keeps every correct choice position at or below 40 percent', () => {
+    const questions = loadKanaToPictureQuestions();
+    const positions = questions.map((question) =>
+      question.choices.findIndex((choice) => choice.id === question.correctChoiceId) + 1,
+    );
+    const counts = new Map([1, 2, 3, 4].map((position) => [position, 0]));
+
+    for (const position of positions) {
+      counts.set(position, (counts.get(position) ?? 0) + 1);
+    }
+
+    expect(Math.max(...counts.values())).toBeLessThanOrEqual(Math.floor(questions.length * 0.4));
+  });
+
+  it('uses every generated atlas symbol in at least one choice', () => {
+    const questions = loadKanaToPictureQuestions();
+    const manifest = loadImageAtlasManifest();
+
+    for (const atlas of manifest.atlases) {
+      const usedSymbols = new Set(
+        questions.flatMap((question) =>
+          question.choices
+            .filter((choice) => choice.image.atlasId === atlas.id)
+            .map((choice) => choice.image.symbolId),
+        ),
+      );
+
+      expect(usedSymbols, atlas.id).toEqual(new Set(atlas.symbols));
     }
   });
 
@@ -63,6 +94,64 @@ describe('loadKanaToPictureQuestions', () => {
     }
   });
 
+  it('does not repeat a choice image, reading, or first character within one question', () => {
+    const questions = loadKanaToPictureQuestions();
+
+    for (const question of questions) {
+      const imageReferences = question.choices.map(
+        (choice) => `${choice.image.atlasId}/${choice.image.symbolId}`,
+      );
+      const heads = question.choices.map((choice) => choice.reading[0]);
+
+      expect(new Set(imageReferences).size, question.id).toBe(question.choices.length);
+      expect(new Set(heads).size, question.id).toBe(heads.length);
+      expect(new Set(question.choices.map((choice) => choice.reading)).size, question.id).toBe(
+        question.choices.length,
+      );
+    }
+  });
+
+  it('maps each image symbol to exactly one displayed name and reading', () => {
+    const questions = loadKanaToPictureQuestions();
+    const namesByImage = new Map<string, Set<string>>();
+
+    for (const question of questions) {
+      for (const choice of question.choices) {
+        const imageReference = `${choice.image.atlasId}/${choice.image.symbolId}`;
+        const names = namesByImage.get(imageReference) ?? new Set<string>();
+        names.add(`${choice.label}/${choice.reading}`);
+        namesByImage.set(imageReference, names);
+      }
+    }
+
+    expect([...namesByImage.values()].every((names) => names.size === 1)).toBe(true);
+  });
+
+  it('uses the reviewed single-name mappings', () => {
+    const questions = loadKanaToPictureQuestions();
+    const choices = questions.flatMap((question) => question.choices);
+    const readingBySymbol = new Map(choices.map((choice) => [choice.image.symbolId, choice.reading]));
+
+    expect(readingBySymbol.get('ant')).toBe('あり');
+    expect(readingBySymbol.get('octopus')).toBe('たこ');
+    expect(readingBySymbol.get('bird')).toBe('とり');
+    expect(readingBySymbol.get('pig')).toBe('ぶた');
+    expect(readingBySymbol.get('bread')).toBe('ぱん');
+    expect(readingBySymbol.get('broccoli')).toBe('ぶろっこりー');
+    expect(readingBySymbol.get('donut')).toBe('どーなつ');
+    expect(readingBySymbol.get('grape')).toBe('ぶどう');
+    expect(readingBySymbol.get('rice')).toBe('ごはん');
+    expect(readingBySymbol.get('ball')).toBe('ぼーる');
+    expect(readingBySymbol.get('lamp')).toBe('らいと');
+    expect(readingBySymbol.get('phone')).toBe('すまーとふぉん');
+    expect(readingBySymbol.get('train')).toBe('きしゃ');
+    expect(readingBySymbol.get('sun')).toBe('たいよう');
+    expect(readingBySymbol.get('backpack')).toBe('りっくさっく');
+    expect(readingBySymbol.get('book')).toBe('ほん');
+    expect(readingBySymbol.get('apron')).toBe('えぷろん');
+    expect(readingBySymbol.get('miso-soup')).toBe('みそしる');
+  });
+
   it('keeps distractor choices balanced across the question bank', () => {
     const questions = loadKanaToPictureQuestions();
     const distractorCounts = new Map<string, number>();
@@ -70,13 +159,12 @@ describe('loadKanaToPictureQuestions', () => {
     for (const question of questions) {
       for (const choice of question.choices) {
         if (choice.id !== question.correctChoiceId) {
-          distractorCounts.set(choice.reading, (distractorCounts.get(choice.reading) ?? 0) + 1);
+          const key = `${choice.image.atlasId}/${choice.image.symbolId}`;
+          distractorCounts.set(key, (distractorCounts.get(key) ?? 0) + 1);
         }
       }
     }
 
-    expect(distractorCounts.get('りんご')).toBeLessThanOrEqual(4);
-    expect(distractorCounts.get('さかな')).toBeLessThanOrEqual(4);
     expect(Math.max(...distractorCounts.values())).toBeLessThanOrEqual(4);
   });
 

@@ -72,7 +72,7 @@ const validateQuestion = (raw: unknown, manifest: ImageAtlasManifest): KanaToPic
     return invalidData();
   }
 
-  if (!Array.isArray(raw.choices) || raw.choices.length !== 3 || !isNonEmptyString(raw.correctChoiceId)) {
+  if (!Array.isArray(raw.choices) || raw.choices.length !== 4 || !isNonEmptyString(raw.correctChoiceId)) {
     return invalidData();
   }
 
@@ -86,11 +86,17 @@ const validateQuestion = (raw: unknown, manifest: ImageAtlasManifest): KanaToPic
 
   const correctChoice = choices.find((choice) => choice.id === raw.correctChoiceId);
   const incorrectChoices = choices.filter((choice) => choice.id !== raw.correctChoiceId);
+  const imageReferences = choices.map((choice) => `${choice.image.atlasId}/${choice.image.symbolId}`);
+  const readings = choices.map((choice) => choice.reading);
+  const readingHeads = choices.map((choice) => choice.reading[0]);
   if (
     !correctChoice ||
     correctChoice.reading !== reading ||
     !startsWithKana(reading, kana) ||
-    incorrectChoices.some((choice) => startsWithKana(choice.reading, kana))
+    incorrectChoices.some((choice) => startsWithKana(choice.reading, kana)) ||
+    new Set(imageReferences).size !== imageReferences.length ||
+    new Set(readings).size !== readings.length ||
+    new Set(readingHeads).size !== readingHeads.length
   ) {
     return invalidData();
   }

@@ -15,18 +15,38 @@ const dogChoice: PictureChoiceData = {
 }
 
 describe('SpriteImage', () => {
-  it('renders an accessible external sprite use reference for a known atlas symbol', () => {
+  it('renders an accessible raster crop for a known animal atlas symbol', () => {
     const { container } = render(<SpriteImage image={dogChoice.image} alt={dogChoice.label} />)
 
     const image = screen.getByRole('img', { name: 'いぬ' })
-    const useElement = container.querySelector('use')
 
-    expect(image.tagName.toLowerCase()).toBe('svg')
-    expect(useElement).not.toBeNull()
-    expect(useElement).toHaveAttribute(
-      'href',
-      '/images/kana-to-picture/atlases/animals-01.svg#dog',
-    )
+    expect(image.tagName.toLowerCase()).toBe('div')
+    expect(image).toHaveStyle({
+      backgroundImage: 'url("/images/kana-to-picture/atlases/animals-01-v2.webp")',
+      backgroundSize: '960px 960px',
+      backgroundPosition: '-480px -160px',
+    })
+    expect(container.querySelector('use')).toBeNull()
+  })
+
+  it('renders an accessible raster crop for a known food atlas symbol', () => {
+    const foodChoice: PictureChoiceData = {
+      ...dogChoice,
+      label: 'りんご',
+      reading: 'りんご',
+      image: { atlasId: 'food-01', symbolId: 'apple' },
+    }
+    const { container } = render(<SpriteImage image={foodChoice.image} alt={foodChoice.label} />)
+
+    const image = screen.getByRole('img', { name: 'りんご' })
+
+    expect(image.tagName.toLowerCase()).toBe('div')
+    expect(image).toHaveStyle({
+      backgroundImage: 'url("/images/kana-to-picture/atlases/food-01-v2.webp")',
+      backgroundSize: '960px 800px',
+      backgroundPosition: '0px 0px',
+    })
+    expect(container.querySelector('use')).toBeNull()
   })
 
   it('renders through PictureChoice without changing button accessibility', () => {
@@ -43,15 +63,13 @@ describe('SpriteImage', () => {
     const button = screen.getByRole('button', { name: 'いぬ' })
     expect(screen.queryByText('いぬ')).not.toBeInTheDocument()
     const image = within(button).getByRole('img', { name: 'いぬ' })
-    const useElement = image.querySelector('use')
 
     expect(button).toHaveAttribute('aria-pressed', 'true')
-    expect(image).toHaveAttribute('width', '160')
-    expect(image).toHaveAttribute('height', '160')
-    expect(useElement).toHaveAttribute(
-      'href',
-      '/images/kana-to-picture/atlases/animals-01.svg#dog',
-    )
+    expect(image).toHaveStyle({
+      width: '160px',
+      height: '160px',
+      backgroundPosition: '-480px -160px',
+    })
   })
 
 })

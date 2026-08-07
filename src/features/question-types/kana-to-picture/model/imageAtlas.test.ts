@@ -9,11 +9,13 @@ const validManifest: ImageAtlasManifest = {
     {
       id: 'animals',
       src: '/images/animals.svg',
+      format: 'svg-symbol',
       symbols: ['ant', 'dog'],
     },
     {
       id: 'objects',
       src: '/images/objects.svg',
+      format: 'svg-symbol',
       symbols: ['umbrella', 'apple'],
     },
   ],
@@ -31,6 +33,48 @@ describe('loadImageAtlasManifest', () => {
         symbols: expect.arrayContaining([expect.any(String)]),
       }),
     );
+  });
+
+  it('loads generated raster-grid metadata for every generated atlas', () => {
+    const manifest = loadImageAtlasManifest();
+    const generatedAtlases = ['animals-01', 'food-01', 'objects-01', 'nature-01'];
+
+    const expectedRows = new Map([
+      ['animals-01', 6],
+      ['food-01', 5],
+      ['objects-01', 8],
+      ['nature-01', 5],
+    ]);
+
+    for (const atlasId of generatedAtlases) {
+      const atlas = manifest.atlases.find((candidate) => candidate.id === atlasId);
+
+      expect(atlas).toEqual(
+        expect.objectContaining({
+          format: 'raster-grid',
+          src: `/images/kana-to-picture/atlases/${atlasId}-v2.webp`,
+          columns: 6,
+          rows: expectedRows.get(atlasId),
+          cellSize: 320,
+        }),
+      );
+    }
+  });
+
+  it('rejects raster-grid metadata with an invalid cell size', () => {
+    const manifestWithInvalidRasterMetadata = {
+      atlases: [
+        {
+          ...validManifest.atlases[0],
+          format: 'raster-grid',
+          columns: 2,
+          rows: 1,
+          cellSize: 0,
+        },
+      ],
+    };
+
+    expect(() => loadImageAtlasManifest(manifestWithInvalidRasterMetadata)).toThrow(QuestionDataError);
   });
 
   it('does not embed English labels in the picture atlases', () => {

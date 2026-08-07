@@ -68,7 +68,7 @@ describe('KanaQuestion', () => {
     expect(screen.getByText('「う」から はじまる ことばを えらぼう')).toBeInTheDocument()
   })
 
-  it('renders atlas-backed external use references instead of an undefined source', () => {
+  it('renders atlas-backed raster crops instead of an undefined source', () => {
     const { container } = render(
       <KanaQuestion
         question={question}
@@ -79,10 +79,14 @@ describe('KanaQuestion', () => {
     )
 
     const appleImage = screen.getByRole('img', { name: 'りんご' })
-    const useElement = container.querySelector('use')
 
-    expect(appleImage.tagName.toLowerCase()).toBe('svg')
-    expect(useElement).toHaveAttribute('href', '/images/kana-to-picture/atlases/food-01.svg#apple')
+    expect(appleImage.tagName.toLowerCase()).toBe('div')
+    expect(appleImage).toHaveStyle({
+      backgroundImage: 'url("/images/kana-to-picture/atlases/food-01-v2.webp")',
+      backgroundSize: '960px 800px',
+      backgroundPosition: '0px 0px',
+    })
+    expect(container.querySelector('use')).toBeNull()
   })
 
   it('reports the selected choice id and exposes its pressed state', async () => {

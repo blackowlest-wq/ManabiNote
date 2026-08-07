@@ -6,11 +6,24 @@ export type PictureImageRef = {
   symbolId: string;
 };
 
-export type ImageAtlas = {
+type ImageAtlasBase = {
   id: string;
   src: string;
   symbols: string[];
 };
+
+export type SvgImageAtlas = ImageAtlasBase & {
+  format: 'svg-symbol';
+};
+
+export type RasterGridImageAtlas = ImageAtlasBase & {
+  format: 'raster-grid';
+  columns: number;
+  rows: number;
+  cellSize: number;
+};
+
+export type ImageAtlas = SvgImageAtlas | RasterGridImageAtlas;
 
 export type ImageAtlasManifest = {
   atlases: ImageAtlas[];
@@ -21,6 +34,9 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 
 const isNonEmptyString = (value: unknown): value is string =>
   typeof value === 'string' && value.trim().length > 0;
+
+const isPositiveInteger = (value: unknown): value is number =>
+  typeof value === 'number' && Number.isInteger(value) && value > 0;
 
 const invalidData = (): never => {
   throw new QuestionDataError();
@@ -43,10 +59,34 @@ const validateAtlas = (raw: unknown): ImageAtlas => {
     return invalidData();
   }
 
+  const format = raw.format ?? 'svg-symbol';
+  if (format === 'svg-symbol') {
+    return {
+      id: raw.id,
+      src: raw.src,
+      symbols,
+      format,
+    };
+  }
+
+  if (
+    format !== 'raster-grid' ||
+    !isPositiveInteger(raw.columns) ||
+    !isPositiveInteger(raw.rows) ||
+    !isPositiveInteger(raw.cellSize) ||
+    symbols.length > raw.columns * raw.rows
+  ) {
+    return invalidData();
+  }
+
   return {
     id: raw.id,
     src: raw.src,
     symbols,
+    format,
+    columns: raw.columns,
+    rows: raw.rows,
+    cellSize: raw.cellSize,
   };
 };
 
