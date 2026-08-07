@@ -57,6 +57,20 @@ describe('HomePage', () => {
     expect(screen.getByTestId('location')).toHaveTextContent('/stroke-order')
   })
 
+  it('shows a separate word builder game link', () => {
+    render(
+      <MemoryRouter>
+        <QuizSessionProvider>
+          <StrokePracticeProvider>
+            <HomePage />
+          </StrokePracticeProvider>
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('link', { name: 'ことばをつくろう' })).toHaveAttribute('href', '/word-builder')
+  })
+
   it('clears an existing stroke session before entering row selection', async () => {
     const user = userEvent.setup()
     const initialSession = createPracticeSession(
