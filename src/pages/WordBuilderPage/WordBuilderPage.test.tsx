@@ -62,6 +62,19 @@ describe('WordBuilderPage', () => {
     expect(screen.getByText('1 / 5')).toBeInTheDocument()
   })
 
+  it('starts a new session when re-entering after completing a previous session', async () => {
+    render(<WordBuilderPage />, {
+      wrapper: ({ children }) => (
+        <MemoryRouter>
+          <WordBuilderSessionProvider initialSession={createCompleteSession()}>{children}</WordBuilderSessionProvider>
+        </MemoryRouter>
+      ),
+    })
+
+    expect(await screen.findByRole('img')).toBeInTheDocument()
+    expect(screen.getByText('1 / 5')).toBeInTheDocument()
+  })
+
   it('shows a completion result after the fifth word', async () => {
     const user = userEvent.setup()
     render(

@@ -12,7 +12,7 @@ export function WordBuilderPage() {
   const { session, error, startSession, selectTile, undoLastTile, submitWord, nextWord } = useWordBuilderSession()
 
   useEffect(() => {
-    if (!session && !error) startSession()
+    if ((!session || isWordBuilderComplete(session)) && !error) startSession()
   }, [session, error, startSession])
 
   useEffect(() => {
