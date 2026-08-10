@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { HistoryPage } from '../pages/HistoryPage/HistoryPage'
+import { MissingCharacterPage } from '../pages/MissingCharacterPage/MissingCharacterPage'
+import { MissingCharacterResultPage } from '../pages/MissingCharacterResultPage/MissingCharacterResultPage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -19,6 +21,8 @@ export function AppRouter() {
       <Route path="/stroke-order/result" element={<StrokeResultPage />} />
       <Route path="/word-builder" element={<WordBuilderPage />} />
       <Route path="/word-builder/result" element={<WordBuilderResultPage />} />
+      <Route path="/missing-character" element={<MissingCharacterPage />} />
+      <Route path="/missing-character/result" element={<MissingCharacterResultPage />} />
     </Routes>
   )
 }

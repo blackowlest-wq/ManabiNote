@@ -350,6 +350,145 @@ button:focus-visible {
   font-size: clamp(1.5rem, 7vw, 2.25rem);
 }
 
+.missing-character-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.missing-character-page > p[aria-label='学習の進み具合'] {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+}
+
+.missing-character-question {
+  display: grid;
+  width: min(100%, 28rem);
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.missing-character-image-card {
+  display: grid;
+  min-height: 15rem;
+  width: 100%;
+  place-items: center;
+  border: 3px solid #bae6fd;
+  border-radius: 1.25rem;
+  padding: 0.75rem;
+  background: #ffffff;
+  box-shadow: 0 0.5rem 1.25rem rgb(14 116 144 / 12%);
+}
+
+.missing-character-image-card .kana-picture-choice__image {
+  width: min(14rem, 100%) !important;
+  height: auto !important;
+  aspect-ratio: 1;
+}
+
+.missing-character-instruction {
+  margin: 0;
+  color: #334155;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.missing-character-word {
+  display: flex;
+  min-height: 4.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin: 0;
+  color: #172033;
+  font-size: clamp(2.5rem, 11vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.missing-character-word__character {
+  display: inline-grid;
+  min-width: 2.5rem;
+  min-height: 4rem;
+  place-items: center;
+}
+
+.missing-character-word__character--blank {
+  border-bottom: 4px solid #f59e0b;
+  color: #b45309;
+}
+
+.missing-character-choices {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.missing-character-choice {
+  min-height: 4.25rem;
+  border-color: #7dd3fc;
+  border-radius: 1rem;
+  background: #ffffff;
+  color: #172033;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.missing-character-choice:hover:not(:disabled),
+.missing-character-choice[aria-pressed='true'] {
+  border-color: #075985;
+  background: #e0f2fe;
+}
+
+.missing-character-choice:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.missing-character-feedback {
+  margin: 0;
+  border: 3px solid;
+  border-radius: 0.875rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.missing-character-feedback--retry {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.missing-character-feedback--success {
+  border-color: #34d399;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.missing-character-next {
+  width: min(100%, 28rem);
+}
+
+.missing-character-result {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.missing-character-result h2 {
+  margin: 0;
+  color: #b45309;
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+}
+
 .choice-feedback {
   margin: 1.5rem 0;
   border-radius: 0.75rem;
@@ -689,6 +828,43 @@ button:focus-visible {
 
   .word-builder-page {
     gap: 0.5rem;
+  }
+
+  .missing-character-page {
+    gap: 0.5rem;
+  }
+
+  .missing-character-question {
+    gap: 0.5rem;
+  }
+
+  .missing-character-image-card {
+    min-height: 11rem;
+    padding: 0.35rem;
+  }
+
+  .missing-character-image-card .kana-picture-choice__image {
+    width: min(11rem, 100%) !important;
+  }
+
+  .missing-character-instruction {
+    font-size: 1rem;
+  }
+
+  .missing-character-word {
+    min-height: 3.75rem;
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .missing-character-word__character {
+    min-width: 2rem;
+    min-height: 3rem;
+  }
+
+  .missing-character-choice {
+    min-height: 3.5rem;
+    border-radius: 0.75rem;
+    font-size: 1.7rem;
   }
 
   .word-builder-instruction {

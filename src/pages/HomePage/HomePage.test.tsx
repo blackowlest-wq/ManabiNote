@@ -71,6 +71,20 @@ describe('HomePage', () => {
     expect(screen.getByRole('link', { name: 'ことばをつくろう' })).toHaveAttribute('href', '/word-builder')
   })
 
+  it('shows a missing character game link', () => {
+    render(
+      <MemoryRouter>
+        <QuizSessionProvider>
+          <StrokePracticeProvider>
+            <HomePage />
+          </StrokePracticeProvider>
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('link', { name: 'ことばの あなうめ' })).toHaveAttribute('href', '/missing-character')
+  })
+
   it('clears an existing stroke session before entering row selection', async () => {
     const user = userEvent.setup()
     const initialSession = createPracticeSession(

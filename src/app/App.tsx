@@ -1,4 +1,5 @@
 import { HashRouter } from 'react-router-dom'
+import { MissingCharacterSessionProvider } from '../features/missing-character/MissingCharacterSessionProvider'
 import { QuizSessionProvider } from '../features/quiz/QuizSessionProvider'
 import { StrokePracticeProvider } from '../features/stroke-order/StrokePracticeProvider'
 import { WordBuilderSessionProvider } from '../features/word-builder/WordBuilderSessionProvider'
@@ -11,7 +12,9 @@ export function App() {
       <QuizSessionProvider>
         <StrokePracticeProvider>
           <WordBuilderSessionProvider>
-            <AppRouter />
+            <MissingCharacterSessionProvider>
+              <AppRouter />
+            </MissingCharacterSessionProvider>
           </WordBuilderSessionProvider>
         </StrokePracticeProvider>
       </QuizSessionProvider>
