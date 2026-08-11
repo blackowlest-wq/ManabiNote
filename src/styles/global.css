@@ -5782,3 +5782,177 @@ button:focus-visible {
   .packing-piece-card { min-width: 4.6rem; min-height: 5.4rem; }
   .packing-piece-shape { width: 3rem; max-height: 3rem; }
 }
+
+/* Robot route game */
+.robot-intro,
+.robot-page {
+  width: min(100%, 38rem);
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  gap: 0.8rem;
+  text-align: center;
+}
+
+.robot-intro p { margin: 0; font-weight: 700; }
+.robot-intro .primary-button { width: min(100%, 20rem); }
+.robot-intro__scene { font-size: clamp(2.7rem, 11vw, 4.8rem); filter: drop-shadow(0 0.3rem 0.2rem rgb(30 50 100 / 18%)); }
+
+.robot-hud {
+  width: min(100%, 28rem);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.robot-hud span,
+.robot-hud strong {
+  padding: 0.5rem 0.6rem;
+  border: 2px solid #8aa6df;
+  border-radius: 0.9rem;
+  background: #fff;
+  color: #344d80;
+  font-weight: 900;
+}
+
+.robot-board {
+  width: min(100%, 28rem);
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.55rem;
+  border: 4px solid #526b9f;
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #bcd7f4, #91b8df);
+  box-shadow: 0 0.55rem 0 #344975, 0 1rem 1.8rem rgb(35 65 110 / 17%);
+}
+
+.robot-cell {
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgb(255 255 255 / 65%);
+  border-radius: 0.75rem;
+  background: #eef7ff;
+  font-size: clamp(1.7rem, 8vw, 3rem);
+}
+
+.robot-cell--wall { background: #8794a5; }
+.robot-cell--trace { background: #e6f5ff; }
+.robot-trace { color: #62a6d8; font-size: 2.5rem; }
+.robot-goal,
+.robot-battery { position: absolute; }
+.robot-player { z-index: 2; animation: robot-arrive 260ms ease-out; }
+
+.robot-command-queue {
+  width: min(100%, 28rem);
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  padding: 0.45rem;
+  border: 3px dashed #8aa6df;
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.robot-command-queue span {
+  width: 2.65rem;
+  height: 2.65rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0.7rem;
+  background: #e7ecff;
+  color: #435ca2;
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.robot-command-queue small { color: #6d7891; font-weight: 800; }
+
+.robot-command-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 4rem);
+  gap: 0.45rem;
+}
+
+.robot-command-buttons button {
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 1rem;
+  background: #526bc1;
+  box-shadow: 0 0.28rem 0 #344584;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.robot-command-buttons button:active { translate: 0 0.17rem; box-shadow: 0 0.11rem 0 #344584; }
+.robot-edit-buttons,
+.robot-page-actions { display: flex; gap: 0.65rem; }
+.robot-edit-buttons button,
+.robot-page-actions button { min-height: 2.6rem; padding: 0.35rem 0.9rem; border: 2px solid #96a8ca; border-radius: 0.8rem; background: #fff; color: #41557d; font: inherit; font-weight: 800; cursor: pointer; }
+
+.robot-launch {
+  width: min(100%, 22rem);
+  min-height: 3.2rem;
+  border: 0;
+  border-radius: 1rem;
+  background: #ec6b42;
+  box-shadow: 0 0.3rem 0 #a84528;
+  color: #fff;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.robot-launch:disabled { opacity: 0.45; cursor: default; }
+
+.robot-failed,
+.robot-clear {
+  width: min(100%, 28rem);
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem;
+  border: 3px solid #9babd2;
+  border-radius: 1.2rem;
+  background: #fff;
+}
+
+.robot-failed > div,
+.robot-clear > div { font-size: 2.6rem; }
+.robot-failed h2,
+.robot-failed p,
+.robot-clear h2,
+.robot-clear p { margin: 0; }
+.robot-failed h2 { color: #77528d; font-size: 1.2rem; }
+.robot-clear h2 { color: #4059aa; }
+.robot-clear__stars { color: #f1b900; font-size: 1.8rem; }
+.robot-failed .primary-button,
+.robot-clear .primary-button { width: min(100%, 18rem); }
+
+@keyframes robot-arrive {
+  from { scale: 0.55; rotate: -12deg; }
+  to { scale: 1; rotate: 0deg; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .robot-player { animation: none; }
+}
+
+@media (max-width: 42rem) {
+  .robot-page { gap: 0.55rem; }
+  .robot-hud { gap: 0.25rem; }
+  .robot-hud span,
+  .robot-hud strong { padding: 0.4rem 0.3rem; font-size: 0.78rem; }
+  .robot-board { width: min(100%, 22rem); gap: 0.2rem; padding: 0.42rem; }
+  .robot-command-queue { min-height: 3.3rem; padding: 0.35rem; }
+  .robot-command-queue span { width: 2.25rem; height: 2.25rem; font-size: 1.45rem; }
+  .robot-command-buttons { grid-template-columns: repeat(4, 3.5rem); }
+}
