@@ -49,7 +49,7 @@ describe('CopyBeatPage', () => {
     expect(screen.getByRole('button', { name: 'つぎの ビート' })).toBeInTheDocument()
   })
 
-  it('records a clear after the sixth copied pattern', async () => {
+  it('records a clear after the final copied pattern', async () => {
     const user = userEvent.setup()
     const storage = makeStorage()
     const initialState: CopyBeatState = {

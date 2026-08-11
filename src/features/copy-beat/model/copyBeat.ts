@@ -1,5 +1,5 @@
 export const COPY_BEAT_PADS = ['sun', 'moon', 'star', 'leaf'] as const
-export const COPY_BEAT_CLEAR_ROUND = 6
+export const COPY_BEAT_CLEAR_ROUND = 12
 
 export type CopyBeatPad = typeof COPY_BEAT_PADS[number]
 

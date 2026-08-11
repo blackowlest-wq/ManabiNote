@@ -10,6 +10,10 @@ const alwaysFirst = () => 0
 const alwaysLast = () => 0.99
 
 describe('copyBeat', () => {
+  it('builds up to a twelve-beat final round', () => {
+    expect(COPY_BEAT_CLEAR_ROUND).toBe(12)
+  })
+
   it('starts with one deterministic beat to watch', () => {
     const state = startCopyBeat(alwaysFirst)
 
@@ -59,7 +63,7 @@ describe('copyBeat', () => {
     expect(missed.events).toContainEqual({ type: 'pattern-replay' })
   })
 
-  it('finishes after copying the sixth pattern', () => {
+  it('finishes after copying the final pattern', () => {
     const state: CopyBeatState = {
       ...startCopyBeat(alwaysFirst),
       status: 'input',
@@ -71,5 +75,21 @@ describe('copyBeat', () => {
 
     expect(finished.state.status).toBe('finished')
     expect(finished.events.some((event) => event.type === 'game-finished')).toBe(true)
+  })
+
+  it('can copy every growing pattern through round twelve', () => {
+    let state = startCopyBeat(alwaysFirst)
+    for (let round = 1; round <= COPY_BEAT_CLEAR_ROUND; round += 1) {
+      state = applyCopyBeatAction(state, { type: 'finish-showing' }, alwaysFirst).state
+      for (const pad of state.sequence) {
+        state = applyCopyBeatAction(state, { type: 'tap-pad', pad }, alwaysFirst).state
+      }
+      if (round < COPY_BEAT_CLEAR_ROUND) {
+        state = applyCopyBeatAction(state, { type: 'next-round' }, alwaysFirst).state
+      }
+    }
+
+    expect(state.status).toBe('finished')
+    expect(state.sequence).toHaveLength(12)
   })
 })
