@@ -74,6 +74,7 @@ import { CatChasePage } from '../pages/CatChasePage/CatChasePage'
 import { RocketLandingPage } from '../pages/RocketLandingPage/RocketLandingPage'
 import { AnimalCrossingPage } from '../pages/AnimalCrossingPage/AnimalCrossingPage'
 import { DanceSpotlightPage } from '../pages/DanceSpotlightPage/DanceSpotlightPage'
+import { ShapeCatcherPage } from '../pages/ShapeCatcherPage/ShapeCatcherPage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -174,6 +175,7 @@ export function AppRouter() {
         <Route path="/rocket-landing" element={<RocketLandingPage />} />
         <Route path="/animal-crossing" element={<AnimalCrossingPage />} />
         <Route path="/dance-spotlight" element={<DanceSpotlightPage />} />
+        <Route path="/shape-catcher" element={<ShapeCatcherPage />} />
       </Routes>
     </>
   )

@@ -110,6 +110,7 @@ export const GAME_CATEGORIES = {
       { id: 'rocket-landing', to: '/rocket-landing', label: 'ロケット ふわっと着陸', description: 'おちる はやさを ふんしゃで ちょうせつする' },
       { id: 'animal-crossing', to: '/animal-crossing', label: 'どうぶつ こうさてん', description: 'しんごうを きりかえて くるまを とおす' },
       { id: 'dance-spotlight', to: '/dance-spotlight', label: 'くるくる ダンススポット', description: 'くりかえす ひかりへ リズムよく うごく' },
+      { id: 'shape-catcher', to: '/shape-catcher', label: 'くるくる かたちキャッチ', description: 'おちる かたちに あわせて うけざらを まわす' },
     ],
   },
 } satisfies Record<string, GameCategory>

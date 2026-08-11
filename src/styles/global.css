@@ -8713,3 +8713,19 @@ button:focus-visible {
 .dance-spotlight-finish p { margin: 0 0 0.55rem; }
 .dance-spotlight-score { font-size: 1.35rem; font-weight: 900; }
 .dance-spotlight-quit { border: 0; background: none; color: #607287; text-decoration: underline; }
+.shape-catcher-center { width:100%; max-width:430px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:.6rem; text-align:center; }
+.shape-catcher-intro { padding-top:1.5rem; }
+.shape-catcher-scene { padding:1rem; color:#5e51a5; font-size:clamp(3rem,14vw,4.5rem); font-weight:900; }
+.shape-catcher-hud { width:100%; display:flex; justify-content:space-between; gap:.2rem; padding:.65rem .7rem; border-radius:1rem; background:#e7efff; color:#405c89; font-weight:900; }
+.shape-catcher-field { position:relative; width:min(100%,370px); height:clamp(320px,46vh,370px); overflow:hidden; border:.3rem solid #6685bc; border-radius:1.4rem; background:linear-gradient(#cae8ff,#eef7ff 67%,#b8c8da 68%); }
+.shape-catcher-falling { position:absolute; left:50%; z-index:2; color:#e8664f; font-size:4.8rem; line-height:1; font-weight:900; text-shadow:0 .2rem 0 #a63e30; transition:top .2s linear,transform .2s; }
+.shape-catcher-bins { position:absolute; inset:auto .4rem .45rem; display:grid; grid-template-columns:repeat(3,1fr); gap:.35rem; }
+.shape-catcher-bins button { min-width:0; min-height:7rem; border:.22rem solid #6685bc; border-radius:1rem; background:#fff; color:#506baa; }
+.shape-catcher-bins button span { display:block; font-size:3.2rem; line-height:1.2; transition:transform .15s; }
+.shape-catcher-bins button small { display:block; font-weight:900; }
+.shape-catcher-bins button:disabled { opacity:1; }
+.shape-catcher-feedback { min-height:1.7rem; margin:0; color:#47628c; font-weight:900; }
+.shape-catcher-finish { width:100%; padding:.8rem; border-radius:1rem; background:#e7efff; }
+.shape-catcher-finish h2,.shape-catcher-finish p { margin:0 0 .5rem; }
+.shape-catcher-score { font-size:1.35rem; font-weight:900; }
+.shape-catcher-quit { border:0; background:none; color:#607287; text-decoration:underline; }
