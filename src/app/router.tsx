@@ -58,6 +58,7 @@ import { SortingFactoryPage } from '../pages/SortingFactoryPage/SortingFactoryPa
 import { OppositeGhostPage } from '../pages/OppositeGhostPage/OppositeGhostPage'
 import { BalanceBoatPage } from '../pages/BalanceBoatPage/BalanceBoatPage'
 import { BridgeBuilderPage } from '../pages/BridgeBuilderPage/BridgeBuilderPage'
+import { RollingLabyrinthPage } from '../pages/RollingLabyrinthPage/RollingLabyrinthPage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -142,6 +143,7 @@ export function AppRouter() {
         <Route path="/opposite-ghost" element={<OppositeGhostPage />} />
         <Route path="/balance-boat" element={<BalanceBoatPage />} />
         <Route path="/bridge-builder" element={<BridgeBuilderPage />} />
+        <Route path="/rolling-labyrinth" element={<RollingLabyrinthPage />} />
       </Routes>
     </>
   )

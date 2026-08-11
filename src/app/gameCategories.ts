@@ -94,6 +94,7 @@ export const GAME_CATEGORIES = {
       { id: 'opposite-ghost', to: '/opposite-ghost', label: 'アベコベおばけ', description: 'うさぎは おなじ、おばけは はんたいへ' },
       { id: 'balance-boat', to: '/balance-boat', label: 'ぐらぐら おとどけ便', description: 'にもつを ふねの りょうがわへ のせる' },
       { id: 'bridge-builder', to: '/bridge-builder', label: 'ぽんぽこ 橋づくり', description: 'まるたを くみあわせて かわに はしを かける' },
+      { id: 'rolling-labyrinth', to: '/rolling-labyrinth', label: 'くるくる ラビリンス', description: 'めいろを まわして たまを ころがす' },
     ],
   },
 } satisfies Record<string, GameCategory>

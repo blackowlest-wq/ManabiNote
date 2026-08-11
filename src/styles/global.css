@@ -7197,3 +7197,132 @@ button:focus-visible {
   .bridge-built { top: 3rem; }
   .bridge-inventory__log { min-height: 4rem; }
 }
+
+/* くるくる ラビリンス */
+.labyrinth-intro,
+.labyrinth-result {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.labyrinth-intro__scene,
+.labyrinth-result__scene { font-size: clamp(2.3rem, 10vw, 4.6rem); }
+
+.labyrinth-page {
+  display: grid;
+  gap: .5rem;
+  width: min(100%, 36rem);
+  margin: 0 auto;
+  padding: 0 .55rem 1.5rem;
+}
+
+.labyrinth-hud {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .3rem;
+}
+
+.labyrinth-hud span {
+  padding: .45rem .1rem;
+  border-radius: .65rem;
+  background: #49578e;
+  color: white;
+  text-align: center;
+  font-size: .84rem;
+  font-weight: 900;
+}
+
+.labyrinth-stage-name { color: #465486; text-align: center; font-weight: 900; }
+
+.labyrinth-frame {
+  display: grid;
+  width: min(100%, 20rem);
+  aspect-ratio: 1;
+  place-items: center;
+  justify-self: center;
+  overflow: hidden;
+  border: .65rem solid #6e77a1;
+  border-radius: 1.5rem;
+  background: #262d4c;
+  box-shadow: inset 0 0 1.4rem #11152a;
+}
+
+.labyrinth-board {
+  display: grid;
+  width: 88%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 3px solid #bbc5ec;
+  border-radius: .7rem;
+  background: #e8edff;
+  transition: transform .32s ease;
+}
+
+.labyrinth-cell {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  place-items: center;
+  border: 1px solid #c5cceb;
+  background: #eef2ff;
+}
+
+.labyrinth-cell--wall { background: #8a91ad; }
+.labyrinth-cell--goal { background: #dbffd3; }
+.labyrinth-cell > span { position: absolute; font-size: 1.45rem; }
+.labyrinth-star { z-index: 1; }
+.labyrinth-ball { z-index: 2; display: grid; width: 1.8rem; height: 1.8rem; place-items: center; border: 3px solid #b27700; border-radius: 50%; background: #ffdc3d; color: #ffdc3d; box-shadow: 0 .15rem .2rem rgba(0,0,0,.35); }
+
+.labyrinth-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.labyrinth-controls button {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-height: 4.6rem;
+  border: 4px solid #6a72a5;
+  border-radius: 1.15rem;
+  background: #e8eaff;
+  color: #3d477d;
+  box-shadow: 0 .28rem 0 #41496f;
+  cursor: pointer;
+}
+
+.labyrinth-controls button span { font-size: 3rem; font-weight: 900; }
+.labyrinth-controls button small { font-size: 1rem; font-weight: 900; }
+.labyrinth-controls button:active { transform: translateY(.18rem); box-shadow: 0 .1rem 0 #41496f; }
+
+.labyrinth-feedback { min-height: 1.5rem; margin: 0; color: #46548a; text-align: center; font-weight: 900; }
+.labyrinth-reset { justify-self: center; min-height: 2.7rem; border: 2px solid #7a84ad; border-radius: .8rem; background: white; color: #46517e; font-weight: 800; }
+
+.labyrinth-stage-clear {
+  display: grid;
+  justify-items: center;
+  gap: .4rem;
+  padding: .65rem;
+  border-radius: 1rem;
+  background: #ecedff;
+}
+
+.labyrinth-stage-clear h2 { margin: 0; color: #4a5590; }
+.labyrinth-stage-clear span { font-size: 1.8rem; }
+.labyrinth-quit { justify-self: center; border: 0; background: transparent; color: #555; text-decoration: underline; }
+.labyrinth-result__score { margin: 0; color: #4d5b99; font-size: 2rem; font-weight: 900; }
+
+@media (prefers-reduced-motion: reduce) {
+  .labyrinth-board { transition: none; }
+}
+
+@media (max-width: 390px) {
+  .labyrinth-frame { width: min(100%, 18rem); }
+  .labyrinth-controls button { min-height: 4.2rem; }
+}
