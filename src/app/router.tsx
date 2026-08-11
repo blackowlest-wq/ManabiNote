@@ -67,6 +67,7 @@ import { LogSlidePage } from '../pages/LogSlidePage/LogSlidePage'
 import { GhostHidePage } from '../pages/GhostHidePage/GhostHidePage'
 import { HelperTeamPage } from '../pages/HelperTeamPage/HelperTeamPage'
 import { BeeRoutePage } from '../pages/BeeRoutePage/BeeRoutePage'
+import { BubbleChainPage } from '../pages/BubbleChainPage/BubbleChainPage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -160,6 +161,7 @@ export function AppRouter() {
         <Route path="/ghost-hide" element={<GhostHidePage />} />
         <Route path="/helper-team" element={<HelperTeamPage />} />
         <Route path="/bee-route" element={<BeeRoutePage />} />
+        <Route path="/bubble-chain" element={<BubbleChainPage />} />
       </Routes>
     </>
   )
