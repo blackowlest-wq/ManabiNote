@@ -85,6 +85,7 @@ export const GAME_CATEGORIES = {
       { id: 'pipe-path', to: '/pipe-path', label: 'みずの みち', description: 'パイプを まわして おはなに みずやり' },
       { id: 'shop-game', to: '/shop-game', label: 'どうぶつマーケット', description: 'ちゅうもんどおりに かごへ おかいもの' },
       { id: 'treasure-hunt', to: '/treasure-hunt', label: 'どこかな？たからじま', description: 'ほうこうの ヒントで たからを さがす' },
+      { id: 'packing-puzzle', to: '/packing-puzzle', label: 'ぴったり！にづみ', description: 'にもつを まわして すきまなく つめる' },
     ],
   },
 } satisfies Record<string, GameCategory>

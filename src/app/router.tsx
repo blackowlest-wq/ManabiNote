@@ -49,6 +49,7 @@ import { MonsterMergePage } from '../pages/MonsterMergePage/MonsterMergePage'
 import { PipePathPage } from '../pages/PipePathPage/PipePathPage'
 import { ShopGamePage } from '../pages/ShopGamePage/ShopGamePage'
 import { TreasureHuntPage } from '../pages/TreasureHuntPage/TreasureHuntPage'
+import { PackingPuzzlePage } from '../pages/PackingPuzzlePage/PackingPuzzlePage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -124,6 +125,7 @@ export function AppRouter() {
         <Route path="/pipe-path" element={<PipePathPage />} />
         <Route path="/shop-game" element={<ShopGamePage />} />
         <Route path="/treasure-hunt" element={<TreasureHuntPage />} />
+        <Route path="/packing-puzzle" element={<PackingPuzzlePage />} />
       </Routes>
     </>
   )
