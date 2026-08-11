@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import { loadClearProgress } from '../../features/clear-progress/model/clearProgressStorage'
-import type { TreasureHuntState } from '../../features/treasure-hunt/model/treasureHunt'
+import { TREASURE_CLEAR_TARGET, TREASURE_ROUNDS, type TreasureHuntState } from '../../features/treasure-hunt/model/treasureHunt'
 import { TreasureHuntPage } from './TreasureHuntPage'
 
 const alwaysFirst = () => 0
@@ -44,16 +44,18 @@ describe('TreasureHuntPage', () => {
     expect(screen.getByRole('button', { name: 'つぎの しま' })).toBeInTheDocument()
   })
 
-  it('records a clear after finding two treasures across three islands', async () => {
+  it('records a clear after the final treasure island', async () => {
     const user = userEvent.setup()
     const storage = makeStorage()
+    const finalRoundIndex = TREASURE_ROUNDS.length - 1
+    const finalRound = TREASURE_ROUNDS[finalRoundIndex]
     const initialState: TreasureHuntState = {
       status: 'playing',
-      roundIndex: 2,
+      roundIndex: finalRoundIndex,
       treasureIndex: 0,
       dugCells: [],
-      digsLeft: 8,
-      foundCount: 1,
+      digsLeft: finalRound.maxDigs,
+      foundCount: TREASURE_CLEAR_TARGET - 1,
       score: 200,
       combo: 0,
       bestCombo: 1,

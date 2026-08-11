@@ -12,6 +12,15 @@ export const BALANCE_LEVELS: readonly BalanceLevel[] = [
   { name: 'しずかな みなと', target: 4, maxWeight: 2, tiltLimit: 3, water: 'おだやか' },
   { name: 'なみの みなと', target: 5, maxWeight: 3, tiltLimit: 3, water: 'なみなみ' },
   { name: 'かぜの みなと', target: 6, maxWeight: 3, tiltLimit: 2, water: 'びゅうびゅう' },
+  { name: 'あさひの みなと', target: 5, maxWeight: 3, tiltLimit: 3, water: 'きらきら' },
+  { name: 'かもめの みなと', target: 6, maxWeight: 3, tiltLimit: 2, water: 'ざぶざぶ' },
+  { name: 'あめの みなと', target: 6, maxWeight: 3, tiltLimit: 2, water: 'ぽつぽつ' },
+  { name: 'ゆうやけ みなと', target: 7, maxWeight: 3, tiltLimit: 3, water: 'ゆらゆら' },
+  { name: 'ほしぞら みなと', target: 7, maxWeight: 3, tiltLimit: 2, water: 'しんしん' },
+  { name: 'うずしお みなと', target: 7, maxWeight: 3, tiltLimit: 2, water: 'ぐるぐる' },
+  { name: 'くじらの みなと', target: 8, maxWeight: 3, tiltLimit: 3, water: 'どんぶらこ' },
+  { name: 'あらしの みなと', target: 8, maxWeight: 3, tiltLimit: 2, water: 'ごうごう' },
+  { name: 'おとどけ チャンピオン', target: 8, maxWeight: 3, tiltLimit: 2, water: 'びゅんびゅん' },
 ]
 
 export type BalanceBoatState = {

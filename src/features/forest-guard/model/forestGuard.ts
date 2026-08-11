@@ -54,6 +54,82 @@ export const FOREST_WAVES: readonly ForestWave[] = [
       { turn: 4, lane: 2, element: 'fire' },
     ],
   },
+  {
+    name: 'あさもや しゅうげき',
+    spawns: [
+      { turn: 0, lane: 0, element: 'leaf' }, { turn: 0, lane: 1, element: 'water' }, { turn: 0, lane: 2, element: 'fire' },
+      { turn: 3, lane: 0, element: 'fire' }, { turn: 3, lane: 1, element: 'leaf' }, { turn: 3, lane: 2, element: 'water' },
+    ],
+  },
+  {
+    name: 'かわべの しゅうげき',
+    spawns: [
+      { turn: 0, lane: 0, element: 'water' }, { turn: 0, lane: 1, element: 'fire' }, { turn: 0, lane: 2, element: 'leaf' },
+      { turn: 2, lane: 0, element: 'leaf' }, { turn: 2, lane: 1, element: 'water' }, { turn: 2, lane: 2, element: 'fire' },
+      { turn: 5, lane: 0, element: 'fire' }, { turn: 5, lane: 1, element: 'leaf' }, { turn: 5, lane: 2, element: 'water' },
+    ],
+  },
+  {
+    name: 'ひのこ ラッシュ',
+    spawns: [
+      { turn: 0, lane: 0, element: 'fire' }, { turn: 0, lane: 1, element: 'leaf' }, { turn: 0, lane: 2, element: 'water' },
+      { turn: 2, lane: 0, element: 'water' }, { turn: 2, lane: 1, element: 'fire' }, { turn: 2, lane: 2, element: 'leaf' },
+      { turn: 4, lane: 0, element: 'leaf' }, { turn: 4, lane: 1, element: 'water' }, { turn: 4, lane: 2, element: 'fire' },
+    ],
+  },
+  {
+    name: 'みつばの ラッシュ',
+    spawns: [
+      { turn: 0, lane: 0, element: 'leaf' }, { turn: 0, lane: 1, element: 'fire' }, { turn: 0, lane: 2, element: 'water' },
+      { turn: 2, lane: 0, element: 'fire' }, { turn: 2, lane: 1, element: 'water' }, { turn: 2, lane: 2, element: 'leaf' },
+      { turn: 4, lane: 0, element: 'water' }, { turn: 4, lane: 1, element: 'leaf' }, { turn: 4, lane: 2, element: 'fire' },
+    ],
+  },
+  {
+    name: 'しぶきの ラッシュ',
+    spawns: [
+      { turn: 0, lane: 0, element: 'water' }, { turn: 0, lane: 1, element: 'leaf' }, { turn: 0, lane: 2, element: 'fire' },
+      { turn: 2, lane: 0, element: 'leaf' }, { turn: 2, lane: 1, element: 'fire' }, { turn: 2, lane: 2, element: 'water' },
+      { turn: 4, lane: 0, element: 'fire' }, { turn: 4, lane: 1, element: 'water' }, { turn: 4, lane: 2, element: 'leaf' },
+    ],
+  },
+  {
+    name: 'ゆうやけ だいこうしん',
+    spawns: [
+      { turn: 0, lane: 0, element: 'fire' }, { turn: 0, lane: 1, element: 'water' }, { turn: 0, lane: 2, element: 'leaf' },
+      { turn: 2, lane: 0, element: 'leaf' }, { turn: 2, lane: 1, element: 'fire' }, { turn: 2, lane: 2, element: 'water' },
+      { turn: 4, lane: 0, element: 'water' }, { turn: 4, lane: 1, element: 'leaf' }, { turn: 4, lane: 2, element: 'fire' },
+      { turn: 6, lane: 0, element: 'fire' }, { turn: 6, lane: 1, element: 'water' }, { turn: 6, lane: 2, element: 'leaf' },
+    ],
+  },
+  {
+    name: 'ほしぞら だいこうしん',
+    spawns: [
+      { turn: 0, lane: 0, element: 'leaf' }, { turn: 0, lane: 1, element: 'water' }, { turn: 0, lane: 2, element: 'fire' },
+      { turn: 2, lane: 0, element: 'water' }, { turn: 2, lane: 1, element: 'fire' }, { turn: 2, lane: 2, element: 'leaf' },
+      { turn: 4, lane: 0, element: 'fire' }, { turn: 4, lane: 1, element: 'leaf' }, { turn: 4, lane: 2, element: 'water' },
+      { turn: 6, lane: 0, element: 'leaf' }, { turn: 6, lane: 1, element: 'fire' }, { turn: 6, lane: 2, element: 'water' },
+    ],
+  },
+  {
+    name: 'さんぞくせい ラッシュ',
+    spawns: [
+      { turn: 0, lane: 0, element: 'water' }, { turn: 0, lane: 1, element: 'fire' }, { turn: 0, lane: 2, element: 'leaf' },
+      { turn: 2, lane: 0, element: 'fire' }, { turn: 2, lane: 1, element: 'leaf' }, { turn: 2, lane: 2, element: 'water' },
+      { turn: 4, lane: 0, element: 'leaf' }, { turn: 4, lane: 1, element: 'water' }, { turn: 4, lane: 2, element: 'fire' },
+      { turn: 6, lane: 0, element: 'water' }, { turn: 6, lane: 1, element: 'leaf' }, { turn: 6, lane: 2, element: 'fire' },
+    ],
+  },
+  {
+    name: 'もりの さいしゅうけっせん',
+    spawns: [
+      { turn: 0, lane: 0, element: 'fire' }, { turn: 0, lane: 1, element: 'leaf' }, { turn: 0, lane: 2, element: 'water' },
+      { turn: 2, lane: 0, element: 'water' }, { turn: 2, lane: 1, element: 'fire' }, { turn: 2, lane: 2, element: 'leaf' },
+      { turn: 4, lane: 0, element: 'leaf' }, { turn: 4, lane: 1, element: 'water' }, { turn: 4, lane: 2, element: 'fire' },
+      { turn: 6, lane: 0, element: 'fire' }, { turn: 6, lane: 1, element: 'water' }, { turn: 6, lane: 2, element: 'leaf' },
+      { turn: 8, lane: 0, element: 'leaf' }, { turn: 8, lane: 1, element: 'fire' }, { turn: 8, lane: 2, element: 'water' },
+    ],
+  },
 ]
 
 export type ForestGuardState = {

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   applySortingFactoryAction,
+  SORTING_LEVELS,
   SORTING_LEVEL_TARGET,
   startSortingFactory,
   type SortingFactoryState,
@@ -9,6 +10,10 @@ import {
 const alwaysFirst = () => 0
 
 describe('sortingFactory', () => {
+  it('offers twelve sorting belts', () => {
+    expect(SORTING_LEVELS).toHaveLength(12)
+  })
+
   it('starts a moving item on the first factory belt', () => {
     const state = startSortingFactory(alwaysFirst)
 
@@ -63,5 +68,22 @@ describe('sortingFactory', () => {
 
     expect(cleared.state.status).toBe('level-won')
     expect(cleared.events).toContainEqual({ type: 'level-won', levelIndex: 0 })
+  })
+
+  it('can sort correctly through all twelve belts', () => {
+    let state = startSortingFactory(alwaysFirst)
+    for (let levelIndex = 0; levelIndex < SORTING_LEVELS.length; levelIndex += 1) {
+      while (state.status === 'playing') {
+        const level = SORTING_LEVELS[state.levelIndex]
+        const item = level.items.find((candidate) => candidate.id === state.currentItemId)
+        if (!item) throw new Error('仕分ける品物がありません')
+        state = applySortingFactoryAction(state, { type: 'sort', side: item.side }, alwaysFirst).state
+      }
+      if (levelIndex < SORTING_LEVELS.length - 1) {
+        state = applySortingFactoryAction(state, { type: 'next-level' }, alwaysFirst).state
+      }
+    }
+
+    expect(state.status).toBe('finished')
   })
 })

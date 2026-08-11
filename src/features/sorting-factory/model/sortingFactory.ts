@@ -64,6 +64,78 @@ export const SORTING_LEVELS: readonly SortingLevel[] = [
       { id: 'icecream', emoji: '🍦', side: 'right' },
     ],
   },
+  {
+    name: 'じめんと みず',
+    leftLabel: 'じめん', leftEmoji: '🌳', rightLabel: 'みず', rightEmoji: '🌊',
+    items: [
+      { id: 'ground-car', emoji: '🚗', side: 'left' }, { id: 'ground-bike', emoji: '🚲', side: 'left' }, { id: 'ground-train', emoji: '🚂', side: 'left' },
+      { id: 'water-fish', emoji: '🐟', side: 'right' }, { id: 'water-boat', emoji: '⛵', side: 'right' }, { id: 'water-dolphin', emoji: '🐬', side: 'right' },
+    ],
+  },
+  {
+    name: 'あかと きいろ',
+    leftLabel: 'あか', leftEmoji: '🔴', rightLabel: 'きいろ', rightEmoji: '🟡',
+    items: [
+      { id: 'red-apple', emoji: '🍎', side: 'left' }, { id: 'red-strawberry', emoji: '🍓', side: 'left' }, { id: 'red-cherry', emoji: '🍒', side: 'left' },
+      { id: 'yellow-banana', emoji: '🍌', side: 'right' }, { id: 'yellow-lemon', emoji: '🍋', side: 'right' }, { id: 'yellow-chick', emoji: '🐥', side: 'right' },
+    ],
+  },
+  {
+    name: 'おおきいと ちいさい',
+    leftLabel: 'おおきい', leftEmoji: '🐘', rightLabel: 'ちいさい', rightEmoji: '🐜',
+    items: [
+      { id: 'big-elephant', emoji: '🐘', side: 'left' }, { id: 'big-whale', emoji: '🐳', side: 'left' }, { id: 'big-giraffe', emoji: '🦒', side: 'left' },
+      { id: 'small-ant', emoji: '🐜', side: 'right' }, { id: 'small-mouse', emoji: '🐭', side: 'right' }, { id: 'small-ladybug', emoji: '🐞', side: 'right' },
+    ],
+  },
+  {
+    name: 'まると しかく',
+    leftLabel: 'まる', leftEmoji: '⚽', rightLabel: 'しかく', rightEmoji: '🎁',
+    items: [
+      { id: 'round-ball', emoji: '⚽', side: 'left' }, { id: 'round-orange', emoji: '🍊', side: 'left' }, { id: 'round-moon', emoji: '🌕', side: 'left' },
+      { id: 'square-gift', emoji: '🎁', side: 'right' }, { id: 'square-book', emoji: '📕', side: 'right' }, { id: 'square-frame', emoji: '🖼️', side: 'right' },
+    ],
+  },
+  {
+    name: 'そとと おうち',
+    leftLabel: 'そと', leftEmoji: '🌳', rightLabel: 'おうち', rightEmoji: '🏠',
+    items: [
+      { id: 'outside-tree', emoji: '🌳', side: 'left' }, { id: 'outside-flower', emoji: '🌷', side: 'left' }, { id: 'outside-rainbow', emoji: '🌈', side: 'left' },
+      { id: 'inside-bed', emoji: '🛏️', side: 'right' }, { id: 'inside-chair', emoji: '🪑', side: 'right' }, { id: 'inside-bath', emoji: '🛁', side: 'right' },
+    ],
+  },
+  {
+    name: 'あさと よる',
+    leftLabel: 'あさ', leftEmoji: '🌅', rightLabel: 'よる', rightEmoji: '🌙',
+    items: [
+      { id: 'morning-sunrise', emoji: '🌅', side: 'left' }, { id: 'morning-rooster', emoji: '🐓', side: 'left' }, { id: 'morning-bread', emoji: '🍞', side: 'left' },
+      { id: 'night-moon', emoji: '🌙', side: 'right' }, { id: 'night-owl', emoji: '🦉', side: 'right' }, { id: 'night-star', emoji: '⭐', side: 'right' },
+    ],
+  },
+  {
+    name: 'やさいと くだもの',
+    leftLabel: 'やさい', leftEmoji: '🥕', rightLabel: 'くだもの', rightEmoji: '🍎',
+    items: [
+      { id: 'veg-carrot', emoji: '🥕', side: 'left' }, { id: 'veg-broccoli', emoji: '🥦', side: 'left' }, { id: 'veg-corn', emoji: '🌽', side: 'left' },
+      { id: 'fruit-apple', emoji: '🍎', side: 'right' }, { id: 'fruit-grape', emoji: '🍇', side: 'right' }, { id: 'fruit-peach', emoji: '🍑', side: 'right' },
+    ],
+  },
+  {
+    name: 'のりものと がっき',
+    leftLabel: 'のりもの', leftEmoji: '🚗', rightLabel: 'がっき', rightEmoji: '🎵',
+    items: [
+      { id: 'vehicle-car', emoji: '🚗', side: 'left' }, { id: 'vehicle-train', emoji: '🚆', side: 'left' }, { id: 'vehicle-plane', emoji: '✈️', side: 'left' },
+      { id: 'music-guitar', emoji: '🎸', side: 'right' }, { id: 'music-piano', emoji: '🎹', side: 'right' }, { id: 'music-drum', emoji: '🥁', side: 'right' },
+    ],
+  },
+  {
+    name: 'はると ふゆ',
+    leftLabel: 'はる', leftEmoji: '🌸', rightLabel: 'ふゆ', rightEmoji: '⛄',
+    items: [
+      { id: 'spring-cherry', emoji: '🌸', side: 'left' }, { id: 'spring-butterfly', emoji: '🦋', side: 'left' }, { id: 'spring-tulip', emoji: '🌷', side: 'left' },
+      { id: 'winter-snowman', emoji: '⛄', side: 'right' }, { id: 'winter-snow', emoji: '❄️', side: 'right' }, { id: 'winter-ski', emoji: '🎿', side: 'right' },
+    ],
+  },
 ]
 
 export type SortingFactoryState = {

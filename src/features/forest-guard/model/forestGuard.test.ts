@@ -8,6 +8,10 @@ import {
 } from './forestGuard'
 
 describe('forestGuard', () => {
+  it('offers twelve attack waves', () => {
+    expect(FOREST_WAVES).toHaveLength(12)
+  })
+
   it('makes the circular element advantage part of combat', () => {
     expect(elementDamage('fire', 'leaf')).toBe(3)
     expect(elementDamage('leaf', 'water')).toBe(3)
@@ -44,11 +48,11 @@ describe('forestGuard', () => {
     expect(fought.events.some((event) => event.type === 'enemy-defeated')).toBe(true)
   })
 
-  it('keeps all three waves winnable by reacting to the incoming elements', () => {
+  it('keeps every wave winnable by reacting to the incoming elements', () => {
     const counter = { fire: 'water', water: 'leaf', leaf: 'fire' } as const
     let state = startForestGuard()
 
-    for (let safety = 0; safety < 50 && state.status !== 'finished'; safety += 1) {
+    for (let safety = 0; safety < 200 && state.status !== 'finished'; safety += 1) {
       if (state.status === 'wave-won') {
         state = applyForestGuardAction(state, { type: 'next-wave' }).state
         continue

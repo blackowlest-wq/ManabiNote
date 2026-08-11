@@ -9,15 +9,26 @@ export type OppositeCard = {
 export type OppositeLevel = {
   name: string
   actor: OppositeActor | 'mixed'
+  target: number
+  turnTime: number
 }
 
 export const OPPOSITE_LEVEL_TARGET = 4
 export const OPPOSITE_TURN_TIME = 5
 
 export const OPPOSITE_LEVELS: readonly OppositeLevel[] = [
-  { name: 'うさぎを まねしよう', actor: 'rabbit' },
-  { name: 'おばけと はんたい！', actor: 'ghost' },
-  { name: 'まぜまぜ ゲート', actor: 'mixed' },
+  { name: 'うさぎを まねしよう', actor: 'rabbit', target: 4, turnTime: 5 },
+  { name: 'おばけと はんたい！', actor: 'ghost', target: 4, turnTime: 5 },
+  { name: 'まぜまぜ ゲート', actor: 'mixed', target: 4, turnTime: 5 },
+  { name: 'うさぎの はやあし', actor: 'rabbit', target: 5, turnTime: 4 },
+  { name: 'おばけの はやあし', actor: 'ghost', target: 5, turnTime: 4 },
+  { name: 'まぜまぜ はやあし', actor: 'mixed', target: 5, turnTime: 4 },
+  { name: 'くるくる うさぎ', actor: 'rabbit', target: 6, turnTime: 4 },
+  { name: 'くるくる おばけ', actor: 'ghost', target: 6, turnTime: 4 },
+  { name: 'ドキドキ まぜまぜ', actor: 'mixed', target: 6, turnTime: 3 },
+  { name: 'スピード ゲート', actor: 'mixed', target: 7, turnTime: 3 },
+  { name: 'アベコベ ラッシュ', actor: 'mixed', target: 7, turnTime: 3 },
+  { name: 'アベコベ チャンピオン', actor: 'mixed', target: 8, turnTime: 3 },
 ]
 
 export type OppositeGhostState = {
@@ -76,7 +87,7 @@ export function startOppositeGhost(random: () => number = Math.random): Opposite
     status: 'playing',
     levelIndex: 0,
     currentCard: nextCard(0, random),
-    timeLeft: OPPOSITE_TURN_TIME,
+    timeLeft: OPPOSITE_LEVELS[0].turnTime,
     hearts: 3,
     score: 0,
     combo: 0,
@@ -91,6 +102,7 @@ const missGate = (
   event: 'bumped' | 'timed-out',
   random: () => number,
 ): OppositeGhostTransition => {
+  const level = OPPOSITE_LEVELS[state.levelIndex]
   const hearts = state.hearts - 1
   const lost = hearts <= 0
   return {
@@ -98,7 +110,7 @@ const missGate = (
       ...state,
       status: lost ? 'lost' : 'playing',
       currentCard: lost ? state.currentCard : nextCard(state.levelIndex, random),
-      timeLeft: OPPOSITE_TURN_TIME,
+      timeLeft: level.turnTime,
       hearts: Math.max(0, hearts),
       combo: 0,
     },
@@ -117,13 +129,14 @@ export function applyOppositeGhostAction(
   if (action.type === 'next-level') {
     if (state.status !== 'level-won') return { state, events: [] }
     const levelIndex = state.levelIndex + 1
+    const nextLevel = OPPOSITE_LEVELS[levelIndex]
     return {
       state: {
         ...state,
         status: 'playing',
         levelIndex,
         currentCard: nextCard(levelIndex, random),
-        timeLeft: OPPOSITE_TURN_TIME,
+        timeLeft: nextLevel.turnTime,
         clearedInLevel: 0,
       },
       events: [],
@@ -145,7 +158,8 @@ export function applyOppositeGhostAction(
   const combo = state.combo + 1
   const clearedInLevel = state.clearedInLevel + 1
   const totalCleared = state.totalCleared + 1
-  const levelWon = clearedInLevel >= OPPOSITE_LEVEL_TARGET
+  const level = OPPOSITE_LEVELS[state.levelIndex]
+  const levelWon = clearedInLevel >= level.target
   const finalLevel = state.levelIndex === OPPOSITE_LEVELS.length - 1
   const finished = levelWon && finalLevel
   return {
@@ -153,7 +167,7 @@ export function applyOppositeGhostAction(
       ...state,
       status: finished ? 'finished' : levelWon ? 'level-won' : 'playing',
       currentCard: levelWon ? state.currentCard : nextCard(state.levelIndex, random),
-      timeLeft: OPPOSITE_TURN_TIME,
+      timeLeft: level.turnTime,
       score: state.score + 100 + state.timeLeft * 10 + (combo - 1) * 20,
       combo,
       bestCombo: Math.max(state.bestCombo, combo),

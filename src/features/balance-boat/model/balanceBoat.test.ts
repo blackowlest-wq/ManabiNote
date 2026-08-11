@@ -9,6 +9,10 @@ import {
 const alwaysFirst = () => 0
 
 describe('balanceBoat', () => {
+  it('offers twelve harbors', () => {
+    expect(BALANCE_LEVELS).toHaveLength(12)
+  })
+
   it('starts with a one-weight parcel on an empty boat', () => {
     const state = startBalanceBoat(alwaysFirst)
 
@@ -71,5 +75,20 @@ describe('balanceBoat', () => {
 
     expect(cleared.state.status).toBe('level-won')
     expect(cleared.events).toContainEqual({ type: 'level-won', levelIndex: 0 })
+  })
+
+  it('can deliver safely through all twelve harbors', () => {
+    let state = startBalanceBoat(alwaysFirst)
+    for (let levelIndex = 0; levelIndex < BALANCE_LEVELS.length; levelIndex += 1) {
+      while (state.status === 'playing') {
+        const side = state.leftWeight <= state.rightWeight ? 'left' : 'right'
+        state = applyBalanceBoatAction(state, { type: 'place', side }, alwaysFirst).state
+      }
+      if (levelIndex < BALANCE_LEVELS.length - 1) {
+        state = applyBalanceBoatAction(state, { type: 'next-level' }, alwaysFirst).state
+      }
+    }
+
+    expect(state.status).toBe('finished')
   })
 })

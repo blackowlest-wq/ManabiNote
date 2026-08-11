@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   applyOppositeGhostAction,
   expectedDirection,
+  OPPOSITE_LEVELS,
   OPPOSITE_LEVEL_TARGET,
   startOppositeGhost,
   type OppositeGhostState,
@@ -10,6 +11,10 @@ import {
 const alwaysFirst = () => 0
 
 describe('oppositeGhost', () => {
+  it('offers twelve gate courses', () => {
+    expect(OPPOSITE_LEVELS).toHaveLength(12)
+  })
+
   it('follows rabbits but reverses ghost arrows', () => {
     expect(expectedDirection({ actor: 'rabbit', arrow: 'left' })).toBe('left')
     expect(expectedDirection({ actor: 'rabbit', arrow: 'right' })).toBe('right')
@@ -57,5 +62,23 @@ describe('oppositeGhost', () => {
 
     expect(cleared.state.status).toBe('level-won')
     expect(cleared.events).toContainEqual({ type: 'level-won', levelIndex: 0 })
+  })
+
+  it('can pass the required gates through all twelve courses', () => {
+    let state = startOppositeGhost(alwaysFirst)
+    for (let levelIndex = 0; levelIndex < OPPOSITE_LEVELS.length; levelIndex += 1) {
+      while (state.status === 'playing') {
+        state = applyOppositeGhostAction(
+          state,
+          { type: 'move', direction: expectedDirection(state.currentCard) },
+          alwaysFirst,
+        ).state
+      }
+      if (levelIndex < OPPOSITE_LEVELS.length - 1) {
+        state = applyOppositeGhostAction(state, { type: 'next-level' }, alwaysFirst).state
+      }
+    }
+
+    expect(state.status).toBe('finished')
   })
 })

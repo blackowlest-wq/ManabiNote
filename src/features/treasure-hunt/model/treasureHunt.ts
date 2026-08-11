@@ -61,6 +61,15 @@ export const TREASURE_ROUNDS: readonly TreasureRound[] = [
   { size: 4, maxDigs: 6, name: 'ちいさな しま' },
   { size: 5, maxDigs: 7, name: 'みどりの しま' },
   { size: 6, maxDigs: 8, name: 'かいぞくの しま' },
+  { size: 4, maxDigs: 5, name: 'さんごの しま' },
+  { size: 5, maxDigs: 7, name: 'かもめの しま' },
+  { size: 6, maxDigs: 8, name: 'やしのき じま' },
+  { size: 4, maxDigs: 5, name: 'ほしの しま' },
+  { size: 5, maxDigs: 6, name: 'つきよの しま' },
+  { size: 6, maxDigs: 7, name: 'きりの しま' },
+  { size: 5, maxDigs: 6, name: 'どくろの しま' },
+  { size: 6, maxDigs: 7, name: 'りゅうの しま' },
+  { size: 6, maxDigs: 6, name: 'おうごんの しま' },
 ]
 
 const randomTreasureIndex = (round: TreasureRound, random: () => number) =>

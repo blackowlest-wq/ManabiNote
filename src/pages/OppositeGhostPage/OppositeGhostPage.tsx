@@ -5,7 +5,6 @@ import {
   applyOppositeGhostAction,
   calculateOppositeGhostResult,
   OPPOSITE_LEVELS,
-  OPPOSITE_LEVEL_TARGET,
   startOppositeGhost,
   type OppositeDirection,
   type OppositeGhostEvent,
@@ -113,6 +112,7 @@ export function OppositeGhostPage({
     )
   }
 
+  const level = OPPOSITE_LEVELS[game.levelIndex]
   const actorEmoji = game.currentCard.actor === 'rabbit' ? '🐰' : '👻'
   const arrow = game.currentCard.arrow === 'left' ? '←' : '→'
 
@@ -122,11 +122,11 @@ export function OppositeGhostPage({
         <div className="opposite-hud">
           <span>🌲 {game.levelIndex + 1} / {OPPOSITE_LEVELS.length}</span>
           <span>💗 {game.hearts}</span>
-          <span aria-label="ぬけた ゲートの かず">🚪 {game.clearedInLevel} / {OPPOSITE_LEVEL_TARGET}</span>
+          <span aria-label="ぬけた ゲートの かず">🚪 {game.clearedInLevel} / {level.target}</span>
           <span>🔥 {game.combo}</span>
         </div>
 
-        <div className="opposite-level-name">{OPPOSITE_LEVELS[game.levelIndex].name}</div>
+        <div className="opposite-level-name">{level.name}</div>
 
         <div className="opposite-timer" aria-label={`のこり ${game.timeLeft}`}>
           {Array.from({ length: 5 }, (_, index) => <span key={index} className={index < game.timeLeft ? 'opposite-timer__on' : ''} />)}

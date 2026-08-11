@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import { loadClearProgress } from '../../features/clear-progress/model/clearProgressStorage'
-import { SORTING_LEVEL_TARGET, startSortingFactory, type SortingFactoryState } from '../../features/sorting-factory/model/sortingFactory'
+import { SORTING_LEVELS, SORTING_LEVEL_TARGET, startSortingFactory, type SortingFactoryState } from '../../features/sorting-factory/model/sortingFactory'
 import { SortingFactoryPage } from './SortingFactoryPage'
 
 const alwaysFirst = () => 0
@@ -45,16 +45,19 @@ describe('SortingFactoryPage', () => {
   it('records a clear after the final factory belt', async () => {
     const user = userEvent.setup()
     const storage = makeStorage()
+    const finalLevelIndex = SORTING_LEVELS.length - 1
+    const finalLevel = SORTING_LEVELS[finalLevelIndex]
+    const item = finalLevel.items[0]
     const initialState: SortingFactoryState = {
       ...startSortingFactory(alwaysFirst),
-      levelIndex: 2,
-      currentItemId: 'sun',
+      levelIndex: finalLevelIndex,
+      currentItemId: item.id,
       sortedInLevel: SORTING_LEVEL_TARGET - 1,
-      totalSorted: SORTING_LEVEL_TARGET * 3 - 1,
+      totalSorted: SORTING_LEVEL_TARGET * SORTING_LEVELS.length - 1,
     }
     renderPage({ storage, initialState })
 
-    await user.click(screen.getByRole('button', { name: 'あついの はこへ いれる' }))
+    await user.click(screen.getByRole('button', { name: `${item.side === 'left' ? finalLevel.leftLabel : finalLevel.rightLabel}の はこへ いれる` }))
 
     expect(screen.getByRole('heading', { level: 2, name: 'こうじょうマスター！' })).toBeInTheDocument()
     await waitFor(() => expect(loadClearProgress(storage).map((record) => record.gameId)).toContain('sorting-factory'))

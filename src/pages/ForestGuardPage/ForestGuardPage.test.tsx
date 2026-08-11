@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import { loadClearProgress } from '../../features/clear-progress/model/clearProgressStorage'
-import { startForestGuard, type ForestGuardState } from '../../features/forest-guard/model/forestGuard'
+import { FOREST_WAVES, startForestGuard, type ForestGuardState } from '../../features/forest-guard/model/forestGuard'
 import { ForestGuardPage } from './ForestGuardPage'
 
 const makeStorage = (): Storage => {
@@ -49,7 +49,7 @@ describe('ForestGuardPage', () => {
     const initialState: ForestGuardState = {
       ...startForestGuard(),
       status: 'finished',
-      waveIndex: 2,
+      waveIndex: FOREST_WAVES.length - 1,
       score: 1500,
       defeatedCount: 12,
     }

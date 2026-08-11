@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import { loadClearProgress } from '../../features/clear-progress/model/clearProgressStorage'
-import { OPPOSITE_LEVEL_TARGET, startOppositeGhost, type OppositeGhostState } from '../../features/opposite-ghost/model/oppositeGhost'
+import { OPPOSITE_LEVELS, startOppositeGhost, type OppositeGhostState } from '../../features/opposite-ghost/model/oppositeGhost'
 import { OppositeGhostPage } from './OppositeGhostPage'
 
 const alwaysFirst = () => 0
@@ -45,12 +45,15 @@ describe('OppositeGhostPage', () => {
   it('records a clear after the final mixed gate', async () => {
     const user = userEvent.setup()
     const storage = makeStorage()
+    const finalLevelIndex = OPPOSITE_LEVELS.length - 1
+    const finalLevel = OPPOSITE_LEVELS[finalLevelIndex]
     const initialState: OppositeGhostState = {
       ...startOppositeGhost(alwaysFirst),
-      levelIndex: 2,
+      levelIndex: finalLevelIndex,
       currentCard: { actor: 'rabbit', arrow: 'left' },
-      clearedInLevel: OPPOSITE_LEVEL_TARGET - 1,
-      totalCleared: OPPOSITE_LEVEL_TARGET * 3 - 1,
+      timeLeft: finalLevel.turnTime,
+      clearedInLevel: finalLevel.target - 1,
+      totalCleared: OPPOSITE_LEVELS.reduce((sum, level) => sum + level.target, 0) - 1,
     }
     renderPage({ storage, initialState })
 
