@@ -92,6 +92,7 @@ export const GAME_CATEGORIES = {
       { id: 'copy-beat', to: '/copy-beat', label: 'まねっこビート', description: 'ひかる リズムを おぼえて まねする' },
       { id: 'sorting-factory', to: '/sorting-factory', label: 'ぽんぽん しわけ工場', description: 'ながれる ものを 2つの はこへ しわける' },
       { id: 'opposite-ghost', to: '/opposite-ghost', label: 'アベコベおばけ', description: 'うさぎは おなじ、おばけは はんたいへ' },
+      { id: 'balance-boat', to: '/balance-boat', label: 'ぐらぐら おとどけ便', description: 'にもつを ふねの りょうがわへ のせる' },
     ],
   },
 } satisfies Record<string, GameCategory>

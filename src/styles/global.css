@@ -6818,3 +6818,201 @@ button:focus-visible {
   .opposite-gate__arrow { font-size: 6rem; }
   .opposite-move-buttons button { min-height: 4.5rem; }
 }
+
+/* ぐらぐら おとどけ便 */
+.balance-intro,
+.balance-result {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.balance-intro__scene,
+.balance-result__scene { font-size: clamp(2.4rem, 11vw, 4.8rem); }
+
+.balance-intro__demo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .7rem 1.4rem;
+  border: 3px solid #3b96b5;
+  border-radius: 1rem;
+  background: #e7faff;
+  font-size: 2.6rem;
+}
+
+.balance-page {
+  display: grid;
+  gap: .5rem;
+  width: min(100%, 36rem);
+  margin: 0 auto;
+  padding: 0 .55rem 1.5rem;
+}
+
+.balance-hud {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .3rem;
+}
+
+.balance-hud span {
+  padding: .45rem .1rem;
+  border-radius: .65rem;
+  background: #24617a;
+  color: white;
+  text-align: center;
+  font-size: .84rem;
+  font-weight: 900;
+}
+
+.balance-level-name {
+  color: #255c74;
+  text-align: center;
+  font-weight: 900;
+}
+
+.balance-next {
+  display: grid;
+  grid-template-columns: 1fr auto auto 1fr;
+  align-items: center;
+  gap: .5rem;
+  min-height: 4rem;
+  padding: .4rem;
+  border: 3px solid #d89f3c;
+  border-radius: 1rem;
+  background: #fff4cf;
+}
+
+.balance-next small { justify-self: end; font-weight: 900; }
+.balance-next > span { font-size: 1.8rem; }
+.balance-next strong { display: grid; width: 2.2rem; height: 2.2rem; place-items: center; border-radius: 50%; background: #9a681e; color: white; }
+
+.balance-meter {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: .4rem;
+  color: #2f7791;
+  font-weight: 900;
+}
+
+.balance-meter div {
+  position: relative;
+  height: .75rem;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #e57373, #86d68d 42% 58%, #e57373);
+}
+
+.balance-meter i {
+  position: absolute;
+  top: 50%;
+  width: 1rem;
+  height: 1rem;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: #293c48;
+  transform: translate(-50%, -50%);
+  transition: left .2s ease;
+}
+
+.balance-scene {
+  position: relative;
+  min-height: 14.5rem;
+  overflow: hidden;
+  border: 4px solid #3c8dae;
+  border-radius: 1.25rem;
+  background: linear-gradient(#b9edff 0 64%, #4db3db 65% 100%);
+}
+
+.balance-sun { position: absolute; right: 1rem; top: .6rem; font-size: 2.2rem; }
+
+.balance-boat {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 2.8rem;
+  display: grid;
+  grid-template-columns: 1fr 3.5rem 1fr;
+  align-items: end;
+  min-height: 6.5rem;
+  transform-origin: 50% 100%;
+  transition: transform .25s ease;
+}
+
+.balance-boat::after {
+  position: absolute;
+  right: 0;
+  bottom: -.9rem;
+  left: 0;
+  height: 2.1rem;
+  border-radius: .2rem .2rem 50% 50%;
+  background: #a7652e;
+  content: '';
+}
+
+.balance-boat button {
+  z-index: 1;
+  display: grid;
+  min-height: 5.5rem;
+  align-content: center;
+  justify-items: center;
+  border: 3px dashed #895324;
+  background: #f5d7a0;
+  cursor: pointer;
+}
+
+.balance-boat button:first-child { border-radius: 1rem 0 0 .4rem; }
+.balance-boat button:last-child { border-radius: 0 1rem .4rem 0; }
+.balance-boat button > span { display: grid; width: 2.2rem; height: 2.2rem; place-items: center; border-radius: 50%; background: #714820; color: white; font-weight: 900; }
+.balance-boat button > b { min-height: 1.1rem; color: #a7652e; letter-spacing: -.2em; }
+.balance-boat button > small { font-weight: 900; }
+.balance-mast { z-index: 1; align-self: center; font-size: 3.5rem; text-align: center; }
+.balance-waves { position: absolute; right: 0; bottom: .3rem; left: 0; color: white; font-size: 1.45rem; text-align: center; white-space: nowrap; }
+
+.balance-feedback {
+  min-height: 1.5rem;
+  margin: 0;
+  color: #286981;
+  text-align: center;
+  font-weight: 900;
+}
+
+.balance-level-clear {
+  display: grid;
+  justify-items: center;
+  gap: .35rem;
+  padding: .6rem;
+  border-radius: 1rem;
+  background: #e5f9ff;
+}
+
+.balance-level-clear h2 { margin: 0; color: #28738e; }
+.balance-level-clear span { font-size: 1.8rem; }
+
+.balance-quit {
+  justify-self: center;
+  border: 0;
+  background: transparent;
+  color: #555;
+  text-decoration: underline;
+}
+
+.balance-result__score {
+  margin: 0;
+  color: #27738d;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .balance-boat,
+  .balance-meter i { transition: none; }
+}
+
+@media (max-width: 390px) {
+  .balance-scene { min-height: 13rem; }
+  .balance-boat { grid-template-columns: 1fr 3rem 1fr; }
+  .balance-mast { font-size: 3rem; }
+}
