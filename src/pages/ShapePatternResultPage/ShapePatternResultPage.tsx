@@ -23,7 +23,7 @@ export function ShapePatternResultPage() {
   }
 
   return (
-    <PageLayout title="かたちの けっか">
+    <PageLayout title="かたちの けっか" completedGameId="shape-pattern">
       <div className="shape-pattern-result">
         <h2>かたちの ならび おわり！</h2>
         <p>{session.questions.length}もん できたね！</p>

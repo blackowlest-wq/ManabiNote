@@ -1,31 +1,28 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { clearHistory, loadHistory } from '../../features/history/model/historyStorage'
+import { GAME_CATEGORY_LIST } from '../../app/gameCategories'
+import { clearClearProgress, loadClearProgress } from '../../features/clear-progress/model/clearProgressStorage'
 import { PageLayout } from '../../shared/components/PageLayout'
 
 type HistoryPageProps = {
   storage?: Storage
 }
 
-const formatExecutionDate = (startedAt: string) => {
-  const date = new Date(startedAt)
-  return Number.isNaN(date.getTime()) ? startedAt : date.toLocaleString('ja-JP')
-}
+const TOTAL_GAMES = GAME_CATEGORY_LIST.reduce((total, category) => total + category.games.length, 0)
 
 export function HistoryPage({ storage }: HistoryPageProps = {}) {
-  const [history, setHistory] = useState(() => loadHistory(storage))
+  const [progress, setProgress] = useState(() => loadClearProgress(storage))
   const [confirmOpen, setConfirmOpen] = useState(false)
   const [clearError, setClearError] = useState<string | null>(null)
   const dialogRef = useRef<HTMLDialogElement>(null)
   const clearTriggerRef = useRef<HTMLButtonElement>(null)
   const firstDialogActionRef = useRef<HTMLButtonElement>(null)
   const shouldRestoreFocusRef = useRef(false)
+  const clearedGameIds = new Set(progress.map((record) => record.gameId))
 
   useEffect(() => {
     const dialog = dialogRef.current
-    if (!dialog) {
-      return
-    }
+    if (!dialog) return
 
     if (confirmOpen) {
       if (!dialog.open) {
@@ -58,9 +55,7 @@ export function HistoryPage({ storage }: HistoryPageProps = {}) {
     if (shouldRestoreFocusRef.current) {
       shouldRestoreFocusRef.current = false
       const clearTrigger = clearTriggerRef.current
-      if (clearTrigger?.isConnected) {
-        clearTrigger.focus()
-      }
+      if (clearTrigger?.isConnected) clearTrigger.focus()
     }
   }, [confirmOpen])
 
@@ -70,42 +65,50 @@ export function HistoryPage({ storage }: HistoryPageProps = {}) {
   }
 
   const handleClear = () => {
-    const result = clearHistory(storage)
+    const result = clearClearProgress(storage)
     if (!result.ok) {
-      setClearError('履歴をクリアできませんでした。もう一度お試しください。')
+      setClearError('クリア状況をリセットできませんでした。もう一度お試しください。')
       return
     }
 
-    setHistory([])
+    setProgress([])
     setConfirmOpen(false)
     setClearError(null)
   }
 
   return (
-    <PageLayout title="学習履歴">
-      {history.length === 0 ? (
-        <p>まだ学習履歴がありません</p>
-      ) : (
-        <>
-          <ul>
-            {history.map((record) => (
-              <li key={record.id}>
-                <p>
-                  <time dateTime={record.startedAt}>{formatExecutionDate(record.startedAt)}</time>
-                </p>
-                <p>{record.score} / {record.total}</p>
-                <ul aria-label="回答結果">
-                  {record.answers.map((answer) => (
-                    <li key={answer.questionId}>
-                      {answer.kana}：{answer.isCorrect ? '正解' : '不正解'}
+    <PageLayout title="クリア状況">
+      <div className="clear-progress-page">
+        <p className="clear-progress-page__description">ゲームを さいごまで できたら クリア！</p>
+        <p className="clear-progress-summary" aria-label={`ぜんぶで ${TOTAL_GAMES}こ中 ${clearedGameIds.size}こ クリア`}>
+          <strong>{clearedGameIds.size}</strong> / {TOTAL_GAMES} クリア
+        </p>
+
+        <div className="clear-progress-categories">
+          {GAME_CATEGORY_LIST.map((category) => (
+            <section key={category.to} className="clear-progress-category" aria-labelledby={`clear-progress-${category.to.slice(1)}`}>
+              <h2 id={`clear-progress-${category.to.slice(1)}`}>{category.title}</h2>
+              <ul>
+                {category.games.map((game) => {
+                  const isCleared = clearedGameIds.has(game.id)
+                  return (
+                    <li key={game.id} className={isCleared ? 'clear-progress-game clear-progress-game--cleared' : 'clear-progress-game'}>
+                      <Link to={game.to}>{game.label}</Link>
+                      <span className={`clear-progress-status clear-progress-status--${isCleared ? 'cleared' : 'not-cleared'}`}>
+                        {isCleared ? '✓ クリア済み' : '未クリア'}
+                      </span>
                     </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
+                  )
+                })}
+              </ul>
+            </section>
+          ))}
+        </div>
+
+        {clearedGameIds.size > 0 && (
           <button
             ref={clearTriggerRef}
+            className="clear-progress-reset"
             type="button"
             onClick={() => {
               setClearError(null)
@@ -113,29 +116,29 @@ export function HistoryPage({ storage }: HistoryPageProps = {}) {
               setConfirmOpen(true)
             }}
           >
-            履歴をクリア
+            クリア状況をリセット
           </button>
-        </>
-      )}
-      <dialog
-        ref={dialogRef}
-        aria-labelledby="history-clear-dialog-title"
-        aria-modal="true"
-        onCancel={(event) => {
-          event.preventDefault()
-          closeConfirmation()
-        }}
-        onClose={closeConfirmation}
-      >
-        <h2 id="history-clear-dialog-title">履歴をクリアしますか？</h2>
-        <p>保存されている学習履歴がすべて削除されます。</p>
-        {clearError && <p role="alert">{clearError}</p>}
-        <button ref={firstDialogActionRef} type="button" onClick={closeConfirmation}>
-          キャンセル
-        </button>
-        <button type="button" onClick={handleClear}>削除する</button>
-      </dialog>
-      <Link to="/">ホームへ戻る</Link>
+        )}
+
+        <dialog
+          ref={dialogRef}
+          aria-labelledby="clear-progress-dialog-title"
+          aria-modal="true"
+          onCancel={(event) => {
+            event.preventDefault()
+            closeConfirmation()
+          }}
+          onClose={closeConfirmation}
+        >
+          <h2 id="clear-progress-dialog-title">クリア状況をリセットしますか？</h2>
+          <p>すべてのゲームが 未クリアに もどります。</p>
+          {clearError && <p role="alert">{clearError}</p>}
+          <button ref={firstDialogActionRef} type="button" onClick={closeConfirmation}>キャンセル</button>
+          <button type="button" onClick={handleClear}>リセットする</button>
+        </dialog>
+
+        <p><Link to="/">ホームへ戻る</Link></p>
+      </div>
     </PageLayout>
   )
 }

@@ -7,12 +7,10 @@ type QuizSessionContextValue = {
   session: QuizSession | null
   result: QuizSession | null
   lastAnswer: QuizAnswer | null
-  savedResultId: string | null
   error: Error | null
   startSession: () => boolean
   answer: (choiceId: string) => void
   nextQuestion: () => void
-  markResultSaved: (resultId: string) => void
 }
 
 const QuizSessionContext = createContext<QuizSessionContextValue | null>(null)
@@ -26,7 +24,6 @@ export function QuizSessionProvider({ children, initialSession }: QuizSessionPro
   const [session, setSession] = useState<QuizSession | null>(initialSession ?? null)
   const [result, setResult] = useState<QuizSession | null>(initialSession && isSessionComplete(initialSession) ? initialSession : null)
   const [lastAnswer, setLastAnswer] = useState<QuizAnswer | null>(null)
-  const [savedResultId, setSavedResultId] = useState<string | null>(null)
   const [error, setError] = useState<Error | null>(null)
 
   const startSession = () => {
@@ -36,7 +33,6 @@ export function QuizSessionProvider({ children, initialSession }: QuizSessionPro
       setSession(nextSession)
       setResult(null)
       setLastAnswer(null)
-      setSavedResultId(null)
       setError(null)
       return true
     } catch (cause) {
@@ -61,11 +57,9 @@ export function QuizSessionProvider({ children, initialSession }: QuizSessionPro
   }
 
   const nextQuestion = () => setLastAnswer(null)
-  const markResultSaved = (resultId: string) => setSavedResultId(resultId)
-
   const value = useMemo<QuizSessionContextValue>(
-    () => ({ session, result, lastAnswer, savedResultId, error, startSession, answer, nextQuestion, markResultSaved }),
-    [session, result, lastAnswer, savedResultId, error],
+    () => ({ session, result, lastAnswer, error, startSession, answer, nextQuestion }),
+    [session, result, lastAnswer, error],
   )
 
   return <QuizSessionContext.Provider value={value}>{children}</QuizSessionContext.Provider>

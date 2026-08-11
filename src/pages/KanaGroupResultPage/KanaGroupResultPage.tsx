@@ -23,7 +23,7 @@ export function KanaGroupResultPage() {
   }
 
   return (
-    <PageLayout title="なかまわけの けっか">
+    <PageLayout title="なかまわけの けっか" completedGameId="kana-group">
       <div className="kana-group-result">
         <h2>5もん できたね！</h2>
         <PrimaryButton onClick={handleRetry}>もういちど</PrimaryButton>

@@ -23,7 +23,7 @@ export function WordBuilderResultPage() {
   }
 
   return (
-    <PageLayout title="ことばのけっか">
+    <PageLayout title="ことばのけっか" completedGameId="word-builder">
       <div className="word-builder-result">
         <h2>5もん できたね！</h2>
         <PrimaryButton onClick={handleRetry}>もういちど</PrimaryButton>

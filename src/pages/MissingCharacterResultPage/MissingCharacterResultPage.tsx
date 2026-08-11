@@ -23,7 +23,7 @@ export function MissingCharacterResultPage() {
   }
 
   return (
-    <PageLayout title="あなうめの けっか">
+    <PageLayout title="あなうめの けっか" completedGameId="missing-character">
       <div className="missing-character-result">
         <h2>5もん できたね！</h2>
         <PrimaryButton onClick={handleRetry}>もういちど</PrimaryButton>

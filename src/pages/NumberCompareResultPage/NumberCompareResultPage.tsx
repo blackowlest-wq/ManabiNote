@@ -23,7 +23,7 @@ export function NumberCompareResultPage() {
   }
 
   return (
-    <PageLayout title="かずの けっか">
+    <PageLayout title="かずの けっか" completedGameId="number-compare">
       <div className="number-compare-result">
         <h2>かずの れんしゅう おわり！</h2>
         <p>{session.questions.length}もん できたね！</p>

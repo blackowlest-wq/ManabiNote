@@ -23,7 +23,7 @@ export function KanaPairResultPage() {
   }
 
   return (
-    <PageLayout title="ペアゲームの けっか">
+    <PageLayout title="ペアゲームの けっか" completedGameId="kana-pair">
       <div className="kana-pair-result">
         <h2>5もん できたね！</h2>
         <PrimaryButton onClick={handleRetry}>もういちど</PrimaryButton>

@@ -24,7 +24,7 @@ export function ParticleChoiceResultPage() {
   }
 
   return (
-    <PageLayout title="ぶんの けっか">
+    <PageLayout title="ぶんの けっか" completedGameId="particle-choice">
       <div className="particle-choice-result">
         <h2>ことばつなぎ おわり！</h2>
         <p>むずかしさ：{getDifficultyLabel(session.difficulty)}</p>

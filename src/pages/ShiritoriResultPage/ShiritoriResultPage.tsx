@@ -23,7 +23,7 @@ export function ShiritoriResultPage() {
   }
 
   return (
-    <PageLayout title="しりとりの けっか">
+    <PageLayout title="しりとりの けっか" completedGameId="shiritori">
       <div className="shiritori-result">
         <h2>5もん できたね！</h2>
         <PrimaryButton onClick={handleRetry}>もういちど</PrimaryButton>

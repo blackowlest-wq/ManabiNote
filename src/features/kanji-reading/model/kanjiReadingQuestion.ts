@@ -13,7 +13,7 @@ const QUESTION_SOURCES: readonly KanjiReadingSource[] = [
   { id: 'kanji-yama', kanji: '山', word: '山', answer: 'やま', choices: ['やま', 'かわ', 'そら', 'はな'] },
   { id: 'kanji-kawa', kanji: '川', word: '川', answer: 'かわ', choices: ['かわ', 'やま', 'うみ', 'みず'] },
   { id: 'kanji-ki', kanji: '木', word: '木', answer: 'き', choices: ['き', 'ひ', 'つち', 'もり'] },
-  { id: 'kanji-hi', kanji: '日', word: '日', answer: 'ひ', choices: ['ひ', 'つき', 'にち', 'ほし'] },
+  { id: 'kanji-hi', kanji: '日', word: '日', answer: 'ひ', choices: ['ひ', 'つき', 'そら', 'ほし'] },
   { id: 'kanji-tsuki', kanji: '月', word: '月', answer: 'つき', choices: ['つき', 'ひ', 'そら', 'よる'] },
   { id: 'kanji-mizu', kanji: '水', word: '水', answer: 'みず', choices: ['みず', 'ひ', 'かわ', 'あめ'] },
   { id: 'kanji-hana', kanji: '花', word: '花', answer: 'はな', choices: ['はな', 'き', 'くさ', 'そら'] },

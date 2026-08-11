@@ -23,7 +23,7 @@ export function KanjiChoiceResultPage() {
   }
 
   return (
-    <PageLayout title="かんじの けっか">
+    <PageLayout title="かんじの けっか" completedGameId="kanji-choice">
       <div className="kanji-choice-result">
         <h2>かんじえらび おわり！</h2>
         <p>{session.questions.length}もん できたね！</p>

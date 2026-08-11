@@ -1,4 +1,7 @@
+import type { GameId } from '../features/clear-progress/model/gameIds'
+
 export type GameMenuItem = {
+  id: GameId
   to: string
   label: string
   description: string
@@ -17,17 +20,17 @@ export const GAME_CATEGORIES = {
     title: 'ことば',
     description: 'ひらがなや ことばで あそぼう',
     games: [
-      { to: '/quiz', label: 'ひらがなから えを えらぼう', description: 'ひらがなに あう えを えらぶ' },
-      { to: '/stroke-order', label: '書き順れんしゅう', description: 'ひらがなの じゅんばんを なぞる' },
-      { to: '/word-builder', label: 'ことばを つくろう', description: 'えの なまえを つくる' },
-      { to: '/missing-character', label: 'ことばの あなうめ', description: 'たりない もじを えらぶ' },
-      { to: '/kana-pair', label: 'ひらがなと カタカナ', description: 'なかまの もじを みつける' },
-      { to: '/dakuten', label: 'てんてんと まる', description: 'にている もじを みわける' },
-      { to: '/kana-group', label: 'かなの なかまわけ', description: 'おなじ なかまを えらぶ' },
-      { to: '/audio-kana', label: 'おとを きいて えらぼう', description: 'きこえた かなを えらぶ' },
-      { to: '/memory', label: 'かなと えの しんけいすいじゃく', description: 'もじと えの ペアを さがす' },
-      { to: '/small-kana', label: 'ちいさい かな', description: 'ゃゅょ・っを れんしゅうする' },
-      { to: '/shiritori', label: 'しりとり', description: 'つぎの ことばを えらぶ' },
+      { id: 'quiz', to: '/quiz', label: 'ひらがなから えを えらぼう', description: 'ひらがなに あう えを えらぶ' },
+      { id: 'stroke-order', to: '/stroke-order', label: '書き順れんしゅう', description: 'ひらがなの じゅんばんを なぞる' },
+      { id: 'word-builder', to: '/word-builder', label: 'ことばを つくろう', description: 'えの なまえを つくる' },
+      { id: 'missing-character', to: '/missing-character', label: 'ことばの あなうめ', description: 'たりない もじを えらぶ' },
+      { id: 'kana-pair', to: '/kana-pair', label: 'ひらがなと カタカナ', description: 'なかまの もじを みつける' },
+      { id: 'dakuten', to: '/dakuten', label: 'てんてんと まる', description: 'にている もじを みわける' },
+      { id: 'kana-group', to: '/kana-group', label: 'かなの なかまわけ', description: 'おなじ なかまを えらぶ' },
+      { id: 'audio-kana', to: '/audio-kana', label: 'おとを きいて えらぼう', description: 'きこえた かなを えらぶ' },
+      { id: 'memory', to: '/memory', label: 'かなと えの しんけいすいじゃく', description: 'もじと えの ペアを さがす' },
+      { id: 'small-kana', to: '/small-kana', label: 'ちいさい かな', description: 'ゃゅょ・っを れんしゅうする' },
+      { id: 'shiritori', to: '/shiritori', label: 'しりとり', description: 'つぎの ことばを えらぶ' },
     ],
   },
   numbers: {
@@ -35,12 +38,12 @@ export const GAME_CATEGORIES = {
     title: 'かず',
     description: 'かぞえたり くらべたり してみよう',
     games: [
-      { to: '/counting', label: 'かずを かぞえよう', description: 'えの かずを かぞえる' },
-      { to: '/number-compare', label: 'おおきい かずは どれ？', description: 'おおきい かずを えらぶ' },
-      { to: '/number-order', label: 'つぎの かずは どれ？', description: 'かずの じゅんばんを かんがえる' },
-      { to: '/addition', label: 'たしざん', description: 'あわせて いくつか かんがえる' },
-      { to: '/subtraction', label: 'ひきざん', description: 'のこりは いくつか かんがえる' },
-      { to: '/clock', label: 'とけいを よもう', description: 'とけいの はりが さす じかんを よむ' },
+      { id: 'counting', to: '/counting', label: 'かずを かぞえよう', description: 'えの かずを かぞえる' },
+      { id: 'number-compare', to: '/number-compare', label: 'おおきい かずは どれ？', description: 'おおきい かずを えらぶ' },
+      { id: 'number-order', to: '/number-order', label: 'つぎの かずは どれ？', description: 'かずの じゅんばんを かんがえる' },
+      { id: 'addition', to: '/addition', label: 'たしざん', description: 'あわせて いくつか かんがえる' },
+      { id: 'subtraction', to: '/subtraction', label: 'ひきざん', description: 'のこりは いくつか かんがえる' },
+      { id: 'clock', to: '/clock', label: 'とけいを よもう', description: 'とけいの はりが さす じかんを よむ' },
     ],
   },
   shapes: {
@@ -48,8 +51,8 @@ export const GAME_CATEGORIES = {
     title: 'かたち',
     description: 'いろや かたちを みつけよう',
     games: [
-      { to: '/shape-color', label: 'いろと かたち', description: 'おなじ いろと かたちを えらぶ' },
-      { to: '/shape-pattern', label: 'かたちの ならび', description: 'つぎに くる かたちを かんがえる' },
+      { id: 'shape-color', to: '/shape-color', label: 'いろと かたち', description: 'おなじ いろと かたちを えらぶ' },
+      { id: 'shape-pattern', to: '/shape-pattern', label: 'かたちの ならび', description: 'つぎに くる かたちを かんがえる' },
     ],
   },
   kanji: {
@@ -57,8 +60,8 @@ export const GAME_CATEGORIES = {
     title: 'かんじ',
     description: 'かんじの よみかたを おぼえよう',
     games: [
-      { to: '/kanji-reading', label: 'かんじの よみかた', description: 'かんじに あう よみかたを えらぶ' },
-      { to: '/kanji-choice', label: 'よみから かんじ', description: 'よみかたに あう かんじを えらぶ' },
+      { id: 'kanji-reading', to: '/kanji-reading', label: 'かんじの よみかた', description: 'かんじに あう よみかたを えらぶ' },
+      { id: 'kanji-choice', to: '/kanji-choice', label: 'よみから かんじ', description: 'よみかたに あう かんじを えらぶ' },
     ],
   },
   sentences: {
@@ -66,9 +69,9 @@ export const GAME_CATEGORIES = {
     title: 'ぶん',
     description: 'ことばを ならべて ぶんを つくろう',
     games: [
-      { to: '/sentence-order', label: 'ことばを ならべよう', description: 'ただしい じゅんばんに ならべる' },
-      { to: '/particle-choice', label: 'ことばを つなごう', description: 'ぶんを つなぐ ことばを えらぶ' },
-      { to: '/reading-comprehension', label: 'ぶんを よんで こたえよう', description: 'みじかい ぶんを よんで こたえる' },
+      { id: 'sentence-order', to: '/sentence-order', label: 'ことばを ならべよう', description: 'ただしい じゅんばんに ならべる' },
+      { id: 'particle-choice', to: '/particle-choice', label: 'ことばを つなごう', description: 'ぶんを つなぐ ことばを えらぶ' },
+      { id: 'reading-comprehension', to: '/reading-comprehension', label: 'ぶんを よんで こたえよう', description: 'みじかい ぶんを よんで こたえる' },
     ],
   },
 } satisfies Record<string, GameCategory>

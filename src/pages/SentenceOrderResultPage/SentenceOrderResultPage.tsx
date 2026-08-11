@@ -24,7 +24,7 @@ export function SentenceOrderResultPage() {
   }
 
   return (
-    <PageLayout title="ぶんの けっか">
+    <PageLayout title="ぶんの けっか" completedGameId="sentence-order">
       <div className="sentence-order-result">
         <h2>ぶんの れんしゅう おわり！</h2>
         <p>むずかしさ：{getDifficultyLabel(session.difficulty)}</p>

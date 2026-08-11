@@ -115,6 +115,141 @@ button:focus-visible {
   text-align: center;
 }
 
+.clear-progress-page {
+  display: grid;
+  width: min(100%, 42rem);
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+.clear-progress-page__description {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+  text-align: center;
+}
+
+.page-layout .clear-progress-summary {
+  margin: 0;
+  border: 3px solid #7dd3fc;
+  border-radius: 1.25rem;
+  padding: 0.8rem 1rem;
+  background: #f0f9ff;
+  color: #075985;
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.clear-progress-summary strong {
+  font-size: 1.8rem;
+}
+
+.clear-progress-categories {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.clear-progress-category {
+  border: 3px solid #bae6fd;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  background: #ffffff;
+}
+
+.clear-progress-category h2 {
+  margin: 0 0 0.6rem;
+  color: #075985;
+  font-size: 1.25rem;
+}
+
+.clear-progress-category ul {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clear-progress-game {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 0.75rem;
+  padding: 0.6rem 0.7rem;
+  background: #f8fafc;
+}
+
+.clear-progress-game--cleared {
+  background: #ecfdf5;
+}
+
+.clear-progress-game a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.clear-progress-status {
+  border-radius: 999px;
+  padding: 0.25rem 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.clear-progress-status--cleared {
+  background: #bbf7d0;
+  color: #166534;
+}
+
+.clear-progress-status--not-cleared {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.clear-progress-reset {
+  justify-self: center;
+  border: 2px solid #94a3b8;
+  border-radius: 0.75rem;
+  padding: 0.65rem 1rem;
+  background: #ffffff;
+  color: #475569;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.clear-progress-page dialog {
+  width: min(calc(100% - 2rem), 28rem);
+  border: 3px solid #7dd3fc;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.clear-progress-page dialog::backdrop {
+  background: rgb(15 23 42 / 45%);
+}
+
+.clear-progress-page dialog h2 {
+  margin-top: 0;
+}
+
+.clear-progress-page dialog button {
+  margin-right: 0.5rem;
+  border: 2px solid #0284c7;
+  border-radius: 0.65rem;
+  padding: 0.55rem 0.8rem;
+  background: #ffffff;
+  color: #075985;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.clear-progress-page > p:last-child {
+  margin: 0;
+  text-align: center;
+}
+
 .difficulty-selector {
   display: grid;
   width: min(100%, 32rem);
@@ -709,7 +844,7 @@ button:focus-visible {
   font-weight: 800;
 }
 
-.kanji-reading-character {
+.page-layout .kanji-reading-character {
   display: grid;
   width: min(100%, 15rem);
   min-height: 12rem;
@@ -3558,7 +3693,7 @@ button:focus-visible {
     font-size: 1rem;
   }
 
-  .kanji-reading-character {
+  .page-layout .kanji-reading-character {
     min-height: 9rem;
     border-radius: 1rem;
     font-size: clamp(5.5rem, 28vw, 9rem);

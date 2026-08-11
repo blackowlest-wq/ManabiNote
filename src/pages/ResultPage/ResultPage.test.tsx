@@ -1,16 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { describe, expect, it, vi, beforeEach } from 'vitest'
-import { appendHistory } from '../../features/history/model/historyStorage'
+import { beforeEach, describe, expect, it } from 'vitest'
+import { loadClearProgress } from '../../features/clear-progress/model/clearProgressStorage'
 import { createQuizSession, recordAnswer } from '../../features/quiz/model/quizSession'
 import type { KanaToPictureQuestion } from '../../features/question-types/kana-to-picture/model/types'
 import { QuizSessionProvider } from '../../features/quiz/QuizSessionProvider'
 import { ResultPage } from './ResultPage'
-
-vi.mock('../../features/history/model/historyStorage', async () => {
-  const actual = await vi.importActual<typeof import('../../features/history/model/historyStorage')>('../../features/history/model/historyStorage')
-  return { ...actual, appendHistory: vi.fn(actual.appendHistory) }
-})
 
 const makeFiveQuestions = (): KanaToPictureQuestion[] =>
   Array.from({ length: 5 }, (_, index) => ({
@@ -47,9 +42,9 @@ function ToggleResult({ visible }: { visible: boolean }) {
 }
 
 describe('ResultPage', () => {
-  beforeEach(() => vi.clearAllMocks())
+  beforeEach(() => localStorage.clear())
 
-  it('shows the score, all answer states, and saves history once', () => {
+  it('shows the score and all answer states, then records the game as cleared', () => {
     render(
       <MemoryRouter>
         <QuizSessionProvider initialSession={completedSession()}>
@@ -63,7 +58,7 @@ describe('ResultPage', () => {
     expect(screen.getByText('不正解')).toBeInTheDocument()
     expect(screen.queryByTestId('perfect-result-stars')).not.toBeInTheDocument()
     expect(screen.queryByTestId('perfect-result-confetti')).not.toBeInTheDocument()
-    expect(appendHistory).toHaveBeenCalledTimes(1)
+    expect(loadClearProgress(localStorage).map((record) => record.gameId)).toEqual(['quiz'])
   })
 
   it('shows the celebration only for a perfect score', () => {
@@ -94,7 +89,7 @@ describe('ResultPage', () => {
     expect(screen.getByRole('link', { name: 'ホームへ戻る' })).toBeInTheDocument()
   })
 
-  it('saves a completed result only once when the result page remounts', () => {
+  it('keeps one clear record when the result page remounts', () => {
     const view = render(
       <MemoryRouter>
         <QuizSessionProvider initialSession={completedSession()}>
@@ -118,6 +113,6 @@ describe('ResultPage', () => {
       </MemoryRouter>,
     )
 
-    expect(appendHistory).toHaveBeenCalledTimes(1)
+    expect(loadClearProgress(localStorage).map((record) => record.gameId)).toEqual(['quiz'])
   })
 })

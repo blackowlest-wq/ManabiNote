@@ -23,7 +23,7 @@ export function KanjiReadingResultPage() {
   }
 
   return (
-    <PageLayout title="かんじの けっか">
+    <PageLayout title="かんじの けっか" completedGameId="kanji-reading">
       <div className="kanji-reading-result">
         <h2>かんじの れんしゅう おわり！</h2>
         <p>{session.questions.length}もん できたね！</p>

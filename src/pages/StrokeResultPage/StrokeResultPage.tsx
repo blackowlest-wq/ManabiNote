@@ -23,7 +23,7 @@ export function StrokeResultPage() {
   }
 
   return (
-    <PageLayout title="れんしゅう結果">
+    <PageLayout title="れんしゅう結果" completedGameId="stroke-order">
       <h2>{getStrokeRow(session.rowId).label}の {session.questions.length}もじ できたよ</h2>
       <ul className="stroke-result-list">
         {session.questions.map((question, index) => (

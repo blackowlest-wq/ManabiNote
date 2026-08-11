@@ -23,7 +23,7 @@ export function ShapeColorResultPage() {
   }
 
   return (
-    <PageLayout title="いろと かたちの けっか">
+    <PageLayout title="いろと かたちの けっか" completedGameId="shape-color">
       <div className="shape-color-result">
         <h2>5もん できたね！</h2>
         <PrimaryButton onClick={handleRetry}>もういちど</PrimaryButton>

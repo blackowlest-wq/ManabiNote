@@ -31,7 +31,7 @@ export function ArithmeticResultPage({ kind }: { kind: ArithmeticKind }) {
   }
 
   return (
-    <PageLayout title="けいさんの けっか">
+    <PageLayout title="けいさんの けっか" completedGameId={kind}>
       <div className="arithmetic-result">
         <h2>{text.title} おわり！</h2>
         <p>むずかしさ：{getDifficultyLabel(session.difficulty)}</p>

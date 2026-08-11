@@ -23,7 +23,7 @@ export function NumberOrderResultPage() {
   }
 
   return (
-    <PageLayout title="かずの けっか">
+    <PageLayout title="かずの けっか" completedGameId="number-order">
       <div className="number-order-result">
         <h2>かずの れんしゅう おわり！</h2>
         <p>{session.questions.length}もん できたね！</p>

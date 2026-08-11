@@ -23,7 +23,7 @@ export function DakutenResultPage() {
   }
 
   return (
-    <PageLayout title="てんてんの けっか">
+    <PageLayout title="てんてんの けっか" completedGameId="dakuten">
       <div className="dakuten-result">
         <h2>5もん できたね！</h2>
         <PrimaryButton onClick={handleRetry}>もういちど</PrimaryButton>

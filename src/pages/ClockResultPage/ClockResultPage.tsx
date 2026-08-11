@@ -24,7 +24,7 @@ export function ClockResultPage() {
   }
 
   return (
-    <PageLayout title="とけいの けっか">
+    <PageLayout title="とけいの けっか" completedGameId="clock">
       <div className="clock-result">
         <h2>とけいの れんしゅう おわり！</h2>
         <p>むずかしさ：{getDifficultyLabel(session.difficulty)}</p>

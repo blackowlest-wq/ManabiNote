@@ -14,7 +14,7 @@ export function HomePage() {
           </Link>
         ))}
       </div>
-      <p><Link to="/history">履歴を見る</Link></p>
+      <p><Link to="/history">クリア状況を見る</Link></p>
     </PageLayout>
   )
 }

@@ -23,7 +23,7 @@ export function CountingResultPage() {
   }
 
   return (
-    <PageLayout title="かずの けっか">
+    <PageLayout title="かずの けっか" completedGameId="counting">
       <div className="counting-result">
         <h2>5もん できたね！</h2>
         <PrimaryButton onClick={handleRetry}>もういちど</PrimaryButton>

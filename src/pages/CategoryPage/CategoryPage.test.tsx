@@ -11,8 +11,8 @@ describe('CategoryPage', () => {
           title="ことば"
           description="ことばで あそぼう"
           games={[
-            { to: '/word-builder', label: 'ことばをつくろう', description: 'えの なまえを つくる' },
-            { to: '/shiritori', label: 'しりとり', description: 'つぎの ことばを えらぶ' },
+            { id: 'word-builder', to: '/word-builder', label: 'ことばをつくろう', description: 'えの なまえを つくる' },
+            { id: 'shiritori', to: '/shiritori', label: 'しりとり', description: 'つぎの ことばを えらぶ' },
           ]}
         />
       </MemoryRouter>,

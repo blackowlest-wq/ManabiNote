@@ -23,7 +23,7 @@ export function MemoryResultPage() {
   }
 
   return (
-    <PageLayout title="しんけいすいじゃくの けっか">
+    <PageLayout title="しんけいすいじゃくの けっか" completedGameId="memory">
       <div className="memory-result">
         <h2>{session.moves}かいで 4くみ そろえたね！</h2>
         <PrimaryButton onClick={handleRetry}>もういちど</PrimaryButton>

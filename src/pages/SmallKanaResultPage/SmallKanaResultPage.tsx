@@ -23,7 +23,7 @@ export function SmallKanaResultPage() {
   }
 
   return (
-    <PageLayout title="ちいさい かなの けっか">
+    <PageLayout title="ちいさい かなの けっか" completedGameId="small-kana">
       <div className="small-kana-result">
         <h2>5もん できたね！</h2>
         <PrimaryButton onClick={handleRetry}>もういちど</PrimaryButton>

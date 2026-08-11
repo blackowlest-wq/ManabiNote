@@ -23,7 +23,7 @@ export function AudioKanaResultPage() {
   }
 
   return (
-    <PageLayout title="おとの けっか">
+    <PageLayout title="おとの けっか" completedGameId="audio-kana">
       <div className="audio-kana-result">
         <h2>5もん できたね！</h2>
         <PrimaryButton onClick={handleRetry}>もういちど</PrimaryButton>

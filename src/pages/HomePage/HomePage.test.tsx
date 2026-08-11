@@ -21,9 +21,9 @@ describe('HomePage', () => {
     expect(screen.getByRole('link', { name: 'ぶん' })).toHaveAttribute('href', '/sentences')
   })
 
-  it('keeps the learning history link outside the category menu', () => {
+  it('keeps the clear progress link outside the category menu', () => {
     renderPage()
 
-    expect(screen.getByRole('link', { name: '履歴を見る' })).toHaveAttribute('href', '/history')
+    expect(screen.getByRole('link', { name: 'クリア状況を見る' })).toHaveAttribute('href', '/history')
   })
 })

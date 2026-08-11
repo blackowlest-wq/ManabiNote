@@ -24,7 +24,7 @@ export function ReadingComprehensionResultPage() {
   }
 
   return (
-    <PageLayout title="ぶんよみの けっか">
+    <PageLayout title="ぶんよみの けっか" completedGameId="reading-comprehension">
       <div className="reading-comprehension-result">
         <h2>ぶんよみ おわり！</h2>
         <p>むずかしさ：{getDifficultyLabel(session.difficulty)}</p>
