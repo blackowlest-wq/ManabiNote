@@ -489,6 +489,1084 @@ button:focus-visible {
   font-size: clamp(1.5rem, 7vw, 2.25rem);
 }
 
+.kana-pair-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kana-pair-page > p[aria-label='学習の進み具合'] {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+}
+
+.kana-pair-question {
+  display: grid;
+  width: min(100%, 28rem);
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.kana-pair-question__hiragana {
+  display: grid;
+  width: min(100%, 15rem);
+  min-height: 15rem;
+  place-items: center;
+  margin: 0;
+  border: 3px solid #bae6fd;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  box-shadow: 0 0.5rem 1.25rem rgb(14 116 144 / 12%);
+  color: #172033;
+  font-size: clamp(7rem, 28vw, 11rem);
+  line-height: 1;
+}
+
+.kana-pair-question__instruction {
+  margin: 0;
+  color: #334155;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.kana-pair-question__choices {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.kana-pair-choice {
+  min-height: 4.25rem;
+  border-color: #7dd3fc;
+  border-radius: 1rem;
+  background: #ffffff;
+  color: #172033;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.kana-pair-choice:hover:not(:disabled),
+.kana-pair-choice[aria-pressed='true'] {
+  border-color: #075985;
+  background: #e0f2fe;
+}
+
+.kana-pair-choice:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.kana-pair-feedback {
+  margin: 0;
+  border: 3px solid;
+  border-radius: 0.875rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.kana-pair-feedback--retry {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.kana-pair-feedback--success {
+  border-color: #34d399;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.kana-pair-next {
+  width: min(100%, 28rem);
+}
+
+.kana-pair-result {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.kana-pair-result h2 {
+  margin: 0;
+  color: #b45309;
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+}
+
+.dakuten-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dakuten-page > p[aria-label='学習の進み具合'] {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+}
+
+.dakuten-question {
+  display: grid;
+  width: min(100%, 28rem);
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.dakuten-prompt {
+  display: flex;
+  width: min(100%, 15rem);
+  min-height: 15rem;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #bae6fd;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  box-shadow: 0 0.5rem 1.25rem rgb(14 116 144 / 12%);
+  color: #172033;
+}
+
+.dakuten-prompt__base {
+  font-size: clamp(7rem, 28vw, 11rem);
+  line-height: 1;
+}
+
+.dakuten-prompt__mark {
+  align-self: flex-start;
+  margin-top: 2.8rem;
+  color: #b45309;
+  font-size: clamp(2.5rem, 10vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.dakuten-question__instruction {
+  margin: 0;
+  color: #334155;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.dakuten-question__choices {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.dakuten-choice {
+  min-height: 4.25rem;
+  border-color: #7dd3fc;
+  border-radius: 1rem;
+  background: #ffffff;
+  color: #172033;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.dakuten-choice:hover:not(:disabled),
+.dakuten-choice[aria-pressed='true'] {
+  border-color: #075985;
+  background: #e0f2fe;
+}
+
+.dakuten-choice:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.dakuten-feedback {
+  margin: 0;
+  border: 3px solid;
+  border-radius: 0.875rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.dakuten-feedback--retry {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.dakuten-feedback--success {
+  border-color: #34d399;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.dakuten-next {
+  width: min(100%, 28rem);
+}
+
+.dakuten-result {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.dakuten-result h2 {
+  margin: 0;
+  color: #b45309;
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+}
+
+.kana-group-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kana-group-page > p[aria-label='学習の進み具合'] {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+}
+
+.kana-group-question {
+  display: grid;
+  width: min(100%, 28rem);
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.kana-group-question__target {
+  display: grid;
+  width: min(100%, 15rem);
+  min-height: 15rem;
+  place-items: center;
+  margin: 0;
+  border: 3px solid #bae6fd;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  box-shadow: 0 0.5rem 1.25rem rgb(14 116 144 / 12%);
+  color: #172033;
+  font-size: clamp(7rem, 28vw, 11rem);
+  line-height: 1;
+}
+
+.kana-group-question__instruction {
+  margin: 0;
+  color: #334155;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.kana-group-question__choices {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.kana-group-choice {
+  min-height: 4.25rem;
+  border-color: #7dd3fc;
+  border-radius: 1rem;
+  background: #ffffff;
+  color: #172033;
+  font-size: clamp(1.35rem, 6vw, 1.8rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.kana-group-choice:hover:not(:disabled),
+.kana-group-choice[aria-pressed='true'] {
+  border-color: #075985;
+  background: #e0f2fe;
+}
+
+.kana-group-choice:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.kana-group-feedback {
+  margin: 0;
+  border: 3px solid;
+  border-radius: 0.875rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.kana-group-feedback--retry {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.kana-group-feedback--success {
+  border-color: #34d399;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.kana-group-next {
+  width: min(100%, 28rem);
+}
+
+.kana-group-result {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.kana-group-result h2 {
+  margin: 0;
+  color: #b45309;
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+}
+
+.audio-kana-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.audio-kana-page > p[aria-label='学習の進み具合'] {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+}
+
+.audio-kana-question {
+  display: grid;
+  width: min(100%, 28rem);
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.audio-kana-play {
+  width: min(100%, 18rem);
+  min-height: 5rem;
+  border-color: #b45309;
+  background: #f59e0b;
+  color: #172033;
+  font-size: 1.5rem;
+}
+
+.audio-kana-play:hover:not(:disabled) {
+  border-color: #78350f;
+  background: #fbbf24;
+}
+
+.audio-kana-question__instruction {
+  margin: 0;
+  color: #334155;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.audio-kana-question__choices {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.audio-kana-choice {
+  min-height: 4.25rem;
+  border-color: #fbbf24;
+  border-radius: 1rem;
+  background: #ffffff;
+  color: #172033;
+  font-size: clamp(1.8rem, 8vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.audio-kana-choice:hover:not(:disabled),
+.audio-kana-choice[aria-pressed='true'] {
+  border-color: #b45309;
+  background: #fef3c7;
+}
+
+.audio-kana-choice:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.audio-kana-feedback {
+  margin: 0;
+  border: 3px solid;
+  border-radius: 0.875rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.audio-kana-feedback--retry {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.audio-kana-feedback--success {
+  border-color: #34d399;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.audio-kana-next {
+  width: min(100%, 28rem);
+}
+
+.audio-kana-result {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.audio-kana-result h2 {
+  margin: 0;
+  color: #b45309;
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+}
+
+.memory-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.memory-page__progress,
+.memory-page__instruction,
+.memory-page__moves {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+}
+
+.memory-page__instruction {
+  font-size: 1.2rem;
+}
+
+.memory-board {
+  display: grid;
+  width: min(100%, 36rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.memory-card {
+  display: grid;
+  min-height: 8rem;
+  place-items: center;
+  gap: 0.25rem;
+  overflow: hidden;
+  border: 3px solid #c4b5fd;
+  border-radius: 1rem;
+  background: #7c3aed;
+  color: #ffffff;
+  box-shadow: 0 0.4rem 0 #5b21b6;
+}
+
+.memory-card:hover:not(:disabled) {
+  border-color: #6d28d9;
+  background: #8b5cf6;
+}
+
+.memory-card--visible {
+  border-color: #a78bfa;
+  background: #ffffff;
+  color: #172033;
+  box-shadow: 0 0.4rem 0 #ddd6fe;
+}
+
+.memory-card--matched {
+  border-color: #34d399;
+  background: #ecfdf5;
+  box-shadow: 0 0.4rem 0 #a7f3d0;
+  cursor: default;
+}
+
+.memory-card__back {
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.memory-card__kana {
+  font-size: clamp(3rem, 12vw, 5rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.memory-card__label {
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.memory-card .kana-picture-choice__image {
+  max-width: 100%;
+}
+
+.memory-feedback {
+  margin: 0;
+  border: 3px solid;
+  border-radius: 0.875rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.memory-feedback--retry {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.memory-feedback--success {
+  border-color: #34d399;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.memory-next {
+  width: min(100%, 28rem);
+}
+
+.memory-result {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.memory-result h2 {
+  margin: 0;
+  color: #7c3aed;
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+}
+
+.small-kana-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.small-kana-page > p[aria-label='学習の進み具合'] {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+}
+
+.small-kana-question {
+  display: grid;
+  width: min(100%, 28rem);
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.small-kana-question__instruction {
+  margin: 0;
+  color: #334155;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.small-kana-word {
+  display: grid;
+  min-width: min(100%, 18rem);
+  min-height: 6rem;
+  place-items: center;
+  margin: 0;
+  border: 3px solid #f9a8d4;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  box-shadow: 0 0.5rem 1.25rem rgb(190 24 93 / 12%);
+  color: #172033;
+  font-size: clamp(2.5rem, 12vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.small-kana-question__choices {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.small-kana-choice {
+  min-height: 4.25rem;
+  border-color: #f9a8d4;
+  border-radius: 1rem;
+  background: #ffffff;
+  color: #172033;
+  font-size: clamp(1.8rem, 8vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.small-kana-choice:hover:not(:disabled),
+.small-kana-choice[aria-pressed='true'] {
+  border-color: #be185d;
+  background: #fce7f3;
+}
+
+.small-kana-choice:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.small-kana-feedback {
+  margin: 0;
+  border: 3px solid;
+  border-radius: 0.875rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.small-kana-feedback--retry {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.small-kana-feedback--success {
+  border-color: #34d399;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.small-kana-next {
+  width: min(100%, 28rem);
+}
+
+.small-kana-result {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.small-kana-result h2 {
+  margin: 0;
+  color: #be185d;
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+}
+
+.shiritori-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.shiritori-page > p[aria-label='学習の進み具合'] {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+}
+
+.shiritori-question {
+  display: grid;
+  width: min(100%, 34rem);
+  justify-items: center;
+  gap: 0.65rem;
+}
+
+.shiritori-question__instruction,
+.shiritori-arrow {
+  margin: 0;
+  color: #334155;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.shiritori-previous-card {
+  display: grid;
+  width: min(100%, 12rem);
+  justify-items: center;
+  gap: 0.2rem;
+  border: 3px solid #86efac;
+  border-radius: 1.25rem;
+  padding: 0.5rem;
+  background: #f0fdf4;
+  color: #166534;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.shiritori-question__choices {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.shiritori-choice {
+  display: grid;
+  min-height: 9rem;
+  justify-items: center;
+  gap: 0.15rem;
+  border-color: #86efac;
+  border-radius: 1rem;
+  background: #ffffff;
+  color: #172033;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.shiritori-choice:hover:not(:disabled),
+.shiritori-choice[aria-pressed='true'] {
+  border-color: #15803d;
+  background: #dcfce7;
+}
+
+.shiritori-choice:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.shiritori-feedback {
+  margin: 0;
+  border: 3px solid;
+  border-radius: 0.875rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.shiritori-feedback--retry {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.shiritori-feedback--success {
+  border-color: #34d399;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.shiritori-next {
+  width: min(100%, 28rem);
+}
+
+.shiritori-result {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.shiritori-result h2 {
+  margin: 0;
+  color: #15803d;
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+}
+
+.counting-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.counting-page > p[aria-label='学習の進み具合'] {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+}
+
+.counting-question {
+  display: grid;
+  width: min(100%, 32rem);
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.counting-question__instruction {
+  margin: 0;
+  color: #334155;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.counting-items {
+  display: flex;
+  min-height: 11rem;
+  max-width: 100%;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 3px solid #93c5fd;
+  border-radius: 1.25rem;
+  padding: 0.75rem;
+  background: #eff6ff;
+}
+
+.counting-items .kana-picture-choice__image {
+  border-radius: 0.75rem;
+}
+
+.counting-question__choices {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.counting-choice {
+  min-height: 4.5rem;
+  border-color: #93c5fd;
+  border-radius: 1rem;
+  background: #ffffff;
+  color: #172033;
+  font-size: clamp(1.8rem, 8vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.counting-choice:hover:not(:disabled),
+.counting-choice[aria-pressed='true'] {
+  border-color: #1d4ed8;
+  background: #dbeafe;
+}
+
+.counting-choice:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.counting-feedback {
+  margin: 0;
+  border: 3px solid;
+  border-radius: 0.875rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.counting-feedback--retry {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.counting-feedback--success {
+  border-color: #34d399;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.counting-next {
+  width: min(100%, 28rem);
+}
+
+.counting-result {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.counting-result h2 {
+  margin: 0;
+  color: #1d4ed8;
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+}
+
+.shape-color-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.shape-color-page > p[aria-label='学習の進み具合'] {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+}
+
+.shape-color-question {
+  display: grid;
+  width: min(100%, 30rem);
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.shape-color-question__instruction {
+  margin: 0;
+  color: #334155;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.shape-color-target {
+  display: grid;
+  width: 11rem;
+  min-height: 11rem;
+  place-items: center;
+  border: 3px solid #c4b5fd;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  box-shadow: 0 0.5rem 1.25rem rgb(124 58 237 / 12%);
+}
+
+.shape-color-icon {
+  display: block;
+  width: 4.75rem;
+  height: 4.75rem;
+}
+
+.shape-color-icon--circle {
+  border-radius: 50%;
+}
+
+.shape-color-icon--triangle {
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.shape-color-icon--square {
+  border-radius: 0.35rem;
+}
+
+.shape-color-icon--star {
+  display: grid;
+  place-items: center;
+  background: transparent !important;
+  color: currentColor;
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.shape-color-icon--star::before {
+  content: '★';
+}
+
+.shape-color-icon--red {
+  background: #ef4444;
+  color: #ef4444;
+}
+
+.shape-color-icon--blue {
+  background: #3b82f6;
+  color: #3b82f6;
+}
+
+.shape-color-icon--yellow {
+  background: #facc15;
+  color: #facc15;
+}
+
+.shape-color-icon--green {
+  background: #22c55e;
+  color: #22c55e;
+}
+
+.shape-color-question__choices {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.shape-color-choice {
+  display: grid;
+  min-height: 7rem;
+  place-items: center;
+  gap: 0.2rem;
+  border-color: #c4b5fd;
+  border-radius: 1rem;
+  background: #ffffff;
+  color: #172033;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.shape-color-choice:hover:not(:disabled),
+.shape-color-choice[aria-pressed='true'] {
+  border-color: #7c3aed;
+  background: #ede9fe;
+}
+
+.shape-color-choice:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.shape-color-choice .shape-color-icon {
+  width: 3rem;
+  height: 3rem;
+}
+
+.shape-color-choice .shape-color-icon--star {
+  font-size: 3.3rem;
+}
+
+.shape-color-feedback {
+  margin: 0;
+  border: 3px solid;
+  border-radius: 0.875rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.shape-color-feedback--retry {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.shape-color-feedback--success {
+  border-color: #34d399;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.shape-color-next {
+  width: min(100%, 28rem);
+}
+
+.shape-color-result {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.shape-color-result h2 {
+  margin: 0;
+  color: #7c3aed;
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+}
+
 .choice-feedback {
   margin: 1.5rem 0;
   border-radius: 0.75rem;
@@ -865,6 +1943,282 @@ button:focus-visible {
     min-height: 3.5rem;
     border-radius: 0.75rem;
     font-size: 1.7rem;
+  }
+
+  .kana-pair-page {
+    gap: 0.5rem;
+  }
+
+  .kana-pair-question {
+    gap: 0.5rem;
+  }
+
+  .kana-pair-question__hiragana {
+    width: min(100%, 11rem);
+    min-height: 11rem;
+    font-size: clamp(5rem, 28vw, 8rem);
+  }
+
+  .kana-pair-question__instruction {
+    font-size: 1rem;
+  }
+
+  .kana-pair-choice {
+    min-height: 3.5rem;
+    border-radius: 0.75rem;
+    font-size: 1.7rem;
+  }
+
+  .dakuten-page {
+    gap: 0.5rem;
+  }
+
+  .dakuten-question {
+    gap: 0.5rem;
+  }
+
+  .dakuten-prompt {
+    width: min(100%, 11rem);
+    min-height: 11rem;
+  }
+
+  .dakuten-prompt__base {
+    font-size: clamp(5rem, 28vw, 8rem);
+  }
+
+  .dakuten-prompt__mark {
+    margin-top: 2rem;
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .dakuten-question__instruction {
+    font-size: 1rem;
+  }
+
+  .dakuten-choice {
+    min-height: 3.5rem;
+    border-radius: 0.75rem;
+    font-size: 1.7rem;
+  }
+
+  .kana-group-page {
+    gap: 0.5rem;
+  }
+
+  .kana-group-question {
+    gap: 0.5rem;
+  }
+
+  .kana-group-question__target {
+    width: min(100%, 11rem);
+    min-height: 11rem;
+    font-size: clamp(5rem, 28vw, 8rem);
+  }
+
+  .kana-group-question__instruction {
+    font-size: 1rem;
+  }
+
+  .kana-group-question__choices {
+    gap: 0.4rem;
+  }
+
+  .kana-group-choice {
+    min-height: 3.5rem;
+    border-radius: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .audio-kana-page {
+    gap: 0.5rem;
+  }
+
+  .audio-kana-question {
+    gap: 0.5rem;
+  }
+
+  .audio-kana-play {
+    min-height: 4.25rem;
+    font-size: 1.25rem;
+  }
+
+  .audio-kana-question__instruction {
+    font-size: 1rem;
+  }
+
+  .audio-kana-question__choices {
+    gap: 0.4rem;
+  }
+
+  .audio-kana-choice {
+    min-height: 3.5rem;
+    border-radius: 0.75rem;
+    font-size: 1.8rem;
+  }
+
+  .memory-page {
+    gap: 0.5rem;
+  }
+
+  .memory-page__instruction {
+    font-size: 1rem;
+  }
+
+  .memory-board {
+    gap: 0.35rem;
+  }
+
+  .memory-card {
+    min-height: 5.5rem;
+    border-radius: 0.75rem;
+  }
+
+  .memory-card__back {
+    font-size: 2.25rem;
+  }
+
+  .memory-card__kana {
+    font-size: clamp(2.2rem, 12vw, 3.5rem);
+  }
+
+  .memory-card__label {
+    font-size: 0.7rem;
+  }
+
+  .small-kana-page {
+    gap: 0.5rem;
+  }
+
+  .small-kana-question {
+    gap: 0.5rem;
+  }
+
+  .small-kana-question__instruction {
+    font-size: 1rem;
+  }
+
+  .small-kana-word {
+    min-height: 4.75rem;
+    border-radius: 0.85rem;
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  .small-kana-question__choices {
+    gap: 0.4rem;
+  }
+
+  .small-kana-choice {
+    min-height: 3.5rem;
+    border-radius: 0.75rem;
+    font-size: 1.8rem;
+  }
+
+  .shiritori-page {
+    gap: 0.5rem;
+  }
+
+  .shiritori-question {
+    gap: 0.5rem;
+  }
+
+  .shiritori-question__instruction,
+  .shiritori-arrow {
+    font-size: 1rem;
+  }
+
+  .shiritori-previous-card {
+    width: min(100%, 9rem);
+    border-radius: 0.85rem;
+    font-size: 1rem;
+  }
+
+  .shiritori-question__choices {
+    gap: 0.4rem;
+  }
+
+  .shiritori-choice {
+    min-height: 7rem;
+    border-radius: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .counting-page {
+    gap: 0.5rem;
+  }
+
+  .counting-question {
+    gap: 0.5rem;
+  }
+
+  .counting-question__instruction {
+    font-size: 1rem;
+  }
+
+  .counting-items {
+    min-height: 8rem;
+    gap: 0.2rem;
+    padding: 0.4rem;
+  }
+
+  .counting-items .kana-picture-choice__image {
+    width: 64px !important;
+    height: 64px !important;
+  }
+
+  .counting-question__choices {
+    gap: 0.3rem;
+  }
+
+  .counting-choice {
+    min-height: 3.5rem;
+    border-radius: 0.75rem;
+    font-size: 1.7rem;
+  }
+
+  .shape-color-page {
+    gap: 0.5rem;
+  }
+
+  .shape-color-question {
+    gap: 0.5rem;
+  }
+
+  .shape-color-question__instruction {
+    font-size: 1rem;
+  }
+
+  .shape-color-target {
+    width: 8rem;
+    min-height: 8rem;
+    border-radius: 0.85rem;
+  }
+
+  .shape-color-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .shape-color-icon--star {
+    font-size: 3.8rem;
+  }
+
+  .shape-color-question__choices {
+    gap: 0.4rem;
+  }
+
+  .shape-color-choice {
+    min-height: 5.75rem;
+    border-radius: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .shape-color-choice .shape-color-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .shape-color-choice .shape-color-icon--star {
+    font-size: 2.8rem;
   }
 
   .word-builder-instruction {

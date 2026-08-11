@@ -85,6 +85,132 @@ describe('HomePage', () => {
     expect(screen.getByRole('link', { name: 'ことばの あなうめ' })).toHaveAttribute('href', '/missing-character')
   })
 
+  it('shows a hiragana and katakana matching game link', () => {
+    render(
+      <MemoryRouter>
+        <QuizSessionProvider>
+          <StrokePracticeProvider>
+            <HomePage />
+          </StrokePracticeProvider>
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('link', { name: 'ひらがなと カタカナ' })).toHaveAttribute('href', '/kana-pair')
+  })
+
+  it('shows a dakuten and handakuten game link', () => {
+    render(
+      <MemoryRouter>
+        <QuizSessionProvider>
+          <StrokePracticeProvider>
+            <HomePage />
+          </StrokePracticeProvider>
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('link', { name: 'てんてんと まる' })).toHaveAttribute('href', '/dakuten')
+  })
+
+  it('shows a kana group game link', () => {
+    render(
+      <MemoryRouter>
+        <QuizSessionProvider>
+          <StrokePracticeProvider>
+            <HomePage />
+          </StrokePracticeProvider>
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('link', { name: 'かなの なかまわけ' })).toHaveAttribute('href', '/kana-group')
+  })
+
+  it('shows an audio kana game link', () => {
+    render(
+      <MemoryRouter>
+        <QuizSessionProvider>
+          <StrokePracticeProvider>
+            <HomePage />
+          </StrokePracticeProvider>
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('link', { name: 'おとを きいて えらぼう' })).toHaveAttribute('href', '/audio-kana')
+  })
+
+  it('shows a kana and picture memory game link', () => {
+    render(
+      <MemoryRouter>
+        <QuizSessionProvider>
+          <StrokePracticeProvider>
+            <HomePage />
+          </StrokePracticeProvider>
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('link', { name: 'かなと えの しんけいすいじゃく' })).toHaveAttribute('href', '/memory')
+  })
+
+  it('shows a small kana game link', () => {
+    render(
+      <MemoryRouter>
+        <QuizSessionProvider>
+          <StrokePracticeProvider>
+            <HomePage />
+          </StrokePracticeProvider>
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('link', { name: 'ちいさい かな' })).toHaveAttribute('href', '/small-kana')
+  })
+
+  it('shows a shiritori game link', () => {
+    render(
+      <MemoryRouter>
+        <QuizSessionProvider>
+          <StrokePracticeProvider>
+            <HomePage />
+          </StrokePracticeProvider>
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('link', { name: 'しりとり' })).toHaveAttribute('href', '/shiritori')
+  })
+
+  it('shows a counting game link', () => {
+    render(
+      <MemoryRouter>
+        <QuizSessionProvider>
+          <StrokePracticeProvider>
+            <HomePage />
+          </StrokePracticeProvider>
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('link', { name: 'かずを かぞえよう' })).toHaveAttribute('href', '/counting')
+  })
+
+  it('shows a shape and color game link', () => {
+    render(
+      <MemoryRouter>
+        <QuizSessionProvider>
+          <StrokePracticeProvider>
+            <HomePage />
+          </StrokePracticeProvider>
+        </QuizSessionProvider>
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('link', { name: 'いろと かたち' })).toHaveAttribute('href', '/shape-color')
+  })
+
   it('clears an existing stroke session before entering row selection', async () => {
     const user = userEvent.setup()
     const initialSession = createPracticeSession(
