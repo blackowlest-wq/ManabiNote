@@ -74,6 +74,14 @@ export const GAME_CATEGORIES = {
       { id: 'reading-comprehension', to: '/reading-comprehension', label: 'ぶんを よんで こたえよう', description: 'みじかい ぶんを よんで こたえる' },
     ],
   },
+  play: {
+    to: '/play',
+    title: 'あそび',
+    description: 'ぼうけんしながら かんがえよう',
+    games: [
+      { id: 'rescue-maze', to: '/rescue-maze', label: 'どうぶつレスキュー', description: 'めいろを すすんで どうぶつを たすける' },
+    ],
+  },
 } satisfies Record<string, GameCategory>
 
 export const GAME_CATEGORY_LIST: readonly GameCategory[] = Object.values(GAME_CATEGORIES)

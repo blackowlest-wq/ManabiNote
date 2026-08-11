@@ -43,6 +43,7 @@ import { ReadingComprehensionPage } from '../pages/ReadingComprehensionPage/Read
 import { ReadingComprehensionResultPage } from '../pages/ReadingComprehensionResultPage/ReadingComprehensionResultPage'
 import { ShapePatternPage } from '../pages/ShapePatternPage/ShapePatternPage'
 import { ShapePatternResultPage } from '../pages/ShapePatternResultPage/ShapePatternResultPage'
+import { RescueMazePage } from '../pages/RescueMazePage/RescueMazePage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -62,6 +63,7 @@ export function AppRouter() {
         <Route path={GAME_CATEGORIES.shapes.to} element={<CategoryPage {...GAME_CATEGORIES.shapes} />} />
         <Route path={GAME_CATEGORIES.kanji.to} element={<CategoryPage {...GAME_CATEGORIES.kanji} />} />
         <Route path={GAME_CATEGORIES.sentences.to} element={<CategoryPage {...GAME_CATEGORIES.sentences} />} />
+        <Route path={GAME_CATEGORIES.play.to} element={<CategoryPage {...GAME_CATEGORIES.play} />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/result" element={<ResultPage />} />
         <Route path="/history" element={<HistoryPage />} />
@@ -111,6 +113,7 @@ export function AppRouter() {
         <Route path="/shape-color/result" element={<ShapeColorResultPage />} />
         <Route path="/shape-pattern" element={<ShapePatternPage />} />
         <Route path="/shape-pattern/result" element={<ShapePatternResultPage />} />
+        <Route path="/rescue-maze" element={<RescueMazePage />} />
       </Routes>
     </>
   )
