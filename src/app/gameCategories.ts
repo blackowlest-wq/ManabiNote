@@ -95,6 +95,7 @@ export const GAME_CATEGORIES = {
       { id: 'balance-boat', to: '/balance-boat', label: 'ぐらぐら おとどけ便', description: 'にもつを ふねの りょうがわへ のせる' },
       { id: 'bridge-builder', to: '/bridge-builder', label: 'ぽんぽこ 橋づくり', description: 'まるたを くみあわせて かわに はしを かける' },
       { id: 'rolling-labyrinth', to: '/rolling-labyrinth', label: 'くるくる ラビリンス', description: 'めいろを まわして たまを ころがす' },
+      { id: 'firefly-lights', to: '/firefly-lights', label: 'ぴかぴか ほたる', description: 'となりも かわる ひかりを ぜんぶ つける' },
     ],
   },
 } satisfies Record<string, GameCategory>

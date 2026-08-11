@@ -7326,3 +7326,121 @@ button:focus-visible {
   .labyrinth-frame { width: min(100%, 18rem); }
   .labyrinth-controls button { min-height: 4.2rem; }
 }
+
+/* ぴかぴか ほたる */
+.firefly-intro,
+.firefly-result {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.firefly-intro__scene,
+.firefly-result__scene { font-size: clamp(2.3rem, 10vw, 4.6rem); }
+
+.firefly-intro__demo {
+  display: grid;
+  gap: .15rem;
+  padding: .65rem 1.3rem;
+  border: 3px solid #726bb2;
+  border-radius: 1rem;
+  background: #282342;
+  color: #ffe95d;
+  font-size: 1.35rem;
+}
+
+.firefly-page {
+  display: grid;
+  gap: .55rem;
+  width: min(100%, 34rem);
+  margin: 0 auto;
+  padding: 0 .55rem 1.5rem;
+}
+
+.firefly-hud {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .3rem;
+}
+
+.firefly-hud span {
+  padding: .45rem .1rem;
+  border-radius: .65rem;
+  background: #34305d;
+  color: white;
+  text-align: center;
+  font-size: .84rem;
+  font-weight: 900;
+}
+
+.firefly-stage-name { color: #50498a; text-align: center; font-weight: 900; }
+
+.firefly-garden {
+  display: grid;
+  width: min(100%, 20rem);
+  aspect-ratio: 1;
+  justify-self: center;
+  gap: .55rem;
+  padding: 1rem;
+  border: .55rem solid #4a416d;
+  border-radius: 2rem;
+  background: radial-gradient(circle at 50% 50%, #30385d, #18162c 75%);
+  box-shadow: inset 0 0 2rem #080711;
+}
+
+.firefly-garden--2 { width: min(100%, 18rem); padding: 1.3rem; gap: .8rem; }
+
+.firefly-light {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  place-items: center;
+  overflow: visible;
+  border: 3px solid #56546c;
+  border-radius: 50%;
+  background: #343346;
+  cursor: pointer;
+  transition: background .18s ease, box-shadow .18s ease, transform .12s ease;
+}
+
+.firefly-light span { z-index: 2; filter: grayscale(1) brightness(.55); font-size: clamp(2.2rem, 10vw, 4rem); transition: filter .18s ease; }
+.firefly-light i { position: absolute; width: 30%; height: 30%; border-radius: 50%; background: #6f6c69; }
+
+.firefly-light--on {
+  border-color: #fff29b;
+  background: #6d6328;
+  box-shadow: 0 0 1rem #ffeb62, inset 0 0 1rem #fff49a;
+}
+
+.firefly-light--on span { filter: none; }
+.firefly-light--on i { background: #fff25f; box-shadow: 0 0 1.2rem .5rem #ffe94d; }
+.firefly-light:active { transform: scale(.92); }
+
+.firefly-feedback { min-height: 1.5rem; margin: 0; color: #514a8c; text-align: center; font-weight: 900; }
+.firefly-reset { justify-self: center; min-height: 2.7rem; border: 2px solid #827bad; border-radius: .8rem; background: white; color: #514b80; font-weight: 800; }
+
+.firefly-stage-clear {
+  display: grid;
+  justify-items: center;
+  gap: .4rem;
+  padding: .65rem;
+  border-radius: 1rem;
+  background: #fff9d1;
+}
+
+.firefly-stage-clear h2 { margin: 0; color: #6f651e; }
+.firefly-stage-clear span { font-size: 1.8rem; }
+.firefly-quit { justify-self: center; border: 0; background: transparent; color: #555; text-decoration: underline; }
+.firefly-result__score { margin: 0; color: #665c1c; font-size: 2rem; font-weight: 900; }
+
+@media (prefers-reduced-motion: reduce) {
+  .firefly-light,
+  .firefly-light span { transition: none; }
+}
+
+@media (max-width: 390px) {
+  .firefly-garden { width: min(100%, 18rem); }
+  .firefly-garden--2 { width: min(100%, 17rem); }
+}
