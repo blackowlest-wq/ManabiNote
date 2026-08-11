@@ -7875,3 +7875,113 @@ button:focus-visible {
   .frog-jump-lily { bottom: 0.45rem; font-size: clamp(2.5rem, 10vw, 3.4rem); }
   .frog-jump-destinations b { font-size: 0.85rem; }
 }
+.log-slide-intro,
+.log-slide-result,
+.log-slide-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.9rem;
+  text-align: center;
+}
+
+.log-slide-intro__scene,
+.log-slide-result__scene {
+  padding: 1rem;
+  border-radius: 1.4rem;
+  background: linear-gradient(145deg, #e7f7c7, #9bd684);
+  font-size: clamp(2rem, 10vw, 4rem);
+  box-shadow: inset 0 -0.4rem 0 rgb(50 115 37 / 18%);
+}
+
+.log-slide-intro p { max-width: 32rem; margin: 0; font-size: 1.1rem; font-weight: 800; line-height: 1.8; }
+.log-slide-intro__rule { display: flex; gap: 1rem; font-size: 1.35rem; }
+.log-slide-result__score { margin: 0; color: #8b551e; font-size: 2rem; font-weight: 900; }
+
+.log-slide-hud {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+  width: min(100%, 38rem);
+}
+
+.log-slide-hud span { padding: 0.55rem 0.3rem; border-radius: 0.75rem; background: #477b3c; color: white; font-weight: 900; }
+.log-slide-stage-name { color: #315b28; font-size: 1.25rem; font-weight: 900; }
+
+.log-slide-board {
+  position: relative;
+  display: grid;
+  width: min(100%, 31rem);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 0.45rem solid #6e4827;
+  border-radius: 1.2rem;
+  background-color: #dff1bd;
+  background-image: linear-gradient(rgb(92 130 64 / 18%) 0.1rem, transparent 0.1rem), linear-gradient(90deg, rgb(92 130 64 / 18%) 0.1rem, transparent 0.1rem);
+  background-size: calc(100% / var(--log-size, 6)) calc(100% / var(--log-size, 6));
+  box-shadow: inset 0 0 1.6rem rgb(54 94 39 / 25%);
+}
+
+.log-slide-board--4 { --log-size: 4; }
+.log-slide-board--5 { --log-size: 5; }
+.log-slide-board--6 { --log-size: 6; }
+
+.log-slide-exit {
+  z-index: 0;
+  align-self: center;
+  justify-self: end;
+  color: #e77c23;
+  font-size: clamp(1.4rem, 6vw, 2.6rem);
+  transform: translateX(0.25rem);
+}
+
+.log-slide-piece {
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 0;
+  margin: 0.22rem;
+  border: 0.18rem solid #74451f;
+  border-radius: 1rem;
+  background: linear-gradient(145deg, #c98643, #8b4f25);
+  box-shadow: 0 0.22rem 0 #56331c;
+  cursor: pointer;
+}
+
+.log-slide-piece span { font-size: clamp(1.5rem, 7vw, 3rem); filter: drop-shadow(0 0.12rem 0 rgb(0 0 0 / 18%)); }
+.log-slide-piece--vertical span { transform: rotate(90deg); }
+.log-slide-piece--squirrel { border-color: #c76312; background: linear-gradient(145deg, #ffd65b, #f7a928); }
+.log-slide-piece--squirrel span { transform: none; }
+.log-slide-piece--selected { outline: 0.3rem solid #ffef72; outline-offset: -0.15rem; }
+.log-slide-piece:disabled { opacity: 1; cursor: default; }
+
+.log-slide-feedback { min-height: 1.6rem; margin: 0; color: #725021; font-size: 1.1rem; font-weight: 900; }
+
+.log-slide-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  width: min(100%, 25rem);
+  min-height: 4.6rem;
+}
+
+.log-slide-controls > p { grid-column: 1 / -1; align-self: center; margin: 0; font-weight: 800; }
+.log-slide-controls button { min-height: 4.6rem; border: 0.2rem solid #6e4827; border-radius: 1rem; background: #fff5d0; color: #5c391d; font: inherit; font-size: 2rem; font-weight: 900; }
+.log-slide-controls small { display: block; font-size: 0.85rem; }
+
+.log-slide-tools { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; width: min(100%, 28rem); }
+.log-slide-tools button,
+.log-slide-quit { min-height: 2.8rem; border: 0.13rem solid #718b56; border-radius: 0.75rem; background: white; color: #405a2f; font: inherit; font-weight: 800; }
+.log-slide-tools button:disabled { opacity: 0.45; }
+
+.log-slide-stage-clear { display: grid; justify-items: center; gap: 0.6rem; width: min(100%, 28rem); padding: 0.9rem; border-radius: 1rem; background: #fff4bd; }
+.log-slide-stage-clear h2 { margin: 0; }
+.log-slide-stage-clear > span { font-size: 1.8rem; }
+.log-slide-quit { border-color: transparent; background: transparent; text-decoration: underline; }
+
+@media (max-width: 420px) {
+  .log-slide-board { width: min(100%, 20.5rem); border-width: 0.35rem; }
+  .log-slide-piece { margin: 0.13rem; border-width: 0.13rem; border-radius: 0.65rem; }
+  .log-slide-piece span { font-size: clamp(1.25rem, 7vw, 2rem); }
+  .log-slide-page { gap: 0.7rem; }
+}

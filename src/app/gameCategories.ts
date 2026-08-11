@@ -99,6 +99,7 @@ export const GAME_CATEGORIES = {
       { id: 'sheep-move', to: '/sheep-move', label: 'ひつじの おひっこし', description: 'ひつじを おして おうちへ つれていく' },
       { id: 'balloon-flight', to: '/balloon-flight', label: 'ふわふわ バルーン', description: 'たかさを かえて くもの すきまを とぶ' },
       { id: 'frog-jump', to: '/frog-jump', label: 'かえるジャンプ', description: 'かおの むきへ とんで ばしょを いれかえる' },
+      { id: 'log-slide', to: '/log-slide', label: 'どんぐり だいだっしゅつ', description: 'まるたを ずらして リスの みちを あける' },
     ],
   },
 } satisfies Record<string, GameCategory>
