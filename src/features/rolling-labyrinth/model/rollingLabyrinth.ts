@@ -55,6 +55,48 @@ export const LABYRINTH_STAGES: readonly LabyrinthStage[] = [
     stars: [{ id: 's6-a', row: 0, column: 2 }, { id: 's6-b', row: 2, column: 2 }],
     solution: ['rotate-clockwise', 'rotate-counterclockwise', 'rotate-clockwise', 'rotate-counterclockwise'],
   },
+  {
+    name: 'いわやまの さんぼし', size: 5,
+    start: { row: 4, column: 3 }, goal: { row: 2, column: 0 },
+    walls: [{ row: 2, column: 3 }, { row: 2, column: 1 }, { row: 4, column: 4 }, { row: 2, column: 2 }, { row: 1, column: 1 }],
+    stars: [{ id: 's7-a', row: 3, column: 3 }, { id: 's7-b', row: 1, column: 0 }, { id: 's7-c', row: 0, column: 4 }],
+    solution: ['rotate-clockwise', 'rotate-clockwise', 'rotate-counterclockwise', 'rotate-clockwise', 'rotate-clockwise', 'rotate-clockwise'],
+  },
+  {
+    name: 'よこなが ほしみち', size: 5,
+    start: { row: 0, column: 3 }, goal: { row: 2, column: 4 },
+    walls: [{ row: 1, column: 0 }, { row: 0, column: 2 }, { row: 4, column: 1 }, { row: 3, column: 3 }],
+    stars: [{ id: 's8-a', row: 2, column: 1 }, { id: 's8-b', row: 2, column: 0 }],
+    solution: ['rotate-counterclockwise', 'rotate-clockwise', 'rotate-counterclockwise', 'rotate-counterclockwise', 'rotate-counterclockwise'],
+  },
+  {
+    name: 'よっつぼし だいめいろ', size: 5,
+    start: { row: 0, column: 4 }, goal: { row: 1, column: 2 },
+    walls: [{ row: 0, column: 3 }, { row: 4, column: 2 }, { row: 1, column: 0 }, { row: 3, column: 2 }],
+    stars: [{ id: 's9-a', row: 0, column: 2 }, { id: 's9-b', row: 0, column: 1 }, { id: 's9-c', row: 1, column: 3 }, { id: 's9-d', row: 2, column: 4 }],
+    solution: ['rotate-clockwise', 'rotate-counterclockwise', 'rotate-counterclockwise', 'rotate-counterclockwise', 'rotate-clockwise', 'rotate-counterclockwise', 'rotate-counterclockwise', 'rotate-counterclockwise'],
+  },
+  {
+    name: 'はしから はしへ', size: 5,
+    start: { row: 0, column: 1 }, goal: { row: 0, column: 2 },
+    walls: [{ row: 4, column: 4 }, { row: 4, column: 0 }],
+    stars: [{ id: 's10-a', row: 0, column: 0 }, { id: 's10-b', row: 0, column: 3 }, { id: 's10-c', row: 1, column: 0 }],
+    solution: ['rotate-clockwise', 'rotate-counterclockwise', 'rotate-counterclockwise', 'rotate-counterclockwise', 'rotate-counterclockwise'],
+  },
+  {
+    name: 'まんなかの ゴール', size: 5,
+    start: { row: 0, column: 4 }, goal: { row: 2, column: 2 },
+    walls: [{ row: 0, column: 2 }, { row: 3, column: 3 }, { row: 1, column: 4 }, { row: 4, column: 0 }],
+    stars: [{ id: 's11-a', row: 3, column: 2 }, { id: 's11-b', row: 1, column: 3 }, { id: 's11-c', row: 0, column: 3 }],
+    solution: ['rotate-counterclockwise', 'rotate-clockwise', 'rotate-counterclockwise', 'rotate-clockwise', 'rotate-clockwise', 'rotate-clockwise'],
+  },
+  {
+    name: 'くるくる チャンピオン', size: 5,
+    start: { row: 0, column: 2 }, goal: { row: 3, column: 3 },
+    walls: [{ row: 4, column: 0 }, { row: 0, column: 3 }, { row: 4, column: 4 }],
+    stars: [{ id: 's12-a', row: 1, column: 2 }, { id: 's12-b', row: 2, column: 4 }],
+    solution: ['rotate-clockwise', 'rotate-counterclockwise', 'rotate-clockwise', 'rotate-clockwise', 'rotate-counterclockwise', 'rotate-counterclockwise', 'rotate-counterclockwise'],
+  },
 ]
 
 export type RollingLabyrinthState = {

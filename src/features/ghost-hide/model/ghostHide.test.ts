@@ -6,6 +6,10 @@ import {
 } from './ghostHide'
 
 describe('ghostHide', () => {
+  it('offers twelve hideouts', () => {
+    expect(GHOST_HIDE_STAGES).toHaveLength(12)
+  })
+
   it('shows the target before hiding it in a crowd', () => {
     const state = startGhostHide(0)
 

@@ -48,6 +48,42 @@ export const SHEEP_STAGES: readonly SheepStage[] = [
     walls: [{ row: 1, column: 3 }, { row: 3, column: 3 }],
     solution: ['right', 'right', 'right', 'left', 'left', 'up', 'up', 'right', 'right', 'left', 'left', 'down', 'down', 'down', 'down', 'right', 'right'],
   },
+  {
+    name: 'たてみち おうちへ', size: 5,
+    player: { row: 0, column: 2 }, sheep: [{ row: 2, column: 2 }], goals: [{ row: 4, column: 2 }], walls: [],
+    solution: ['down', 'down', 'down'],
+  },
+  {
+    name: 'たてならびの ふたり', size: 5,
+    player: { row: 0, column: 2 }, sheep: [{ row: 2, column: 3 }, { row: 2, column: 1 }], goals: [{ row: 4, column: 3 }, { row: 4, column: 1 }], walls: [],
+    solution: ['right', 'down', 'down', 'down', 'up', 'up', 'left', 'left', 'down', 'down'],
+  },
+  {
+    name: 'よこいわの あいだ', size: 5,
+    player: { row: 0, column: 0 }, sheep: [{ row: 2, column: 2 }], goals: [{ row: 2, column: 4 }],
+    walls: [{ row: 1, column: 2 }, { row: 3, column: 2 }],
+    solution: ['right', 'down', 'down', 'right', 'right'],
+  },
+  {
+    name: 'ぐるりと おうちへ', size: 5,
+    player: { row: 2, column: 4 }, sheep: [{ row: 2, column: 2 }], goals: [{ row: 4, column: 0 }],
+    walls: [{ row: 0, column: 4 }, { row: 4, column: 4 }],
+    solution: ['left', 'left', 'left', 'up', 'left', 'down', 'down'],
+  },
+  {
+    name: 'よこいわと ふたり', size: 5,
+    player: { row: 0, column: 2 }, sheep: [{ row: 2, column: 3 }, { row: 2, column: 1 }], goals: [{ row: 4, column: 3 }, { row: 4, column: 1 }],
+    walls: [{ row: 2, column: 2 }, { row: 3, column: 4 }, { row: 3, column: 0 }],
+    solution: ['right', 'down', 'down', 'down', 'up', 'up', 'left', 'left', 'down', 'down'],
+  },
+  {
+    name: 'ひつじの だいパレード', size: 5,
+    player: { row: 0, column: 2 },
+    sheep: [{ row: 2, column: 4 }, { row: 2, column: 2 }, { row: 2, column: 0 }],
+    goals: [{ row: 4, column: 4 }, { row: 4, column: 2 }, { row: 4, column: 0 }],
+    walls: [{ row: 3, column: 3 }, { row: 3, column: 1 }],
+    solution: ['down', 'down', 'down', 'up', 'up', 'right', 'right', 'down', 'down', 'up', 'up', 'left', 'left', 'left', 'left', 'down', 'down'],
+  },
 ]
 
 type SheepSnapshot = {

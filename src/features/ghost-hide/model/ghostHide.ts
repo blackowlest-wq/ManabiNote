@@ -28,6 +28,12 @@ export const GHOST_HIDE_STAGES: readonly GhostHideStage[] = [
   { name: 'ぼうしは どこ？', target: ghost('orange', 'happy', 'none'), crowdSize: 7, targetPosition: 5, timeLimit: 15 },
   { name: 'そっくりの もり', target: ghost('pink', 'sleepy', 'crown'), crowdSize: 8, targetPosition: 2, timeLimit: 14 },
   { name: 'おばけの おまつり', target: ghost('blue', 'surprised', 'star'), crowdSize: 9, targetPosition: 7, timeLimit: 13 },
+  { name: 'オレンジの ひろば', target: ghost('orange', 'sleepy', 'bow'), crowdSize: 9, targetPosition: 4, timeLimit: 13 },
+  { name: 'みどりの よる', target: ghost('green', 'happy', 'crown'), crowdSize: 10, targetPosition: 8, timeLimit: 12 },
+  { name: 'リボンの かくれみち', target: ghost('pink', 'surprised', 'bow'), crowdSize: 10, targetPosition: 1, timeLimit: 12 },
+  { name: 'ぼうしの おおひろば', target: ghost('blue', 'happy', 'none'), crowdSize: 11, targetPosition: 6, timeLimit: 11 },
+  { name: 'そっくり おばけやしき', target: ghost('green', 'sleepy', 'star'), crowdSize: 11, targetPosition: 9, timeLimit: 11 },
+  { name: 'かくれんぼ チャンピオン', target: ghost('orange', 'surprised', 'crown'), crowdSize: 12, targetPosition: 5, timeLimit: 10 },
 ]
 
 const COLORS: readonly GhostColor[] = ['pink', 'blue', 'green', 'orange']

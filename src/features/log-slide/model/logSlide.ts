@@ -61,6 +61,49 @@ export const LOG_SLIDE_STAGES: readonly LogSlideStage[] = [
     optimalMoves: 11,
     solution: [{ id: 'c', delta: -1 }, ...repeatMove('b', 1, 2), ...repeatMove('a', 1, 3), { id: 'd', delta: -1 }, ...repeatMove('squirrel', 1, 4)],
   },
+  {
+    name: 'にほんの たてまるた', size: 5,
+    pieces: [sled(2), log('a', 'vertical', 1, 2), log('b', 'vertical', 1, 3)],
+    optimalMoves: 5,
+    solution: [{ id: 'a', delta: -1 }, { id: 'b', delta: -1 }, ...repeatMove('squirrel', 1, 3)],
+  },
+  {
+    name: 'ひろい ぬまの まるた', size: 6,
+    pieces: [sled(3), log('a', 'vertical', 2, 2), log('b', 'vertical', 2, 4)],
+    optimalMoves: 6,
+    solution: [{ id: 'a', delta: -1 }, { id: 'b', delta: -1 }, ...repeatMove('squirrel', 1, 4)],
+  },
+  {
+    name: 'ながさを みきわめて', size: 6,
+    pieces: [sled(2), log('a', 'vertical', 0, 2, 3), log('b', 'vertical', 1, 4)],
+    optimalMoves: 8,
+    solution: [{ id: 'b', delta: -1 }, ...repeatMove('a', 1, 3), ...repeatMove('squirrel', 1, 4)],
+  },
+  {
+    name: 'したから じゅんばん', size: 6,
+    pieces: [sled(1), log('a', 'vertical', 0, 2), log('b', 'horizontal', 3, 1, 3)],
+    optimalMoves: 8,
+    solution: [...repeatMove('b', 1, 2), ...repeatMove('a', 1, 2), ...repeatMove('squirrel', 1, 4)],
+  },
+  {
+    name: 'うえから じゅんばん', size: 6,
+    pieces: [sled(3), log('a', 'vertical', 1, 2, 3), log('b', 'vertical', 2, 3), log('c', 'horizontal', 0, 1, 3)],
+    optimalMoves: 8,
+    solution: [...repeatMove('c', 1, 2), { id: 'a', delta: -1 }, { id: 'b', delta: -1 }, ...repeatMove('squirrel', 1, 4)],
+  },
+  {
+    name: 'どんぐり スライドマスター', size: 6,
+    pieces: [
+      sled(2),
+      log('a', 'vertical', 0, 2, 3),
+      log('b', 'horizontal', 5, 1),
+      log('c', 'vertical', 4, 3),
+      log('d', 'vertical', 1, 4),
+      log('e', 'vertical', 0, 5, 3),
+    ],
+    optimalMoves: 14,
+    solution: [{ id: 'c', delta: -1 }, ...repeatMove('b', 1, 2), ...repeatMove('a', 1, 3), { id: 'd', delta: -1 }, ...repeatMove('e', 1, 3), ...repeatMove('squirrel', 1, 4)],
+  },
 ]
 
 export type LogSlideState = {

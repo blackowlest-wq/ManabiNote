@@ -6,6 +6,10 @@ import {
 } from './logSlide'
 
 describe('logSlide', () => {
+  it('offers twelve sliding stages', () => {
+    expect(LOG_SLIDE_STAGES).toHaveLength(12)
+  })
+
   it('moves a log only along its own direction', () => {
     const state = startLogSlide(0)
 

@@ -6,6 +6,10 @@ import {
 } from './sheepMove'
 
 describe('sheepMove', () => {
+  it('offers twelve moving stages', () => {
+    expect(SHEEP_STAGES).toHaveLength(12)
+  })
+
   it('moves the shepherd one open cell', () => {
     const state = startSheepMove(0)
 

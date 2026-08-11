@@ -6,6 +6,10 @@ import {
 } from './rollingLabyrinth'
 
 describe('rollingLabyrinth', () => {
+  it('offers twelve labyrinths', () => {
+    expect(LABYRINTH_STAGES).toHaveLength(12)
+  })
+
   it('rotates clockwise and lets gravity roll the ball to the screen bottom', () => {
     const state = startRollingLabyrinth(0)
 
@@ -33,7 +37,7 @@ describe('rollingLabyrinth', () => {
     expect(rolled.state.ball).toEqual({ row: 4, column: 2 })
   })
 
-  it('keeps all six handmade labyrinths solvable through real rotations', () => {
+  it('keeps all handmade labyrinths solvable through real rotations', () => {
     for (const [stageIndex, stage] of LABYRINTH_STAGES.entries()) {
       let state = startRollingLabyrinth(stageIndex)
       for (const direction of stage.solution) state = applyLabyrinthAction(state, { type: direction }).state
