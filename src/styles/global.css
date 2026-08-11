@@ -461,6 +461,278 @@ button:focus-visible {
   color: #ffffff;
 }
 
+/* わくわくキッチン */
+.cooking-intro,
+.cooking-result,
+.cooking-game-page {
+  display: grid;
+  width: min(100%, 34rem);
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cooking-intro p,
+.cooking-result p {
+  margin: 0;
+  color: #7c2d12;
+  font-weight: 800;
+}
+
+.cooking-intro .primary-button,
+.cooking-result .primary-button {
+  width: min(100%, 22rem);
+  border-color: #ea580c;
+  background: #f97316;
+}
+
+.cooking-intro__scene,
+.cooking-result__celebration {
+  font-size: clamp(2.5rem, 13vw, 4.5rem);
+  filter: drop-shadow(0 0.4rem 0.35rem rgb(124 45 18 / 18%));
+}
+
+.cooking-hud {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.cooking-hud span {
+  border: 2px solid #fdba74;
+  border-radius: 999px;
+  padding: 0.35rem 0.2rem;
+  background: #fff7ed;
+  color: #9a3412;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.cooking-orders {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.cooking-order {
+  display: grid;
+  min-width: 0;
+  gap: 0.4rem;
+  border: 3px solid #fed7aa;
+  border-radius: 1rem;
+  padding: 0.55rem;
+  background: #ffffff;
+  color: #7c2d12;
+  box-shadow: 0 0.3rem 0 #ffedd5;
+  cursor: pointer;
+}
+
+.cooking-order--selected {
+  border-color: #f97316;
+  background: #fff7ed;
+  box-shadow: 0 0 0 3px #ffffff, 0 0 0 6px #fdba74;
+}
+
+.cooking-order__title {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.cooking-order__title b {
+  font-size: 1.4rem;
+}
+
+.cooking-order__recipe {
+  display: flex;
+  min-width: 0;
+  justify-content: center;
+  gap: 0.15rem;
+}
+
+.cooking-recipe-slot {
+  position: relative;
+  display: grid;
+  width: min(23%, 2.5rem);
+  aspect-ratio: 1;
+  place-items: center;
+  overflow: hidden;
+  border: 2px solid #fed7aa;
+  border-radius: 0.55rem;
+  background: #ffffff;
+}
+
+.cooking-recipe-slot .kana-picture-choice__image {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0.45rem;
+}
+
+.cooking-recipe-slot--next {
+  border-color: #f97316;
+  box-shadow: 0 0 0 2px #ffedd5;
+  animation: cooking-next-pulse 0.8s ease-in-out infinite alternate;
+}
+
+.cooking-recipe-slot--done {
+  opacity: 0.48;
+}
+
+.cooking-recipe-slot small {
+  position: absolute;
+  display: grid;
+  inset: 0;
+  place-items: center;
+  background: rgb(255 255 255 / 45%);
+  color: #15803d;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.cooking-patience {
+  display: block;
+  height: 0.55rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #fee2e2;
+}
+
+.cooking-patience > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #fb7185, #f97316, #22c55e);
+  transition: width 250ms ease;
+}
+
+.cooking-counter {
+  display: grid;
+  width: min(100%, 27rem);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.5rem;
+  border: 4px solid #c2410c;
+  border-radius: 1rem;
+  padding: 0.45rem 0.8rem;
+  background: linear-gradient(180deg, #ffedd5, #fed7aa);
+  color: #7c2d12;
+  box-shadow: 0 0.35rem 0 #9a3412;
+}
+
+.cooking-counter span {
+  font-size: 1.8rem;
+}
+
+.cooking-counter strong {
+  overflow-wrap: anywhere;
+  font-size: 1.1rem;
+}
+
+.cooking-conveyor {
+  position: relative;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+  overflow: hidden;
+  border: 4px solid #64748b;
+  border-radius: 1.2rem;
+  padding: 0.65rem;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 2rem, rgb(255 255 255 / 38%) 2rem 2.35rem),
+    linear-gradient(180deg, #cbd5e1, #94a3b8);
+  box-shadow: inset 0 0.4rem 0 rgb(255 255 255 / 35%), 0 0.4rem 0 #475569;
+}
+
+.cooking-ingredient {
+  display: grid;
+  min-width: 0;
+  min-height: 6.4rem;
+  place-items: center;
+  gap: 0.15rem;
+  border: 3px solid #fdba74;
+  border-radius: 0.85rem;
+  padding: 0.3rem;
+  background: #ffffff;
+  color: #7c2d12;
+  box-shadow: 0 0.25rem 0 #c2410c;
+  cursor: pointer;
+  font-weight: 900;
+  animation: cooking-conveyor-bob 1.4s ease-in-out infinite alternate;
+}
+
+.cooking-ingredient:nth-child(even) {
+  animation-delay: -0.7s;
+}
+
+.cooking-ingredient:hover {
+  border-color: #ea580c;
+  transform: translateY(-2px);
+}
+
+.cooking-ingredient .kana-picture-choice__image {
+  width: min(100%, 4.5rem) !important;
+  height: auto !important;
+  aspect-ratio: 1;
+  border-radius: 0.65rem;
+}
+
+.cooking-ingredient span {
+  overflow-wrap: anywhere;
+  font-size: 0.85rem;
+  line-height: 1.1;
+}
+
+.page-layout .cooking-feedback {
+  min-height: 2.7rem;
+  margin: 0;
+  border: 3px solid #fdba74;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  background: #fff7ed;
+  color: #9a3412;
+  font-weight: 900;
+}
+
+.cooking-quit {
+  border: 2px solid #94a3b8;
+  border-radius: 0.75rem;
+  padding: 0.45rem 0.8rem;
+  background: #ffffff;
+  color: #475569;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.cooking-result h2 {
+  margin: 0;
+  color: #c2410c;
+  font-size: clamp(1.8rem, 8vw, 2.6rem);
+}
+
+.page-layout .cooking-result__score {
+  color: #b45309;
+  font-size: clamp(2.3rem, 12vw, 4rem);
+  font-weight: 900;
+}
+
+@keyframes cooking-next-pulse {
+  from { transform: scale(0.94); }
+  to { transform: scale(1); }
+}
+
+@keyframes cooking-conveyor-bob {
+  from { transform: translateX(-0.12rem); }
+  to { transform: translateX(0.12rem); }
+}
+
 @keyframes rescue-reachable-pulse {
   from { transform: scale(0.98); }
   to { transform: scale(1); }
@@ -473,7 +745,9 @@ button:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .rescue-maze-cell--reachable,
-  .rescue-clear-card {
+  .rescue-clear-card,
+  .cooking-recipe-slot--next,
+  .cooking-ingredient {
     animation: none;
   }
 }
@@ -534,6 +808,57 @@ button:focus-visible {
     min-height: 2.35rem;
     padding: 0.3rem 0.6rem;
     font-size: 0.9rem;
+  }
+
+  .cooking-game-page {
+    gap: 0.5rem;
+  }
+
+  .cooking-hud {
+    gap: 0.2rem;
+  }
+
+  .cooking-hud span {
+    padding: 0.25rem 0.1rem;
+    font-size: 0.78rem;
+  }
+
+  .cooking-orders {
+    gap: 0.4rem;
+  }
+
+  .cooking-order {
+    gap: 0.3rem;
+    border-radius: 0.8rem;
+    padding: 0.4rem;
+  }
+
+  .cooking-order__title {
+    font-size: 0.78rem;
+  }
+
+  .cooking-counter {
+    padding: 0.3rem 0.6rem;
+  }
+
+  .cooking-conveyor {
+    gap: 0.35rem;
+    border-width: 3px;
+    padding: 0.45rem;
+  }
+
+  .cooking-ingredient {
+    min-height: 5.35rem;
+    border-width: 2px;
+    padding: 0.2rem;
+  }
+
+  .cooking-ingredient .kana-picture-choice__image {
+    width: min(100%, 3.7rem) !important;
+  }
+
+  .cooking-ingredient span {
+    font-size: 0.72rem;
   }
 }
 

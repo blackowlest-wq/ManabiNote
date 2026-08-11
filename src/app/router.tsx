@@ -44,6 +44,7 @@ import { ReadingComprehensionResultPage } from '../pages/ReadingComprehensionRes
 import { ShapePatternPage } from '../pages/ShapePatternPage/ShapePatternPage'
 import { ShapePatternResultPage } from '../pages/ShapePatternResultPage/ShapePatternResultPage'
 import { RescueMazePage } from '../pages/RescueMazePage/RescueMazePage'
+import { CookingGamePage } from '../pages/CookingGamePage/CookingGamePage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -114,6 +115,7 @@ export function AppRouter() {
         <Route path="/shape-pattern" element={<ShapePatternPage />} />
         <Route path="/shape-pattern/result" element={<ShapePatternResultPage />} />
         <Route path="/rescue-maze" element={<RescueMazePage />} />
+        <Route path="/cooking" element={<CookingGamePage />} />
       </Routes>
     </>
   )

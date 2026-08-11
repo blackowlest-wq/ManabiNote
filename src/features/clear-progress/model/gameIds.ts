@@ -24,6 +24,7 @@ export const GAME_IDS = [
   'particle-choice',
   'reading-comprehension',
   'rescue-maze',
+  'cooking',
 ] as const
 
 export type GameId = typeof GAME_IDS[number]

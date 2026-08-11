@@ -80,6 +80,7 @@ export const GAME_CATEGORIES = {
     description: 'ぼうけんしながら かんがえよう',
     games: [
       { id: 'rescue-maze', to: '/rescue-maze', label: 'どうぶつレスキュー', description: 'めいろを すすんで どうぶつを たすける' },
+      { id: 'cooking', to: '/cooking', label: 'わくわくキッチン', description: 'ちゅうもんを みて りょうりを つくる' },
     ],
   },
 } satisfies Record<string, GameCategory>
