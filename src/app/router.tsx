@@ -65,6 +65,7 @@ import { BalloonFlightPage } from '../pages/BalloonFlightPage/BalloonFlightPage'
 import { FrogJumpPage } from '../pages/FrogJumpPage/FrogJumpPage'
 import { LogSlidePage } from '../pages/LogSlidePage/LogSlidePage'
 import { GhostHidePage } from '../pages/GhostHidePage/GhostHidePage'
+import { HelperTeamPage } from '../pages/HelperTeamPage/HelperTeamPage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -156,6 +157,7 @@ export function AppRouter() {
         <Route path="/frog-jump" element={<FrogJumpPage />} />
         <Route path="/log-slide" element={<LogSlidePage />} />
         <Route path="/ghost-hide" element={<GhostHidePage />} />
+        <Route path="/helper-team" element={<HelperTeamPage />} />
       </Routes>
     </>
   )

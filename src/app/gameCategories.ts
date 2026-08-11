@@ -101,6 +101,7 @@ export const GAME_CATEGORIES = {
       { id: 'frog-jump', to: '/frog-jump', label: 'かえるジャンプ', description: 'かおの むきへ とんで ばしょを いれかえる' },
       { id: 'log-slide', to: '/log-slide', label: 'どんぐり だいだっしゅつ', description: 'まるたを ずらして リスの みちを あける' },
       { id: 'ghost-hide', to: '/ghost-hide', label: 'おばけ かくれんぼ', description: 'すがたを おぼえて むれから みつける' },
+      { id: 'helper-team', to: '/helper-team', label: 'どうぶつ おたすけ隊', description: 'とくいな なかまを じゅんばんに ならべる' },
     ],
   },
 } satisfies Record<string, GameCategory>
