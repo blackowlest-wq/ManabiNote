@@ -31,6 +31,7 @@ export const GAME_IDS = [
   'treasure-hunt',
   'packing-puzzle',
   'robot-route',
+  'shadow-hunt',
 ] as const
 
 export type GameId = typeof GAME_IDS[number]

@@ -51,6 +51,7 @@ import { ShopGamePage } from '../pages/ShopGamePage/ShopGamePage'
 import { TreasureHuntPage } from '../pages/TreasureHuntPage/TreasureHuntPage'
 import { PackingPuzzlePage } from '../pages/PackingPuzzlePage/PackingPuzzlePage'
 import { RobotRoutePage } from '../pages/RobotRoutePage/RobotRoutePage'
+import { ShadowHuntPage } from '../pages/ShadowHuntPage/ShadowHuntPage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -128,6 +129,7 @@ export function AppRouter() {
         <Route path="/treasure-hunt" element={<TreasureHuntPage />} />
         <Route path="/packing-puzzle" element={<PackingPuzzlePage />} />
         <Route path="/robot-route" element={<RobotRoutePage />} />
+        <Route path="/shadow-hunt" element={<ShadowHuntPage />} />
       </Routes>
     </>
   )

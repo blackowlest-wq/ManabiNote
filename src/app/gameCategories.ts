@@ -87,6 +87,7 @@ export const GAME_CATEGORIES = {
       { id: 'treasure-hunt', to: '/treasure-hunt', label: 'どこかな？たからじま', description: 'ほうこうの ヒントで たからを さがす' },
       { id: 'packing-puzzle', to: '/packing-puzzle', label: 'ぴったり！にづみ', description: 'にもつを まわして すきまなく つめる' },
       { id: 'robot-route', to: '/robot-route', label: 'ロボット GO！', description: 'うごきを ならべて ロボットを みちびく' },
+      { id: 'shadow-hunt', to: '/shadow-hunt', label: 'シルエットハンター', description: 'かげと おなじ モンスターを みつける' },
     ],
   },
 } satisfies Record<string, GameCategory>
