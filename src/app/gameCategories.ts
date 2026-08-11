@@ -109,6 +109,7 @@ export const GAME_CATEGORIES = {
       { id: 'cat-chase', to: '/cat-chase', label: 'ねこねこ おいかけっこ', description: 'にげる ねずみを かべへ おいつめる' },
       { id: 'rocket-landing', to: '/rocket-landing', label: 'ロケット ふわっと着陸', description: 'おちる はやさを ふんしゃで ちょうせつする' },
       { id: 'animal-crossing', to: '/animal-crossing', label: 'どうぶつ こうさてん', description: 'しんごうを きりかえて くるまを とおす' },
+      { id: 'dance-spotlight', to: '/dance-spotlight', label: 'くるくる ダンススポット', description: 'くりかえす ひかりへ リズムよく うごく' },
     ],
   },
 } satisfies Record<string, GameCategory>

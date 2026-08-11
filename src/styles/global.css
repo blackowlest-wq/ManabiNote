@@ -8596,3 +8596,120 @@ button:focus-visible {
 .animal-crossing-finish p { margin: 0 0 0.55rem; }
 .animal-crossing-score { font-size: 1.35rem; font-weight: 900; }
 .animal-crossing-quit { border: 0; background: none; color: #607287; text-decoration: underline; }
+.dance-spotlight-center {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+.dance-spotlight-intro { padding-top: 1.5rem; }
+.dance-spotlight-scene { font-size: clamp(2.7rem, 12vw, 4.2rem); padding: 1rem 0; }
+
+.dance-spotlight-hud {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.25rem;
+  padding: 0.65rem 0.7rem;
+  border-radius: 1rem;
+  background: #f2e1ff;
+  color: #62397e;
+  font-weight: 900;
+}
+
+.dance-spotlight-stage {
+  position: relative;
+  width: min(100%, 370px);
+  height: clamp(310px, 44vh, 350px);
+  overflow: hidden;
+  border: 0.3rem solid #985cc0;
+  border-radius: 1.4rem;
+  background: radial-gradient(circle at 50% 10%, #48528d, #161a42 68%);
+  transition: box-shadow 0.15s;
+}
+
+.dance-spotlight-stage--hit { box-shadow: 0 0 1.3rem #ffe958; }
+.dance-spotlight-stage--miss { box-shadow: 0 0 1.3rem #e65471; }
+
+.dance-spotlight-ball {
+  position: absolute;
+  z-index: 3;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.7rem;
+  filter: drop-shadow(0 0 0.6rem #fff);
+}
+
+.dance-spotlight-beam {
+  position: absolute;
+  top: 2.8rem;
+  bottom: 4.5rem;
+  width: 46%;
+  opacity: 0;
+  background: linear-gradient(rgba(255,250,149,0.05), rgba(255,236,94,0.75));
+  clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%);
+  transition: left 0.18s, opacity 0.18s;
+}
+
+.dance-spotlight-beam--0 { left: -7%; }
+.dance-spotlight-beam--1 { left: 27%; }
+.dance-spotlight-beam--2 { left: 61%; }
+.dance-spotlight-beam.is-on { opacity: 1; }
+
+.dance-spotlight-floor {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  height: 6.7rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.3rem;
+  padding: 0.45rem;
+  background: #26284f;
+}
+
+.dance-spotlight-floor button {
+  min-width: 0;
+  border: 0.18rem solid #6c6c9b;
+  border-radius: 0.8rem;
+  background: #393963;
+  color: #c9c8e3;
+  font-weight: 800;
+}
+
+.dance-spotlight-floor button.is-lit {
+  border-color: #ffe95c;
+  background: #a47730;
+  color: #fff7a5;
+  box-shadow: 0 0 1rem #ffe95c;
+}
+
+.dance-spotlight-floor button.has-dancer { transform: translateY(-0.25rem); }
+.dance-spotlight-floor button span { display: block; min-height: 3.3rem; font-size: clamp(2rem, 10vw, 3.2rem); }
+.dance-spotlight-floor button small { display: block; font-size: 0.72rem; }
+.dance-spotlight-floor button:disabled { opacity: 1; }
+
+.dance-spotlight-feedback {
+  min-height: 1.7rem;
+  margin: 0;
+  color: #694289;
+  font-weight: 900;
+}
+
+.dance-spotlight-finish {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 1rem;
+  background: #f2e1ff;
+}
+
+.dance-spotlight-finish h2,
+.dance-spotlight-finish p { margin: 0 0 0.55rem; }
+.dance-spotlight-score { font-size: 1.35rem; font-weight: 900; }
+.dance-spotlight-quit { border: 0; background: none; color: #607287; text-decoration: underline; }

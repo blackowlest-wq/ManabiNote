@@ -73,6 +73,7 @@ import { PenguinIcePage } from '../pages/PenguinIcePage/PenguinIcePage'
 import { CatChasePage } from '../pages/CatChasePage/CatChasePage'
 import { RocketLandingPage } from '../pages/RocketLandingPage/RocketLandingPage'
 import { AnimalCrossingPage } from '../pages/AnimalCrossingPage/AnimalCrossingPage'
+import { DanceSpotlightPage } from '../pages/DanceSpotlightPage/DanceSpotlightPage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -172,6 +173,7 @@ export function AppRouter() {
         <Route path="/cat-chase" element={<CatChasePage />} />
         <Route path="/rocket-landing" element={<RocketLandingPage />} />
         <Route path="/animal-crossing" element={<AnimalCrossingPage />} />
+        <Route path="/dance-spotlight" element={<DanceSpotlightPage />} />
       </Routes>
     </>
   )
