@@ -89,6 +89,7 @@ export const GAME_CATEGORIES = {
       { id: 'robot-route', to: '/robot-route', label: 'ロボット GO！', description: 'うごきを ならべて ロボットを みちびく' },
       { id: 'shadow-hunt', to: '/shadow-hunt', label: 'シルエットハンター', description: 'かげと おなじ モンスターを みつける' },
       { id: 'forest-guard', to: '/forest-guard', label: 'もりの まもり隊', description: 'あいしょうを みて ガードを はいちする' },
+      { id: 'copy-beat', to: '/copy-beat', label: 'まねっこビート', description: 'ひかる リズムを おぼえて まねする' },
     ],
   },
 } satisfies Record<string, GameCategory>
