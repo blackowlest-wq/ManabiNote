@@ -57,6 +57,7 @@ import { CopyBeatPage } from '../pages/CopyBeatPage/CopyBeatPage'
 import { SortingFactoryPage } from '../pages/SortingFactoryPage/SortingFactoryPage'
 import { OppositeGhostPage } from '../pages/OppositeGhostPage/OppositeGhostPage'
 import { BalanceBoatPage } from '../pages/BalanceBoatPage/BalanceBoatPage'
+import { BridgeBuilderPage } from '../pages/BridgeBuilderPage/BridgeBuilderPage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -140,6 +141,7 @@ export function AppRouter() {
         <Route path="/sorting-factory" element={<SortingFactoryPage />} />
         <Route path="/opposite-ghost" element={<OppositeGhostPage />} />
         <Route path="/balance-boat" element={<BalanceBoatPage />} />
+        <Route path="/bridge-builder" element={<BridgeBuilderPage />} />
       </Routes>
     </>
   )

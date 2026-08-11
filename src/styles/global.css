@@ -7016,3 +7016,184 @@ button:focus-visible {
   .balance-boat { grid-template-columns: 1fr 3rem 1fr; }
   .balance-mast { font-size: 3rem; }
 }
+
+/* ぽんぽこ 橋づくり */
+.bridge-intro,
+.bridge-result {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.bridge-intro__scene,
+.bridge-result__scene { font-size: clamp(2.4rem, 11vw, 4.8rem); }
+
+.bridge-intro__logs {
+  display: grid;
+  gap: .35rem;
+  padding: .65rem 1.4rem;
+  border: 3px solid #9a6338;
+  border-radius: 1rem;
+  background: #fff0d4;
+  font-size: 1.55rem;
+}
+
+.bridge-page {
+  display: grid;
+  gap: .55rem;
+  width: min(100%, 40rem);
+  margin: 0 auto;
+  padding: 0 .5rem 1.5rem;
+}
+
+.bridge-hud {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .3rem;
+}
+
+.bridge-hud span {
+  padding: .45rem .1rem;
+  border-radius: .65rem;
+  background: #416f48;
+  color: white;
+  text-align: center;
+  font-size: .84rem;
+  font-weight: 900;
+}
+
+.bridge-stage-name { color: #3b6a42; text-align: center; font-weight: 900; }
+
+.bridge-river {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr) 3.5rem;
+  min-height: 12rem;
+  overflow: hidden;
+  border: 4px solid #4a8cb3;
+  border-radius: 1.2rem;
+  background: #5bbce3;
+}
+
+.bridge-bank {
+  z-index: 2;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  background: #78bd5d;
+  font-size: 1.5rem;
+}
+
+.bridge-bank b { font-size: 2.4rem; }
+.bridge-gap { position: relative; }
+
+.bridge-slots {
+  position: absolute;
+  top: 3.6rem;
+  right: 0;
+  left: 0;
+  display: grid;
+  height: 3.5rem;
+}
+
+.bridge-slots span { border: 2px dashed rgba(255,255,255,.7); }
+
+.bridge-built {
+  position: absolute;
+  top: 3.6rem;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+}
+
+.bridge-log {
+  display: grid;
+  height: 2.7rem;
+  place-items: center;
+  overflow: hidden;
+  border: 3px solid #70411f;
+  border-radius: 1rem;
+  color: #63391b;
+  letter-spacing: .15em;
+  box-shadow: 0 .25rem 0 rgba(43,25,12,.35);
+}
+
+.bridge-log--light { background: #e1a767; }
+.bridge-log--medium { background: #bc7840; }
+.bridge-log--dark { background: #92552f; }
+.bridge-built__remaining { height: 2.7rem; }
+.bridge-water { position: absolute; right: 0; bottom: .8rem; left: 0; color: white; text-align: center; white-space: nowrap; }
+
+.bridge-feedback {
+  min-height: 1.5rem;
+  margin: 0;
+  color: #3d7047;
+  text-align: center;
+  font-weight: 900;
+}
+
+.bridge-inventory {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+  gap: .45rem;
+}
+
+.bridge-inventory__log {
+  position: relative;
+  display: grid;
+  min-height: 4.5rem;
+  place-items: center;
+  overflow: hidden;
+  border: 3px solid #70411f;
+  border-radius: 1rem;
+  color: #613716;
+  cursor: pointer;
+}
+
+.bridge-inventory__log--light { background: #f0bd7c; }
+.bridge-inventory__log--medium { background: #cc854b; }
+.bridge-inventory__log--dark { background: #a7653b; }
+.bridge-inventory__log:disabled { opacity: .3; }
+.bridge-inventory__log span { font-size: 1.1rem; letter-spacing: -.1em; }
+.bridge-inventory__log b { position: absolute; right: .3rem; bottom: .2rem; display: grid; width: 1.4rem; height: 1.4rem; place-items: center; border-radius: 50%; background: white; font-size: .8rem; }
+
+.bridge-controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .5rem;
+}
+
+.bridge-controls button {
+  min-height: 2.8rem;
+  border: 2px solid #739279;
+  border-radius: .8rem;
+  background: white;
+  color: #355e3c;
+  font-weight: 800;
+}
+
+.bridge-stage-clear {
+  display: grid;
+  justify-items: center;
+  gap: .4rem;
+  padding: .65rem;
+  border-radius: 1rem;
+  background: #e9ffe8;
+}
+
+.bridge-stage-clear h2 { margin: 0; color: #3d7847; }
+.bridge-stage-clear span { font-size: 1.8rem; }
+
+.bridge-quit { justify-self: center; border: 0; background: transparent; color: #555; text-decoration: underline; }
+.bridge-result__score { margin: 0; color: #3f7a48; font-size: 2rem; font-weight: 900; }
+
+@media (max-width: 390px) {
+  .bridge-river { grid-template-columns: 3rem minmax(0, 1fr) 3rem; min-height: 10.5rem; }
+  .bridge-slots,
+  .bridge-built { top: 3rem; }
+  .bridge-inventory__log { min-height: 4rem; }
+}

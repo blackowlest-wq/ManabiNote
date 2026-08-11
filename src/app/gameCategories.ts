@@ -93,6 +93,7 @@ export const GAME_CATEGORIES = {
       { id: 'sorting-factory', to: '/sorting-factory', label: 'ぽんぽん しわけ工場', description: 'ながれる ものを 2つの はこへ しわける' },
       { id: 'opposite-ghost', to: '/opposite-ghost', label: 'アベコベおばけ', description: 'うさぎは おなじ、おばけは はんたいへ' },
       { id: 'balance-boat', to: '/balance-boat', label: 'ぐらぐら おとどけ便', description: 'にもつを ふねの りょうがわへ のせる' },
+      { id: 'bridge-builder', to: '/bridge-builder', label: 'ぽんぽこ 橋づくり', description: 'まるたを くみあわせて かわに はしを かける' },
     ],
   },
 } satisfies Record<string, GameCategory>
