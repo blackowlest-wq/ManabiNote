@@ -19,7 +19,7 @@ export function ParticleChoiceQuestion({ question, selectedChoiceId, feedback, o
     <section className="particle-choice-question" aria-label="ことばを つなぐ問題">
       <p className="particle-choice-question__instruction">＿に はいる ことばは どれ？</p>
       <p className="particle-choice-sentence" aria-label={`問題のぶん ${maskedSentence}`}>{maskedSentence}</p>
-      <div className="particle-choice-question__choices" role="group" aria-label="じょしをえらぶ">
+      <div className="particle-choice-question__choices" role="group" aria-label="つなぐことばをえらぶ">
         {question.choices.map((choice) => (
           <PrimaryButton
             key={choice.id}

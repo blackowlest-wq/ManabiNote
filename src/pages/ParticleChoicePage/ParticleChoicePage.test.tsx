@@ -8,14 +8,15 @@ import { createParticleChoiceSession } from '../../features/particle-choice/mode
 import { ParticleChoicePage } from './ParticleChoicePage'
 
 const initialSession = createParticleChoiceSession(
-  createParticleChoiceQuestions(() => 0.999),
+  'normal',
+  createParticleChoiceQuestions('normal', () => 0.999),
   () => new Date('2026-08-11T10:00:00.000Z'),
   () => 0.999,
 )
 
-const renderPage = () => render(
+const renderPage = (session: typeof initialSession | null = initialSession) => render(
   <MemoryRouter initialEntries={['/particle-choice']}>
-    <ParticleChoiceSessionProvider initialSession={initialSession}>
+    <ParticleChoiceSessionProvider initialSession={session ?? undefined}>
       <Routes>
         <Route path="/particle-choice" element={<ParticleChoicePage />} />
         <Route path="/particle-choice/result" element={<p>けっかページ</p>} />
@@ -25,11 +26,20 @@ const renderPage = () => render(
 )
 
 describe('ParticleChoicePage', () => {
+  it('starts after selecting a difficulty', async () => {
+    const user = userEvent.setup()
+    renderPage(null)
+
+    await user.click(screen.getByRole('button', { name: /かんたん/ }))
+
+    expect(screen.getByText('1 / 5')).toBeInTheDocument()
+  })
+
   it('shows progress and particle choices', () => {
     renderPage()
 
     expect(screen.getByText('1 / 5')).toBeInTheDocument()
-    expect(screen.getByRole('group', { name: 'じょしをえらぶ' })).toBeInTheDocument()
+    expect(screen.getByRole('group', { name: 'つなぐことばをえらぶ' })).toBeInTheDocument()
   })
 
   it('advances after the matching particle is selected', async () => {

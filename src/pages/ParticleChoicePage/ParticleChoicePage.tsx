@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ParticleChoiceQuestion } from '../../features/particle-choice/components/ParticleChoiceQuestion'
 import { useParticleChoiceSession } from '../../features/particle-choice/ParticleChoiceSessionProvider'
@@ -6,21 +5,18 @@ import { isParticleChoiceComplete } from '../../features/particle-choice/model/p
 import { QuizProgress } from '../../features/quiz/components/QuizProgress'
 import { PageLayout } from '../../shared/components/PageLayout'
 import { PrimaryButton } from '../../shared/components/PrimaryButton'
+import { DifficultySelector } from '../../shared/components/DifficultySelector'
 
 export function ParticleChoicePage() {
   const navigate = useNavigate()
   const { session, error, startSession, selectChoice, nextQuestion } = useParticleChoiceSession()
 
-  useEffect(() => {
-    if ((!session || isParticleChoiceComplete(session)) && !error) startSession()
-  }, [session, error, startSession])
-
   if (!session || isParticleChoiceComplete(session)) {
     return (
       <PageLayout title="ことばを つなごう">
-        <p>ゲームを開始してください。</p>
+        <DifficultySelector onSelect={startSession} />
         {error && <p role="alert">{error.message}</p>}
-        <Link to="/sentences">ぶんの メニューへ</Link>
+        <p><Link to="/sentences">ぶんの メニューへ</Link></p>
       </PageLayout>
     )
   }

@@ -33,10 +33,14 @@ import { KanjiReadingPage } from '../pages/KanjiReadingPage/KanjiReadingPage'
 import { KanjiReadingResultPage } from '../pages/KanjiReadingResultPage/KanjiReadingResultPage'
 import { ArithmeticPage } from '../pages/ArithmeticPage/ArithmeticPage'
 import { ArithmeticResultPage } from '../pages/ArithmeticResultPage/ArithmeticResultPage'
+import { ClockPage } from '../pages/ClockPage/ClockPage'
+import { ClockResultPage } from '../pages/ClockResultPage/ClockResultPage'
 import { KanjiChoicePage } from '../pages/KanjiChoicePage/KanjiChoicePage'
 import { KanjiChoiceResultPage } from '../pages/KanjiChoiceResultPage/KanjiChoiceResultPage'
 import { ParticleChoicePage } from '../pages/ParticleChoicePage/ParticleChoicePage'
 import { ParticleChoiceResultPage } from '../pages/ParticleChoiceResultPage/ParticleChoiceResultPage'
+import { ReadingComprehensionPage } from '../pages/ReadingComprehensionPage/ReadingComprehensionPage'
+import { ReadingComprehensionResultPage } from '../pages/ReadingComprehensionResultPage/ReadingComprehensionResultPage'
 import { ShapePatternPage } from '../pages/ShapePatternPage/ShapePatternPage'
 import { ShapePatternResultPage } from '../pages/ShapePatternResultPage/ShapePatternResultPage'
 import { HomePage } from '../pages/HomePage/HomePage'
@@ -79,6 +83,8 @@ export function AppRouter() {
         <Route path="/addition/result" element={<ArithmeticResultPage kind="addition" />} />
         <Route path="/subtraction" element={<ArithmeticPage kind="subtraction" />} />
         <Route path="/subtraction/result" element={<ArithmeticResultPage kind="subtraction" />} />
+        <Route path="/clock" element={<ClockPage />} />
+        <Route path="/clock/result" element={<ClockResultPage />} />
         <Route path="/kana-pair" element={<KanaPairPage />} />
         <Route path="/kana-pair/result" element={<KanaPairResultPage />} />
         <Route path="/dakuten" element={<DakutenPage />} />
@@ -95,6 +101,8 @@ export function AppRouter() {
         <Route path="/sentence-order/result" element={<SentenceOrderResultPage />} />
         <Route path="/particle-choice" element={<ParticleChoicePage />} />
         <Route path="/particle-choice/result" element={<ParticleChoiceResultPage />} />
+        <Route path="/reading-comprehension" element={<ReadingComprehensionPage />} />
+        <Route path="/reading-comprehension/result" element={<ReadingComprehensionResultPage />} />
         <Route path="/shiritori" element={<ShiritoriPage />} />
         <Route path="/shiritori/result" element={<ShiritoriResultPage />} />
         <Route path="/counting" element={<CountingPage />} />

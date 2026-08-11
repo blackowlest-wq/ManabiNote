@@ -1,11 +1,12 @@
 import { createContext, useContext, useMemo, useState, type ReactNode } from 'react'
+import type { GameDifficulty } from '../../shared/gameDifficulty'
 import { createParticleChoiceQuestions } from './model/particleChoiceQuestion'
 import { createParticleChoiceSession, nextParticleChoiceQuestion, selectParticleChoice, type ParticleChoiceSession } from './model/particleChoiceSession'
 
 type ParticleChoiceSessionContextValue = {
   session: ParticleChoiceSession | null
   error: Error | null
-  startSession: () => boolean
+  startSession: (difficulty: GameDifficulty) => boolean
   selectChoice: (choiceId: string) => void
   nextQuestion: () => void
 }
@@ -21,9 +22,9 @@ export function ParticleChoiceSessionProvider({ children, initialSession }: Part
   const [session, setSession] = useState<ParticleChoiceSession | null>(initialSession ?? null)
   const [error, setError] = useState<Error | null>(null)
 
-  const startSession = () => {
+  const startSession = (difficulty: GameDifficulty) => {
     try {
-      setSession(createParticleChoiceSession(createParticleChoiceQuestions()))
+      setSession(createParticleChoiceSession(difficulty, createParticleChoiceQuestions(difficulty)))
       setError(null)
       return true
     } catch (cause) {

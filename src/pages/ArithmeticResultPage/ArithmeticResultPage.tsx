@@ -4,6 +4,7 @@ import { isArithmeticComplete } from '../../features/arithmetic/model/arithmetic
 import type { ArithmeticKind } from '../../features/arithmetic/model/types'
 import { PageLayout } from '../../shared/components/PageLayout'
 import { PrimaryButton } from '../../shared/components/PrimaryButton'
+import { getDifficultyLabel } from '../../shared/gameDifficulty'
 
 const GAME_TEXT: Record<ArithmeticKind, { title: string; gamePath: string }> = {
   addition: { title: 'たしざん', gamePath: '/addition' },
@@ -26,13 +27,14 @@ export function ArithmeticResultPage({ kind }: { kind: ArithmeticKind }) {
   }
 
   const handleRetry = () => {
-    if (startSession(kind)) navigate(text.gamePath)
+    if (startSession(kind, session.difficulty)) navigate(text.gamePath)
   }
 
   return (
     <PageLayout title="けいさんの けっか">
       <div className="arithmetic-result">
         <h2>{text.title} おわり！</h2>
+        <p>むずかしさ：{getDifficultyLabel(session.difficulty)}</p>
         <p>{session.questions.length}もん できたね！</p>
         <PrimaryButton onClick={handleRetry}>もういちど</PrimaryButton>
         <p><Link to="/numbers">かずの メニューへ</Link></p>

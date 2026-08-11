@@ -8,14 +8,15 @@ import { createSentenceOrderSession } from '../../features/sentence-order/model/
 import { SentenceOrderPage } from './SentenceOrderPage'
 
 const initialSession = createSentenceOrderSession(
-  createSentenceOrderQuestions(() => 0.999),
+  'normal',
+  createSentenceOrderQuestions('normal', () => 0.999),
   () => new Date('2026-08-11T10:00:00.000Z'),
   () => 0.999,
 )
 
-const renderPage = (session = initialSession) => render(
+const renderPage = (session: typeof initialSession | null = initialSession) => render(
   <MemoryRouter initialEntries={['/sentence-order']}>
-    <SentenceOrderSessionProvider initialSession={session}>
+    <SentenceOrderSessionProvider initialSession={session ?? undefined}>
       <Routes>
         <Route path="/sentence-order" element={<SentenceOrderPage />} />
         <Route path="/sentence-order/result" element={<p>けっかページ</p>} />
@@ -25,6 +26,15 @@ const renderPage = (session = initialSession) => render(
 )
 
 describe('SentenceOrderPage', () => {
+  it('starts after selecting a difficulty', async () => {
+    const user = userEvent.setup()
+    renderPage(null)
+
+    await user.click(screen.getByRole('button', { name: /むずかしい/ }))
+
+    expect(screen.getByText('1 / 5')).toBeInTheDocument()
+  })
+
   it('shows progress and the word ordering question', () => {
     renderPage()
 

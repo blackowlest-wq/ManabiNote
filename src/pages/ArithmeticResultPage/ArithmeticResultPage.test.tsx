@@ -9,7 +9,8 @@ import { ArithmeticResultPage } from './ArithmeticResultPage'
 
 const session = createArithmeticSession(
   'addition',
-  createArithmeticQuestions('addition', () => 0.999),
+  'normal',
+  createArithmeticQuestions('addition', 'normal', () => 0.999),
   () => new Date('2026-08-11T10:00:00.000Z'),
   () => 0.999,
 )
@@ -31,6 +32,7 @@ describe('ArithmeticResultPage', () => {
     renderPage()
 
     expect(screen.getByRole('heading', { name: 'たしざん おわり！' })).toBeInTheDocument()
+    expect(screen.getByText('むずかしさ：ふつう')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'かずの メニューへ' })).toHaveAttribute('href', '/numbers')
   })
 

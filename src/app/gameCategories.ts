@@ -40,6 +40,7 @@ export const GAME_CATEGORIES = {
       { to: '/number-order', label: 'つぎの かずは どれ？', description: 'かずの じゅんばんを かんがえる' },
       { to: '/addition', label: 'たしざん', description: 'あわせて いくつか かんがえる' },
       { to: '/subtraction', label: 'ひきざん', description: 'のこりは いくつか かんがえる' },
+      { to: '/clock', label: 'とけいを よもう', description: 'とけいの はりが さす じかんを よむ' },
     ],
   },
   shapes: {
@@ -66,7 +67,8 @@ export const GAME_CATEGORIES = {
     description: 'ことばを ならべて ぶんを つくろう',
     games: [
       { to: '/sentence-order', label: 'ことばを ならべよう', description: 'ただしい じゅんばんに ならべる' },
-      { to: '/particle-choice', label: 'ことばを つなごう', description: 'ぶんに あう じょしを えらぶ' },
+      { to: '/particle-choice', label: 'ことばを つなごう', description: 'ぶんを つなぐ ことばを えらぶ' },
+      { to: '/reading-comprehension', label: 'ぶんを よんで こたえよう', description: 'みじかい ぶんを よんで こたえる' },
     ],
   },
 } satisfies Record<string, GameCategory>

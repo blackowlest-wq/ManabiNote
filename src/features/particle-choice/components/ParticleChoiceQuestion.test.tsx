@@ -23,7 +23,7 @@ describe('ParticleChoiceQuestion', () => {
     render(<ParticleChoiceQuestion question={question} selectedChoiceId={null} feedback="none" onSelect={vi.fn()} />)
 
     expect(screen.getByLabelText('問題のぶん パン ＿ たべます')).toBeInTheDocument()
-    expect(screen.getByRole('group', { name: 'じょしをえらぶ' })).toBeInTheDocument()
+    expect(screen.getByRole('group', { name: 'つなぐことばをえらぶ' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'を' })).toBeEnabled()
   })
 

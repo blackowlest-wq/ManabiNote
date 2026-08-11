@@ -10,7 +10,8 @@ import { ArithmeticPage } from './ArithmeticPage'
 
 const createSession = (kind: ArithmeticKind) => createArithmeticSession(
   kind,
-  createArithmeticQuestions(kind, () => 0.999),
+  'normal',
+  createArithmeticQuestions(kind, 'normal', () => 0.999),
   () => new Date('2026-08-11T10:00:00.000Z'),
   () => 0.999,
 )
@@ -34,6 +35,21 @@ const renderPage = (kind: ArithmeticKind) => {
 }
 
 describe('ArithmeticPage', () => {
+  it('starts with a difficulty selector when opened from the menu', async () => {
+    const user = userEvent.setup()
+    render(
+      <MemoryRouter initialEntries={['/addition']}>
+        <ArithmeticSessionProvider>
+          <Routes><Route path="/addition" element={<ArithmeticPage kind="addition" />} /></Routes>
+        </ArithmeticSessionProvider>
+      </MemoryRouter>,
+    )
+
+    await user.click(screen.getByRole('button', { name: /むずかしい/ }))
+
+    expect(await screen.findByText('1 / 5')).toBeInTheDocument()
+  })
+
   it.each([
     ['addition', 'たしざんの問題'],
     ['subtraction', 'ひきざんの問題'],

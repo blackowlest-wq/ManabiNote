@@ -2,11 +2,12 @@ import { createContext, useContext, useMemo, useState, type ReactNode } from 're
 import { createArithmeticQuestions } from './model/arithmeticQuestion'
 import { createArithmeticSession, nextArithmeticQuestion, selectArithmeticChoice, type ArithmeticSession } from './model/arithmeticSession'
 import type { ArithmeticKind } from './model/types'
+import type { GameDifficulty } from '../../shared/gameDifficulty'
 
 type ArithmeticSessionContextValue = {
   session: ArithmeticSession | null
   error: Error | null
-  startSession: (kind: ArithmeticKind) => boolean
+  startSession: (kind: ArithmeticKind, difficulty: GameDifficulty) => boolean
   selectChoice: (choiceId: string) => void
   nextQuestion: () => void
 }
@@ -22,9 +23,9 @@ export function ArithmeticSessionProvider({ children, initialSession }: Arithmet
   const [session, setSession] = useState<ArithmeticSession | null>(initialSession ?? null)
   const [error, setError] = useState<Error | null>(null)
 
-  const startSession = (kind: ArithmeticKind) => {
+  const startSession = (kind: ArithmeticKind, difficulty: GameDifficulty) => {
     try {
-      setSession(createArithmeticSession(kind, createArithmeticQuestions(kind)))
+      setSession(createArithmeticSession(kind, difficulty, createArithmeticQuestions(kind, difficulty)))
       setError(null)
       return true
     } catch (cause) {

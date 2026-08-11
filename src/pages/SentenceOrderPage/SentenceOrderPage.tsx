@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { SentenceOrderQuestion } from '../../features/sentence-order/components/SentenceOrderQuestion'
 import { useSentenceOrderSession } from '../../features/sentence-order/SentenceOrderSessionProvider'
@@ -6,21 +5,18 @@ import { isSentenceOrderComplete } from '../../features/sentence-order/model/sen
 import { QuizProgress } from '../../features/quiz/components/QuizProgress'
 import { PageLayout } from '../../shared/components/PageLayout'
 import { PrimaryButton } from '../../shared/components/PrimaryButton'
+import { DifficultySelector } from '../../shared/components/DifficultySelector'
 
 export function SentenceOrderPage() {
   const navigate = useNavigate()
   const { session, error, startSession, selectChoice, undoChoice, submit, nextQuestion } = useSentenceOrderSession()
 
-  useEffect(() => {
-    if ((!session || isSentenceOrderComplete(session)) && !error) startSession()
-  }, [session, error, startSession])
-
   if (!session || isSentenceOrderComplete(session)) {
     return (
       <PageLayout title="ことばを ならべよう">
-        <p>ゲームを開始してください。</p>
+        <DifficultySelector onSelect={startSession} />
         {error && <p role="alert">{error.message}</p>}
-        <Link to="/sentences">ぶんの メニューへ</Link>
+        <p><Link to="/sentences">ぶんの メニューへ</Link></p>
       </PageLayout>
     )
   }

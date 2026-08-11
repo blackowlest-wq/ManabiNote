@@ -1,4 +1,5 @@
 import { selectUniqueQuestions } from '../../quiz/model/questionSelection'
+import type { GameDifficulty } from '../../../shared/gameDifficulty'
 import type { ArithmeticKind, ArithmeticQuestion } from './types'
 
 export type ArithmeticFeedback = 'none' | 'incorrect' | 'correct'
@@ -6,6 +7,7 @@ export type ArithmeticFeedback = 'none' | 'incorrect' | 'correct'
 export type ArithmeticSession = {
   id: string
   kind: ArithmeticKind
+  difficulty: GameDifficulty
   questions: readonly ArithmeticQuestion[]
   currentIndex: number
   selectedChoiceId: string | null
@@ -21,6 +23,7 @@ const currentQuestion = (session: ArithmeticSession): ArithmeticQuestion => {
 
 export function createArithmeticSession(
   kind: ArithmeticKind,
+  difficulty: GameDifficulty,
   questions: readonly ArithmeticQuestion[],
   now: () => Date = () => new Date(),
   random: () => number = Math.random,
@@ -32,8 +35,9 @@ export function createArithmeticSession(
   if (!selectedQuestions[0]) throw new Error('最初の問題が見つかりません')
 
   return {
-    id: `${kind}-${startedAt.getTime()}-${selectedQuestions.map((question) => question.id).join('-')}`,
+    id: `${kind}-${difficulty}-${startedAt.getTime()}-${selectedQuestions.map((question) => question.id).join('-')}`,
     kind,
+    difficulty,
     questions: selectedQuestions,
     currentIndex: 0,
     selectedChoiceId: null,

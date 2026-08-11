@@ -1,10 +1,12 @@
 import { selectUniqueQuestions } from '../../quiz/model/questionSelection'
+import type { GameDifficulty } from '../../../shared/gameDifficulty'
 import type { SentenceOrderQuestion } from './types'
 
 export type SentenceOrderFeedback = 'none' | 'incorrect' | 'correct'
 
 export type SentenceOrderSession = {
   id: string
+  difficulty: GameDifficulty
   questions: readonly SentenceOrderQuestion[]
   currentIndex: number
   selectedChoiceIds: readonly string[]
@@ -19,6 +21,7 @@ const currentQuestion = (session: SentenceOrderSession): SentenceOrderQuestion =
 }
 
 export function createSentenceOrderSession(
+  difficulty: GameDifficulty,
   questions: readonly SentenceOrderQuestion[],
   now: () => Date = () => new Date(),
   random: () => number = Math.random,
@@ -28,7 +31,8 @@ export function createSentenceOrderSession(
   if (!selectedQuestions[0]) throw new Error('最初の問題が見つかりません')
 
   return {
-    id: `sentence-order-${startedAt.getTime()}-${selectedQuestions.map((question) => question.id).join('-')}`,
+    id: `sentence-order-${difficulty}-${startedAt.getTime()}-${selectedQuestions.map((question) => question.id).join('-')}`,
+    difficulty,
     questions: selectedQuestions,
     currentIndex: 0,
     selectedChoiceIds: [],

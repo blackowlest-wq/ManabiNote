@@ -9,11 +9,11 @@ import {
   undoSentenceOrderChoice,
 } from './sentenceOrderSession'
 
-const questions = createSentenceOrderQuestions(() => 0.999)
+const questions = createSentenceOrderQuestions('normal', () => 0.999)
 
 describe('sentence order session', () => {
   it('checks a selected sentence and moves to the next question', () => {
-    const session = createSentenceOrderSession(questions, () => new Date('2026-08-11T10:00:00.000Z'), () => 0.999)
+    const session = createSentenceOrderSession('normal', questions, () => new Date('2026-08-11T10:00:00.000Z'), () => 0.999)
     const question = session.questions[0]
     if (!question) throw new Error('問題がありません')
 
@@ -28,7 +28,7 @@ describe('sentence order session', () => {
   })
 
   it('keeps an incorrect sentence editable with undo', () => {
-    const session = createSentenceOrderSession(questions, () => new Date('2026-08-11T10:00:00.000Z'), () => 0.999)
+    const session = createSentenceOrderSession('normal', questions, () => new Date('2026-08-11T10:00:00.000Z'), () => 0.999)
     const question = session.questions[0]
     if (!question) throw new Error('問題がありません')
     const wrongChoice = question.choices.find((choice) => choice.id !== question.correctChoiceIds[0])

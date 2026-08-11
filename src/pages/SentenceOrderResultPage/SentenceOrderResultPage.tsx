@@ -3,6 +3,7 @@ import { useSentenceOrderSession } from '../../features/sentence-order/SentenceO
 import { isSentenceOrderComplete } from '../../features/sentence-order/model/sentenceOrderSession'
 import { PageLayout } from '../../shared/components/PageLayout'
 import { PrimaryButton } from '../../shared/components/PrimaryButton'
+import { getDifficultyLabel } from '../../shared/gameDifficulty'
 
 export function SentenceOrderResultPage() {
   const navigate = useNavigate()
@@ -19,13 +20,14 @@ export function SentenceOrderResultPage() {
   }
 
   const handleRetry = () => {
-    if (startSession()) navigate('/sentence-order')
+    if (startSession(session.difficulty)) navigate('/sentence-order')
   }
 
   return (
     <PageLayout title="ぶんの けっか">
       <div className="sentence-order-result">
         <h2>ぶんの れんしゅう おわり！</h2>
+        <p>むずかしさ：{getDifficultyLabel(session.difficulty)}</p>
         <p>{session.questions.length}もん できたね！</p>
         <PrimaryButton onClick={handleRetry}>もういちど</PrimaryButton>
         <p><Link to="/sentences">ぶんの メニューへ</Link></p>

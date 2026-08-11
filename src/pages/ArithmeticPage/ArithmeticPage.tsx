@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ArithmeticQuestion } from '../../features/arithmetic/components/ArithmeticQuestion'
 import { useArithmeticSession } from '../../features/arithmetic/ArithmeticSessionProvider'
@@ -7,6 +6,7 @@ import type { ArithmeticKind } from '../../features/arithmetic/model/types'
 import { QuizProgress } from '../../features/quiz/components/QuizProgress'
 import { PageLayout } from '../../shared/components/PageLayout'
 import { PrimaryButton } from '../../shared/components/PrimaryButton'
+import { DifficultySelector } from '../../shared/components/DifficultySelector'
 
 const GAME_TEXT: Record<ArithmeticKind, { title: string; resultPath: string }> = {
   addition: { title: 'たしざん', resultPath: '/addition/result' },
@@ -18,16 +18,12 @@ export function ArithmeticPage({ kind }: { kind: ArithmeticKind }) {
   const { session, error, startSession, selectChoice, nextQuestion } = useArithmeticSession()
   const text = GAME_TEXT[kind]
 
-  useEffect(() => {
-    if ((!session || session.kind !== kind || isArithmeticComplete(session)) && !error) startSession(kind)
-  }, [session, error, startSession, kind])
-
   if (!session || session.kind !== kind || isArithmeticComplete(session)) {
     return (
       <PageLayout title={text.title}>
-        <p>ゲームを開始してください。</p>
+        <DifficultySelector onSelect={(difficulty) => startSession(kind, difficulty)} />
         {error && <p role="alert">{error.message}</p>}
-        <Link to="/numbers">かずの メニューへ</Link>
+        <p><Link to="/numbers">かずの メニューへ</Link></p>
       </PageLayout>
     )
   }

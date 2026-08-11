@@ -1,10 +1,12 @@
 import { selectUniqueQuestions } from '../../quiz/model/questionSelection'
+import type { GameDifficulty } from '../../../shared/gameDifficulty'
 import type { ParticleChoiceQuestion } from './types'
 
 export type ParticleChoiceFeedback = 'none' | 'incorrect' | 'correct'
 
 export type ParticleChoiceSession = {
   id: string
+  difficulty: GameDifficulty
   questions: readonly ParticleChoiceQuestion[]
   currentIndex: number
   selectedChoiceId: string | null
@@ -19,6 +21,7 @@ const currentQuestion = (session: ParticleChoiceSession): ParticleChoiceQuestion
 }
 
 export function createParticleChoiceSession(
+  difficulty: GameDifficulty,
   questions: readonly ParticleChoiceQuestion[],
   now: () => Date = () => new Date(),
   random: () => number = Math.random,
@@ -28,7 +31,8 @@ export function createParticleChoiceSession(
   if (!selectedQuestions[0]) throw new Error('最初の問題が見つかりません')
 
   return {
-    id: `particle-choice-${startedAt.getTime()}-${selectedQuestions.map((question) => question.id).join('-')}`,
+    id: `particle-choice-${difficulty}-${startedAt.getTime()}-${selectedQuestions.map((question) => question.id).join('-')}`,
+    difficulty,
     questions: selectedQuestions,
     currentIndex: 0,
     selectedChoiceId: null,

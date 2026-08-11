@@ -1,4 +1,5 @@
 import { createContext, useContext, useMemo, useState, type ReactNode } from 'react'
+import type { GameDifficulty } from '../../shared/gameDifficulty'
 import { createSentenceOrderQuestions } from './model/sentenceOrderQuestion'
 import {
   createSentenceOrderSession,
@@ -12,7 +13,7 @@ import {
 type SentenceOrderSessionContextValue = {
   session: SentenceOrderSession | null
   error: Error | null
-  startSession: () => boolean
+  startSession: (difficulty: GameDifficulty) => boolean
   selectChoice: (choiceId: string) => void
   undoChoice: () => void
   submit: () => void
@@ -30,9 +31,9 @@ export function SentenceOrderSessionProvider({ children, initialSession }: Sente
   const [session, setSession] = useState<SentenceOrderSession | null>(initialSession ?? null)
   const [error, setError] = useState<Error | null>(null)
 
-  const startSession = () => {
+  const startSession = (difficulty: GameDifficulty) => {
     try {
-      setSession(createSentenceOrderSession(createSentenceOrderQuestions()))
+      setSession(createSentenceOrderSession(difficulty, createSentenceOrderQuestions(difficulty)))
       setError(null)
       return true
     } catch (cause) {

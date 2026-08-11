@@ -14,7 +14,8 @@ import { SentenceOrderResultPage } from './SentenceOrderResultPage'
 
 const makeCompleteSession = () => {
   let session = createSentenceOrderSession(
-    createSentenceOrderQuestions(() => 0.999),
+    'normal',
+    createSentenceOrderQuestions('normal', () => 0.999),
     () => new Date('2026-08-11T10:00:00.000Z'),
     () => 0.999,
   )
@@ -42,6 +43,7 @@ describe('SentenceOrderResultPage', () => {
     renderPage()
 
     expect(screen.getByRole('heading', { name: 'ぶんの れんしゅう おわり！' })).toBeInTheDocument()
+    expect(screen.getByText('むずかしさ：ふつう')).toBeInTheDocument()
     expect(screen.getByText('5もん できたね！')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'もういちど' })).toBeInTheDocument()
   })

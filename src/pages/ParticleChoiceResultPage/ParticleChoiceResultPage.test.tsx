@@ -8,7 +8,8 @@ import { createParticleChoiceSession } from '../../features/particle-choice/mode
 import { ParticleChoiceResultPage } from './ParticleChoiceResultPage'
 
 const session = createParticleChoiceSession(
-  createParticleChoiceQuestions(() => 0.999),
+  'normal',
+  createParticleChoiceQuestions('normal', () => 0.999),
   () => new Date('2026-08-11T10:00:00.000Z'),
   () => 0.999,
 )
@@ -30,6 +31,7 @@ describe('ParticleChoiceResultPage', () => {
     renderPage()
 
     expect(screen.getByRole('heading', { name: 'ことばつなぎ おわり！' })).toBeInTheDocument()
+    expect(screen.getByText('むずかしさ：ふつう')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'ぶんの メニューへ' })).toHaveAttribute('href', '/sentences')
   })
 

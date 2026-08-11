@@ -115,6 +115,203 @@ button:focus-visible {
   text-align: center;
 }
 
+.difficulty-selector {
+  display: grid;
+  width: min(100%, 32rem);
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.difficulty-selector h2 {
+  margin: 0;
+  color: #334155;
+  font-size: 1.25rem;
+}
+
+.difficulty-selector__options {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.difficulty-option {
+  display: grid;
+  gap: 0.2rem;
+  min-height: 4.5rem;
+  border: 3px solid #7dd3fc;
+  border-radius: 1rem;
+  padding: 0.65rem 1rem;
+  background: #ffffff;
+  color: #172033;
+  cursor: pointer;
+  text-align: left;
+}
+
+.difficulty-option:hover {
+  border-color: #0284c7;
+  background: #f0f9ff;
+}
+
+.difficulty-option--easy {
+  border-color: #86efac;
+}
+
+.difficulty-option--normal {
+  border-color: #7dd3fc;
+}
+
+.difficulty-option--hard {
+  border-color: #f9a8d4;
+}
+
+.difficulty-option__label {
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.difficulty-option__description {
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.clock-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.clock-page > p[aria-label='学習の進み具合'] {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+}
+
+.clock-question {
+  display: grid;
+  width: min(100%, 30rem);
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.clock-question__instruction {
+  margin: 0;
+  color: #334155;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.clock-face {
+  width: min(100%, 16rem);
+  height: auto;
+  filter: drop-shadow(0 0.5rem 0.75rem rgb(15 23 42 / 12%));
+}
+
+.clock-face__background {
+  fill: #ffffff;
+  stroke: #38bdf8;
+  stroke-width: 5;
+}
+
+.clock-face__tick {
+  stroke: #475569;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.clock-face__number {
+  fill: #334155;
+  font-size: 16px;
+  font-weight: 900;
+  text-anchor: middle;
+}
+
+.clock-face__hand {
+  stroke-linecap: round;
+}
+
+.clock-face__hand--hour {
+  stroke: #172033;
+  stroke-width: 8;
+}
+
+.clock-face__hand--minute {
+  stroke: #0369a1;
+  stroke-width: 5;
+}
+
+.clock-face__center {
+  fill: #f97316;
+}
+
+.clock-question__choices {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.clock-choice {
+  min-height: 4rem;
+  border-color: #7dd3fc;
+  border-radius: 1rem;
+  background: #ffffff;
+  color: #172033;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.clock-choice:hover:not(:disabled),
+.clock-choice[aria-pressed='true'] {
+  border-color: #0284c7;
+  background: #e0f2fe;
+}
+
+.clock-choice:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.clock-feedback {
+  margin: 0;
+  border: 3px solid;
+  border-radius: 0.875rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.clock-feedback--retry {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.clock-feedback--success {
+  border-color: #34d399;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.clock-next {
+  width: min(100%, 28rem);
+}
+
+.clock-result {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.clock-result h2 {
+  margin: 0;
+  color: #0369a1;
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+}
+
 .sentence-order-page {
   display: grid;
   justify-items: center;
@@ -926,6 +1123,124 @@ button:focus-visible {
 .particle-choice-result h2 {
   margin: 0;
   color: #a21caf;
+  font-size: clamp(1.5rem, 7vw, 2.25rem);
+}
+
+.reading-comprehension-page {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.reading-comprehension-page > p[aria-label='学習の進み具合'] {
+  margin: 0;
+  color: #334155;
+  font-weight: 800;
+}
+
+.reading-comprehension-question {
+  display: grid;
+  width: min(100%, 38rem);
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.reading-comprehension-question__instruction {
+  margin: 0;
+  color: #334155;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.reading-comprehension-passage {
+  width: 100%;
+  min-height: 7rem;
+  margin: 0;
+  border: 3px solid #93c5fd;
+  border-radius: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-size: clamp(1.2rem, 4vw, 1.65rem);
+  font-weight: 800;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.reading-comprehension-prompt {
+  margin: 0;
+  color: #172033;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-weight: 900;
+}
+
+.reading-comprehension-question__choices {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.reading-comprehension-choice {
+  min-height: 4.5rem;
+  border-color: #93c5fd;
+  border-radius: 1rem;
+  padding: 0.65rem;
+  background: #ffffff;
+  color: #172033;
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1.4;
+}
+
+.reading-comprehension-choice:hover:not(:disabled),
+.reading-comprehension-choice[aria-pressed='true'] {
+  border-color: #2563eb;
+  background: #dbeafe;
+}
+
+.reading-comprehension-choice:disabled {
+  cursor: default;
+  opacity: 0.72;
+}
+
+.reading-comprehension-feedback {
+  margin: 0;
+  border: 3px solid;
+  border-radius: 0.875rem;
+  padding: 0.65rem 1rem;
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
+.reading-comprehension-feedback--retry {
+  border-color: #fb7185;
+  background: #fff1f2;
+  color: #9f1239;
+}
+
+.reading-comprehension-feedback--success {
+  border-color: #34d399;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.reading-comprehension-next {
+  width: min(100%, 28rem);
+}
+
+.reading-comprehension-result {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.reading-comprehension-result h2 {
+  margin: 0;
+  color: #1d4ed8;
   font-size: clamp(1.5rem, 7vw, 2.25rem);
 }
 
@@ -2856,6 +3171,51 @@ button:focus-visible {
     font-size: clamp(3rem, 16vw, 4rem);
   }
 
+  .difficulty-selector {
+    gap: 0.5rem;
+  }
+
+  .difficulty-selector h2 {
+    font-size: 1.1rem;
+  }
+
+  .difficulty-selector__options {
+    gap: 0.4rem;
+  }
+
+  .difficulty-option {
+    min-height: 3.75rem;
+    border-radius: 0.75rem;
+    padding: 0.45rem 0.75rem;
+  }
+
+  .difficulty-option__label {
+    font-size: 1.1rem;
+  }
+
+  .clock-page,
+  .clock-question {
+    gap: 0.5rem;
+  }
+
+  .clock-question__instruction {
+    font-size: 1rem;
+  }
+
+  .clock-face {
+    width: min(100%, 13rem);
+  }
+
+  .clock-question__choices {
+    gap: 0.4rem;
+  }
+
+  .clock-choice {
+    min-height: 3.5rem;
+    border-radius: 0.75rem;
+    font-size: 1.05rem;
+  }
+
   .page-layout > p[aria-label='学習の進み具合'] {
     margin: 0 0 0.5rem;
   }
@@ -3288,6 +3648,38 @@ button:focus-visible {
     min-height: 3.75rem;
     border-radius: 0.75rem;
     font-size: 2.2rem;
+  }
+
+  .reading-comprehension-page,
+  .reading-comprehension-question {
+    gap: 0.5rem;
+  }
+
+  .reading-comprehension-question__instruction {
+    font-size: 1rem;
+  }
+
+  .reading-comprehension-passage {
+    min-height: 6rem;
+    border-radius: 0.85rem;
+    padding: 0.7rem 0.8rem;
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  .reading-comprehension-prompt {
+    font-size: 1.05rem;
+  }
+
+  .reading-comprehension-question__choices {
+    gap: 0.4rem;
+  }
+
+  .reading-comprehension-choice {
+    min-height: 3.75rem;
+    border-radius: 0.75rem;
+    padding: 0.45rem;
+    font-size: 0.95rem;
   }
 
   .shape-pattern-page,
