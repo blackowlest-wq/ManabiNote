@@ -49,6 +49,7 @@ export const GAME_IDS = [
   'bee-route',
   'bubble-chain',
   'animal-tower',
+  'penguin-ice',
 ] as const
 
 export type GameId = typeof GAME_IDS[number]

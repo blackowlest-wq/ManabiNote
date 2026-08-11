@@ -105,6 +105,7 @@ export const GAME_CATEGORIES = {
       { id: 'bee-route', to: '/bee-route', label: 'みつばち フラワールート', description: 'はばたきを のこして おはなを めぐる' },
       { id: 'bubble-chain', to: '/bubble-chain', label: 'ぽんぽん バブルれんさ', description: 'はじける なみを つないで ぜんぶ けす' },
       { id: 'animal-tower', to: '/animal-tower', label: 'ぐらぐら どうぶつタワー', description: 'うごく あしばを かさねて たかく つむ' },
+      { id: 'penguin-ice', to: '/penguin-ice', label: 'ペンギン こおりとり', description: 'こおりを すすんで さかなを あつめる' },
     ],
   },
 } satisfies Record<string, GameCategory>
