@@ -27,7 +27,7 @@ describe('robotRoute', () => {
       state = applyRobotAction(stage, state, { type: 'run' }).state
 
       expect(state.status, stage.id).toBe('cleared')
-      expect(state.collectedBatteryIndexes.sort(), stage.id).toEqual([...stage.batteryIndexes].sort())
+      expect([...state.collectedBatteryIndexes].sort(), stage.id).toEqual([...stage.batteryIndexes].sort())
     }
   })
 })

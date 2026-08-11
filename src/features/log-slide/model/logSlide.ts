@@ -139,7 +139,7 @@ export function applyLogSlideAction(state: LogSlideState, action: LogSlideAction
     return { state: { ...state, pieces: copyPieces(stage.pieces), history: [], moveCount: 0 }, events: [] }
   }
   if (action.type === 'undo') {
-    const previous = state.history.at(-1)
+    const previous = state.history[state.history.length - 1]
     if (!previous) return { state, events: [] }
     return { state: { ...state, pieces: previous, history: state.history.slice(0, -1), moveCount: state.moveCount - 1 }, events: [] }
   }

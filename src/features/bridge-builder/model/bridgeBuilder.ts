@@ -132,7 +132,7 @@ export function applyBridgeAction(
   }
 
   if (action.type === 'remove-last') {
-    const logId = state.placedLogIds.at(-1)
+    const logId = state.placedLogIds[state.placedLogIds.length - 1]
     if (!logId) return { state, events: [] }
     const log = stage.logs.find(({ id }) => id === logId)
     return {

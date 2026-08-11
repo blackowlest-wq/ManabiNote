@@ -130,7 +130,7 @@ export function PackingPuzzlePage({
     <PageLayout title="ぴったり！にづみ">
       <div className="packing-page">
         <div className="packing-hud">
-          <span>🚚 {stageIndex + 1} / {PACKING_STAGES.length}</span>
+          <span>🚚 {stageIndex! + 1} / {PACKING_STAGES.length}</span>
           <strong>{stage.name}</strong>
           <span aria-label={`${game.moveCount}かい うごかした`}>👋 {game.moveCount}</span>
         </div>

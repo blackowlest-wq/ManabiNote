@@ -95,7 +95,7 @@ export function applyBeeRouteAction(state: BeeRouteState, action: BeeRouteAction
   }
   if (state.status !== 'playing') return { state, events: [] }
   if (action.type === 'undo') {
-    const previous = state.history.at(-1)
+    const previous = state.history[state.history.length - 1]
     if (!previous) return { state, events: [] }
     return { state: { ...state, ...previous, history: state.history.slice(0, -1) }, events: [] }
   }

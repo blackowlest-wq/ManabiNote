@@ -77,7 +77,7 @@ export function PipePathPage({ storage, initialStageIndex, initialState }: PipeP
     <PageLayout title="みずの みち">
       <div className="pipe-path-page">
         <div className="pipe-path-hud">
-          <span>🗺️ {stageIndex + 1} / {PIPE_PATH_STAGES.length}</span>
+          <span>🗺️ {stageIndex! + 1} / {PIPE_PATH_STAGES.length}</span>
           <strong>{stage.name}</strong>
           <span aria-label={`${game.turnCount}かい まわした`}>🔄 {game.turnCount}</span>
         </div>

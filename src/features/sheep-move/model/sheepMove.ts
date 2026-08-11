@@ -159,7 +159,7 @@ export function applySheepMoveAction(
     }
   }
   if (action.type === 'undo') {
-    const snapshot = state.history.at(-1)
+    const snapshot = state.history[state.history.length - 1]
     if (!snapshot) return { state, events: [] }
     return {
       state: { ...state, ...snapshot, history: state.history.slice(0, -1) },

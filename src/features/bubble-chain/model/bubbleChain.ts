@@ -37,7 +37,7 @@ export function applyBubbleChainAction(state: BubbleChainState, action: BubbleCh
   if (action.type === 'next-stage') { if (state.status !== 'stage-won') return { state, events: [] }; const next = BUBBLE_CHAIN_STAGES[state.stageIndex + 1]; return { state: { ...state, status: 'playing', stageIndex: state.stageIndex + 1, strengths: [...next.strengths], history: [], moveCount: 0, stageStars: 0 }, events: [] } }
   if (state.status !== 'playing') return { state, events: [] }
   if (action.type === 'reset-stage') return { state: { ...state, strengths: [...stage.strengths], history: [], moveCount: 0 }, events: [] }
-  if (action.type === 'undo') { const previous = state.history.at(-1); return previous ? { state: { ...state, strengths: previous, history: state.history.slice(0, -1), moveCount: state.moveCount - 1 }, events: [] } : { state, events: [] } }
+  if (action.type === 'undo') { const previous = state.history[state.history.length - 1]; return previous ? { state: { ...state, strengths: previous, history: state.history.slice(0, -1), moveCount: state.moveCount - 1 }, events: [] } : { state, events: [] } }
   const burst = burstAt(state.strengths, stage.size, action.index); if (burst.strengths === state.strengths) return { state, events: [] }
   const moveCount = state.moveCount + 1; const won = burst.strengths.every((value) => value === 0)
   if (!won) return { state: { ...state, strengths: burst.strengths, history: [...state.history, state.strengths], moveCount }, events: [{ type: 'chain', count: burst.count }] }

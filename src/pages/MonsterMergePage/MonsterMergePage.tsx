@@ -19,7 +19,7 @@ export type MonsterMergePageProps = {
 }
 
 const messageFor = (events: readonly MonsterMergeEvent[]) => {
-  const discovered = events.findLast((event) => event.type === 'monster-discovered')
+  const discovered = [...events].reverse().find((event) => event.type === 'monster-discovered')
   if (discovered?.type === 'monster-discovered') {
     return `${MONSTER_LEVELS[discovered.level].name}を はっけん！`
   }

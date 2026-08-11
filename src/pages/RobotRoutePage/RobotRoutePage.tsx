@@ -102,7 +102,7 @@ export function RobotRoutePage({
     <PageLayout title="ロボット GO！">
       <div className="robot-page">
         <div className="robot-hud">
-          <span>🛰️ {stageIndex + 1} / {ROBOT_STAGES.length}</span>
+          <span>🛰️ {stageIndex! + 1} / {ROBOT_STAGES.length}</span>
           <strong>{stage.name}</strong>
           <span aria-label={`${game.attemptCount}かい しゅっぱつ`}>🚩 {game.attemptCount}</span>
         </div>

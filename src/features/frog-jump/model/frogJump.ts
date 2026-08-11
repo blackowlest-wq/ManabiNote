@@ -127,7 +127,7 @@ export function applyFrogJumpAction(state: FrogJumpState, action: FrogJumpAction
   }
 
   if (action.type === 'undo') {
-    const previous = state.history.at(-1)
+    const previous = state.history[state.history.length - 1]
     if (!previous) return { state, events: [] }
     return {
       state: {
