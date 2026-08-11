@@ -83,6 +83,7 @@ export const GAME_CATEGORIES = {
       { id: 'cooking', to: '/cooking', label: 'わくわくキッチン', description: 'ちゅうもんを みて りょうりを つくる' },
       { id: 'monster-merge', to: '/monster-merge', label: 'モンスター合体', description: 'おなじ モンスターを くっつけて しんか' },
       { id: 'pipe-path', to: '/pipe-path', label: 'みずの みち', description: 'パイプを まわして おはなに みずやり' },
+      { id: 'shop-game', to: '/shop-game', label: 'どうぶつマーケット', description: 'ちゅうもんどおりに かごへ おかいもの' },
     ],
   },
 } satisfies Record<string, GameCategory>
