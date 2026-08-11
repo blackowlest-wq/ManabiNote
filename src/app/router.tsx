@@ -46,6 +46,7 @@ import { ShapePatternResultPage } from '../pages/ShapePatternResultPage/ShapePat
 import { RescueMazePage } from '../pages/RescueMazePage/RescueMazePage'
 import { CookingGamePage } from '../pages/CookingGamePage/CookingGamePage'
 import { MonsterMergePage } from '../pages/MonsterMergePage/MonsterMergePage'
+import { PipePathPage } from '../pages/PipePathPage/PipePathPage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -118,6 +119,7 @@ export function AppRouter() {
         <Route path="/rescue-maze" element={<RescueMazePage />} />
         <Route path="/cooking" element={<CookingGamePage />} />
         <Route path="/monster-merge" element={<MonsterMergePage />} />
+        <Route path="/pipe-path" element={<PipePathPage />} />
       </Routes>
     </>
   )

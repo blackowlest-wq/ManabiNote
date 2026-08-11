@@ -5012,3 +5012,212 @@ button:focus-visible {
     padding: 0.5rem 0.75rem;
   }
 }
+
+/* Pipe path game */
+.pipe-path-intro,
+.pipe-path-page {
+  width: min(100%, 34rem);
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.pipe-path-intro p {
+  margin: 0;
+  font-weight: 700;
+}
+
+.pipe-path-intro .primary-button {
+  width: min(100%, 20rem);
+}
+
+.pipe-path-intro__scene {
+  font-size: clamp(3rem, 13vw, 5rem);
+  filter: drop-shadow(0 0.3rem 0.2rem rgb(40 90 80 / 18%));
+}
+
+.pipe-path-hud {
+  width: min(100%, 26rem);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pipe-path-hud span,
+.pipe-path-hud strong {
+  padding: 0.55rem 0.65rem;
+  border: 2px solid #8cd7c1;
+  border-radius: 1rem;
+  background: #fff;
+  color: #205d55;
+  font-weight: 900;
+}
+
+.pipe-path-board {
+  width: min(100%, 26rem);
+  aspect-ratio: 1;
+  display: grid;
+  gap: 0.3rem;
+  padding: 0.55rem;
+  border: 4px solid #4d9a7f;
+  border-radius: 1.4rem;
+  background:
+    radial-gradient(circle at 25% 30%, rgb(255 255 255 / 30%) 0 3%, transparent 4%),
+    linear-gradient(145deg, #9fe0a9, #74c99c);
+  box-shadow: 0 0.6rem 0 #34725f, 0 1rem 2rem rgb(40 90 70 / 15%);
+}
+
+.pipe-path-ground,
+.pipe-path-tile {
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 2px solid rgb(255 255 255 / 45%);
+  border-radius: 0.85rem;
+  background: rgb(234 255 220 / 38%);
+}
+
+.pipe-path-ground {
+  color: rgb(37 119 76 / 48%);
+  font-size: 2rem;
+}
+
+.pipe-path-tile {
+  padding: 0;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.pipe-path-tile:disabled {
+  color: inherit;
+  cursor: default;
+  opacity: 1;
+}
+
+.pipe-path-tile:not(:disabled):active {
+  scale: 0.92;
+}
+
+.pipe-path-core,
+.pipe-path-arm {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  background: #986d47;
+  box-shadow: inset 0 0 0 2px rgb(83 51 27 / 18%);
+  transition: background 180ms ease;
+}
+
+.pipe-path-core {
+  width: 38%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.pipe-path-arm--up,
+.pipe-path-arm--down {
+  left: 41%;
+  width: 18%;
+  height: 55%;
+}
+
+.pipe-path-arm--left,
+.pipe-path-arm--right {
+  top: 41%;
+  width: 55%;
+  height: 18%;
+}
+
+.pipe-path-arm--up { top: 0; }
+.pipe-path-arm--right { right: 0; }
+.pipe-path-arm--down { bottom: 0; }
+.pipe-path-arm--left { left: 0; }
+
+.pipe-path-tile--watered .pipe-path-core,
+.pipe-path-tile--watered .pipe-path-arm {
+  background: #42b9e9;
+  box-shadow: inset 0 0 0 2px rgb(255 255 255 / 42%);
+  animation: pipe-water-pulse 0.8s ease-in-out infinite alternate;
+}
+
+.pipe-path-symbol {
+  z-index: 2;
+  font-size: clamp(1.6rem, 7vw, 2.8rem);
+  filter: drop-shadow(0 0.12rem 0.08rem rgb(30 70 50 / 22%));
+}
+
+.pipe-path-feedback {
+  width: min(100%, 26rem);
+  min-height: 2.8rem;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 1rem;
+  background: #e9fff7;
+  color: #205d55;
+  font-weight: 900;
+}
+
+.pipe-path-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.pipe-path-actions button {
+  min-height: 2.8rem;
+  padding: 0.45rem 1.1rem;
+  border: 2px solid #7bc8b1;
+  border-radius: 0.85rem;
+  background: #fff;
+  color: #286a5e;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.pipe-path-clear {
+  width: min(100%, 26rem);
+  display: grid;
+  justify-items: center;
+  gap: 0.55rem;
+  padding: 1rem;
+  border: 3px solid #7fd3ac;
+  border-radius: 1.3rem;
+  background: #fff;
+  box-shadow: 0 0.5rem 1.2rem rgb(42 104 78 / 14%);
+}
+
+.pipe-path-clear h2,
+.pipe-path-clear p {
+  margin: 0;
+}
+
+.pipe-path-clear__flowers { font-size: 2.6rem; }
+.pipe-path-clear__stars { color: #f5b500; font-size: 1.8rem; letter-spacing: 0.12rem; }
+.pipe-path-clear .primary-button { width: min(100%, 18rem); }
+
+@keyframes pipe-water-pulse {
+  from { filter: brightness(0.94); }
+  to { filter: brightness(1.16); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pipe-path-tile--watered .pipe-path-core,
+  .pipe-path-tile--watered .pipe-path-arm { animation: none; }
+}
+
+@media (max-width: 42rem) {
+  .pipe-path-page { gap: 0.65rem; }
+  .pipe-path-hud { gap: 0.3rem; }
+  .pipe-path-hud span,
+  .pipe-path-hud strong { padding: 0.45rem 0.35rem; font-size: 0.85rem; }
+  .pipe-path-board { width: min(100%, 22rem); padding: 0.4rem; gap: 0.22rem; border-radius: 1.1rem; }
+  .pipe-path-ground,
+  .pipe-path-tile { border-radius: 0.65rem; }
+}
