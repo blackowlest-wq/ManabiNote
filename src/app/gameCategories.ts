@@ -104,6 +104,7 @@ export const GAME_CATEGORIES = {
       { id: 'helper-team', to: '/helper-team', label: 'どうぶつ おたすけ隊', description: 'とくいな なかまを じゅんばんに ならべる' },
       { id: 'bee-route', to: '/bee-route', label: 'みつばち フラワールート', description: 'はばたきを のこして おはなを めぐる' },
       { id: 'bubble-chain', to: '/bubble-chain', label: 'ぽんぽん バブルれんさ', description: 'はじける なみを つないで ぜんぶ けす' },
+      { id: 'animal-tower', to: '/animal-tower', label: 'ぐらぐら どうぶつタワー', description: 'うごく あしばを かさねて たかく つむ' },
     ],
   },
 } satisfies Record<string, GameCategory>

@@ -68,6 +68,7 @@ import { GhostHidePage } from '../pages/GhostHidePage/GhostHidePage'
 import { HelperTeamPage } from '../pages/HelperTeamPage/HelperTeamPage'
 import { BeeRoutePage } from '../pages/BeeRoutePage/BeeRoutePage'
 import { BubbleChainPage } from '../pages/BubbleChainPage/BubbleChainPage'
+import { AnimalTowerPage } from '../pages/AnimalTowerPage/AnimalTowerPage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -162,6 +163,7 @@ export function AppRouter() {
         <Route path="/helper-team" element={<HelperTeamPage />} />
         <Route path="/bee-route" element={<BeeRoutePage />} />
         <Route path="/bubble-chain" element={<BubbleChainPage />} />
+        <Route path="/animal-tower" element={<AnimalTowerPage />} />
       </Routes>
     </>
   )
