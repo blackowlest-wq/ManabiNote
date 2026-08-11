@@ -1498,7 +1498,7 @@ button:focus-visible {
 
 .shape-color-choice {
   display: grid;
-  min-height: 7rem;
+  min-height: 5rem;
   place-items: center;
   gap: 0.2rem;
   border-color: #c4b5fd;
@@ -1518,15 +1518,6 @@ button:focus-visible {
 .shape-color-choice:disabled {
   cursor: default;
   opacity: 0.72;
-}
-
-.shape-color-choice .shape-color-icon {
-  width: 3rem;
-  height: 3rem;
-}
-
-.shape-color-choice .shape-color-icon--star {
-  font-size: 3.3rem;
 }
 
 .shape-color-feedback {
@@ -2207,18 +2198,9 @@ button:focus-visible {
   }
 
   .shape-color-choice {
-    min-height: 5.75rem;
+    min-height: 4rem;
     border-radius: 0.75rem;
     font-size: 0.85rem;
-  }
-
-  .shape-color-choice .shape-color-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .shape-color-choice .shape-color-icon--star {
-    font-size: 2.8rem;
   }
 
   .word-builder-instruction {

@@ -26,6 +26,15 @@ describe('ShapeColorQuestion', () => {
     expect(screen.getByRole('button', { name: 'あかのまる' })).toBeEnabled()
   })
 
+  it('shows text-only choices so the matching shape is not revealed twice', () => {
+    render(<ShapeColorQuestion question={question} selectedChoiceId={null} feedback="none" onSelect={vi.fn()} />)
+
+    const correctChoice = screen.getByRole('button', { name: 'あかのまる' })
+    expect(correctChoice).toHaveTextContent('あかのまる')
+    expect(correctChoice.querySelector('.shape-color-icon')).not.toBeInTheDocument()
+    expect(screen.getByRole('img', { name: 'あかのまる' })).toBeInTheDocument()
+  })
+
   it('calls the choice handler and locks after a correct answer', async () => {
     const user = userEvent.setup()
     const onSelect = vi.fn()

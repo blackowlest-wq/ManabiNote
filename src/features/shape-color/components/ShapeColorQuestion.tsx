@@ -50,8 +50,7 @@ export function ShapeColorQuestion({ question, selectedChoiceId, feedback, onSel
             disabled={isLocked}
             onClick={() => onSelect(choice.id)}
           >
-            <span className={`shape-color-icon shape-color-icon--${choice.shape} shape-color-icon--${choice.color}`} aria-hidden="true" />
-            <span aria-hidden="true">{choiceLabel(choice)}</span>
+            <span>{choiceLabel(choice)}</span>
           </PrimaryButton>
         ))}
       </div>
