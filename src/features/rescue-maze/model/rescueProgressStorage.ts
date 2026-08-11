@@ -10,6 +10,7 @@ export type RescueProgress = {
 }
 
 export type ProgressWriteResult = { ok: true; progress: RescueProgress } | { ok: false; reason: 'unavailable' | 'quota' }
+export type ProgressClearResult = { ok: true } | { ok: false; reason: 'unavailable' }
 
 const getDefaultStorage = (): Storage | undefined => {
   try {
@@ -113,6 +114,19 @@ export function recordStageResult(
     }
     storage.setItem(RESCUE_PROGRESS_KEY, JSON.stringify(progress))
     return { ok: true, progress }
+  } catch {
+    return { ok: false, reason: 'unavailable' }
+  }
+}
+
+export function clearRescueProgress(
+  storage: Storage = getDefaultStorage() as Storage,
+): ProgressClearResult {
+  if (!storage) return { ok: false, reason: 'unavailable' }
+
+  try {
+    storage.removeItem(RESCUE_PROGRESS_KEY)
+    return { ok: true }
   } catch {
     return { ok: false, reason: 'unavailable' }
   }

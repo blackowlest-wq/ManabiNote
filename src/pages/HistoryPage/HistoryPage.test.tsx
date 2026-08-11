@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { GAME_CATEGORY_LIST } from '../../app/gameCategories'
 import { loadClearProgress, markGameCleared } from '../../features/clear-progress/model/clearProgressStorage'
+import { loadRescueProgress, recordStageResult } from '../../features/rescue-maze/model/rescueProgressStorage'
 import { HistoryPage } from './HistoryPage'
 
 const makeStorage = (): Storage => {
@@ -80,10 +81,17 @@ describe('HistoryPage', () => {
     expect(resetTrigger).toHaveFocus()
   })
 
-  it('resets all clear states while keeping unrelated storage', async () => {
+  it('resets all clear states and rescue stages while keeping unrelated storage', async () => {
     const user = userEvent.setup()
     const storage = makeStorage()
     expect(markGameCleared('quiz', storage)).toEqual({ ok: true })
+    expect(recordStageResult({
+      stageId: 'rescue-1',
+      stampCount: 3,
+      maxStampCount: 3,
+      moves: 5,
+      collectedTreasureIds: ['stage-1-ruby'],
+    }, ['rescue-1', 'rescue-2'], storage).ok).toBe(true)
     storage.setItem('other.key', 'keep me')
     renderPage(storage)
 
@@ -93,6 +101,12 @@ describe('HistoryPage', () => {
     expect(gameItem('ひらがなから えを えらぼう').getByText('未クリア')).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'クリア状況をリセット' })).not.toBeInTheDocument()
     expect(loadClearProgress(storage)).toEqual([])
+    expect(loadRescueProgress(storage, ['rescue-1', 'rescue-2'])).toEqual({
+      unlockedStageIds: ['rescue-1'],
+      bestStampCountByStage: {},
+      bestMovesByStage: {},
+      collectedTreasureIds: [],
+    })
     expect(storage.getItem('other.key')).toBe('keep me')
   })
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { loadRescueProgress, recordStageResult } from './rescueProgressStorage'
+import { clearRescueProgress, loadRescueProgress, recordStageResult } from './rescueProgressStorage'
 
 const makeStorage = (): Storage => {
   const values = new Map<string, string>()
@@ -50,6 +50,29 @@ describe('rescueProgressStorage', () => {
       },
     })
     expect(loadRescueProgress(storage, ['rescue-1', 'rescue-2'])).toEqual(saved.ok ? saved.progress : undefined)
+  })
+
+  it('clears every saved stage result and returns to the first stage', () => {
+    const storage = makeStorage()
+    recordStageResult(
+      {
+        stageId: 'rescue-1',
+        stampCount: 3,
+        maxStampCount: 3,
+        moves: 5,
+        collectedTreasureIds: ['ruby-1'],
+      },
+      ['rescue-1', 'rescue-2'],
+      storage,
+    )
+
+    expect(clearRescueProgress(storage)).toEqual({ ok: true })
+    expect(loadRescueProgress(storage, ['rescue-1', 'rescue-2'])).toEqual({
+      unlockedStageIds: ['rescue-1'],
+      bestStampCountByStage: {},
+      bestMovesByStage: {},
+      collectedTreasureIds: [],
+    })
   })
 
   it('unlocks the new next stage for a child who cleared the previous final stage', () => {

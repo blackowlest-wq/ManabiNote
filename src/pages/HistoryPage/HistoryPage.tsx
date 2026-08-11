@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { GAME_CATEGORY_LIST } from '../../app/gameCategories'
 import { clearClearProgress, loadClearProgress } from '../../features/clear-progress/model/clearProgressStorage'
+import { clearRescueProgress } from '../../features/rescue-maze/model/rescueProgressStorage'
 import { PageLayout } from '../../shared/components/PageLayout'
 
 type HistoryPageProps = {
@@ -65,6 +66,12 @@ export function HistoryPage({ storage }: HistoryPageProps = {}) {
   }
 
   const handleClear = () => {
+    const rescueResult = clearRescueProgress(storage)
+    if (!rescueResult.ok) {
+      setClearError('クリア状況をリセットできませんでした。もう一度お試しください。')
+      return
+    }
+
     const result = clearClearProgress(storage)
     if (!result.ok) {
       setClearError('クリア状況をリセットできませんでした。もう一度お試しください。')
@@ -131,7 +138,7 @@ export function HistoryPage({ storage }: HistoryPageProps = {}) {
           onClose={closeConfirmation}
         >
           <h2 id="clear-progress-dialog-title">クリア状況をリセットしますか？</h2>
-          <p>すべてのゲームが 未クリアに もどります。</p>
+          <p>すべてのゲームが 未クリアに もどり、どうぶつレスキューは ステージ1からに なります。</p>
           {clearError && <p role="alert">{clearError}</p>}
           <button ref={firstDialogActionRef} type="button" onClick={closeConfirmation}>キャンセル</button>
           <button type="button" onClick={handleClear}>リセットする</button>
