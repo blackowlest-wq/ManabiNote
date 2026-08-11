@@ -20,8 +20,8 @@ export const FROG_JUMP_STAGES: readonly FrogJumpStage[] = [
   { name: 'いっぴきと よんひき', rightCount: 1, leftCount: 4, optimalMoves: 9, solution: [0, 2, 1, 3, 2, 4, 3, 5, 4] },
   { name: 'よんひきと にひき', rightCount: 4, leftCount: 2, optimalMoves: 14, solution: [3, 5, 6, 4, 2, 1, 3, 5, 4, 2, 0, 1, 3, 2] },
   { name: 'ながい はすのは', rightCount: 3, leftCount: 4, optimalMoves: 19, solution: [2, 4, 5, 3, 1, 0, 2, 4, 6, 7, 5, 3, 1, 2, 4, 6, 5, 3, 4] },
-  { name: 'はちひき ぴょん', rightCount: 4, leftCount: 4, optimalMoves: 24, solution: [3, 5, 6, 4, 2, 1, 3, 5, 7, 8, 6, 4, 2, 0, 1, 3, 5, 7, 6, 4, 2, 3, 5, 4] },
-  { name: 'かえるの おおパレード', rightCount: 5, leftCount: 3, optimalMoves: 23, solution: [4, 6, 7, 5, 3, 2, 4, 6, 8, 7, 5, 3, 1, 0, 2, 4, 6, 5, 3, 1, 2, 4, 3] },
+  { name: 'さゆう ばらばら', rightCount: 2, leftCount: 4, optimalMoves: 14, solution: [1, 3, 4, 2, 0, 1, 3, 5, 6, 4, 2, 3, 5, 4] },
+  { name: 'ななひき おおパレード', rightCount: 5, leftCount: 2, optimalMoves: 17, solution: [4, 6, 7, 5, 3, 2, 4, 6, 5, 3, 1, 0, 2, 4, 3, 1, 2] },
 ]
 
 export type FrogJumpState = {
