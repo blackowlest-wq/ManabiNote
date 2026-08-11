@@ -107,6 +107,7 @@ export const GAME_CATEGORIES = {
       { id: 'animal-tower', to: '/animal-tower', label: 'ぐらぐら どうぶつタワー', description: 'うごく あしばを かさねて たかく つむ' },
       { id: 'penguin-ice', to: '/penguin-ice', label: 'ペンギン こおりとり', description: 'こおりを すすんで さかなを あつめる' },
       { id: 'cat-chase', to: '/cat-chase', label: 'ねこねこ おいかけっこ', description: 'にげる ねずみを かべへ おいつめる' },
+      { id: 'rocket-landing', to: '/rocket-landing', label: 'ロケット ふわっと着陸', description: 'おちる はやさを ふんしゃで ちょうせつする' },
     ],
   },
 } satisfies Record<string, GameCategory>
