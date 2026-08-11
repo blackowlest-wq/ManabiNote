@@ -84,6 +84,7 @@ export const GAME_CATEGORIES = {
       { id: 'monster-merge', to: '/monster-merge', label: 'モンスター合体', description: 'おなじ モンスターを くっつけて しんか' },
       { id: 'pipe-path', to: '/pipe-path', label: 'みずの みち', description: 'パイプを まわして おはなに みずやり' },
       { id: 'shop-game', to: '/shop-game', label: 'どうぶつマーケット', description: 'ちゅうもんどおりに かごへ おかいもの' },
+      { id: 'treasure-hunt', to: '/treasure-hunt', label: 'どこかな？たからじま', description: 'ほうこうの ヒントで たからを さがす' },
     ],
   },
 } satisfies Record<string, GameCategory>
