@@ -97,6 +97,7 @@ export const GAME_CATEGORIES = {
       { id: 'rolling-labyrinth', to: '/rolling-labyrinth', label: 'くるくる ラビリンス', description: 'めいろを まわして たまを ころがす' },
       { id: 'firefly-lights', to: '/firefly-lights', label: 'ぴかぴか ほたる', description: 'となりも かわる ひかりを ぜんぶ つける' },
       { id: 'sheep-move', to: '/sheep-move', label: 'ひつじの おひっこし', description: 'ひつじを おして おうちへ つれていく' },
+      { id: 'balloon-flight', to: '/balloon-flight', label: 'ふわふわ バルーン', description: 'たかさを かえて くもの すきまを とぶ' },
     ],
   },
 } satisfies Record<string, GameCategory>

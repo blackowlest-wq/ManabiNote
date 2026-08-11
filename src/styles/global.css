@@ -7567,3 +7567,106 @@ button:focus-visible {
   .sheep-cell > span { font-size: 2rem; }
   .sheep-dpad { grid-template-columns: repeat(3, 3.2rem); grid-template-rows: repeat(3, 3rem); }
 }
+
+/* ふわふわ バルーン */
+.balloon-intro,
+.balloon-result {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.balloon-intro__scene,
+.balloon-result__scene { font-size: clamp(2.5rem, 12vw, 5rem); }
+
+.balloon-page {
+  display: grid;
+  gap: .6rem;
+  width: min(100%, 38rem);
+  margin: 0 auto;
+  padding: 0 .55rem 1.5rem;
+}
+
+.balloon-hud {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .3rem;
+}
+
+.balloon-hud span {
+  padding: .45rem .1rem;
+  border-radius: .65rem;
+  background: #347b9d;
+  color: white;
+  text-align: center;
+  font-size: .84rem;
+  font-weight: 900;
+}
+
+.balloon-sky {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  min-height: 19rem;
+  overflow: hidden;
+  border: .5rem solid #4a9fc2;
+  border-radius: 1.5rem;
+  background: linear-gradient(#83d9fa, #e4f9ff 78%, #75c998 79%);
+}
+
+.balloon-sky__cell {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  place-items: center;
+  border-right: 1px dashed rgba(255,255,255,.2);
+  border-bottom: 1px dashed rgba(255,255,255,.2);
+}
+
+.balloon-sun { position: absolute; top: .5rem; right: .65rem; z-index: 1; font-size: 2rem; }
+.balloon-cloud { z-index: 2; font-size: 3.8rem; filter: drop-shadow(0 .15rem .15rem rgba(52,103,132,.25)); }
+.balloon-gap { color: #ffce32; font-size: 2.3rem; text-shadow: 0 0 .7rem white; }
+.balloon-player { z-index: 3; font-size: 3.5rem; filter: drop-shadow(0 .2rem .15rem rgba(0,0,0,.25)); transition: transform .18s ease; }
+.balloon-horizon { position: absolute; right: 0; bottom: .2rem; left: 0; color: #317858; text-align: center; white-space: nowrap; }
+
+.balloon-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.balloon-controls button {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  min-height: 5rem;
+  border: 4px solid #3983aa;
+  border-radius: 1.2rem;
+  background: #dcf6ff;
+  color: #21688e;
+  box-shadow: 0 .28rem 0 #286984;
+  cursor: pointer;
+}
+
+.balloon-controls button span { font-size: 3rem; font-weight: 900; }
+.balloon-controls button small { font-size: 1rem; font-weight: 900; }
+.balloon-controls button:active { transform: translateY(.2rem); box-shadow: 0 .08rem 0 #286984; }
+.balloon-feedback { min-height: 1.5rem; margin: 0; color: #2a7193; text-align: center; font-weight: 900; }
+.balloon-quit { justify-self: center; border: 0; background: transparent; color: #555; text-decoration: underline; }
+.balloon-result__score { margin: 0; color: #2b779a; font-size: 2rem; font-weight: 900; }
+
+@media (prefers-reduced-motion: reduce) {
+  .balloon-player { transition: none; }
+}
+
+@media (max-width: 390px) {
+  .balloon-sky { min-height: 17rem; }
+  .balloon-cloud { font-size: 3.2rem; }
+  .balloon-player { font-size: 3.1rem; }
+  .balloon-controls button { min-height: 4.5rem; }
+}
