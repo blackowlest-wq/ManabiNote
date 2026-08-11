@@ -6486,3 +6486,181 @@ button:focus-visible {
   .beat-pad { min-height: 6rem; }
   .beat-pad span { font-size: 3.6rem; }
 }
+
+/* ぽんぽん しわけ工場 */
+.factory-intro,
+.factory-result {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.factory-intro__scene,
+.factory-result__scene {
+  font-size: clamp(2.25rem, 10vw, 4.5rem);
+}
+
+.factory-intro__demo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .7rem 1.5rem;
+  border: 3px solid #388aa0;
+  border-radius: 1rem;
+  background: #e9fbff;
+  font-size: 2.8rem;
+}
+
+.factory-page {
+  display: grid;
+  gap: .5rem;
+  width: min(100%, 38rem);
+  margin: 0 auto;
+  padding: 0 .5rem 1.5rem;
+}
+
+.factory-hud {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .3rem;
+}
+
+.factory-hud span {
+  padding: .45rem .1rem;
+  border-radius: .65rem;
+  background: #275568;
+  color: white;
+  text-align: center;
+  font-size: .85rem;
+  font-weight: 900;
+}
+
+.factory-level-name {
+  color: #214f61;
+  text-align: center;
+  font-weight: 900;
+}
+
+.factory-machine {
+  display: grid;
+  grid-template-columns: 2.8rem minmax(0, 1fr) 2.3rem;
+  align-items: center;
+  padding: .65rem .35rem;
+  border: 4px solid #59656a;
+  border-radius: 1.2rem;
+  background: #9ca8aa;
+}
+
+.factory-chute,
+.factory-drop { font-size: 1.7rem; text-align: center; }
+
+.factory-belt {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  min-height: 6rem;
+  overflow: hidden;
+  border: 4px solid #3f4548;
+  border-radius: 1rem;
+  background: #657176;
+}
+
+.factory-belt > span {
+  border-right: 2px solid #929da0;
+  background: repeating-linear-gradient(90deg, transparent 0 10px, rgba(255,255,255,.08) 11px 13px);
+}
+
+.factory-item {
+  --belt-position: 0;
+  position: absolute;
+  top: 50%;
+  left: calc(2% + var(--belt-position) * 16%);
+  z-index: 1;
+  font-size: 3.7rem;
+  line-height: 1;
+  transform: translateY(-50%);
+  transition: left .2s linear;
+}
+
+.factory-directions {
+  display: flex;
+  justify-content: space-around;
+  color: #39849b;
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.factory-boxes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.factory-box {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem;
+  min-height: 7.1rem;
+  overflow: hidden;
+  border: 4px solid #936b30;
+  border-radius: 1rem .95rem .4rem .4rem;
+  background: #e6b968;
+  box-shadow: inset 0 .7rem 0 #69481d, 0 .28rem 0 #684a25;
+  cursor: pointer;
+}
+
+.factory-box > span { z-index: 1; font-size: 3rem; }
+.factory-box > small { z-index: 1; font-size: 1rem; font-weight: 900; }
+.factory-box > b { position: absolute; right: .15rem; bottom: -.6rem; opacity: .32; font-size: 4.5rem; }
+.factory-box:active { transform: translateY(.2rem); box-shadow: inset 0 .7rem 0 #69481d; }
+
+.factory-feedback {
+  min-height: 1.5rem;
+  margin: 0;
+  color: #1f637a;
+  text-align: center;
+  font-weight: 900;
+}
+
+.factory-level-clear {
+  display: grid;
+  justify-items: center;
+  gap: .35rem;
+  padding: .6rem;
+  border-radius: 1rem;
+  background: #e7fbff;
+}
+
+.factory-level-clear h2 { margin: 0; color: #276c82; }
+.factory-level-clear span { font-size: 1.7rem; }
+
+.factory-quit {
+  justify-self: center;
+  border: 0;
+  background: transparent;
+  color: #555;
+  text-decoration: underline;
+}
+
+.factory-result__score {
+  margin: 0;
+  color: #26758c;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .factory-item { transition: none; }
+}
+
+@media (max-width: 390px) {
+  .factory-belt { min-height: 5.2rem; }
+  .factory-item { font-size: 3.25rem; }
+  .factory-box { min-height: 6.2rem; }
+  .factory-box > span { font-size: 2.6rem; }
+}

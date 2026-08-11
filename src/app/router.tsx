@@ -54,6 +54,7 @@ import { RobotRoutePage } from '../pages/RobotRoutePage/RobotRoutePage'
 import { ShadowHuntPage } from '../pages/ShadowHuntPage/ShadowHuntPage'
 import { ForestGuardPage } from '../pages/ForestGuardPage/ForestGuardPage'
 import { CopyBeatPage } from '../pages/CopyBeatPage/CopyBeatPage'
+import { SortingFactoryPage } from '../pages/SortingFactoryPage/SortingFactoryPage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -134,6 +135,7 @@ export function AppRouter() {
         <Route path="/shadow-hunt" element={<ShadowHuntPage />} />
         <Route path="/forest-guard" element={<ForestGuardPage />} />
         <Route path="/copy-beat" element={<CopyBeatPage />} />
+        <Route path="/sorting-factory" element={<SortingFactoryPage />} />
       </Routes>
     </>
   )

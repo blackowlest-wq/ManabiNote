@@ -34,6 +34,7 @@ export const GAME_IDS = [
   'shadow-hunt',
   'forest-guard',
   'copy-beat',
+  'sorting-factory',
 ] as const
 
 export type GameId = typeof GAME_IDS[number]
