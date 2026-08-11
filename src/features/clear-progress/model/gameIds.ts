@@ -44,6 +44,7 @@ export const GAME_IDS = [
   'balloon-flight',
   'frog-jump',
   'log-slide',
+  'ghost-hide',
 ] as const
 
 export type GameId = typeof GAME_IDS[number]
