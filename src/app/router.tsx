@@ -70,6 +70,7 @@ import { BeeRoutePage } from '../pages/BeeRoutePage/BeeRoutePage'
 import { BubbleChainPage } from '../pages/BubbleChainPage/BubbleChainPage'
 import { AnimalTowerPage } from '../pages/AnimalTowerPage/AnimalTowerPage'
 import { PenguinIcePage } from '../pages/PenguinIcePage/PenguinIcePage'
+import { CatChasePage } from '../pages/CatChasePage/CatChasePage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -166,6 +167,7 @@ export function AppRouter() {
         <Route path="/bubble-chain" element={<BubbleChainPage />} />
         <Route path="/animal-tower" element={<AnimalTowerPage />} />
         <Route path="/penguin-ice" element={<PenguinIcePage />} />
+        <Route path="/cat-chase" element={<CatChasePage />} />
       </Routes>
     </>
   )

@@ -106,6 +106,7 @@ export const GAME_CATEGORIES = {
       { id: 'bubble-chain', to: '/bubble-chain', label: 'ぽんぽん バブルれんさ', description: 'はじける なみを つないで ぜんぶ けす' },
       { id: 'animal-tower', to: '/animal-tower', label: 'ぐらぐら どうぶつタワー', description: 'うごく あしばを かさねて たかく つむ' },
       { id: 'penguin-ice', to: '/penguin-ice', label: 'ペンギン こおりとり', description: 'こおりを すすんで さかなを あつめる' },
+      { id: 'cat-chase', to: '/cat-chase', label: 'ねこねこ おいかけっこ', description: 'にげる ねずみを かべへ おいつめる' },
     ],
   },
 } satisfies Record<string, GameCategory>
