@@ -11,6 +11,8 @@ const stateKey = (state: RescueState) => JSON.stringify({
   collectedKeyEntityIds: [...state.collectedKeyEntityIds].sort(),
   openDoorIds: [...state.openDoorIds].sort(),
   collectedTreasureIds: [...state.collectedTreasureIds].sort(),
+  activatedSwitchIds: [...state.activatedSwitchIds].sort(),
+  boxStates: state.boxStates.map((box) => ({ id: box.id, position: box.position })),
   enemyStates: state.enemyStates.map((enemy) => ({ id: enemy.id, pathIndex: enemy.pathIndex })),
 })
 
@@ -37,8 +39,8 @@ const findBestClear = (stage: StageDefinition) => {
 }
 
 describe('RESCUE_MAZE_STAGES', () => {
-  it('provides six ordered and valid MVP stages', () => {
-    expect(RESCUE_MAZE_STAGES).toHaveLength(6)
+  it('provides ten ordered and valid stages ending with a combined challenge', () => {
+    expect(RESCUE_MAZE_STAGES).toHaveLength(10)
     expect(RESCUE_MAZE_STAGES.map((stage) => stage.id)).toEqual([
       'rescue-1',
       'rescue-2',
@@ -46,6 +48,10 @@ describe('RESCUE_MAZE_STAGES', () => {
       'rescue-4',
       'rescue-5',
       'rescue-6',
+      'rescue-7',
+      'rescue-8',
+      'rescue-9',
+      'rescue-10',
     ])
 
     for (const stage of RESCUE_MAZE_STAGES) {

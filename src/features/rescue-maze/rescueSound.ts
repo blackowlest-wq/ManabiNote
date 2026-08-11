@@ -12,9 +12,13 @@ const toneFor = (event: GameEvent): { frequency: number; duration: number } | nu
     case 'treasure-collected':
       return { frequency: 880, duration: 0.12 }
     case 'door-opened':
+    case 'bridge-activated':
       return { frequency: 520, duration: 0.14 }
+    case 'box-pushed':
+      return { frequency: 360, duration: 0.1 }
     case 'player-caught':
     case 'door-locked':
+    case 'bridge-blocked':
     case 'exit-blocked':
       return { frequency: 220, duration: 0.12 }
     case 'stage-cleared':

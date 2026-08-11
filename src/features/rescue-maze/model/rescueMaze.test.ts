@@ -93,6 +93,64 @@ describe('rescueMaze', () => {
     expect(collected.events).toEqual([{ type: 'treasure-collected', treasureId: 'ruby' }])
   })
 
+  it('keeps water blocked until the player activates its switch', () => {
+    const stage: StageDefinition = {
+      id: 'test-bridge',
+      name: 'はしを かけよう',
+      width: 4,
+      height: 2,
+      tiles: ['floor', 'floor', 'floor', 'exit', 'floor', 'wall', 'wall', 'wall'],
+      playerStart: { x: 0, y: 0 },
+      entities: [
+        { kind: 'switch', id: 'sun-switch', bridgeId: 'sun-bridge', symbol: '☀', activation: 'player', position: { x: 0, y: 1 } },
+        { kind: 'bridge', id: 'sun-bridge', symbol: '☀', position: { x: 1, y: 0 } },
+        { kind: 'animal', id: 'koala', label: 'こあら', symbolId: 'koala', position: { x: 2, y: 0 } },
+      ],
+      parMoves: 5,
+      bonusGoals: ['under-par', 'no-undo'],
+    }
+
+    const blocked = applyAction(stage, startStage(stage), { type: 'move', direction: 'right' })
+    const activated = applyAction(stage, blocked.state, { type: 'move', direction: 'down' })
+    const returned = applyAction(stage, activated.state, { type: 'move', direction: 'up' })
+    const crossed = applyAction(stage, returned.state, { type: 'move', direction: 'right' })
+
+    expect(blocked.events).toEqual([{ type: 'bridge-blocked', bridgeId: 'sun-bridge' }])
+    expect(blocked.state.moves).toBe(0)
+    expect(activated.state.activatedSwitchIds).toEqual(['sun-switch'])
+    expect(activated.events).toEqual([{ type: 'bridge-activated', bridgeId: 'sun-bridge' }])
+    expect(crossed.state.playerPosition).toEqual({ x: 1, y: 0 })
+  })
+
+  it('pushes a box onto its switch to activate a bridge', () => {
+    const stage: StageDefinition = {
+      id: 'test-box-switch',
+      name: 'はこを おそう',
+      width: 6,
+      height: 1,
+      tiles: ['floor', 'floor', 'floor', 'floor', 'floor', 'exit'],
+      playerStart: { x: 0, y: 0 },
+      entities: [
+        { kind: 'box', id: 'box', position: { x: 1, y: 0 } },
+        { kind: 'switch', id: 'moon-switch', bridgeId: 'moon-bridge', symbol: '☾', activation: 'box', position: { x: 2, y: 0 } },
+        { kind: 'bridge', id: 'moon-bridge', symbol: '☾', position: { x: 3, y: 0 } },
+        { kind: 'animal', id: 'panda', label: 'ぱんだ', symbolId: 'panda', position: { x: 4, y: 0 } },
+      ],
+      parMoves: 5,
+      bonusGoals: ['under-par', 'no-undo'],
+    }
+
+    const pushed = applyAction(stage, startStage(stage), { type: 'move', direction: 'right' })
+
+    expect(pushed.state.playerPosition).toEqual({ x: 1, y: 0 })
+    expect(pushed.state.boxStates).toEqual([{ id: 'box', position: { x: 2, y: 0 } }])
+    expect(pushed.state.activatedSwitchIds).toEqual(['moon-switch'])
+    expect(pushed.events).toEqual([
+      { type: 'box-pushed', boxId: 'box' },
+      { type: 'bridge-activated', bridgeId: 'moon-bridge' },
+    ])
+  })
+
   it('undoes the previous turn including collected items', () => {
     const stage: StageDefinition = {
       ...firstRescueStage,

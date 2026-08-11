@@ -60,6 +60,12 @@ export function RescueMazePage({ storage }: RescueMazePageProps = {}) {
         return 'この とびらの かぎを さがそう'
       case 'treasure-collected':
         return 'たからものを みつけた！'
+      case 'bridge-activated':
+        return 'はしが かかった！'
+      case 'bridge-blocked':
+        return 'スイッチで はしを かけよう'
+      case 'box-pushed':
+        return 'はこが うごいた！'
       case 'exit-blocked':
         return 'まだ たすけを まっているよ'
       case 'player-caught':

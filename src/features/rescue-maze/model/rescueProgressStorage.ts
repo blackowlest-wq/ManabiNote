@@ -63,7 +63,20 @@ export function loadRescueProgress(
       !isStageNumberRecord(bestMovesByStage, stageIds, (number) => Number.isInteger(number) && number >= 1) ||
       !isUniqueStringArray(collectedTreasureIds)
     ) return emptyProgress(stageIds)
-    return { unlockedStageIds, bestStampCountByStage, bestMovesByStage, collectedTreasureIds }
+    const normalizedUnlockedStageIds = new Set(unlockedStageIds)
+    stageIds.forEach((stageId, index) => {
+      const nextStageId = stageIds[index + 1]
+      if (
+        nextStageId && normalizedUnlockedStageIds.has(stageId) &&
+        bestStampCountByStage[stageId] !== undefined
+      ) normalizedUnlockedStageIds.add(nextStageId)
+    })
+    return {
+      unlockedStageIds: stageIds.filter((stageId) => normalizedUnlockedStageIds.has(stageId)),
+      bestStampCountByStage,
+      bestMovesByStage,
+      collectedTreasureIds,
+    }
   } catch {
     return emptyProgress(stageIds)
   }

@@ -99,6 +99,13 @@ export function RescueMazeBoard({ stage, state, onMove }: RescueMazeBoardProps) 
         const key = entityAt(stage, 'key', position)
         const door = entityAt(stage, 'door', position)
         const treasure = entityAt(stage, 'treasure', position)
+        const floorSwitch = entityAt(stage, 'switch', position)
+        const bridge = entityAt(stage, 'bridge', position)
+        const bridgeIsActive = bridge && stage.entities.some(
+          (entity) => entity.kind === 'switch' && entity.bridgeId === bridge.id &&
+            state.activatedSwitchIds.includes(entity.id),
+        )
+        const boxState = state.boxStates.find((box) => positionsEqual(box.position, position))
         const enemyState = state.enemyStates.find((enemy) => positionsEqual(enemy.position, position))
         const enemy = enemyState
           ? stage.entities.find((entity): entity is EnemyEntity => entity.kind === 'enemy' && entity.id === enemyState.id)
@@ -108,23 +115,29 @@ export function RescueMazeBoard({ stage, state, onMove }: RescueMazeBoardProps) 
         const keyIsVisible = key && !state.collectedKeyEntityIds.includes(key.id)
         const doorIsVisible = door && !state.openDoorIds.includes(door.id)
         const treasureIsVisible = treasure && !state.collectedTreasureIds.includes(treasure.id)
-        const cellLabel = canMove && direction
-          ? `${DIRECTION_LABELS[direction]}へ すすむ`
-          : tile === 'wall'
+        const cellLabel = tile === 'wall'
             ? 'きの かべ'
             : playerIsHere
               ? 'レスキューたいの いるマス'
-              : animalIsVisible
-                ? `${animal.label}の いるマス`
-                : tile === 'exit'
-                  ? 'ゴール'
-                  : 'みち'
+              : boxState
+                ? canMove && direction ? `${DIRECTION_LABELS[direction]}へ すすんで はこを おす` : 'おせる はこ'
+                : floorSwitch
+                  ? floorSwitch.activation === 'box' ? 'はこの スイッチ' : 'ふむ スイッチ'
+                  : bridge
+                    ? bridgeIsActive ? 'かかった はし' : 'まだ はしが ない'
+                    : canMove && direction
+                      ? `${DIRECTION_LABELS[direction]}へ すすむ`
+                      : animalIsVisible
+                        ? `${animal.label}の いるマス`
+                        : tile === 'exit'
+                          ? 'ゴール'
+                          : 'みち'
 
         return (
           <div key={`${stage.id}-${index}`} role="gridcell" className="rescue-maze-gridcell">
             <button
               type="button"
-              className={`rescue-maze-cell rescue-maze-cell--${tile}${canMove ? ' rescue-maze-cell--reachable' : ''}`}
+              className={`rescue-maze-cell rescue-maze-cell--${tile}${bridge ? ` rescue-maze-cell--bridge${bridgeIsActive ? '-active' : '-closed'}` : ''}${canMove ? ' rescue-maze-cell--reachable' : ''}`}
               disabled={!canMove}
               aria-label={cellLabel}
               onClick={() => direction && onMove(direction)}
@@ -134,6 +147,17 @@ export function RescueMazeBoard({ stage, state, onMove }: RescueMazeBoardProps) 
               {doorIsVisible && <span className="rescue-maze-door" aria-hidden="true">🚪<small>{door.symbol}</small></span>}
               {keyIsVisible && <span className="rescue-maze-key" aria-hidden="true">🔑<small>{key.symbol}</small></span>}
               {treasureIsVisible && <span className="rescue-maze-treasure" aria-hidden="true">💎</span>}
+              {bridge && (
+                <span className={`rescue-maze-bridge rescue-maze-bridge--${bridgeIsActive ? 'active' : 'closed'}`} aria-hidden="true">
+                  {bridgeIsActive ? '🌉' : '🌊'}<small>{bridge.symbol}</small>
+                </span>
+              )}
+              {floorSwitch && (
+                <span className={`rescue-maze-switch${state.activatedSwitchIds.includes(floorSwitch.id) ? ' rescue-maze-switch--active' : ''}`} aria-hidden="true">
+                  {state.activatedSwitchIds.includes(floorSwitch.id) ? '🟢' : '🔘'}<small>{floorSwitch.symbol}</small>
+                </span>
+              )}
+              {boxState && <span className="rescue-maze-box" aria-hidden="true">📦</span>}
               {animalIsVisible && (
                 <span className="rescue-maze-entity rescue-maze-entity--animal" aria-hidden="true">
                   <SpriteImage image={{ atlasId: 'animals-01', symbolId: animal.symbolId }} alt={animal.label} width={64} height={64} />

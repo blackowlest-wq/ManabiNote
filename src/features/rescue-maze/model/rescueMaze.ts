@@ -38,6 +38,28 @@ export type TreasureEntity = {
   position: Position
 }
 
+export type SwitchEntity = {
+  kind: 'switch'
+  id: string
+  bridgeId: string
+  symbol: string
+  activation: 'player' | 'box'
+  position: Position
+}
+
+export type BridgeEntity = {
+  kind: 'bridge'
+  id: string
+  symbol: string
+  position: Position
+}
+
+export type BoxEntity = {
+  kind: 'box'
+  id: string
+  position: Position
+}
+
 export type EnemyEntity = {
   kind: 'enemy'
   id: string
@@ -46,7 +68,12 @@ export type EnemyEntity = {
   path: readonly Position[]
 }
 
-export type StageEntity = AnimalEntity | KeyEntity | DoorEntity | TreasureEntity | EnemyEntity
+export type StageEntity = AnimalEntity | KeyEntity | DoorEntity | TreasureEntity | SwitchEntity | BridgeEntity | BoxEntity | EnemyEntity
+
+export type BoxState = {
+  id: string
+  position: Position
+}
 
 export type EnemyState = {
   id: string
@@ -74,6 +101,8 @@ export type RescueSnapshot = {
   collectedKeyEntityIds: readonly string[]
   openDoorIds: readonly string[]
   collectedTreasureIds: readonly string[]
+  activatedSwitchIds: readonly string[]
+  boxStates: readonly BoxState[]
   enemyStates: readonly EnemyState[]
   moves: number
   status: 'playing' | 'cleared'
@@ -97,6 +126,9 @@ export type GameEvent =
   | { type: 'door-opened'; doorId: string }
   | { type: 'door-locked'; doorId: string; keyId: string }
   | { type: 'treasure-collected'; treasureId: string }
+  | { type: 'bridge-activated'; bridgeId: string }
+  | { type: 'bridge-blocked'; bridgeId: string }
+  | { type: 'box-pushed'; boxId: string }
   | { type: 'exit-blocked'; remainingAnimalIds: readonly string[] }
   | { type: 'player-caught'; enemyId: string }
   | { type: 'undone' }
@@ -140,6 +172,8 @@ const toSnapshot = (state: RescueState): RescueSnapshot => ({
   collectedKeyEntityIds: state.collectedKeyEntityIds,
   openDoorIds: state.openDoorIds,
   collectedTreasureIds: state.collectedTreasureIds,
+  activatedSwitchIds: state.activatedSwitchIds,
+  boxStates: state.boxStates,
   enemyStates: state.enemyStates,
   moves: state.moves,
   status: state.status,
@@ -161,6 +195,9 @@ export function startStage(stage: StageDefinition): RescueState {
       if (!position || !nextPosition) throw new Error('敵の移動経路が正しくありません')
       return { id: enemy.id, position, nextPosition, pathIndex: 0 }
     })
+  const boxStates = stage.entities
+    .filter((entity): entity is BoxEntity => entity.kind === 'box')
+    .map((box) => ({ id: box.id, position: box.position }))
 
   return {
     stageId: stage.id,
@@ -170,6 +207,8 @@ export function startStage(stage: StageDefinition): RescueState {
     collectedKeyEntityIds: [],
     openDoorIds: [],
     collectedTreasureIds: [],
+    activatedSwitchIds: [],
+    boxStates,
     enemyStates,
     moves: 0,
     status: 'playing',
@@ -212,6 +251,16 @@ export function applyAction(
   const destinationTile = tileAt(stage, destination)
   if (!destinationTile || destinationTile === 'wall') return { state, events: [] }
 
+  const bridge = stage.entities.find(
+    (entity): entity is BridgeEntity => entity.kind === 'bridge' && positionsEqual(entity.position, destination),
+  )
+  const bridgeIsActive = bridge && stage.entities.some(
+    (entity) => entity.kind === 'switch' && entity.bridgeId === bridge.id && state.activatedSwitchIds.includes(entity.id),
+  )
+  if (bridge && !bridgeIsActive) {
+    return { state, events: [{ type: 'bridge-blocked', bridgeId: bridge.id }] }
+  }
+
   if (destinationTile === 'exit') {
     const remainingAnimalIds = stage.entities
       .filter((entity) => entity.kind === 'animal' && !state.rescuedAnimalIds.includes(entity.id))
@@ -234,6 +283,49 @@ export function applyAction(
   const collectedKeyEntityIds = [...state.collectedKeyEntityIds]
   const openDoorIds = [...state.openDoorIds]
   const collectedTreasureIds = [...state.collectedTreasureIds]
+  const activatedSwitchIds = [...state.activatedSwitchIds]
+  let boxStates = state.boxStates.map((box) => ({ ...box }))
+  let pushedBoxDestination: Position | null = null
+
+  const pushedBox = boxStates.find((box) => positionsEqual(box.position, destination))
+  if (pushedBox) {
+    const boxDestination = {
+      x: destination.x + offset.x,
+      y: destination.y + offset.y,
+    }
+    const boxDestinationTile = tileAt(stage, boxDestination)
+    const bridgeAtBoxDestination = stage.entities.find(
+      (entity): entity is BridgeEntity => entity.kind === 'bridge' && positionsEqual(entity.position, boxDestination),
+    )
+    const bridgeAtBoxDestinationIsActive = bridgeAtBoxDestination && stage.entities.some(
+      (entity) => entity.kind === 'switch' && entity.bridgeId === bridgeAtBoxDestination.id &&
+        state.activatedSwitchIds.includes(entity.id),
+    )
+    const closedDoorAtBoxDestination = stage.entities.some(
+      (entity) => entity.kind === 'door' && positionsEqual(entity.position, boxDestination) &&
+        !state.openDoorIds.includes(entity.id),
+    )
+    const itemAtBoxDestination = stage.entities.some((entity) => {
+      if (!('position' in entity) || !positionsEqual(entity.position, boxDestination)) return false
+      if (entity.kind === 'animal') return !state.rescuedAnimalIds.includes(entity.id)
+      if (entity.kind === 'key') return !state.collectedKeyEntityIds.includes(entity.id)
+      if (entity.kind === 'treasure') return !state.collectedTreasureIds.includes(entity.id)
+      return false
+    })
+    const occupiedAtBoxDestination = boxStates.some(
+      (box) => box.id !== pushedBox.id && positionsEqual(box.position, boxDestination),
+    ) || state.enemyStates.some((enemy) => positionsEqual(enemy.position, boxDestination))
+
+    if (
+      !boxDestinationTile || boxDestinationTile === 'wall' || boxDestinationTile === 'exit' ||
+      (bridgeAtBoxDestination && !bridgeAtBoxDestinationIsActive) || closedDoorAtBoxDestination ||
+      itemAtBoxDestination || occupiedAtBoxDestination
+    ) return { state, events: [] }
+
+    boxStates = boxStates.map((box) => box.id === pushedBox.id ? { ...box, position: boxDestination } : box)
+    pushedBoxDestination = boxDestination
+    events.push({ type: 'box-pushed', boxId: pushedBox.id })
+  }
 
   const door = stage.entities.find(
     (entity): entity is DoorEntity => entity.kind === 'door' && positionsEqual(entity.position, destination),
@@ -271,6 +363,24 @@ export function applyAction(
   if (animal && !rescuedAnimalIds.includes(animal.id)) {
     rescuedAnimalIds.push(animal.id)
     events.push({ type: 'animal-rescued', animalId: animal.id })
+  }
+
+  const floorSwitch = stage.entities.find(
+    (entity): entity is SwitchEntity => entity.kind === 'switch' &&
+      entity.activation === 'player' && positionsEqual(entity.position, destination),
+  )
+  if (floorSwitch && !activatedSwitchIds.includes(floorSwitch.id)) {
+    activatedSwitchIds.push(floorSwitch.id)
+    events.push({ type: 'bridge-activated', bridgeId: floorSwitch.bridgeId })
+  }
+
+  const boxSwitch = pushedBoxDestination && stage.entities.find(
+    (entity): entity is SwitchEntity => entity.kind === 'switch' &&
+      entity.activation === 'box' && positionsEqual(entity.position, pushedBoxDestination as Position),
+  )
+  if (boxSwitch && !activatedSwitchIds.includes(boxSwitch.id)) {
+    activatedSwitchIds.push(boxSwitch.id)
+    events.push({ type: 'bridge-activated', bridgeId: boxSwitch.bridgeId })
   }
 
   const allAnimalsRescued = stage.entities
@@ -314,6 +424,8 @@ export function applyAction(
       collectedKeyEntityIds,
       openDoorIds,
       collectedTreasureIds,
+      activatedSwitchIds,
+      boxStates,
       enemyStates,
       moves: state.moves + 1,
       status,

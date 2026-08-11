@@ -52,6 +52,22 @@ describe('rescueProgressStorage', () => {
     expect(loadRescueProgress(storage, ['rescue-1', 'rescue-2'])).toEqual(saved.ok ? saved.progress : undefined)
   })
 
+  it('unlocks the new next stage for a child who cleared the previous final stage', () => {
+    const storage = makeStorage()
+    storage.setItem('manabinote.rescue-maze-progress.v1', JSON.stringify({
+      unlockedStageIds: ['rescue-1', 'rescue-2', 'rescue-3', 'rescue-4', 'rescue-5', 'rescue-6'],
+      bestStampCountByStage: { 'rescue-6': 3 },
+      bestMovesByStage: { 'rescue-6': 20 },
+      collectedTreasureIds: [],
+    }))
+
+    const progress = loadRescueProgress(storage, [
+      'rescue-1', 'rescue-2', 'rescue-3', 'rescue-4', 'rescue-5', 'rescue-6', 'rescue-7',
+    ])
+
+    expect(progress.unlockedStageIds).toContain('rescue-7')
+  })
+
   it('ignores malformed saved progress instead of exposing broken stage state', () => {
     const storage = makeStorage()
     storage.setItem('manabinote.rescue-maze-progress.v1', JSON.stringify({
