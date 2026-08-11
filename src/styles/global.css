@@ -8456,3 +8456,143 @@ button:focus-visible {
   from { transform: scale(0.96); }
   to { transform: scale(1); }
 }
+.animal-crossing-center {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  text-align: center;
+}
+
+.animal-crossing-intro { padding-top: 1.5rem; }
+.animal-crossing-scene { font-size: clamp(2.4rem, 11vw, 3.8rem); padding: 1rem 0; }
+
+.animal-crossing-hud {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem;
+  padding: 0.65rem 0.7rem;
+  border-radius: 1rem;
+  background: #e7f6df;
+  color: #345c39;
+  font-weight: 900;
+}
+
+.animal-crossing-board {
+  position: relative;
+  width: min(100%, 370px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 0.3rem solid #77b168;
+  border-radius: 1.4rem;
+  background: repeating-linear-gradient(45deg, #a8db83 0 1rem, #9dd079 1rem 2rem);
+}
+
+.animal-crossing-road {
+  position: absolute;
+  background: #5f6670;
+}
+
+.animal-crossing-road::after {
+  content: '';
+  position: absolute;
+  border-color: #ffe373;
+  border-style: dashed;
+}
+
+.animal-crossing-road--horizontal { top: 38%; left: 0; width: 100%; height: 24%; }
+.animal-crossing-road--horizontal::after { top: 48%; left: 0; width: 100%; border-width: 0.16rem 0 0; }
+.animal-crossing-road--vertical { top: 0; left: 38%; width: 24%; height: 100%; }
+.animal-crossing-road--vertical::after { top: 0; left: 48%; height: 100%; border-width: 0 0 0 0.16rem; }
+
+.animal-crossing-center-mark {
+  position: absolute;
+  inset: 38%;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  background: #5f6670;
+  color: rgba(255,255,255,0.5);
+  font-size: 4rem;
+}
+
+.animal-crossing-light {
+  position: absolute;
+  z-index: 4;
+  width: 2.1rem;
+  height: 2.1rem;
+  display: grid;
+  place-items: center;
+  border: 0.25rem solid #282d32;
+  border-radius: 50%;
+  background: #282d32;
+  color: #e84e57;
+  font-size: 1.2rem;
+}
+
+.animal-crossing-light--horizontal { top: 31%; left: 64%; }
+.animal-crossing-light--vertical { top: 64%; left: 31%; }
+.animal-crossing-light--green { color: #48e273; box-shadow: 0 0 0.8rem #48e273; }
+
+.animal-crossing-car {
+  position: absolute;
+  z-index: 3;
+  width: 15%;
+  height: 15%;
+  display: grid;
+  place-items: center;
+  border: 0.2rem solid #fff;
+  border-radius: 35% 35% 25% 25%;
+  background: #f0a83a;
+  font-size: clamp(1.4rem, 7vw, 2.4rem);
+  box-shadow: 0 0.2rem 0.25rem rgba(0,0,0,0.25);
+  transition: left 0.25s linear, top 0.25s linear;
+}
+
+.animal-crossing-car--horizontal { top: 42.5%; }
+.animal-crossing-car--vertical { left: 42.5%; background: #69a7e8; transform: rotate(90deg); }
+.animal-crossing-car--vertical span { transform: rotate(-90deg); }
+
+.animal-crossing-feedback {
+  min-height: 1.7rem;
+  margin: 0;
+  color: #3f6b44;
+  font-weight: 900;
+}
+
+.animal-crossing-controls {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.animal-crossing-controls button {
+  min-height: 4.6rem;
+  border: 0.25rem solid #d76065;
+  border-radius: 1.2rem;
+  background: #fce5e3;
+  color: #9a393e;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.animal-crossing-controls button small { display: block; font-size: 0.9rem; }
+.animal-crossing-controls button.is-green { border-color: #46af68; background: #d9f5df; color: #237943; box-shadow: 0 0 0.8rem rgba(61,190,98,0.45); }
+
+.animal-crossing-finish {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 1rem;
+  background: #e7f6df;
+}
+
+.animal-crossing-finish h2,
+.animal-crossing-finish p { margin: 0 0 0.55rem; }
+.animal-crossing-score { font-size: 1.35rem; font-weight: 900; }
+.animal-crossing-quit { border: 0; background: none; color: #607287; text-decoration: underline; }
