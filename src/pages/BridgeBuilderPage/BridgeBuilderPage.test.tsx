@@ -43,16 +43,22 @@ describe('BridgeBuilderPage', () => {
     const user = userEvent.setup()
     const storage = makeStorage()
     const finalStageIndex = BRIDGE_STAGES.length - 1
+    const finalStage = BRIDGE_STAGES[finalStageIndex]
+    const placedLogIds = finalStage.solution.slice(0, -1)
+    const builtLength = placedLogIds.reduce((total, id) => total + (finalStage.logs.find((log) => log.id === id)?.length ?? 0), 0)
+    const lastLogId = finalStage.solution[finalStage.solution.length - 1]
+    const lastLogIndex = finalStage.logs.findIndex((log) => log.id === lastLogId)
+    const lastLog = finalStage.logs[lastLogIndex]
     const initialState: BridgeBuilderState = {
       ...startBridgeBuilder(finalStageIndex),
-      placedLogIds: ['s6-c', 's6-d'],
-      builtLength: 5,
+      placedLogIds,
+      builtLength,
       totalStars: 15,
       score: 4000,
     }
     renderPage({ storage, initialState })
 
-    await user.click(screen.getByRole('button', { name: 'ながさ 3の まるた 5' }))
+    await user.click(screen.getByRole('button', { name: `ながさ ${lastLog.length}の まるた ${lastLogIndex + 1}` }))
 
     expect(screen.getByRole('heading', { level: 2, name: 'はしづくり マスター！' })).toBeInTheDocument()
     await waitFor(() => expect(loadClearProgress(storage).map((record) => record.gameId)).toContain('bridge-builder'))

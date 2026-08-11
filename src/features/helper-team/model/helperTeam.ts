@@ -20,6 +20,12 @@ export const HELPER_TEAM_STAGES: readonly HelperTeamStage[] = [
   { name: 'もりの みっつの ピンチ', obstacles: ['boulder', 'fence', 'river'], solution: ['elephant', 'rabbit', 'beaver'] },
   { name: 'ジャングル たんけん', obstacles: ['canopy', 'cave', 'boulder', 'river'], solution: ['monkey', 'mole', 'elephant', 'beaver'] },
   { name: 'みんなで だいぼうけん', obstacles: ['river', 'canopy', 'fence', 'cave', 'boulder'], solution: ['beaver', 'monkey', 'rabbit', 'mole', 'elephant'] },
+  { name: 'いわやま たんけん', obstacles: ['boulder', 'cave', 'canopy', 'fence', 'river'], solution: ['elephant', 'mole', 'monkey', 'rabbit', 'beaver'] },
+  { name: 'かわべの だいピンチ', obstacles: ['river', 'fence', 'canopy', 'boulder', 'cave'], solution: ['beaver', 'rabbit', 'monkey', 'elephant', 'mole'] },
+  { name: 'もりの まわりみち', obstacles: ['canopy', 'river', 'cave', 'fence', 'boulder'], solution: ['monkey', 'beaver', 'mole', 'rabbit', 'elephant'] },
+  { name: 'どうくつの おくへ', obstacles: ['cave', 'boulder', 'river', 'canopy', 'fence'], solution: ['mole', 'elephant', 'beaver', 'monkey', 'rabbit'] },
+  { name: 'ゆうやけ レスキュー', obstacles: ['fence', 'canopy', 'river', 'boulder', 'cave'], solution: ['rabbit', 'monkey', 'beaver', 'elephant', 'mole'] },
+  { name: 'おたすけ チャンピオン', obstacles: ['boulder', 'river', 'fence', 'cave', 'canopy'], solution: ['elephant', 'beaver', 'rabbit', 'mole', 'monkey'] },
 ]
 
 export type HelperTeamState = {

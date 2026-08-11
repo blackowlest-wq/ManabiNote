@@ -42,6 +42,12 @@ export const BRIDGE_STAGES: readonly BridgeStage[] = [
     logs: [{ id: 's6-a', length: 1, color: 'light' }, { id: 's6-b', length: 1, color: 'medium' }, { id: 's6-c', length: 2, color: 'dark' }, { id: 's6-d', length: 3, color: 'medium' }, { id: 's6-e', length: 3, color: 'dark' }],
     solution: ['s6-c', 's6-d', 's6-e'],
   },
+  { name: 'きりの かわ', span: 9, logs: [{ id: 's7-a', length: 1, color: 'light' }, { id: 's7-b', length: 2, color: 'medium' }, { id: 's7-c', length: 3, color: 'dark' }, { id: 's7-d', length: 3, color: 'medium' }, { id: 's7-e', length: 3, color: 'light' }], solution: ['s7-c', 's7-d', 's7-e'] },
+  { name: 'よっつの まるた', span: 9, logs: [{ id: 's8-a', length: 1, color: 'light' }, { id: 's8-b', length: 2, color: 'medium' }, { id: 's8-c', length: 2, color: 'dark' }, { id: 's8-d', length: 3, color: 'medium' }, { id: 's8-e', length: 3, color: 'dark' }], solution: ['s8-a', 's8-b', 's8-d', 's8-e'] },
+  { name: 'もりの おおかわ', span: 10, logs: [{ id: 's9-a', length: 1, color: 'light' }, { id: 's9-b', length: 2, color: 'medium' }, { id: 's9-c', length: 2, color: 'dark' }, { id: 's9-d', length: 3, color: 'medium' }, { id: 's9-e', length: 3, color: 'dark' }], solution: ['s9-b', 's9-c', 's9-d', 's9-e'] },
+  { name: 'いわばの かわ', span: 11, logs: [{ id: 's10-a', length: 1, color: 'light' }, { id: 's10-b', length: 2, color: 'medium' }, { id: 's10-c', length: 3, color: 'dark' }, { id: 's10-d', length: 3, color: 'medium' }, { id: 's10-e', length: 3, color: 'light' }], solution: ['s10-b', 's10-c', 's10-d', 's10-e'] },
+  { name: 'うみへ つづく かわ', span: 12, logs: [{ id: 's11-a', length: 1, color: 'light' }, { id: 's11-b', length: 2, color: 'medium' }, { id: 's11-c', length: 3, color: 'dark' }, { id: 's11-d', length: 3, color: 'medium' }, { id: 's11-e', length: 3, color: 'dark' }, { id: 's11-f', length: 3, color: 'light' }], solution: ['s11-c', 's11-d', 's11-e', 's11-f'] },
+  { name: 'はしづくり チャンピオン', span: 12, logs: [{ id: 's12-a', length: 1, color: 'light' }, { id: 's12-b', length: 2, color: 'medium' }, { id: 's12-c', length: 2, color: 'dark' }, { id: 's12-d', length: 3, color: 'medium' }, { id: 's12-e', length: 3, color: 'dark' }, { id: 's12-f', length: 3, color: 'light' }], solution: ['s12-a', 's12-b', 's12-d', 's12-e', 's12-f'] },
 ]
 
 export type BridgeBuilderState = {

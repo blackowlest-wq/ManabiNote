@@ -6,6 +6,10 @@ import {
 } from './bridgeBuilder'
 
 describe('bridgeBuilder', () => {
+  it('offers twelve rivers to bridge', () => {
+    expect(BRIDGE_STAGES).toHaveLength(12)
+  })
+
   it('adds a selected log to the river span', () => {
     const state = startBridgeBuilder(0)
 

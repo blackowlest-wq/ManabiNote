@@ -6,6 +6,10 @@ import {
 } from './beeRoute'
 
 describe('beeRoute', () => {
+  it('offers twelve stages', () => {
+    expect(BEE_ROUTE_STAGES).toHaveLength(12)
+  })
+
   it('spends energy based on the grid distance and collects nectar', () => {
     const state = startBeeRoute(0)
 

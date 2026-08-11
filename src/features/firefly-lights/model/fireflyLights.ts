@@ -11,6 +11,12 @@ export const FIREFLY_STAGES: readonly FireflyStage[] = [
   { name: 'よすみの よる', size: 3, solution: [0, 2, 6, 8] },
   { name: 'じゅうじの ひかり', size: 3, solution: [1, 3, 5, 7] },
   { name: 'ほたるの おまつり', size: 3, solution: [0, 2, 4, 6, 8] },
+  { name: 'うえの ほたる', size: 3, solution: [0, 1, 2] },
+  { name: 'したの ほたる', size: 3, solution: [6, 7, 8] },
+  { name: 'ひかりの かいだん', size: 3, solution: [0, 1, 4, 7, 8] },
+  { name: 'ほしがたの よる', size: 3, solution: [2, 3, 4, 5, 6] },
+  { name: 'ジグザグ ぴかり', size: 3, solution: [0, 2, 3, 5, 7] },
+  { name: 'ほたる チャンピオン', size: 3, solution: [0, 1, 2, 3, 4, 5, 6, 7, 8] },
 ]
 
 export type FireflyLightsState = {

@@ -6,6 +6,10 @@ import {
 } from './frogJump'
 
 describe('frogJump', () => {
+  it('offers twelve stages', () => {
+    expect(FROG_JUMP_STAGES).toHaveLength(12)
+  })
+
   it('starts with frogs facing an empty stone between them', () => {
     const state = startFrogJump(0)
 

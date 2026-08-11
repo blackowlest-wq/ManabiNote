@@ -6,6 +6,12 @@ export const BUBBLE_CHAIN_STAGES: readonly BubbleChainStage[] = [
   { name: 'はしから はしへ', size: 3, strengths: [3, 1, 2, 1, 2, 1, 2, 1, 3], solution: [0, 0, 0, 8] },
   { name: 'おおきな バブル', size: 4, strengths: [2, 1, 2, 1, 1, 2, 1, 2, 2, 1, 2, 1, 1, 2, 1, 2], solution: [0, 0] },
   { name: 'バブルの おまつり', size: 4, strengths: [3, 2, 1, 2, 2, 1, 2, 1, 1, 2, 1, 2, 2, 1, 2, 3], solution: [0, 1, 1, 15] },
+  { name: 'まんなかの きらめき', size: 3, strengths: [2, 2, 2, 2, 1, 2, 2, 2, 2], solution: [0, 0, 1, 2, 6] },
+  { name: 'ななめの ひかり', size: 3, strengths: [3, 2, 1, 2, 2, 2, 1, 2, 3], solution: [0, 0, 0, 1, 3, 8] },
+  { name: 'しましま バブル', size: 4, strengths: [2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2], solution: [0, 0, 2] },
+  { name: 'よすみの おおだま', size: 4, strengths: [3, 2, 1, 2, 2, 1, 2, 3, 3, 2, 1, 2, 2, 1, 2, 3], solution: [0, 0, 0, 1, 3, 7, 8, 15] },
+  { name: 'ぐるぐる れんさ', size: 4, strengths: [2, 3, 2, 1, 3, 2, 1, 2, 2, 1, 2, 3, 1, 2, 3, 2], solution: [0, 0, 1, 1, 2, 4, 11, 14] },
+  { name: 'にじいろ フィナーレ', size: 4, strengths: [3, 2, 2, 1, 2, 1, 2, 2, 2, 2, 1, 2, 1, 2, 2, 3], solution: [0, 0, 0, 1, 2, 15] },
 ]
 
 export type BubbleChainState = { status: 'playing' | 'stage-won' | 'finished'; stageIndex: number; strengths: readonly number[]; history: readonly (readonly number[])[]; moveCount: number; stageStars: number; totalStars: number; score: number }

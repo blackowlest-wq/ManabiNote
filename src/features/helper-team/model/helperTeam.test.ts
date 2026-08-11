@@ -6,6 +6,10 @@ import {
 } from './helperTeam'
 
 describe('helperTeam', () => {
+  it('offers twelve rescue routes', () => {
+    expect(HELPER_TEAM_STAGES).toHaveLength(12)
+  })
+
   it('builds an ordered team without using the same helper twice', () => {
     let state = startHelperTeam(0)
     state = applyHelperTeamAction(state, { type: 'add-helper', helper: 'beaver' }).state

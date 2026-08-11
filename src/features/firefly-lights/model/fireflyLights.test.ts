@@ -6,6 +6,10 @@ import {
 } from './fireflyLights'
 
 describe('fireflyLights', () => {
+  it('offers twelve firefly gardens', () => {
+    expect(FIREFLY_STAGES).toHaveLength(12)
+  })
+
   it('toggles the tapped firefly and its orthogonal neighbors', () => {
     const state = startFireflyLights(2)
 

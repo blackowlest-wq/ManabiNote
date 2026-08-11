@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest'
 import { applyBubbleChainAction, BUBBLE_CHAIN_STAGES, startBubbleChain } from './bubbleChain'
 
 describe('bubbleChain', () => {
+  it('offers twelve stages', () => {
+    expect(BUBBLE_CHAIN_STAGES).toHaveLength(12)
+  })
+
   it('spreads a burst to orthogonal bubbles and continues the chain', () => {
     const burst = applyBubbleChainAction(startBubbleChain(0), { type: 'tap-bubble', index: 0 })
     expect(burst.state.strengths).toEqual([0, 0, 0, 0])
