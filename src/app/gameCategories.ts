@@ -81,6 +81,7 @@ export const GAME_CATEGORIES = {
     games: [
       { id: 'rescue-maze', to: '/rescue-maze', label: 'どうぶつレスキュー', description: 'めいろを すすんで どうぶつを たすける' },
       { id: 'cooking', to: '/cooking', label: 'わくわくキッチン', description: 'ちゅうもんを みて りょうりを つくる' },
+      { id: 'monster-merge', to: '/monster-merge', label: 'モンスター合体', description: 'おなじ モンスターを くっつけて しんか' },
     ],
   },
 } satisfies Record<string, GameCategory>
