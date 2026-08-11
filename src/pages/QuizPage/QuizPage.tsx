@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { KanaQuestion } from '../../features/question-types/kana-to-picture/components/KanaQuestion'
 import { AnswerFeedback } from '../../features/quiz/components/AnswerFeedback'
@@ -9,9 +9,13 @@ import { PrimaryButton } from '../../shared/components/PrimaryButton'
 
 export function QuizPage() {
   const navigate = useNavigate()
-  const { session, lastAnswer, answer, nextQuestion, error } = useQuizSession()
+  const { session, lastAnswer, answer, nextQuestion, error, startSession } = useQuizSession()
   const [pendingChoiceId, setPendingChoiceId] = useState<string | null>(null)
   const [showHint, setShowHint] = useState(false)
+
+  useEffect(() => {
+    if (!session && !error) startSession()
+  }, [session, error, startSession])
 
   if (!session) {
     return <PageLayout title="ひらがな れんしゅう"><p>学習を開始してください。</p><Link to="/">ホームへ戻る</Link></PageLayout>

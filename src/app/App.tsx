@@ -1,13 +1,21 @@
 import { HashRouter } from 'react-router-dom'
 import { DakutenSessionProvider } from '../features/dakuten/DakutenSessionProvider'
 import { AudioKanaSessionProvider } from '../features/audio-kana/AudioKanaSessionProvider'
+import { ArithmeticSessionProvider } from '../features/arithmetic/ArithmeticSessionProvider'
 import { KanaGroupSessionProvider } from '../features/kana-group/KanaGroupSessionProvider'
 import { KanaPairSessionProvider } from '../features/kana-pair/KanaPairSessionProvider'
 import { MemorySessionProvider } from '../features/memory/MemorySessionProvider'
+import { KanjiReadingSessionProvider } from '../features/kanji-reading/KanjiReadingSessionProvider'
+import { KanjiChoiceSessionProvider } from '../features/kanji-choice/KanjiChoiceSessionProvider'
+import { NumberCompareSessionProvider } from '../features/number-compare/NumberCompareSessionProvider'
+import { NumberOrderSessionProvider } from '../features/number-order/NumberOrderSessionProvider'
+import { ParticleChoiceSessionProvider } from '../features/particle-choice/ParticleChoiceSessionProvider'
 import { SmallKanaSessionProvider } from '../features/small-kana/SmallKanaSessionProvider'
+import { SentenceOrderSessionProvider } from '../features/sentence-order/SentenceOrderSessionProvider'
 import { ShiritoriSessionProvider } from '../features/shiritori/ShiritoriSessionProvider'
 import { CountingSessionProvider } from '../features/counting/CountingSessionProvider'
 import { ShapeColorSessionProvider } from '../features/shape-color/ShapeColorSessionProvider'
+import { ShapePatternSessionProvider } from '../features/shape-pattern/ShapePatternSessionProvider'
 import { MissingCharacterSessionProvider } from '../features/missing-character/MissingCharacterSessionProvider'
 import { QuizSessionProvider } from '../features/quiz/QuizSessionProvider'
 import { StrokePracticeProvider } from '../features/stroke-order/StrokePracticeProvider'
@@ -26,17 +34,33 @@ export function App() {
                 <DakutenSessionProvider>
                   <KanaGroupSessionProvider>
                     <AudioKanaSessionProvider>
-                      <MemorySessionProvider>
-                        <SmallKanaSessionProvider>
-                          <ShiritoriSessionProvider>
-                            <CountingSessionProvider>
-                              <ShapeColorSessionProvider>
-                                <AppRouter />
-                              </ShapeColorSessionProvider>
-                            </CountingSessionProvider>
-                          </ShiritoriSessionProvider>
-                        </SmallKanaSessionProvider>
-                      </MemorySessionProvider>
+                      <ArithmeticSessionProvider>
+                        <MemorySessionProvider>
+                          <KanjiChoiceSessionProvider>
+                            <KanjiReadingSessionProvider>
+                              <NumberCompareSessionProvider>
+                                <NumberOrderSessionProvider>
+                                  <ParticleChoiceSessionProvider>
+                                    <SmallKanaSessionProvider>
+                                      <SentenceOrderSessionProvider>
+                                        <ShiritoriSessionProvider>
+                                          <CountingSessionProvider>
+                                            <ShapeColorSessionProvider>
+                                              <ShapePatternSessionProvider>
+                                                <AppRouter />
+                                              </ShapePatternSessionProvider>
+                                            </ShapeColorSessionProvider>
+                                          </CountingSessionProvider>
+                                        </ShiritoriSessionProvider>
+                                      </SentenceOrderSessionProvider>
+                                    </SmallKanaSessionProvider>
+                                  </ParticleChoiceSessionProvider>
+                                </NumberOrderSessionProvider>
+                              </NumberCompareSessionProvider>
+                            </KanjiReadingSessionProvider>
+                          </KanjiChoiceSessionProvider>
+                        </MemorySessionProvider>
+                      </ArithmeticSessionProvider>
                     </AudioKanaSessionProvider>
                   </KanaGroupSessionProvider>
                 </DakutenSessionProvider>

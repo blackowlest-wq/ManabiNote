@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { GAME_CATEGORIES } from './gameCategories'
 import { ScrollToTop } from './ScrollToTop'
 import { HistoryPage } from '../pages/HistoryPage/HistoryPage'
 import { AudioKanaPage } from '../pages/AudioKanaPage/AudioKanaPage'
@@ -7,12 +8,15 @@ import { MemoryPage } from '../pages/MemoryPage/MemoryPage'
 import { MemoryResultPage } from '../pages/MemoryResultPage/MemoryResultPage'
 import { SmallKanaPage } from '../pages/SmallKanaPage/SmallKanaPage'
 import { SmallKanaResultPage } from '../pages/SmallKanaResultPage/SmallKanaResultPage'
+import { SentenceOrderPage } from '../pages/SentenceOrderPage/SentenceOrderPage'
+import { SentenceOrderResultPage } from '../pages/SentenceOrderResultPage/SentenceOrderResultPage'
 import { ShiritoriPage } from '../pages/ShiritoriPage/ShiritoriPage'
 import { ShiritoriResultPage } from '../pages/ShiritoriResultPage/ShiritoriResultPage'
 import { CountingPage } from '../pages/CountingPage/CountingPage'
 import { CountingResultPage } from '../pages/CountingResultPage/CountingResultPage'
 import { ShapeColorPage } from '../pages/ShapeColorPage/ShapeColorPage'
 import { ShapeColorResultPage } from '../pages/ShapeColorResultPage/ShapeColorResultPage'
+import { CategoryPage } from '../pages/CategoryPage/CategoryPage'
 import { KanaGroupPage } from '../pages/KanaGroupPage/KanaGroupPage'
 import { KanaGroupResultPage } from '../pages/KanaGroupResultPage/KanaGroupResultPage'
 import { DakutenPage } from '../pages/DakutenPage/DakutenPage'
@@ -21,6 +25,20 @@ import { KanaPairPage } from '../pages/KanaPairPage/KanaPairPage'
 import { KanaPairResultPage } from '../pages/KanaPairResultPage/KanaPairResultPage'
 import { MissingCharacterPage } from '../pages/MissingCharacterPage/MissingCharacterPage'
 import { MissingCharacterResultPage } from '../pages/MissingCharacterResultPage/MissingCharacterResultPage'
+import { NumberComparePage } from '../pages/NumberComparePage/NumberComparePage'
+import { NumberCompareResultPage } from '../pages/NumberCompareResultPage/NumberCompareResultPage'
+import { NumberOrderPage } from '../pages/NumberOrderPage/NumberOrderPage'
+import { NumberOrderResultPage } from '../pages/NumberOrderResultPage/NumberOrderResultPage'
+import { KanjiReadingPage } from '../pages/KanjiReadingPage/KanjiReadingPage'
+import { KanjiReadingResultPage } from '../pages/KanjiReadingResultPage/KanjiReadingResultPage'
+import { ArithmeticPage } from '../pages/ArithmeticPage/ArithmeticPage'
+import { ArithmeticResultPage } from '../pages/ArithmeticResultPage/ArithmeticResultPage'
+import { KanjiChoicePage } from '../pages/KanjiChoicePage/KanjiChoicePage'
+import { KanjiChoiceResultPage } from '../pages/KanjiChoiceResultPage/KanjiChoiceResultPage'
+import { ParticleChoicePage } from '../pages/ParticleChoicePage/ParticleChoicePage'
+import { ParticleChoiceResultPage } from '../pages/ParticleChoiceResultPage/ParticleChoiceResultPage'
+import { ShapePatternPage } from '../pages/ShapePatternPage/ShapePatternPage'
+import { ShapePatternResultPage } from '../pages/ShapePatternResultPage/ShapePatternResultPage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -35,6 +53,11 @@ export function AppRouter() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path={GAME_CATEGORIES.words.to} element={<CategoryPage {...GAME_CATEGORIES.words} />} />
+        <Route path={GAME_CATEGORIES.numbers.to} element={<CategoryPage {...GAME_CATEGORIES.numbers} />} />
+        <Route path={GAME_CATEGORIES.shapes.to} element={<CategoryPage {...GAME_CATEGORIES.shapes} />} />
+        <Route path={GAME_CATEGORIES.kanji.to} element={<CategoryPage {...GAME_CATEGORIES.kanji} />} />
+        <Route path={GAME_CATEGORIES.sentences.to} element={<CategoryPage {...GAME_CATEGORIES.sentences} />} />
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="/result" element={<ResultPage />} />
         <Route path="/history" element={<HistoryPage />} />
@@ -44,6 +67,18 @@ export function AppRouter() {
         <Route path="/word-builder/result" element={<WordBuilderResultPage />} />
         <Route path="/missing-character" element={<MissingCharacterPage />} />
         <Route path="/missing-character/result" element={<MissingCharacterResultPage />} />
+        <Route path="/number-compare" element={<NumberComparePage />} />
+        <Route path="/number-compare/result" element={<NumberCompareResultPage />} />
+        <Route path="/number-order" element={<NumberOrderPage />} />
+        <Route path="/number-order/result" element={<NumberOrderResultPage />} />
+        <Route path="/kanji-reading" element={<KanjiReadingPage />} />
+        <Route path="/kanji-reading/result" element={<KanjiReadingResultPage />} />
+        <Route path="/kanji-choice" element={<KanjiChoicePage />} />
+        <Route path="/kanji-choice/result" element={<KanjiChoiceResultPage />} />
+        <Route path="/addition" element={<ArithmeticPage kind="addition" />} />
+        <Route path="/addition/result" element={<ArithmeticResultPage kind="addition" />} />
+        <Route path="/subtraction" element={<ArithmeticPage kind="subtraction" />} />
+        <Route path="/subtraction/result" element={<ArithmeticResultPage kind="subtraction" />} />
         <Route path="/kana-pair" element={<KanaPairPage />} />
         <Route path="/kana-pair/result" element={<KanaPairResultPage />} />
         <Route path="/dakuten" element={<DakutenPage />} />
@@ -56,12 +91,18 @@ export function AppRouter() {
         <Route path="/memory/result" element={<MemoryResultPage />} />
         <Route path="/small-kana" element={<SmallKanaPage />} />
         <Route path="/small-kana/result" element={<SmallKanaResultPage />} />
+        <Route path="/sentence-order" element={<SentenceOrderPage />} />
+        <Route path="/sentence-order/result" element={<SentenceOrderResultPage />} />
+        <Route path="/particle-choice" element={<ParticleChoicePage />} />
+        <Route path="/particle-choice/result" element={<ParticleChoiceResultPage />} />
         <Route path="/shiritori" element={<ShiritoriPage />} />
         <Route path="/shiritori/result" element={<ShiritoriResultPage />} />
         <Route path="/counting" element={<CountingPage />} />
         <Route path="/counting/result" element={<CountingResultPage />} />
         <Route path="/shape-color" element={<ShapeColorPage />} />
         <Route path="/shape-color/result" element={<ShapeColorResultPage />} />
+        <Route path="/shape-pattern" element={<ShapePatternPage />} />
+        <Route path="/shape-pattern/result" element={<ShapePatternResultPage />} />
       </Routes>
     </>
   )

@@ -27,6 +27,18 @@ function TestQuizProvider({ children }: { children: React.ReactNode }) {
 }
 
 describe('QuizPage', () => {
+  it('starts a new quiz when opened from the words menu', async () => {
+    render(<QuizPage />, {
+      wrapper: ({ children }) => (
+        <MemoryRouter>
+          <QuizSessionProvider>{children}</QuizSessionProvider>
+        </MemoryRouter>
+      ),
+    })
+
+    expect(await screen.findByText(/1 \/ \d+/)).toBeInTheDocument()
+  })
+
   it('shows picture labels when the hint button is pressed', async () => {
     const user = userEvent.setup()
     render(<QuizPage />, {
