@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest'
 import { applyShapeCatcherAction, SHAPE_CATCHER_STAGES, startShapeCatcher } from './shapeCatcher'
 
 describe('shapeCatcher', () => {
+  it('offers twelve shape-catching stages', () => {
+    expect(SHAPE_CATCHER_STAGES).toHaveLength(12)
+  })
+
   it('rotates a catcher by a quarter turn', () => {
     const state = startShapeCatcher(0)
     expect(applyShapeCatcherAction(state, { type: 'rotate', kind: 'bar' }).state.rotations.bar).toBe(1)

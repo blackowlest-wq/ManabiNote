@@ -5,13 +5,22 @@ export type AnimalCrossingStage = {
   spawns: readonly (Route | null)[]
   tickLimit: number
   solution: readonly Route[]
+  intervalMs: number
 }
 
 export const ANIMAL_CROSSING_STAGES: readonly AnimalCrossingStage[] = [
-  { name: 'よこみちを とおそう', spawns: ['horizontal', null, 'horizontal', null, 'horizontal'], tickLimit: 20, solution: Array<Route>(8).fill('horizontal') },
-  { name: 'はじめての きりかえ', spawns: ['horizontal', 'vertical', null, 'horizontal', 'vertical', null, 'horizontal', 'vertical'], tickLimit: 30, solution: [...Array<Route>(7).fill('horizontal'), ...Array<Route>(8).fill('vertical'), ...Array<Route>(4).fill('horizontal')] },
-  { name: 'つぎつぎ こうさてん', spawns: ['horizontal', 'horizontal', null, 'horizontal', 'vertical', 'vertical', null, 'vertical', 'horizontal', 'horizontal'], tickLimit: 38, solution: [...Array<Route>(7).fill('horizontal'), ...Array<Route>(7).fill('vertical'), ...Array<Route>(5).fill('horizontal')] },
-  { name: 'どうぶつタウン', spawns: ['horizontal', 'horizontal', 'horizontal', null, 'vertical', 'vertical', 'vertical', null, 'horizontal', 'horizontal', null, 'vertical', 'vertical'], tickLimit: 46, solution: [...Array<Route>(6).fill('horizontal'), ...Array<Route>(6).fill('vertical'), ...Array<Route>(5).fill('horizontal'), ...Array<Route>(5).fill('vertical')] },
+  { name: 'よこみちを とおそう', spawns: ['horizontal', null, 'horizontal', null, 'horizontal'], tickLimit: 20, solution: Array<Route>(8).fill('horizontal'), intervalMs: 850 },
+  { name: 'はじめての きりかえ', spawns: ['horizontal', 'vertical', null, 'horizontal', 'vertical', null, 'horizontal', 'vertical'], tickLimit: 30, solution: [...Array<Route>(7).fill('horizontal'), ...Array<Route>(8).fill('vertical'), ...Array<Route>(4).fill('horizontal')], intervalMs: 800 },
+  { name: 'つぎつぎ こうさてん', spawns: ['horizontal', 'horizontal', null, 'horizontal', 'vertical', 'vertical', null, 'vertical', 'horizontal', 'horizontal'], tickLimit: 38, solution: [...Array<Route>(7).fill('horizontal'), ...Array<Route>(7).fill('vertical'), ...Array<Route>(5).fill('horizontal')], intervalMs: 750 },
+  { name: 'どうぶつタウン', spawns: ['horizontal', 'horizontal', 'horizontal', null, 'vertical', 'vertical', 'vertical', null, 'horizontal', 'horizontal', null, 'vertical', 'vertical'], tickLimit: 46, solution: [...Array<Route>(6).fill('horizontal'), ...Array<Route>(6).fill('vertical'), ...Array<Route>(5).fill('horizontal'), ...Array<Route>(5).fill('vertical')], intervalMs: 700 },
+  { name: 'たてみち ラッシュ', spawns: ['vertical', 'horizontal', null, 'vertical', 'horizontal', null, 'vertical', 'horizontal'], tickLimit: 30, solution: [...Array<Route>(7).fill('vertical'), ...Array<Route>(8).fill('horizontal'), ...Array<Route>(4).fill('vertical')], intervalMs: 680 },
+  { name: 'もりの おおどおり', spawns: ['vertical', 'vertical', null, 'vertical', 'horizontal', 'horizontal', null, 'horizontal', 'vertical', 'vertical'], tickLimit: 38, solution: [...Array<Route>(7).fill('vertical'), ...Array<Route>(7).fill('horizontal'), ...Array<Route>(5).fill('vertical')], intervalMs: 650 },
+  { name: 'うみべの こうさてん', spawns: ['vertical', 'vertical', 'vertical', null, 'horizontal', 'horizontal', 'horizontal', null, 'vertical', 'vertical', null, 'horizontal', 'horizontal'], tickLimit: 46, solution: [...Array<Route>(6).fill('vertical'), ...Array<Route>(6).fill('horizontal'), ...Array<Route>(5).fill('vertical'), ...Array<Route>(5).fill('horizontal')], intervalMs: 620 },
+  { name: 'ゆうやけ ラッシュ', spawns: ['horizontal', 'vertical', null, 'horizontal', 'vertical', null, 'horizontal', 'vertical'], tickLimit: 30, solution: [...Array<Route>(7).fill('horizontal'), ...Array<Route>(8).fill('vertical'), ...Array<Route>(4).fill('horizontal')], intervalMs: 590 },
+  { name: 'まちなか こうさてん', spawns: ['horizontal', 'horizontal', null, 'horizontal', 'vertical', 'vertical', null, 'vertical', 'horizontal', 'horizontal'], tickLimit: 38, solution: [...Array<Route>(7).fill('horizontal'), ...Array<Route>(7).fill('vertical'), ...Array<Route>(5).fill('horizontal')], intervalMs: 560 },
+  { name: 'ハイスピード タウン', spawns: ['horizontal', 'horizontal', 'horizontal', null, 'vertical', 'vertical', 'vertical', null, 'horizontal', 'horizontal', null, 'vertical', 'vertical'], tickLimit: 46, solution: [...Array<Route>(6).fill('horizontal'), ...Array<Route>(6).fill('vertical'), ...Array<Route>(5).fill('horizontal'), ...Array<Route>(5).fill('vertical')], intervalMs: 530 },
+  { name: 'レインボー こうさてん', spawns: ['vertical', 'vertical', 'vertical', null, 'horizontal', 'horizontal', 'horizontal', null, 'vertical', 'vertical', null, 'horizontal', 'horizontal'], tickLimit: 46, solution: [...Array<Route>(6).fill('vertical'), ...Array<Route>(6).fill('horizontal'), ...Array<Route>(5).fill('vertical'), ...Array<Route>(5).fill('horizontal')], intervalMs: 500 },
+  { name: 'しんごう チャンピオン', spawns: ['horizontal', 'horizontal', 'horizontal', null, 'vertical', 'vertical', 'vertical', null, 'horizontal', 'horizontal', null, 'vertical', 'vertical'], tickLimit: 46, solution: [...Array<Route>(6).fill('horizontal'), ...Array<Route>(6).fill('vertical'), ...Array<Route>(5).fill('horizontal'), ...Array<Route>(5).fill('vertical')], intervalMs: 470 },
 ]
 
 export type AnimalCar = { id: number; route: Route; position: number }

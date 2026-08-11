@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest'
 import { applyPenguinIceAction, PENGUIN_ICE_STAGES, startPenguinIce } from './penguinIce'
 
 describe('penguinIce', () => {
+  it('offers twelve islands to compete on', () => {
+    expect(PENGUIN_ICE_STAGES).toHaveLength(12)
+  })
+
   it('lets the penguin move only to an adjacent unclaimed ice floe', () => {
     const state = startPenguinIce(0)
     expect(applyPenguinIceAction(state, { type: 'move', index: 8 }).state.playerIndex).toBe(8)

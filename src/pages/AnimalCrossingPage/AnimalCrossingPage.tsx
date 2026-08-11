@@ -28,6 +28,7 @@ export function AnimalCrossingPage({ storage, initialState }: { storage?: Storag
 
   useEffect(() => {
     if (!game || game.status !== 'playing') return
+    const stage = ANIMAL_CROSSING_STAGES[game.stageIndex]
     const timer = window.setInterval(() => {
       setGame(current => {
         if (!current || current.status !== 'playing') return current
@@ -37,7 +38,7 @@ export function AnimalCrossingPage({ storage, initialState }: { storage?: Storag
         else if (transition.events.some(event => event.type === 'stage-won')) setFeedback('みんな ぶじに とおれた！')
         return transition.state
       })
-    }, 700)
+    }, stage.intervalMs)
     return () => window.clearInterval(timer)
   }, [game?.stageIndex, game?.status])
 

@@ -18,6 +18,10 @@ function findLanding(start: RocketLandingState) {
 }
 
 describe('rocketLanding', () => {
+  it('offers twelve planets to master', () => {
+    expect(ROCKET_LANDING_STAGES).toHaveLength(12)
+  })
+
   it('accelerates downward as time passes', () => {
     const state = startRocketLanding(0)
     const next = applyRocketLandingAction(state, { type: 'tick' }).state

@@ -10,6 +10,14 @@ export const DANCE_SPOTLIGHT_STAGES: readonly DanceSpotlightStage[] = [
   { name: 'ジグザグ ダンス', pattern: [0, 2, 1, 2], beats: 12, intervalMs: 900 },
   { name: 'スターの リズム', pattern: [2, 0, 2, 1, 0], beats: 15, intervalMs: 800 },
   { name: 'キラキラ フィナーレ', pattern: [0, 2, 1, 0, 1, 2], beats: 18, intervalMs: 700 },
+  { name: 'なみなみ ステップ', pattern: [0, 1, 2, 2, 1, 0], beats: 18, intervalMs: 680 },
+  { name: 'はしから はしへ', pattern: [0, 2, 0, 2, 1], beats: 20, intervalMs: 660 },
+  { name: 'まんなか ターン', pattern: [1, 0, 1, 2, 1, 2], beats: 20, intervalMs: 640 },
+  { name: 'ミラー ダンス', pattern: [0, 1, 2, 1, 2, 1, 0], beats: 21, intervalMs: 620 },
+  { name: 'ほしぞら ライブ', pattern: [2, 1, 0, 2, 0, 1], beats: 24, intervalMs: 600 },
+  { name: 'スピード ステップ', pattern: [0, 2, 1, 0, 2, 1, 2], beats: 24, intervalMs: 580 },
+  { name: 'レインボー ライブ', pattern: [1, 2, 0, 1, 0, 2, 1, 2], beats: 24, intervalMs: 550 },
+  { name: 'ダンス チャンピオン', pattern: [0, 2, 1, 2, 0, 1, 0, 2], beats: 24, intervalMs: 520 },
 ]
 
 export type DanceSpotlightState = {

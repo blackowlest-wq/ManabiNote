@@ -13,6 +13,14 @@ export const CAT_CHASE_STAGES: readonly CatChaseStage[] = [
   { name: 'かべの こみち', size: 4, catStart: 12, mouseStart: 3, walls: [1, 5, 9], turnLimit: 8, solution: [13, 14, 10, 6, 2, 3] },
   { name: 'もりの まわりみち', size: 5, catStart: 20, mouseStart: 4, walls: [6, 7, 8, 16, 17], turnLimit: 12, solution: [15, 10, 5, 10, 11, 12, 13, 14, 9, 4] },
   { name: 'ねずみを おいつめろ', size: 5, catStart: 22, mouseStart: 2, walls: [6, 11, 13, 18], turnLimit: 8, solution: [17, 12, 7, 2, 3, 4] },
+  { name: 'きの すきまを ぬけて', size: 5, catStart: 22, mouseStart: 0, walls: [1, 11, 19], turnLimit: 9, solution: [17, 12, 7, 6, 5, 0] },
+  { name: 'みぎうえへ さきまわり', size: 5, catStart: 20, mouseStart: 4, walls: [8, 9, 13, 15], turnLimit: 10, solution: [21, 16, 11, 6, 1, 2, 3] },
+  { name: 'まんなかの おおきなき', size: 5, catStart: 22, mouseStart: 0, walls: [12, 15, 23], turnLimit: 9, solution: [17, 16, 11, 6, 1, 2] },
+  { name: 'ほそい もりみち', size: 5, catStart: 22, mouseStart: 0, walls: [2, 18, 24], turnLimit: 9, solution: [17, 12, 7, 6, 1, 0] },
+  { name: 'ひだりの こみち', size: 5, catStart: 20, mouseStart: 0, walls: [16, 17, 19, 23, 24], turnLimit: 9, solution: [15, 10, 5, 0, 1, 2] },
+  { name: 'みぎの まわりみち', size: 5, catStart: 24, mouseStart: 2, walls: [0, 10, 15, 18, 20], turnLimit: 9, solution: [19, 14, 9, 8, 3, 2] },
+  { name: 'ながい おいかけっこ', size: 5, catStart: 20, mouseStart: 4, walls: [7, 13, 24], turnLimit: 13, solution: [15, 10, 5, 0, 1, 2, 3, 8, 9, 14] },
+  { name: 'もりの チャンピオン', size: 5, catStart: 22, mouseStart: 2, walls: [1, 5, 7, 20, 21, 23, 24], turnLimit: 9, solution: [17, 12, 13, 8, 3, 4] },
 ]
 
 export type CatChaseState = {

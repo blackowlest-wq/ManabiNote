@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest'
 import { applyDanceSpotlightAction, DANCE_SPOTLIGHT_STAGES, startDanceSpotlight } from './danceSpotlight'
 
 describe('danceSpotlight', () => {
+  it('offers twelve repeating dance stages', () => {
+    expect(DANCE_SPOTLIGHT_STAGES).toHaveLength(12)
+  })
+
   it('moves the dancer between the three floor spots', () => {
     const state = startDanceSpotlight(0)
     expect(applyDanceSpotlightAction(state, { type: 'move', lane: 0 }).state.dancerLane).toBe(0)

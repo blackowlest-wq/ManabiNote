@@ -1,9 +1,28 @@
 export type PenguinIceStage = { name: string; fish: readonly number[]; solution: readonly number[] }
 
+const ICE_FISH_A = [1, 3, 2, 0, 2, 1, 3, 2, 3, 2, 1, 3, 0, 1, 3, 2] as const
+const ICE_FISH_B = [3, 1, 2, 0, 1, 2, 3, 1, 2, 3, 1, 2, 0, 2, 3, 1] as const
+const ICE_FISH_C = [1, 2, 3, 0, 3, 1, 2, 3, 2, 3, 1, 2, 0, 1, 2, 3] as const
+
+const makeIceStage = (name: string, solution: readonly number[], fish?: readonly number[]): PenguinIceStage => ({
+  name,
+  solution,
+  fish: fish ?? Array.from({ length: 16 }, (_, index) => solution.includes(index) ? 3 : index === 3 || index === 12 ? 0 : 1),
+})
+
 export const PENGUIN_ICE_STAGES: readonly PenguinIceStage[] = [
   { name: 'はじめての こおり', fish: [1, 3, 2, 0, 2, 1, 3, 2, 3, 2, 1, 3, 0, 1, 3, 2], solution: [8, 4, 5, 6, 7] },
   { name: 'さかなの みち', fish: [3, 1, 2, 0, 1, 2, 3, 1, 2, 3, 1, 2, 0, 2, 3, 1], solution: [13, 9, 8, 4, 0] },
   { name: 'こおりの だいしょうぶ', fish: [1, 2, 3, 0, 3, 1, 2, 3, 2, 3, 1, 2, 0, 1, 2, 3], solution: [8, 4, 5, 6, 7] },
+  makeIceStage('ひだりの こおりみち', [8, 4, 5, 6, 7], ICE_FISH_A),
+  makeIceStage('ジグザグ こおり', [13, 9, 8, 4, 0], ICE_FISH_B),
+  makeIceStage('したの さかなみち', [8, 4, 5, 6, 7], ICE_FISH_C),
+  makeIceStage('みぎしたの しま', [8, 4, 5, 6, 7], ICE_FISH_A),
+  makeIceStage('ぐるっと こおり', [13, 9, 8, 4, 0], ICE_FISH_B),
+  makeIceStage('さかなの かえりみち', [8, 4, 5, 6, 7], ICE_FISH_C),
+  makeIceStage('こおりの まがりかど', [8, 4, 5, 6, 7], ICE_FISH_A),
+  makeIceStage('ペンギン おおどおり', [13, 9, 8, 4, 0], ICE_FISH_B),
+  makeIceStage('こおりとり チャンピオン', [8, 4, 5, 6, 7], ICE_FISH_C),
 ]
 
 export type PenguinIceState = {

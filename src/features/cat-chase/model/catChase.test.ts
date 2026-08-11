@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest'
 import { applyCatChaseAction, CAT_CHASE_STAGES, startCatChase } from './catChase'
 
 describe('catChase', () => {
+  it('offers twelve forests to chase through', () => {
+    expect(CAT_CHASE_STAGES).toHaveLength(12)
+  })
+
   it('moves the cat only to an adjacent open cell', () => {
     const state = startCatChase(0)
     expect(applyCatChaseAction(state, { type: 'move', index: 8 }).state.catIndex).toBe(8)

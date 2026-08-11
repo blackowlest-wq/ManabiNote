@@ -14,6 +14,14 @@ export const ROCKET_LANDING_STAGES: readonly RocketLandingStage[] = [
   { name: 'あかい ほし', planet: '🔴', maxAltitude: 14, gravity: 1, thrustPower: 2, fuel: 6, safeSpeed: 1, timeLimit: 22 },
   { name: 'あおい ほし', planet: '🌎', maxAltitude: 18, gravity: 2, thrustPower: 3, fuel: 8, safeSpeed: 2, timeLimit: 24 },
   { name: 'クリスタルの ほし', planet: '💎', maxAltitude: 22, gravity: 2, thrustPower: 3, fuel: 9, safeSpeed: 1, timeLimit: 28 },
+  { name: 'わっかの ほし', planet: '🪐', maxAltitude: 18, gravity: 1, thrustPower: 2, fuel: 7, safeSpeed: 1, timeLimit: 26 },
+  { name: 'こおりの ほし', planet: '🧊', maxAltitude: 20, gravity: 2, thrustPower: 3, fuel: 9, safeSpeed: 2, timeLimit: 28 },
+  { name: 'ふたごの つき', planet: '🌗', maxAltitude: 24, gravity: 2, thrustPower: 4, fuel: 8, safeSpeed: 2, timeLimit: 30 },
+  { name: 'おおきな ほし', planet: '🟠', maxAltitude: 26, gravity: 2, thrustPower: 3, fuel: 11, safeSpeed: 1, timeLimit: 34 },
+  { name: 'すいせい きち', planet: '☄️', maxAltitude: 22, gravity: 3, thrustPower: 4, fuel: 11, safeSpeed: 2, timeLimit: 30 },
+  { name: 'にじいろの ほし', planet: '🌈', maxAltitude: 28, gravity: 2, thrustPower: 4, fuel: 10, safeSpeed: 2, timeLimit: 36 },
+  { name: 'くらやみの ほし', planet: '🌑', maxAltitude: 30, gravity: 3, thrustPower: 5, fuel: 11, safeSpeed: 2, timeLimit: 38 },
+  { name: 'たいよう きち', planet: '☀️', maxAltitude: 32, gravity: 3, thrustPower: 5, fuel: 12, safeSpeed: 1, timeLimit: 40 },
 ]
 
 export type RocketLandingState = {

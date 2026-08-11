@@ -6,6 +6,10 @@ function chooseSignal(state: AnimalCrossingState, signal: Route) {
 }
 
 describe('animalCrossing', () => {
+  it('offers twelve intersections to manage', () => {
+    expect(ANIMAL_CROSSING_STAGES).toHaveLength(12)
+  })
+
   it('keeps a car stopped while its signal is red', () => {
     let state = startAnimalCrossing(0)
     state = applyAnimalCrossingAction(state, { type: 'set-signal', signal: 'vertical' }).state
