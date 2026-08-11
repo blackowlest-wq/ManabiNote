@@ -39,8 +39,8 @@ const findBestClear = (stage: StageDefinition) => {
 }
 
 describe('RESCUE_MAZE_STAGES', () => {
-  it('provides ten ordered and valid stages ending with a combined challenge', () => {
-    expect(RESCUE_MAZE_STAGES).toHaveLength(10)
+  it('provides twelve ordered and valid stages ending with combined challenges', () => {
+    expect(RESCUE_MAZE_STAGES).toHaveLength(12)
     expect(RESCUE_MAZE_STAGES.map((stage) => stage.id)).toEqual([
       'rescue-1',
       'rescue-2',
@@ -52,6 +52,8 @@ describe('RESCUE_MAZE_STAGES', () => {
       'rescue-8',
       'rescue-9',
       'rescue-10',
+      'rescue-11',
+      'rescue-12',
     ])
 
     for (const stage of RESCUE_MAZE_STAGES) {

@@ -45,7 +45,8 @@ describe('RobotRoutePage', () => {
   it('records a clear when the final robot mission succeeds', async () => {
     const user = userEvent.setup()
     const storage = makeStorage()
-    const stage = ROBOT_STAGES[5]
+    const finalStageIndex = ROBOT_STAGES.length - 1
+    const stage = ROBOT_STAGES[finalStageIndex]
     const initialState: RobotRouteState = {
       status: 'planning',
       position: stage.startIndex,
@@ -55,7 +56,7 @@ describe('RobotRoutePage', () => {
       attemptCount: 0,
       failureReason: null,
     }
-    renderPage({ storage, initialStageIndex: 5, initialState })
+    renderPage({ storage, initialStageIndex: finalStageIndex, initialState })
 
     await user.click(screen.getByRole('button', { name: 'ロボット しゅっぱつ' }))
 

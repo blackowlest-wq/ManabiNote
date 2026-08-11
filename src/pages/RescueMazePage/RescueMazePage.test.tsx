@@ -25,12 +25,12 @@ const renderPage = (storage = makeStorage()) => render(
 )
 
 describe('RescueMazePage', () => {
-  it('starts with only the first of ten stages unlocked', async () => {
+  it('starts with only the first of twelve stages unlocked', async () => {
     const user = userEvent.setup()
     renderPage()
 
     expect(screen.getByRole('heading', { level: 1, name: 'どうぶつレスキュー' })).toBeInTheDocument()
-    expect(screen.getAllByRole('button', { name: /ステージ/ })).toHaveLength(10)
+    expect(screen.getAllByRole('button', { name: /ステージ/ })).toHaveLength(12)
     expect(screen.getByRole('button', { name: /^ステージ 1 / })).toBeEnabled()
     expect(screen.getByRole('button', { name: /^ステージ 2 / })).toBeDisabled()
 

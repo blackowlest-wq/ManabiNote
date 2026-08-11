@@ -17,8 +17,8 @@ describe('robotRoute', () => {
     expect(calculateRobotStars(stage, launched.state)).toBe(3)
   })
 
-  it('ships six routes that collect every battery before the goal', () => {
-    expect(ROBOT_STAGES).toHaveLength(6)
+  it('ships twelve routes that collect every battery before the goal', () => {
+    expect(ROBOT_STAGES).toHaveLength(12)
     for (const stage of ROBOT_STAGES) {
       let state = startRobotStage(stage)
       for (const command of stage.solution) {

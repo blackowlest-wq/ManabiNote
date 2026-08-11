@@ -195,6 +195,102 @@ export const PACKING_STAGES: readonly PackingStage[] = [
       { pieceId: 'castle-blue', anchorIndex: 20, rotation: 0 },
     ])
   })(),
+  (() => {
+    const pieces = [
+      piece('stripe-red', 'あかい ぼう', '#e96262', '●', SHAPES.domino, 1),
+      piece('stripe-blue', 'あおい ぼう', '#4d9cdb', '▲', SHAPES.domino, 3),
+      piece('stripe-green', 'みどりの ぼう', '#65bf73', '◆', SHAPES.domino, 1),
+    ]
+    return makeStage('three-stripes', 'さんぼんの にもつ', 4, 3, 7, pieces, [
+      { pieceId: 'stripe-red', anchorIndex: 0, rotation: 0 },
+      { pieceId: 'stripe-blue', anchorIndex: 4, rotation: 0 },
+      { pieceId: 'stripe-green', anchorIndex: 8, rotation: 0 },
+    ])
+  })(),
+  (() => {
+    const pieces = [
+      piece('corner-orange', 'オレンジの かど', '#f0a24c', '★', SHAPES.triL, 3),
+      piece('corner-mint', 'ミントの かど', '#52bfa5', '◆', SHAPES.triL, 1),
+      piece('corner-yellow', 'きいろい ぼう', '#e4bd42', '●', SHAPES.triI, 1),
+    ]
+    return makeStage('corners-and-line', 'かどと ながいぼう', 5, 3, 8, pieces, [
+      { pieceId: 'corner-orange', anchorIndex: 0, rotation: 0 },
+      { pieceId: 'corner-mint', anchorIndex: 2, rotation: 0 },
+      { pieceId: 'corner-yellow', anchorIndex: 10, rotation: 0 },
+    ])
+  })(),
+  (() => {
+    const pieces = [
+      piece('garden-square', 'むらさきの しかく', '#9f7aea', '■', SHAPES.square, 1),
+      piece('garden-t', 'みどりの ティー', '#52bfa5', 'T', SHAPES.tetT, 3),
+      piece('garden-line', 'きいろい ぼう', '#e4bd42', '●', SHAPES.triI, 1),
+    ]
+    return makeStage('shape-garden', 'かたちの にわ', 5, 3, 8, pieces, [
+      { pieceId: 'garden-square', anchorIndex: 0, rotation: 0 },
+      { pieceId: 'garden-t', anchorIndex: 2, rotation: 0 },
+      { pieceId: 'garden-line', anchorIndex: 10, rotation: 0 },
+    ])
+  })(),
+  (() => {
+    const pieces = [
+      piece('park-zig', 'オレンジの くねくね', '#ee8a4c', 'Z', SHAPES.zig, 2),
+      piece('park-square', 'むらさきの しかく', '#8a6bd1', '■', SHAPES.square, 1),
+      piece('park-bar', 'あかい ぼう', '#e96262', '●', SHAPES.domino, 3),
+      piece('park-l', 'あおい エル', '#5076bd', 'L', SHAPES.tetL, 3),
+    ]
+    return makeStage('cargo-park', 'にもつの こうえん', 5, 5, 11, pieces, [
+      { pieceId: 'park-zig', anchorIndex: 0, rotation: 0 },
+      { pieceId: 'park-square', anchorIndex: 3, rotation: 0 },
+      { pieceId: 'park-bar', anchorIndex: 10, rotation: 0 },
+      { pieceId: 'park-l', anchorIndex: 12, rotation: 0 },
+    ])
+  })(),
+  (() => {
+    const pieces = [
+      piece('turn-l', 'まわる エル', '#5076bd', 'L', SHAPES.tetL, 3),
+      piece('turn-t', 'まわる ティー', '#52bfa5', 'T', SHAPES.tetT, 3),
+      piece('turn-square', 'しかく', '#8a6bd1', '■', SHAPES.square, 1),
+      piece('turn-zig', 'くねくね', '#ee8a4c', 'Z', SHAPES.zig, 2),
+    ]
+    return makeStage('turn-and-fit', 'まわして ぴったり', 5, 5, 11, pieces, [
+      { pieceId: 'turn-l', anchorIndex: 0, rotation: 1 },
+      { pieceId: 'turn-t', anchorIndex: 3, rotation: 1 },
+      { pieceId: 'turn-square', anchorIndex: 15, rotation: 0 },
+      { pieceId: 'turn-zig', anchorIndex: 17, rotation: 0 },
+    ])
+  })(),
+  (() => {
+    const pieces = [
+      piece('five-square', 'むらさきの しかく', '#8a6bd1', '■', SHAPES.square, 1),
+      piece('five-line', 'きいろい ぼう', '#e4bd42', '●', SHAPES.triI, 0),
+      piece('five-corner', 'ピンクの かど', '#e976a8', '♥', SHAPES.triL, 2),
+      piece('five-t', 'みどりの ティー', '#52bfa5', 'T', SHAPES.tetT, 1),
+      piece('five-bar', 'あかい ぼう', '#e96262', '●', SHAPES.domino, 3),
+    ]
+    return makeStage('five-colors', 'ごしきの にもつ', 5, 5, 13, pieces, [
+      { pieceId: 'five-square', anchorIndex: 0, rotation: 0 },
+      { pieceId: 'five-line', anchorIndex: 2, rotation: 1 },
+      { pieceId: 'five-corner', anchorIndex: 3, rotation: 0 },
+      { pieceId: 'five-t', anchorIndex: 15, rotation: 0 },
+      { pieceId: 'five-bar', anchorIndex: 18, rotation: 0 },
+    ])
+  })(),
+  (() => {
+    const pieces = [
+      piece('king-l', 'おおきな エル', '#5076bd', 'L', SHAPES.tetL, 3),
+      piece('king-t', 'おおきな ティー', '#52bfa5', 'T', SHAPES.tetT, 3),
+      piece('king-zig', 'オレンジの くねくね', '#ee8a4c', 'Z', SHAPES.zig, 2),
+      piece('king-square', 'むらさきの しかく', '#8a6bd1', '■', SHAPES.square, 1),
+      piece('king-line', 'きいろい ぼう', '#e4bd42', '●', SHAPES.triI, 1),
+    ]
+    return makeStage('packing-king', 'にづみ キング', 5, 5, 14, pieces, [
+      { pieceId: 'king-l', anchorIndex: 0, rotation: 0 },
+      { pieceId: 'king-t', anchorIndex: 2, rotation: 0 },
+      { pieceId: 'king-zig', anchorIndex: 12, rotation: 0 },
+      { pieceId: 'king-square', anchorIndex: 15, rotation: 0 },
+      { pieceId: 'king-line', anchorIndex: 22, rotation: 0 },
+    ])
+  })(),
 ]
 
 export function startPackingStage(stage: PackingStage): PackingState {

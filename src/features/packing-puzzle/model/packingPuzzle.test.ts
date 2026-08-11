@@ -18,8 +18,8 @@ describe('packingPuzzle', () => {
     expect(calculatePackingStars(stage, packed.state)).toBe(3)
   })
 
-  it('ships five stages whose pieces can cover every marked cargo cell', () => {
-    expect(PACKING_STAGES).toHaveLength(5)
+  it('ships twelve stages whose pieces can cover every marked cargo cell', () => {
+    expect(PACKING_STAGES).toHaveLength(12)
     for (const stage of PACKING_STAGES) {
       let state = startPackingStage(stage)
       for (const placement of stage.solution) {

@@ -43,10 +43,11 @@ describe('PackingPuzzlePage', () => {
     expect(screen.getByText('⭐⭐⭐')).toBeInTheDocument()
   })
 
-  it('records a clear when the fifth truck is packed', async () => {
+  it('records a clear when the final truck is packed', async () => {
     const user = userEvent.setup()
     const storage = makeStorage()
-    const stage = PACKING_STAGES[4]
+    const finalStageIndex = PACKING_STAGES.length - 1
+    const stage = PACKING_STAGES[finalStageIndex]
     const lastPlacement = stage.solution[stage.solution.length - 1]
     const initialState: PackingState = {
       status: 'playing',
@@ -55,7 +56,7 @@ describe('PackingPuzzlePage', () => {
       placements: stage.solution.slice(0, -1),
       moveCount: 9,
     }
-    renderPage({ storage, initialStageIndex: 4, initialState })
+    renderPage({ storage, initialStageIndex: finalStageIndex, initialState })
 
     await user.click(screen.getByRole('button', { name: `にもつを ばしょ ${lastPlacement.anchorIndex + 1}に おく` }))
 

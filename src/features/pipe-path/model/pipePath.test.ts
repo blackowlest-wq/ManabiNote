@@ -15,8 +15,8 @@ describe('pipePath', () => {
     expect(calculatePipeStars(stage, transition.state)).toBe(3)
   })
 
-  it('ships six unsolved stages with a complete leak-free solution', () => {
-    expect(PIPE_PATH_STAGES).toHaveLength(6)
+  it('ships twelve unsolved stages with a complete leak-free solution', () => {
+    expect(PIPE_PATH_STAGES).toHaveLength(12)
     for (const stage of PIPE_PATH_STAGES) {
       const started = startPipeStage(stage)
       const solved = {

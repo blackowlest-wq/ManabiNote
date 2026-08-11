@@ -41,21 +41,25 @@ describe('PipePathPage', () => {
     expect(screen.getByRole('button', { name: 'つぎの ステージ' })).toBeInTheDocument()
   })
 
-  it('records the game clear when the water castle is completed', async () => {
+  it('records the game clear when the final fountain is completed', async () => {
     const user = userEvent.setup()
     const storage = makeStorage()
-    const stage = PIPE_PATH_STAGES[5]
+    const finalStageIndex = PIPE_PATH_STAGES.length - 1
+    const stage = PIPE_PATH_STAGES[finalStageIndex]
     const rotations = stage.tiles.map((tile) => tile?.solutionRotation ?? 0)
-    rotations[11] = 0
+    const lastPipeIndex = stage.tiles.findIndex((tile) => tile?.kind === 'corner' && !tile.fixed)
+    const lastPipe = stage.tiles[lastPipeIndex]
+    if (!lastPipe) throw new Error('回転できる角パイプがありません')
+    rotations[lastPipeIndex] = (lastPipe.solutionRotation + 3) % 4
     const initialState: PipePathState = {
       stageId: stage.id,
       rotations,
       turnCount: 4,
       status: 'playing',
     }
-    renderPage({ storage, initialStageIndex: 5, initialState })
+    renderPage({ storage, initialStageIndex: finalStageIndex, initialState })
 
-    await user.click(screen.getByRole('button', { name: 'パイプ 12を まわす' }))
+    await user.click(screen.getByRole('button', { name: `パイプ ${lastPipeIndex + 1}を まわす` }))
 
     expect(screen.getByRole('heading', { level: 2, name: 'みずの おしろ かんせい！' })).toBeInTheDocument()
     expect(loadClearProgress(storage).map((record) => record.gameId)).toContain('pipe-path')
