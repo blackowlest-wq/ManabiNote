@@ -102,6 +102,7 @@ export const GAME_CATEGORIES = {
       { id: 'log-slide', to: '/log-slide', label: 'どんぐり だいだっしゅつ', description: 'まるたを ずらして リスの みちを あける' },
       { id: 'ghost-hide', to: '/ghost-hide', label: 'おばけ かくれんぼ', description: 'すがたを おぼえて むれから みつける' },
       { id: 'helper-team', to: '/helper-team', label: 'どうぶつ おたすけ隊', description: 'とくいな なかまを じゅんばんに ならべる' },
+      { id: 'bee-route', to: '/bee-route', label: 'みつばち フラワールート', description: 'はばたきを のこして おはなを めぐる' },
     ],
   },
 } satisfies Record<string, GameCategory>
