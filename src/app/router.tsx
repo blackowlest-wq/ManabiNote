@@ -62,6 +62,7 @@ import { RollingLabyrinthPage } from '../pages/RollingLabyrinthPage/RollingLabyr
 import { FireflyLightsPage } from '../pages/FireflyLightsPage/FireflyLightsPage'
 import { SheepMovePage } from '../pages/SheepMovePage/SheepMovePage'
 import { BalloonFlightPage } from '../pages/BalloonFlightPage/BalloonFlightPage'
+import { FrogJumpPage } from '../pages/FrogJumpPage/FrogJumpPage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -150,6 +151,7 @@ export function AppRouter() {
         <Route path="/firefly-lights" element={<FireflyLightsPage />} />
         <Route path="/sheep-move" element={<SheepMovePage />} />
         <Route path="/balloon-flight" element={<BalloonFlightPage />} />
+        <Route path="/frog-jump" element={<FrogJumpPage />} />
       </Routes>
     </>
   )
