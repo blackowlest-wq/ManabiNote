@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
 import { HomePage } from './HomePage'
@@ -27,5 +27,17 @@ describe('HomePage', () => {
     renderPage()
 
     expect(screen.getByRole('link', { name: 'クリア状況を見る' })).toHaveAttribute('href', '/history')
+  })
+
+  it('shows the app install button when the browser offers installation', () => {
+    renderPage()
+    const event = new Event('beforeinstallprompt', { cancelable: true })
+    Object.defineProperty(event, 'prompt', {
+      value: async () => ({ outcome: 'dismissed', platform: 'web' }),
+    })
+
+    fireEvent(window, event)
+
+    expect(screen.getByRole('button', { name: 'アプリを追加' })).toBeInTheDocument()
   })
 })

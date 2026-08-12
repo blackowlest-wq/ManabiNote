@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { GAME_CATEGORY_LIST } from '../../app/gameCategories'
+import { PwaInstallButton } from '../../features/pwa-install/components/PwaInstallButton'
 import { PageLayout } from '../../shared/components/PageLayout'
 
 export function HomePage() {
@@ -13,6 +14,7 @@ export function HomePage() {
             <small className="category-link__description">{category.description}</small>
           </Link>
         ))}
+        <PwaInstallButton />
       </div>
       <p><Link to="/history">クリア状況を見る</Link></p>
     </PageLayout>
