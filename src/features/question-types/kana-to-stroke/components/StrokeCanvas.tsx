@@ -121,7 +121,7 @@ export function StrokeCanvas({
     >
       <title>{question.kana}の書き順お手本</title>
       <text
-        className="stroke-character-guide"
+        className="stroke-character-guide stroke-character-guide--primary"
         data-testid="stroke-character-guide"
         x="100"
         y="100"
@@ -140,6 +140,7 @@ export function StrokeCanvas({
             data-testid={'stroke-guide-' + index}
             className={[
               'stroke-guide',
+              'stroke-guide--supporting',
               showFailureHint && isActive ? 'stroke-guide--active' : '',
               isCompleted ? 'stroke-guide--completed' : '',
             ].filter(Boolean).join(' ')}

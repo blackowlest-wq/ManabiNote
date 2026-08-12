@@ -82,6 +82,22 @@ describe('StrokeCanvas', () => {
     expect(characterGuide).toHaveAttribute('y', '100')
   })
 
+  it('uses the regular character as the primary guide instead of overlaying every centerline', () => {
+    render(
+      <StrokeCanvas
+        question={question}
+        currentStrokeIndex={0}
+        completedStrokeIndexes={[]}
+        onStrokeResult={vi.fn()}
+      />,
+    )
+
+    expect(screen.getByTestId('stroke-character-guide')).toHaveClass(
+      'stroke-character-guide--primary',
+    )
+    expect(screen.getByTestId('stroke-guide-0')).toHaveClass('stroke-guide--supporting')
+  })
+
   it('renders the fixed viewBox and guide paths', () => {
     render(
       <StrokeCanvas
