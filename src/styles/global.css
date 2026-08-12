@@ -2066,6 +2066,27 @@ button:focus-visible {
   line-height: 1;
 }
 
+.page-layout .kanji-reading-word {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  color: #334155;
+  font-size: clamp(3.5rem, 17vw, 6rem);
+  letter-spacing: 0.04em;
+}
+
+.page-layout .kanji-reading-word--single {
+  font-size: clamp(7rem, 30vw, 12rem);
+}
+
+.kanji-reading-word__target {
+  padding: 0 0.08em;
+  border-radius: 0.18em;
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
 .kanji-reading-question__choices {
   display: grid;
   width: 100%;
@@ -4903,6 +4924,15 @@ button:focus-visible {
   .page-layout .kanji-reading-character {
     min-height: 9rem;
     border-radius: 1rem;
+    font-size: clamp(5.5rem, 28vw, 9rem);
+  }
+
+  .page-layout .kanji-reading-word {
+    padding: 0.5rem;
+    font-size: clamp(3rem, 15vw, 5.5rem);
+  }
+
+  .page-layout .kanji-reading-word--single {
     font-size: clamp(5.5rem, 28vw, 9rem);
   }
 
