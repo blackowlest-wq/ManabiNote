@@ -81,6 +81,8 @@ import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
 import { StrokeOrderPage } from '../pages/StrokeOrderPage/StrokeOrderPage'
 import { StrokeResultPage } from '../pages/StrokeResultPage/StrokeResultPage'
+import { KanjiStrokeOrderPage } from '../pages/KanjiStrokeOrderPage/KanjiStrokeOrderPage'
+import { KanjiStrokeResultPage } from '../pages/KanjiStrokeResultPage/KanjiStrokeResultPage'
 import { WordBuilderPage } from '../pages/WordBuilderPage/WordBuilderPage'
 import { WordBuilderResultPage } from '../pages/WordBuilderResultPage/WordBuilderResultPage'
 
@@ -102,6 +104,8 @@ export function AppRouter() {
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/stroke-order" element={<StrokeOrderPage />} />
         <Route path="/stroke-order/result" element={<StrokeResultPage />} />
+        <Route path="/kanji-stroke-order" element={<KanjiStrokeOrderPage />} />
+        <Route path="/kanji-stroke-order/result" element={<KanjiStrokeResultPage />} />
         <Route path="/word-builder" element={<WordBuilderPage />} />
         <Route path="/word-builder/result" element={<WordBuilderResultPage />} />
         <Route path="/missing-character" element={<MissingCharacterPage />} />

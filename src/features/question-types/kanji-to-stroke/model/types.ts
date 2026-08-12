@@ -1,15 +1,15 @@
-import type { StrokeKana } from './kanaRows'
 import type {
   StrokeDefinition,
   StrokePoint,
   StrokeQuestionGeometry,
 } from '../../../stroke-order/model/strokeTypes'
+import type { FirstGradeKanji } from './kanjiCharacters'
 
 export type { StrokeDefinition, StrokePoint } from '../../../stroke-order/model/strokeTypes'
-export type { StrokeKana } from './kanaRows'
+export type { FirstGradeKanji } from './kanjiCharacters'
 
-export type KanaToStrokeQuestion = StrokeQuestionGeometry & {
-  type: 'kana-to-stroke'
+export type KanjiToStrokeQuestion = StrokeQuestionGeometry & {
+  type: 'kanji-to-stroke'
   id: string
-  kana: StrokeKana
+  kanji: FirstGradeKanji
 }

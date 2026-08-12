@@ -20,6 +20,7 @@ export const GAME_IDS = [
   'shape-pattern',
   'kanji-reading',
   'kanji-choice',
+  'kanji-stroke-order',
   'sentence-order',
   'particle-choice',
   'reading-comprehension',

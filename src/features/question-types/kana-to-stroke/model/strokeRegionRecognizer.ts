@@ -30,10 +30,14 @@ export const DEFAULT_STROKE_REGION_RECOGNITION_OPTIONS: StrokeRegionRecognitionO
 }
 
 const PATH_COMMAND_ARGUMENTS: Readonly<Record<string, number>> = {
+  A: 7,
   C: 6,
   H: 1,
   L: 2,
   M: 2,
+  Q: 4,
+  S: 4,
+  T: 2,
   V: 1,
   Z: 0,
 }
@@ -82,6 +86,19 @@ const cubicPoint = (
       3 * inverse ** 2 * progress * firstControl.y +
       3 * inverse * progress ** 2 * secondControl.y +
       progress ** 3 * end.y,
+  }
+}
+
+const quadraticPoint = (
+  start: StrokePoint,
+  control: StrokePoint,
+  end: StrokePoint,
+  progress: number,
+): StrokePoint => {
+  const inverse = 1 - progress
+  return {
+    x: inverse ** 2 * start.x + 2 * inverse * progress * control.x + progress ** 2 * end.x,
+    y: inverse ** 2 * start.y + 2 * inverse * progress * control.y + progress ** 2 * end.y,
   }
 }
 
@@ -172,6 +189,40 @@ const parseOutlinePath = (path: string): readonly StrokePolygon[] => {
         appendPoint(polygon, cubicPoint(start, firstControl, secondControl, end, step / 12))
       }
       current = end
+      continue
+    }
+
+    if (commandType === 'Q') {
+      const start = current
+      const control = point(values[0], values[1])
+      const end = point(values[2], values[3])
+      for (let step = 1; step <= 12; step += 1) {
+        appendPoint(polygon, quadraticPoint(start, control, end, step / 12))
+      }
+      current = end
+      continue
+    }
+
+    if (commandType === 'S') {
+      const start = current
+      const control = point(values[0], values[1])
+      const end = point(values[2], values[3])
+      for (let step = 1; step <= 12; step += 1) {
+        appendPoint(polygon, cubicPoint(start, start, control, end, step / 12))
+      }
+      current = end
+      continue
+    }
+
+    if (commandType === 'T') {
+      current = point(values[0], values[1])
+      appendPoint(polygon, current)
+      continue
+    }
+
+    if (commandType === 'A') {
+      current = point(values[5], values[6])
+      appendPoint(polygon, current)
       continue
     }
 

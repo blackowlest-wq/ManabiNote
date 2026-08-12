@@ -21,6 +21,7 @@ import { ShapePatternSessionProvider } from '../features/shape-pattern/ShapePatt
 import { MissingCharacterSessionProvider } from '../features/missing-character/MissingCharacterSessionProvider'
 import { QuizSessionProvider } from '../features/quiz/QuizSessionProvider'
 import { StrokePracticeProvider } from '../features/stroke-order/StrokePracticeProvider'
+import { KanjiStrokePracticeProvider } from '../features/stroke-order/KanjiStrokePracticeProvider'
 import { WordBuilderSessionProvider } from '../features/word-builder/WordBuilderSessionProvider'
 import '../styles/global.css'
 import { AppRouter } from './router'
@@ -30,7 +31,8 @@ export function App() {
     <HashRouter>
       <QuizSessionProvider>
         <StrokePracticeProvider>
-          <WordBuilderSessionProvider>
+          <KanjiStrokePracticeProvider>
+            <WordBuilderSessionProvider>
             <MissingCharacterSessionProvider>
               <KanaPairSessionProvider>
                 <DakutenSessionProvider>
@@ -72,7 +74,8 @@ export function App() {
                 </DakutenSessionProvider>
               </KanaPairSessionProvider>
             </MissingCharacterSessionProvider>
-          </WordBuilderSessionProvider>
+            </WordBuilderSessionProvider>
+          </KanjiStrokePracticeProvider>
         </StrokePracticeProvider>
       </QuizSessionProvider>
     </HashRouter>

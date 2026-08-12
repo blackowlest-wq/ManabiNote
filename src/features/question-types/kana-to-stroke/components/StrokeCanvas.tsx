@@ -4,10 +4,15 @@ import {
   createStrokeRegion,
   recognizeStrokeRegion,
 } from '../model/strokeRegionRecognizer'
-import type { KanaToStrokeQuestion, StrokePoint } from '../model/types'
+import type { StrokePoint, StrokeQuestionGeometry } from '../../../stroke-order/model/strokeTypes'
+
+type StrokeCanvasQuestion = StrokeQuestionGeometry & {
+  kana?: string
+  kanji?: string
+}
 
 export type StrokeCanvasProps = {
-  question: KanaToStrokeQuestion
+  question: StrokeCanvasQuestion
   currentStrokeIndex: number
   completedStrokeIndexes: readonly number[]
   showFailureHint?: boolean
@@ -56,6 +61,7 @@ export function StrokeCanvas({
     ),
     [activeStroke, currentStrokeIndex, question.glyphPaths],
   )
+  const character = question.kana ?? question.kanji ?? ''
 
   useEffect(() => {
     const svg = svgRef.current
@@ -120,14 +126,14 @@ export function StrokeCanvas({
       data-testid="stroke-canvas"
       viewBox={question.viewBox}
       role="img"
-      aria-label={question.kana + 'の書き順お手本'}
+      aria-label={character + 'の書き順お手本'}
       aria-disabled={disabled}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerCancel}
     >
-      <title>{question.kana}の書き順お手本</title>
+      <title>{character}の書き順お手本</title>
       <g
         className="stroke-character-guide stroke-character-guide--primary"
         data-testid="stroke-character-guide"

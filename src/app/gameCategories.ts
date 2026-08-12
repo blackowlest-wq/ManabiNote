@@ -62,6 +62,7 @@ export const GAME_CATEGORIES = {
     games: [
       { id: 'kanji-reading', to: '/kanji-reading', label: 'かんじの よみかた', description: 'かんじに あう よみかたを えらぶ' },
       { id: 'kanji-choice', to: '/kanji-choice', label: 'よみから かんじ', description: 'よみかたに あう かんじを えらぶ' },
+      { id: 'kanji-stroke-order', to: '/kanji-stroke-order', label: 'かんじの 書き順', description: 'かんじを なぞって じゅんばんを おぼえる' },
     ],
   },
   sentences: {

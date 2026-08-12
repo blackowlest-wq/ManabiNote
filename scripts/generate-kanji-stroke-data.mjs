@@ -1,0 +1,170 @@
+import { writeFile } from 'node:fs/promises'
+
+const sourceBaseUrl = 'https://raw.githubusercontent.com/parsimonhi/animCJK/master/svgsJa'
+const outputPath = new URL('../src/features/question-types/kanji-to-stroke/data/strokes.json', import.meta.url)
+const kanji = [...'一右雨円王音下火花貝学気九休玉金空月犬見五口校左三山子四糸字耳七車手十出女小上森人水正生青夕石赤千川先早草足村大男竹中虫町天田土二日入年白八百文木本名目立力林六']
+  .map((character) => [character, character.codePointAt(0)])
+
+const parseAttributes = (rawAttributes) => {
+  const attributes = {}
+  for (const match of rawAttributes.matchAll(/([\w-]+)="([^"]*)"/g)) {
+    attributes[match[1]] = match[2]
+  }
+  return attributes
+}
+
+const pathArgumentCounts = { M: 2, L: 2, H: 1, V: 1, C: 6, S: 4, Q: 4, T: 2, A: 7, Z: 0 }
+
+const scaleGlyphValue = (value) => Number((value * 200 / 1024).toFixed(1))
+
+const scaleGlyphPath = (path) => {
+  const tokens = [...path.matchAll(/[A-Za-z]|-?\d+(?:\.\d+)?/g)].map((match) => match[0])
+  const scaledTokens = []
+  let command = ''
+  let index = 0
+
+  while (index < tokens.length) {
+    if (/^[A-Za-z]$/.test(tokens[index])) {
+      command = tokens[index]
+      scaledTokens.push(command)
+      index += 1
+      if (command.toUpperCase() === 'Z') continue
+    }
+
+    const commandType = command.toUpperCase()
+    const argumentCount = pathArgumentCounts[commandType]
+    if (!argumentCount || index + argumentCount > tokens.length) {
+      throw new Error(`Unsupported glyph path: ${path}`)
+    }
+
+    const values = tokens.slice(index, index + argumentCount).map(Number)
+    const scaledValues = values.map((value, argumentIndex) => {
+      if (commandType === 'A' && ![0, 1, 5, 6].includes(argumentIndex)) return value
+      return scaleGlyphValue(value)
+    })
+    scaledTokens.push(scaledValues.join(' '))
+    index += argumentCount
+
+    if (commandType === 'M') command = command === 'm' ? 'l' : 'L'
+  }
+
+  return scaledTokens.join(' ')
+}
+
+const parseGlyphPaths = (svg) => {
+  const pathsByOrder = new Map()
+  for (const match of svg.matchAll(/<path\b([^>]*)>/g)) {
+    const attributes = parseAttributes(match[1])
+    const orderMatch = attributes.id?.match(/d(\d+)[a-z]*$/)
+    if (!orderMatch || !attributes.d) continue
+
+    const order = Number(orderMatch[1])
+    const paths = pathsByOrder.get(order) ?? []
+    paths.push(scaleGlyphPath(attributes.d))
+    pathsByOrder.set(order, paths)
+  }
+
+  return [...pathsByOrder.entries()]
+    .sort(([left], [right]) => left - right)
+    .map(([, paths]) => paths.join(' '))
+}
+
+const parseMedianPaths = (svg) => {
+  const pathsByOrder = new Map()
+  for (const match of svg.matchAll(/<path\b([^>]*)>/g)) {
+    const attributes = parseAttributes(match[1])
+    const orderMatch = attributes.style?.match(/--d:(\d+)s/)
+    if (!orderMatch || !attributes.d) continue
+
+    const order = Number(orderMatch[1])
+    if (!pathsByOrder.has(order)) pathsByOrder.set(order, attributes.d)
+  }
+
+  return [...pathsByOrder.entries()].sort(([left], [right]) => left - right)
+}
+
+const parsePoints = (path) => {
+  const tokens = [...path.matchAll(/[A-Za-z]|-?\d+(?:\.\d+)?/g)].map((match) => match[0])
+  const commandArguments = { M: 2, L: 2, H: 1, V: 1, C: 6, S: 4, Q: 4, T: 2, A: 7 }
+  const points = []
+  let command = ''
+  let current = { x: 0, y: 0 }
+  let index = 0
+
+  while (index < tokens.length) {
+    if (/^[A-Za-z]$/.test(tokens[index])) {
+      command = tokens[index]
+      index += 1
+      if (command.toUpperCase() === 'Z') continue
+    }
+
+    const absolute = command === command.toUpperCase()
+    const commandType = command.toUpperCase()
+    const argumentCount = commandArguments[commandType]
+    if (!argumentCount || index + argumentCount > tokens.length) {
+      throw new Error(`Unsupported median path: ${path}`)
+    }
+
+    const values = tokens.slice(index, index + argumentCount).map(Number)
+    index += argumentCount
+    const makePoint = (x, y) => ({
+      x: absolute ? x : current.x + x,
+      y: absolute ? y : current.y + y,
+    })
+
+    if (commandType === 'M' || commandType === 'L' || commandType === 'T') {
+      current = makePoint(values[0], values[1])
+      points.push(current)
+      if (commandType === 'M') command = absolute ? 'L' : 'l'
+    } else if (commandType === 'H') {
+      current = { x: absolute ? values[0] : current.x + values[0], y: current.y }
+      points.push(current)
+    } else if (commandType === 'V') {
+      current = { x: current.x, y: absolute ? values[0] : current.y + values[0] }
+      points.push(current)
+    } else {
+      current = makePoint(values[values.length - 2], values[values.length - 1])
+      points.push(current)
+    }
+  }
+
+  if (points.length < 2) throw new Error(`Median path has too few points: ${path}`)
+  return points
+}
+
+const scalePoint = ({ x, y }) => ({
+  x: Number((x * 200 / 1024).toFixed(1)),
+  y: Number((y * 200 / 1024).toFixed(1)),
+})
+
+const convertQuestion = async ([character, codePoint]) => {
+  const response = await fetch(`${sourceBaseUrl}/${codePoint}.svg`)
+  if (!response.ok) throw new Error(`Failed to fetch ${character} (${codePoint}): ${response.status}`)
+
+  const svg = await response.text()
+  const glyphPaths = parseGlyphPaths(svg)
+  const strokes = parseMedianPaths(svg).map(([order, medianPath]) => {
+    const checkpoints = parsePoints(medianPath).map(scalePoint)
+    const guidePath = checkpoints
+      .map(({ x, y }, index) => `${index === 0 ? 'M' : 'L'} ${x} ${y}`)
+      .join(' ')
+    return { order, guidePath, checkpoints }
+  })
+
+  if (strokes.length === 0 || glyphPaths.length !== strokes.length) {
+    throw new Error(`No complete stroke data found for ${character} (${codePoint})`)
+  }
+
+  return {
+    type: 'kanji-to-stroke',
+    id: `kanji-${character}`,
+    kanji: character,
+    viewBox: '0 0 200 200',
+    glyphPaths,
+    strokes,
+  }
+}
+
+const questions = await Promise.all(kanji.map(convertQuestion))
+await writeFile(outputPath, `${JSON.stringify(questions, null, 2)}\n`, 'utf8')
+console.log(`Generated ${questions.length} kanji questions at ${outputPath.pathname}`)
