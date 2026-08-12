@@ -9,10 +9,10 @@ import {
 const alwaysFirst = () => 0
 
 describe('flagVoyage', () => {
-  it('starts a twelve-stop voyage from a pool of countries around the world', () => {
+  it('starts a twelve-stop voyage from a pool of forty countries around the world', () => {
     const state = startFlagVoyage(alwaysFirst)
 
-    expect(FLAG_VOYAGE_COUNTRIES).toHaveLength(24)
+    expect(FLAG_VOYAGE_COUNTRIES).toHaveLength(40)
     expect(state.journeyCountryIds).toHaveLength(FLAG_VOYAGE_ROUND_COUNT)
     expect(new Set(state.journeyCountryIds).size).toBe(FLAG_VOYAGE_ROUND_COUNT)
     expect(state.question.choiceCountryIds).toHaveLength(4)
