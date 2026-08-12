@@ -126,7 +126,7 @@ describe('StrokeCanvas', () => {
     expect(screen.queryByTestId('stroke-character-guide-text')).not.toBeInTheDocument()
   })
 
-  it('renders the fixed viewBox and highlights the active outline', () => {
+  it('keeps the active outline neutral before a failed trace', () => {
     render(
       <StrokeCanvas
         question={question}
@@ -138,8 +138,8 @@ describe('StrokeCanvas', () => {
 
     expect(screen.getByTestId('stroke-canvas')).toHaveAttribute('viewBox', '0 0 200 200')
     expect(screen.getByTestId('stroke-character-guide-0')).toHaveAttribute('d', question.glyphPaths[0])
-    expect(screen.getByTestId('stroke-character-guide-1')).toHaveClass(
-      'stroke-character-guide__path--active',
+    expect(screen.getByTestId('stroke-character-guide-1')).not.toHaveClass(
+      'stroke-character-guide__path--failure-hint',
     )
     expect(screen.getByTestId('stroke-character-guide-0')).toHaveClass(
       'stroke-character-guide__path--completed',
@@ -175,7 +175,7 @@ describe('StrokeCanvas', () => {
     )
 
     expect(screen.getByTestId('stroke-character-guide-0')).toHaveClass(
-      'stroke-character-guide__path--active',
+      'stroke-character-guide__path--failure-hint',
     )
     expect(screen.getByTestId('stroke-hint-start')).not.toHaveClass('stroke-hint--hidden')
     expect(screen.getByTestId('stroke-hint-arrow')).not.toHaveClass('stroke-hint--hidden')

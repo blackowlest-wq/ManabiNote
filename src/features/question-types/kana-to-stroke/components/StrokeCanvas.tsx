@@ -141,7 +141,9 @@ export function StrokeCanvas({
             key={index}
             className={[
               'stroke-character-guide__path',
-              isActive ? 'stroke-character-guide__path--active' : '',
+              showFailureHint && isActive
+                ? 'stroke-character-guide__path--failure-hint'
+                : '',
               isCompleted ? 'stroke-character-guide__path--completed' : '',
             ].filter(Boolean).join(' ')}
             data-testid={'stroke-character-guide-' + index}
