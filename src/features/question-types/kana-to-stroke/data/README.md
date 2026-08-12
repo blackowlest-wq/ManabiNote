@@ -1,6 +1,6 @@
 # 書き順ガイドデータ
 
-`strokes.json` のガイド線とチェックポイントは、[AnimCJK](https://github.com/parsimonhi/animCJK) の日本語かなSVGに含まれるメディアン線を、練習画面の `0 0 200 200` 座標へ変換したものです。
+`strokes.json` の字形輪郭、ガイド線、チェックポイントは、[AnimCJK](https://github.com/parsimonhi/animCJK) の日本語かなSVGから、練習画面の `0 0 200 200` 座標へ変換したものです。字形輪郭とガイド線を同じSVGから生成することで、表示される文字と判定位置がずれないようにしています。
 
 対象ファイルは、基本ひらがな46文字です。Unicodeコードポイントは次のとおりです。
 

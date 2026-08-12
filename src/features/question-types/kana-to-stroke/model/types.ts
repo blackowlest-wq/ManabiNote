@@ -18,5 +18,6 @@ export type KanaToStrokeQuestion = {
   id: string
   kana: StrokeKana
   viewBox: '0 0 200 200'
+  glyphPaths: readonly string[]
   strokes: readonly StrokeDefinition[]
 }

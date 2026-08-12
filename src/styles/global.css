@@ -4361,38 +4361,25 @@ button:focus-visible {
   justify-content: center;
 }
 
-.stroke-guide {
-  fill: none;
-  stroke: #64748b;
-  stroke-width: 4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: 0;
-  pointer-events: none;
-}
-
 .stroke-character-guide {
-  fill: #64748b;
-  font-family: inherit;
-  font-size: 168px;
-  font-weight: 700;
-  opacity: 0.52;
   pointer-events: none;
   user-select: none;
 }
 
-.stroke-guide--supporting {
-  opacity: 0;
+.stroke-character-guide__path {
+  fill: #94a3b8;
+  opacity: 0.38;
+  stroke: none;
 }
 
-.stroke-guide--active {
-  stroke: #f59e0b;
-  stroke-width: 7;
-  opacity: 0.72;
+.stroke-character-guide__path--active {
+  fill: #f59e0b;
+  opacity: 0.5;
 }
 
-.stroke-guide--completed {
-  opacity: 0;
+.stroke-character-guide__path--completed {
+  fill: #38bdf8;
+  opacity: 0.48;
 }
 
 .stroke-hint--hidden {

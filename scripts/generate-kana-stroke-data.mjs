@@ -24,6 +24,70 @@ const parseAttributes = (rawAttributes) => {
   return attributes
 }
 
+const pathArgumentCounts = { M: 2, L: 2, H: 1, V: 1, C: 6, S: 4, Q: 4, T: 2, A: 7, Z: 0 }
+
+const scaleGlyphValue = (value) => Number((value * 200 / 1024).toFixed(1))
+
+const scaleGlyphPath = (path) => {
+  const tokens = [...path.matchAll(/[A-Za-z]|-?\d+(?:\.\d+)?/g)].map((match) => match[0])
+  const scaledTokens = []
+  let command = ''
+  let index = 0
+
+  while (index < tokens.length) {
+    if (/^[A-Za-z]$/.test(tokens[index])) {
+      command = tokens[index]
+      scaledTokens.push(command)
+      index += 1
+      if (command.toUpperCase() === 'Z') {
+        continue
+      }
+    }
+
+    const commandType = command.toUpperCase()
+    const argumentCount = pathArgumentCounts[commandType]
+    if (!argumentCount || index + argumentCount > tokens.length) {
+      throw new Error(`Unsupported glyph path: ${path}`)
+    }
+
+    const values = tokens.slice(index, index + argumentCount).map(Number)
+    const scaledValues = values.map((value, argumentIndex) => {
+      if (commandType === 'A' && ![0, 1, 5, 6].includes(argumentIndex)) {
+        return value
+      }
+      return scaleGlyphValue(value)
+    })
+    scaledTokens.push(scaledValues.join(' '))
+    index += argumentCount
+
+    if (commandType === 'M') {
+      command = command === 'm' ? 'l' : 'L'
+    }
+  }
+
+  return scaledTokens.join(' ')
+}
+
+const parseGlyphPaths = (svg) => {
+  const pathsByOrder = new Map()
+  for (const match of svg.matchAll(/<path\b([^>]*)>/g)) {
+    const attributes = parseAttributes(match[1])
+    const orderMatch = attributes.id?.match(/d(\d+)[a-z]*$/)
+    if (!orderMatch || !attributes.d) {
+      continue
+    }
+
+    const order = Number(orderMatch[1])
+    const paths = pathsByOrder.get(order) ?? []
+    paths.push(scaleGlyphPath(attributes.d))
+    pathsByOrder.set(order, paths)
+  }
+
+  return [...pathsByOrder.entries()]
+    .sort(([left], [right]) => left - right)
+    .map(([order, paths]) => [order, paths.join(' ')])
+}
+
 const parseMedianPaths = (svg) => {
   const pathsByOrder = new Map()
   for (const match of svg.matchAll(/<path\b([^>]*)>/g)) {
@@ -107,13 +171,14 @@ const convertQuestion = async ([character, codePoint]) => {
   }
 
   const svg = await response.text()
+  const glyphPaths = parseGlyphPaths(svg).map(([, path]) => path)
   const strokes = parseMedianPaths(svg).map(([order, medianPath]) => {
     const checkpoints = parsePoints(medianPath).map(scalePoint)
     const guidePath = checkpoints.map(({ x, y }, index) => `${index === 0 ? 'M' : 'L'} ${x} ${y}`).join(' ')
     return { order, guidePath, checkpoints }
   })
 
-  if (strokes.length === 0) {
+  if (strokes.length === 0 || glyphPaths.length !== strokes.length) {
     throw new Error(`No median paths found for ${character} (${codePoint})`)
   }
 
@@ -122,6 +187,7 @@ const convertQuestion = async ([character, codePoint]) => {
     id: `hiragana-${character}`,
     kana: character,
     viewBox: '0 0 200 200',
+    glyphPaths,
     strokes,
   }
 }

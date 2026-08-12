@@ -60,6 +60,18 @@ const validateStroke = (raw: unknown, expectedOrder: number): StrokeDefinition =
   }
 }
 
+const validateGlyphPaths = (raw: unknown, expectedCount: number): readonly string[] => {
+  if (
+    !Array.isArray(raw) ||
+    raw.length !== expectedCount ||
+    raw.some((path) => !isNonEmptyString(path))
+  ) {
+    return invalidData()
+  }
+
+  return raw
+}
+
 const validateQuestion = (raw: unknown, expectedKana: StrokeKana): KanaToStrokeQuestion => {
   if (
     !isRecord(raw) ||
@@ -68,7 +80,9 @@ const validateQuestion = (raw: unknown, expectedKana: StrokeKana): KanaToStrokeQ
     raw.kana !== expectedKana ||
     raw.viewBox !== '0 0 200 200' ||
     !Array.isArray(raw.strokes) ||
-    raw.strokes.length < 1
+    raw.strokes.length < 1 ||
+    !Array.isArray(raw.glyphPaths) ||
+    raw.glyphPaths.length !== raw.strokes.length
   ) {
     return invalidData()
   }
@@ -78,6 +92,7 @@ const validateQuestion = (raw: unknown, expectedKana: StrokeKana): KanaToStrokeQ
     id: raw.id,
     kana: expectedKana,
     viewBox: '0 0 200 200',
+    glyphPaths: validateGlyphPaths(raw.glyphPaths, raw.strokes.length),
     strokes: raw.strokes.map((stroke, index) => validateStroke(stroke, index + 1)),
   }
 }

@@ -16,6 +16,7 @@ const makeQuestion = (kana: string, id = 'hiragana-' + kana) => ({
   id,
   kana,
   viewBox: '0 0 200 200',
+  glyphPaths: ['M 20 20 L 60 20 Z'],
   strokes: [makeStroke()],
 })
 
@@ -72,6 +73,13 @@ describe('validateStrokeQuestions', () => {
   it('rejects an empty guide path', () => {
     const questions = makeQuestions()
     questions[0].strokes[0].guidePath = ' '
+
+    expect(() => validateStrokeQuestions(questions)).toThrow(StrokeDataError)
+  })
+
+  it('rejects a question without one glyph path per stroke', () => {
+    const questions = makeQuestions()
+    questions[0].glyphPaths = []
 
     expect(() => validateStrokeQuestions(questions)).toThrow(StrokeDataError)
   })

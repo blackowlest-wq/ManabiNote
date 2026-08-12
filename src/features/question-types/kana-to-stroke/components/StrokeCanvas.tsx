@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import type { StrokeRecognitionResult } from '../model/strokeRecognizer'
 import {
-  recognizeStroke,
-  type StrokeRecognitionResult,
-} from '../model/strokeRecognizer'
+  createStrokeRegion,
+  recognizeStrokeRegion,
+} from '../model/strokeRegionRecognizer'
 import type { KanaToStrokeQuestion, StrokePoint } from '../model/types'
 
 export type StrokeCanvasProps = {
@@ -48,6 +49,13 @@ export function StrokeCanvas({
   const inputPointsRef = useRef<StrokePoint[]>([])
   const [inputPoints, setInputPoints] = useState<StrokePoint[]>([])
   const activeStroke = question.strokes[currentStrokeIndex] ?? question.strokes[0]
+  const activeRegion = useMemo(
+    () => createStrokeRegion(
+      activeStroke,
+      question.glyphPaths[currentStrokeIndex] ?? question.glyphPaths[0],
+    ),
+    [activeStroke, currentStrokeIndex, question.glyphPaths],
+  )
 
   useEffect(() => {
     const svg = svgRef.current
@@ -92,7 +100,7 @@ export function StrokeCanvas({
   const handlePointerUp = (event: React.PointerEvent<SVGSVGElement>) => {
     if (disabled || inputPointsRef.current.length === 0) return
     const finalPoints = [...inputPointsRef.current, toPoint(event.clientX, event.clientY)]
-    const result = recognizeStroke(finalPoints, activeStroke)
+    const result = recognizeStrokeRegion(finalPoints, activeRegion)
     inputPointsRef.current = []
     setInputPoints([])
     onStrokeResult(result)
@@ -120,35 +128,29 @@ export function StrokeCanvas({
       onPointerCancel={handlePointerCancel}
     >
       <title>{question.kana}の書き順お手本</title>
-      <text
+      <g
         className="stroke-character-guide stroke-character-guide--primary"
         data-testid="stroke-character-guide"
-        x="100"
-        y="100"
-        textAnchor="middle"
-        dominantBaseline="central"
         aria-hidden="true"
       >
-        {question.kana}
-      </text>
-      {question.strokes.map((stroke, index) => {
-        const isCompleted = completedStrokeIndexes.includes(index)
-        const isActive = index === currentStrokeIndex
-        return (
+        {question.glyphPaths.map((glyphPath, index) => {
+          const isActive = index === currentStrokeIndex
+          const isCompleted = completedStrokeIndexes.includes(index)
+          return (
           <path
-            key={stroke.order}
-            data-testid={'stroke-guide-' + index}
+            key={index}
             className={[
-              'stroke-guide',
-              'stroke-guide--supporting',
-              showFailureHint && isActive ? 'stroke-guide--active' : '',
-              isCompleted ? 'stroke-guide--completed' : '',
+              'stroke-character-guide__path',
+              isActive ? 'stroke-character-guide__path--active' : '',
+              isCompleted ? 'stroke-character-guide__path--completed' : '',
             ].filter(Boolean).join(' ')}
-            d={stroke.guidePath}
+            data-testid={'stroke-character-guide-' + index}
+            d={glyphPath}
             aria-hidden="true"
           />
-        )
-      })}
+          )
+        })}
+      </g>
       {inputPoints.length > 0 && (
         <path
           data-testid="stroke-input"

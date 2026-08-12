@@ -24,6 +24,7 @@ describe('loadStrokeQuestions', () => {
   it('loads visible and judgeable data for every stroke', () => {
     const questions = loadStrokeQuestions()
 
+    expect(questions.every((question) => question.glyphPaths.length === question.strokes.length)).toBe(true)
     expect(questions.flatMap((question) => question.strokes)).toEqual(
       expect.arrayContaining([
         expect.objectContaining({

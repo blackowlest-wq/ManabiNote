@@ -8,6 +8,10 @@ const question: KanaToStrokeQuestion = {
   id: 'hiragana-test',
   kana: 'あ',
   viewBox: '0 0 200 200',
+  glyphPaths: [
+    'M 10 10 L 20 10 L 110 90 L 100 110 Z',
+    'M 90 20 L 110 20 L 110 100 L 90 100 Z',
+  ],
   strokes: [
     {
       order: 1,
@@ -65,24 +69,7 @@ const dispatchTouch = (svg: SVGSVGElement, type: 'touchstart' | 'touchmove') => 
 }
 
 describe('StrokeCanvas', () => {
-  it('renders the enlarged regular character as the tracing shadow', () => {
-    render(
-      <StrokeCanvas
-        question={question}
-        currentStrokeIndex={0}
-        completedStrokeIndexes={[]}
-        onStrokeResult={vi.fn()}
-      />,
-    )
-
-    const characterGuide = screen.getByTestId('stroke-character-guide')
-
-    expect(characterGuide).toHaveTextContent('あ')
-    expect(characterGuide).toHaveAttribute('x', '100')
-    expect(characterGuide).toHaveAttribute('y', '100')
-  })
-
-  it('uses the regular character as the primary guide instead of overlaying every centerline', () => {
+  it('renders the regular character outline as the primary tracing shadow', () => {
     render(
       <StrokeCanvas
         question={question}
@@ -95,10 +82,51 @@ describe('StrokeCanvas', () => {
     expect(screen.getByTestId('stroke-character-guide')).toHaveClass(
       'stroke-character-guide--primary',
     )
-    expect(screen.getByTestId('stroke-guide-0')).toHaveClass('stroke-guide--supporting')
+    expect(screen.getByTestId('stroke-character-guide-0')).toHaveAttribute(
+      'd',
+      question.glyphPaths[0],
+    )
   })
 
-  it('renders the fixed viewBox and guide paths', () => {
+  it('uses the regular character as the primary guide without rendering centerlines', () => {
+    render(
+      <StrokeCanvas
+        question={question}
+        currentStrokeIndex={0}
+        completedStrokeIndexes={[]}
+        onStrokeResult={vi.fn()}
+      />,
+    )
+
+    expect(screen.getByTestId('stroke-character-guide')).toHaveClass(
+      'stroke-character-guide--primary',
+    )
+    expect(screen.queryByTestId('stroke-guide-0')).not.toBeInTheDocument()
+  })
+
+  it('renders the source glyph outlines in the same coordinate system as the stroke data', () => {
+    const glyphPathQuestion = {
+      ...question,
+      glyphPaths: ['M 10 10 L 60 10 L 60 60 Z', 'M 80 80 L 120 80 L 120 120 Z'],
+    }
+
+    render(
+      <StrokeCanvas
+        question={glyphPathQuestion}
+        currentStrokeIndex={0}
+        completedStrokeIndexes={[]}
+        onStrokeResult={vi.fn()}
+      />,
+    )
+
+    expect(screen.getByTestId('stroke-character-guide-0')).toHaveAttribute(
+      'd',
+      glyphPathQuestion.glyphPaths[0],
+    )
+    expect(screen.queryByTestId('stroke-character-guide-text')).not.toBeInTheDocument()
+  })
+
+  it('renders the fixed viewBox and highlights the active outline', () => {
     render(
       <StrokeCanvas
         question={question}
@@ -109,12 +137,16 @@ describe('StrokeCanvas', () => {
     )
 
     expect(screen.getByTestId('stroke-canvas')).toHaveAttribute('viewBox', '0 0 200 200')
-    expect(screen.getByTestId('stroke-guide-0')).toHaveAttribute('d', question.strokes[0].guidePath)
-    expect(screen.getByTestId('stroke-guide-1')).not.toHaveClass('stroke-guide--active')
-    expect(screen.getByTestId('stroke-guide-0')).toHaveClass('stroke-guide--completed')
+    expect(screen.getByTestId('stroke-character-guide-0')).toHaveAttribute('d', question.glyphPaths[0])
+    expect(screen.getByTestId('stroke-character-guide-1')).toHaveClass(
+      'stroke-character-guide__path--active',
+    )
+    expect(screen.getByTestId('stroke-character-guide-0')).toHaveClass(
+      'stroke-character-guide__path--completed',
+    )
   })
 
-  it('keeps guide paths visible while hiding the start hint before the first failed trace', () => {
+  it('keeps the full character visible while hiding the start hint before the first failed trace', () => {
     render(
       <StrokeCanvas
         question={question}
@@ -124,9 +156,8 @@ describe('StrokeCanvas', () => {
       />,
     )
 
-    expect(screen.getByTestId('stroke-guide-0')).not.toHaveClass('stroke-guide--hidden')
-    expect(screen.getByTestId('stroke-guide-1')).not.toHaveClass('stroke-guide--hidden')
-    expect(screen.getByTestId('stroke-guide-0')).not.toHaveClass('stroke-guide--active')
+    expect(screen.getByTestId('stroke-character-guide-0')).toBeInTheDocument()
+    expect(screen.getByTestId('stroke-character-guide-1')).toBeInTheDocument()
     expect(screen.getByTestId('stroke-hint-start')).toHaveClass('stroke-hint--hidden')
     expect(screen.getByTestId('stroke-hint-arrow')).toHaveClass('stroke-hint--hidden')
     expect(screen.getByTestId('stroke-hint-label')).not.toHaveClass('stroke-hint--hidden')
@@ -143,7 +174,9 @@ describe('StrokeCanvas', () => {
       />,
     )
 
-    expect(screen.getByTestId('stroke-guide-0')).toHaveClass('stroke-guide--active')
+    expect(screen.getByTestId('stroke-character-guide-0')).toHaveClass(
+      'stroke-character-guide__path--active',
+    )
     expect(screen.getByTestId('stroke-hint-start')).not.toHaveClass('stroke-hint--hidden')
     expect(screen.getByTestId('stroke-hint-arrow')).not.toHaveClass('stroke-hint--hidden')
     expect(screen.getByTestId('stroke-hint-label')).not.toHaveClass('stroke-hint--hidden')
@@ -194,8 +227,8 @@ describe('StrokeCanvas', () => {
     setSvgRect(svg)
 
     dispatchPointer(svg, 'pointerdown', 20, 20)
-    dispatchPointer(svg, 'pointermove', 60, 60)
-    dispatchPointer(svg, 'pointermove', 100, 100)
+    dispatchPointer(svg, 'pointermove', 60, 55)
+    dispatchPointer(svg, 'pointermove', 100, 90)
     dispatchPointer(svg, 'pointerup', 100, 100)
 
     expect(onStrokeResult).toHaveBeenCalledWith(
