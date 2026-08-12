@@ -4364,20 +4364,33 @@ button:focus-visible {
 .stroke-guide {
   fill: none;
   stroke: #94a3b8;
-  stroke-width: 12;
+  stroke-width: 5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: 0.28;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.stroke-character-guide {
+  fill: #94a3b8;
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  font-size: 168px;
+  font-weight: 700;
+  opacity: 0.3;
+  pointer-events: none;
+  user-select: none;
 }
 
 .stroke-guide--active {
   stroke: #f59e0b;
-  opacity: 0.75;
+  stroke-width: 7;
+  opacity: 0.86;
 }
 
 .stroke-guide--completed {
   stroke: #38bdf8;
-  opacity: 0.92;
+  stroke-width: 7;
+  opacity: 0.8;
 }
 
 .stroke-hint--hidden {

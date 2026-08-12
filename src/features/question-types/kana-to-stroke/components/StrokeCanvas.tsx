@@ -120,6 +120,17 @@ export function StrokeCanvas({
       onPointerCancel={handlePointerCancel}
     >
       <title>{question.kana}の書き順お手本</title>
+      <text
+        className="stroke-character-guide"
+        data-testid="stroke-character-guide"
+        x="100"
+        y="100"
+        textAnchor="middle"
+        dominantBaseline="central"
+        aria-hidden="true"
+      >
+        {question.kana}
+      </text>
       {question.strokes.map((stroke, index) => {
         const isCompleted = completedStrokeIndexes.includes(index)
         const isActive = index === currentStrokeIndex

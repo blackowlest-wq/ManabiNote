@@ -65,6 +65,23 @@ const dispatchTouch = (svg: SVGSVGElement, type: 'touchstart' | 'touchmove') => 
 }
 
 describe('StrokeCanvas', () => {
+  it('renders the enlarged regular character as the tracing shadow', () => {
+    render(
+      <StrokeCanvas
+        question={question}
+        currentStrokeIndex={0}
+        completedStrokeIndexes={[]}
+        onStrokeResult={vi.fn()}
+      />,
+    )
+
+    const characterGuide = screen.getByTestId('stroke-character-guide')
+
+    expect(characterGuide).toHaveTextContent('あ')
+    expect(characterGuide).toHaveAttribute('x', '100')
+    expect(characterGuide).toHaveAttribute('y', '100')
+  })
+
   it('renders the fixed viewBox and guide paths', () => {
     render(
       <StrokeCanvas
