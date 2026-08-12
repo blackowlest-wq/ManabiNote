@@ -74,6 +74,14 @@ export const GAME_CATEGORIES = {
       { id: 'reading-comprehension', to: '/reading-comprehension', label: 'ぶんを よんで こたえよう', description: 'みじかい ぶんを よんで こたえる' },
     ],
   },
+  knowledge: {
+    to: '/knowledge',
+    title: 'ものしり',
+    description: 'せかいの いろいろを みつけよう',
+    games: [
+      { id: 'flag-voyage', to: '/flag-voyage', label: '国旗で せかい一周', description: '国旗を 見て 国の 名前を あてる' },
+    ],
+  },
   play: {
     to: '/play',
     title: 'あそび',

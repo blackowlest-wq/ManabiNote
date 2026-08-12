@@ -3,6 +3,9 @@ import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 const distDirectory = resolve(process.cwd(), 'dist')
+const packagePath = resolve(process.cwd(), 'package.json')
+const nodeVersionPath = resolve(process.cwd(), '.node-version')
+const nvmVersionPath = resolve(process.cwd(), '.nvmrc')
 const manifestPath = resolve(distDirectory, 'manifest.webmanifest')
 const serviceWorkerPath = resolve(distDirectory, 'sw.js')
 const questionImageDirectory = resolve(process.cwd(), 'public/images/kana-to-picture')
@@ -10,6 +13,21 @@ const atlasManifestPath = resolve(
   process.cwd(),
   'src/features/question-types/kana-to-picture/data/image-atlas-manifest.json',
 )
+
+describe('production build runtime', () => {
+  it('pins the Node.js version used by local tools and Cloudflare Pages', () => {
+    const nodeVersion = readFileSync(nodeVersionPath, 'utf8').trim()
+    const nvmVersion = readFileSync(nvmVersionPath, 'utf8').trim()
+    const packageJson = JSON.parse(readFileSync(packagePath, 'utf8')) as {
+      engines?: { node?: string }
+    }
+
+    expect(nodeVersion).toBe('22.23.2')
+    expect(nvmVersion).toBe(nodeVersion)
+    expect(packageJson.engines?.node).toBe('22.x')
+    expect(process.versions.node).toBe(nodeVersion)
+  })
+})
 
 describe('production PWA output', () => {
   it('contains the offline manifest and local image precache', () => {

@@ -19,6 +19,7 @@ describe('HomePage', () => {
     expect(screen.getByRole('link', { name: 'かたち' })).toHaveAttribute('href', '/shapes')
     expect(screen.getByRole('link', { name: 'かんじ' })).toHaveAttribute('href', '/kanji')
     expect(screen.getByRole('link', { name: 'ぶん' })).toHaveAttribute('href', '/sentences')
+    expect(screen.getByRole('link', { name: 'ものしり' })).toHaveAttribute('href', '/knowledge')
     expect(screen.getByRole('link', { name: 'あそび' })).toHaveAttribute('href', '/play')
   })
 

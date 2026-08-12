@@ -3,7 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
+    "prebuild": "node scripts/require-node-version.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
@@ -14,6 +18,8 @@
     "test:pwa": "vitest run --config vitest.pwa.config.ts"
   },
   "dependencies": {
+    "@svg-maps/world": "^2.0.0",
+    "flag-icons": "^7.5.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.30.1",

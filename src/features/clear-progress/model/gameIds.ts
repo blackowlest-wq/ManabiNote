@@ -23,6 +23,7 @@ export const GAME_IDS = [
   'sentence-order',
   'particle-choice',
   'reading-comprehension',
+  'flag-voyage',
   'rescue-maze',
   'cooking',
   'monster-merge',

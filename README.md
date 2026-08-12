@@ -15,7 +15,12 @@
 
 ## 開発
 
-Node.js LTS と npm を使用します。
+Node.js 22.23.2 LTS と npm を使用します。Cloudflare PagesとNodeバージョン管理ツールは、
+ルートの `.node-version` または `.nvmrc` からこのバージョンを選択します。
+
+このWindows環境ではNode.js 24でViteのproduction buildが異常終了するため、
+開発・テスト・production buildをNode.js 22へ統一します。
+`npm run build` は実行前にNode.jsのバージョンを検証し、異なる場合は必要なバージョンを表示して停止します。
 
 ```bash
 npm install
