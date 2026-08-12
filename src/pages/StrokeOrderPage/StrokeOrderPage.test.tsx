@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { MemoryRouter, useLocation } from 'react-router-dom'
+import { MemoryRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
+import { GAME_CATEGORIES } from '../../app/gameCategories'
 import { loadStrokeQuestionsForRow } from '../../features/question-types/kana-to-stroke/model/loader'
 import { StrokePracticeProvider } from '../../features/stroke-order/StrokePracticeProvider'
 import {
@@ -10,6 +11,8 @@ import {
   recordStrokeSuccess,
   type PracticeSession,
 } from '../../features/stroke-order/model/practiceSession'
+import { CategoryPage } from '../CategoryPage/CategoryPage'
+import { HomePage } from '../HomePage/HomePage'
 import { StrokeOrderPage } from './StrokeOrderPage'
 
 vi.mock('../../features/question-types/kana-to-stroke/components/StrokeCanvas', () => ({
@@ -198,5 +201,27 @@ describe('StrokeOrderPage', () => {
     await user.click(screen.getByRole('button', { name: 'けっかを見る' }))
 
     expect(screen.getByTestId('location')).toHaveTextContent('/stroke-order/result')
+  })
+
+  it('starts with row selection after returning from a result through home', async () => {
+    const user = userEvent.setup()
+
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <StrokePracticeProvider initialSession={completeSession()}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/words" element={<CategoryPage {...GAME_CATEGORIES.words} />} />
+            <Route path="/stroke-order" element={<StrokeOrderPage />} />
+          </Routes>
+        </StrokePracticeProvider>
+      </MemoryRouter>,
+    )
+
+    await user.click(screen.getByRole('link', { name: 'ことば' }))
+    await user.click(screen.getByRole('link', { name: '書き順れんしゅう' }))
+
+    expect(screen.getByRole('button', { name: 'れんしゅうをはじめる' })).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'けっかを見る' })).not.toBeInTheDocument()
   })
 })

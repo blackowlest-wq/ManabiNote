@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { StrokeCanvas } from '../../features/question-types/kana-to-stroke/components/StrokeCanvas'
 import { STROKE_ROWS, type StrokeRowId } from '../../features/question-types/kana-to-stroke/model/kanaRows'
 import type { StrokeRecognitionResult } from '../../features/question-types/kana-to-stroke/model/strokeRecognizer'
@@ -8,19 +8,36 @@ import { PageLayout } from '../../shared/components/PageLayout'
 import { PrimaryButton } from '../../shared/components/PrimaryButton'
 
 export function StrokeOrderPage() {
+  const location = useLocation()
   const navigate = useNavigate()
   const {
     session,
     error,
     startPractice,
+    resetPractice,
     recordFailure,
     recordSuccess,
     nextCharacter,
   } = useStrokePractice()
   const [feedback, setFeedback] = useState<'retry' | 'success' | null>(null)
   const [selectedRowId, setSelectedRowId] = useState<StrokeRowId>('a')
+  const initialEntryChecked = useRef(false)
 
-  if (!session) {
+  useEffect(() => {
+    if (initialEntryChecked.current) return
+
+    initialEntryChecked.current = true
+    if (location.pathname === '/stroke-order' && session?.status === 'complete') {
+      resetPractice()
+    }
+  }, [location.pathname, resetPractice, session?.status])
+
+  const shouldResetCompletedEntry =
+    !initialEntryChecked.current &&
+    location.pathname === '/stroke-order' &&
+    session?.status === 'complete'
+
+  if (!session || shouldResetCompletedEntry) {
     const handleStart = () => {
       startPractice(selectedRowId)
     }
