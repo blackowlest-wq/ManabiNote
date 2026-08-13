@@ -2,6 +2,8 @@ import { StrokeDataError } from '../../kana-to-stroke/model/validator'
 import { FIRST_GRADE_KANJI, type FirstGradeKanji } from './kanjiCharacters'
 import type { KanjiToStrokeQuestion, StrokeDefinition, StrokePoint } from './types'
 
+export { StrokeDataError }
+
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value)
 
