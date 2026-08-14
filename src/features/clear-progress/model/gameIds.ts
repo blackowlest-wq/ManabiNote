@@ -25,6 +25,7 @@ export const GAME_IDS = [
   'particle-choice',
   'reading-comprehension',
   'flag-voyage',
+  'proverb-choice',
   'rescue-maze',
   'cooking',
   'monster-merge',

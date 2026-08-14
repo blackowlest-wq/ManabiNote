@@ -76,6 +76,7 @@ import { AnimalCrossingPage } from '../pages/AnimalCrossingPage/AnimalCrossingPa
 import { DanceSpotlightPage } from '../pages/DanceSpotlightPage/DanceSpotlightPage'
 import { ShapeCatcherPage } from '../pages/ShapeCatcherPage/ShapeCatcherPage'
 import { FlagVoyagePage } from '../pages/FlagVoyagePage/FlagVoyagePage'
+import { ProverbChoicePage } from '../pages/ProverbChoicePage/ProverbChoicePage'
 import { HomePage } from '../pages/HomePage/HomePage'
 import { QuizPage } from '../pages/QuizPage/QuizPage'
 import { ResultPage } from '../pages/ResultPage/ResultPage'
@@ -183,6 +184,7 @@ export function AppRouter() {
         <Route path="/dance-spotlight" element={<DanceSpotlightPage />} />
         <Route path="/shape-catcher" element={<ShapeCatcherPage />} />
         <Route path="/flag-voyage" element={<FlagVoyagePage />} />
+        <Route path="/proverb-choice" element={<ProverbChoicePage />} />
       </Routes>
     </>
   )

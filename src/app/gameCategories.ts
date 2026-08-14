@@ -81,6 +81,7 @@ export const GAME_CATEGORIES = {
     description: 'せかいの いろいろを みつけよう',
     games: [
       { id: 'flag-voyage', to: '/flag-voyage', label: '国旗で せかい一周', description: '国旗を 見て 国の 名前を あてる' },
+      { id: 'proverb-choice', to: '/proverb-choice', label: 'ことわざを えらぼう', description: 'せつめいに あう ことわざを さがす' },
     ],
   },
   play: {

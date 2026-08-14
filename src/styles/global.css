@@ -8952,6 +8952,112 @@ button:focus-visible {
 .flag-voyage-result__score { font-size: 2rem; font-weight: 900; }
 .flag-voyage-quit { border: 0; background: none; color: #64748b; text-decoration: underline; }
 
+.proverb-choice-intro,
+.proverb-choice-result,
+.proverb-choice-page {
+  display: flex;
+  width: min(100%, 34rem);
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.proverb-choice-intro p,
+.proverb-choice-result p { margin: 0; }
+
+.proverb-choice-intro__scene,
+.proverb-choice-result__scene { font-size: clamp(3rem, 15vw, 5rem); }
+
+.proverb-choice-hud {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.25rem;
+  padding: 0.65rem;
+  border-radius: 1rem;
+  background: #fef3c7;
+  color: #92400e;
+  font-weight: 900;
+}
+
+.proverb-choice-question {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.proverb-choice-question > p {
+  margin: 0;
+  color: #334155;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.proverb-choice-explanation {
+  display: grid;
+  width: 100%;
+  min-height: 8rem;
+  padding: 1rem;
+  place-items: center;
+  border: 0.3rem solid #fbbf24;
+  border-radius: 1.25rem;
+  background: #fffbeb;
+  color: #78350f;
+  font-size: clamp(1.15rem, 5vw, 1.55rem);
+  font-weight: 900;
+  line-height: 1.65;
+}
+
+.proverb-choice-options {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.proverb-choice-option {
+  min-height: 4.5rem;
+  min-width: 0;
+  padding: 0.55rem 0.4rem;
+  border: 3px solid #d97706;
+  border-radius: 1rem;
+  background: #fff;
+  color: #78350f;
+  font-size: clamp(1rem, 4.5vw, 1.35rem);
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.proverb-choice-option--selected { background: #fef3c7; }
+.proverb-choice-option:disabled { opacity: 1; }
+
+.proverb-choice-feedback {
+  min-height: 1.6rem;
+  margin: 0;
+  color: #0f766e;
+  font-weight: 900;
+}
+
+.proverb-choice-next {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem;
+  border-radius: 1rem;
+  background: #ecfdf5;
+  color: #065f46;
+  font-weight: 900;
+}
+
+.proverb-choice-result__score { font-size: 2rem; font-weight: 900; }
+.proverb-choice-quit { border: 0; background: none; color: #64748b; text-decoration: underline; }
+
 @media (max-width: 420px) {
   .flag-voyage-page { gap: 0.5rem; }
   .flag-voyage-hud { padding: 0.45rem 0.3rem; font-size: 0.85rem; }
@@ -8959,4 +9065,12 @@ button:focus-visible {
   .flag-voyage-question > p { font-size: 1rem; }
   .flag-voyage-flag-frame { width: min(100%, 16.5rem); border-width: 0.25rem; }
   .flag-voyage-choice { min-height: 3.5rem; border-radius: 0.8rem; }
+
+  .proverb-choice-page { gap: 0.5rem; }
+  .proverb-choice-hud { padding: 0.45rem 0.3rem; font-size: 0.85rem; }
+  .proverb-choice-question { gap: 0.45rem; }
+  .proverb-choice-question > p { font-size: 1rem; }
+  .proverb-choice-explanation { min-height: 7rem; padding: 0.7rem; border-width: 0.25rem; border-radius: 0.9rem; font-size: 1.05rem; }
+  .proverb-choice-options { gap: 0.4rem; }
+  .proverb-choice-option { min-height: 4rem; border-radius: 0.8rem; font-size: 0.95rem; }
 }
